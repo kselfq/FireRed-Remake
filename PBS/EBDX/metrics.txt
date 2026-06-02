@@ -1,0 +1,84 @@
+#-------------------------------
+[VECTORS]
+SINGLE
+  XY               = -2600,-1000
+  ANGLE            = 60
+  SCALE            = 640
+  ZOOM             = 0.8
+DOUBLE
+  XY               = -2150,-800
+  ANGLE            = 60
+  SCALE            = 440
+  ZOOM             = 0.6
+TRIPLE
+  XY               = -2150,-800
+  ANGLE            = 60
+  SCALE            = 440
+  ZOOM             = 0.6
+#-----------player pokemon send----------------
+SENDOUT
+  XY               = -2500,-1100
+  ANGLE            = 60
+  SCALE            = 640
+  ZOOM             = 1
+#------enemy pokemon send and move camera -2800------
+ENEMY
+  XY               = -3200,-1000
+  ANGLE            = 60
+  SCALE            = 640
+  ZOOM             = 1
+#-----------player moves camera---------------
+PLAYER
+  XY               = -2500,-1000
+  ANGLE            = 60
+  SCALE            = 640
+  ZOOM             = 0.8
+#-----------foe moves camera---------------
+DUAL
+  XY               = -3200,-800
+  ANGLE            = 60
+  SCALE            = 640
+  ZOOM             = 0.8
+
+DYNAMAX
+  XY               = 379,578
+  ANGLE            = 1
+  SCALE            = 255
+  ZOOM             = 1
+
+#------------------------------ p1
+[BATTLERPOS-0]
+SINGLE
+  XYZ              = 1100,1250,39
+DOUBLE
+  XYZ              = 1000,1300,39
+TRIPLE
+  XYZ              = 1000,1300,39
+#------------------------------- f1
+[BATTLERPOS-1]
+SINGLE
+  XYZ              = 2100,1000,21
+DOUBLE
+  XYZ              = 1900,1000,28
+TRIPLE
+  XYZ              = 1700,1000,34
+#------------------------------- p2
+[BATTLERPOS-2]
+DOUBLE
+  XYZ              = 1300,1300,47
+TRIPLE
+  XYZ              = 1300,1300,47
+#------------------------------- f2
+[BATTLERPOS-3]
+DOUBLE
+  XYZ              = 2100,1000,21
+TRIPLE
+  XYZ              = 1900,1000,28
+#------------------------------- p3
+[BATTLERPOS-4]
+TRIPLE
+  XYZ              = 1600,1300,53
+#------------------------------- f3
+[BATTLERPOS-5]
+TRIPLE
+  XYZ              = 2100,1000,21

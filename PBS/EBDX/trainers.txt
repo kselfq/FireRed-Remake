@@ -1,0 +1,398 @@
+#-------------------------------
+[RIVAL1]
+BattleIntro      = rainbowIntro
+BattleVS         = forestSM
+VictoryTheme = Victory (Trainer)
+WindowSkin = skin2
+#-------------------------------
+[RIVAL2]
+BattleIntro      = rainbowIntro
+BattleVS         = forestSM
+VictoryTheme = Victory (Trainer)
+WindowSkin = skin2
+#-------------------------------
+[POKEMONTRAINER_Red]
+BattleIntro      = rainbowIntro
+BattleVS         = forestSM
+WindowSkin = skin2
+#-------------------------------
+[POKEMONTRAINER_Leaf]
+BattleIntro      = rainbowIntro
+BattleVS         = forestSM
+WindowSkin = skin2
+#-------------------------------
+POKEMONTRAINER_Oak]
+BattleIntro      = rainbowIntro
+BattleVS         = goldSM
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[CHAMPION]
+BattleIntro      = teamSkull
+BattleVS         = eliteSM
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+
+
+[LEADER_Brock]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     = BROCK
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Misty]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_LtSurge]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Erika]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Koga]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Sabrina]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Blaine]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[LEADER_Giovanni]
+TrainerPositionX = 0
+BattleIntro      = teamSkull
+BattleVS         = specialSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+
+
+[ELITEFOUR_Lorelei]
+BattleIntro      = teamSkull
+BattleVS         = plasmaSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[ELITEFOUR_Bruno]
+BattleIntro      = teamSkull
+BattleVS         = plasmaSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[ELITEFOUR_Agatha]
+BattleIntro      = teamSkull
+BattleVS         = plasmaSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+[ELITEFOUR_Lance]
+BattleIntro      = teamSkull
+BattleVS         = plasmaSM
+BattleScript     =
+VictoryTheme = Victory (Gym Leader)
+WindowSkin = skin2
+#-------------------------------
+
+
+[TEAMROCKET_M]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TEAMROCKET_F
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[ROCKETBOSS]
+BattleIntro      = evilTeam
+BattleVS         = crazySM
+BattleScript     =
+WindowSkin = skin2
+#-------------------------------
+[JESSIE]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[JAMES]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[JESSIE_JAMES]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[ARCHER]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[ARIANA]
+BattleIntro      = evilTeam
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[LAB_HANA]
+BattleIntro      = evilTeam
+BattleVS         = digitalSM
+WindowSkin = skin2
+#-------------------------------
+[LAB_NEWTON]
+BattleIntro      = evilTeam
+BattleVS         = digitalSM
+WindowSkin = skin2
+#-------------------------------
+
+
+[AROMALADY]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BEAUTY]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BIKER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BIRDKEEPER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BUGCATCHER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BURGLAR]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[CHANNELER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[CUEBALL]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[ENGINEER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[FISHERMAN]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[GAMBLER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[GENTLEMAN]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[HIKER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[JUGGLER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[LADY]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[PAINTER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[POKEMANIAC]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[POKEMONBREEDER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[PROFESSOR]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[ROCKER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[RUINMANIAC]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SAILOR]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SCIENTIST]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SUPERNERD]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TAMER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[BLACKBELT]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[CRUSHGIRL]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[CAMPER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[PICNICKER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[COOLTRAINER_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[COOLTRAINER_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[YOUNGSTER]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[LASS]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[POKEMONRANGER_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[POKEMONRANGER_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[PSYCHIC_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[PSYCHIC_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SWIMMER_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SWIMMER_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SWIMMER2_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SWIMMER2_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER2_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER2_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[COOLCOUPLE]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[CRUSHKIN]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SISANDBRO]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TWINS]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[YOUNGCOUPLE]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[SWIMMER2_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER_M]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------
+[TUBER_F]
+BattleVS         = trainerSM
+WindowSkin = skin2
+#-------------------------------

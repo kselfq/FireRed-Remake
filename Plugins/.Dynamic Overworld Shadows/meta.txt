@@ -1,0 +1,5 @@
+Name       = Dynamic Overworld Shadows
+Version    = 2.0.1
+Essentials = 21.1
+Credits    = Zik
+

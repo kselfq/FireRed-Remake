@@ -1,0 +1,957 @@
+Graphics/Windowskins/button sel;Graphics/Windowskins/button sel.png
+Graphics/Windowskins/button unsel2;Graphics/Windowskins/button unsel2.png
+Graphics/UI/sel_arrow;Graphics/UI/sel_arrow.png
+Graphics/UI/up_arrow;Graphics/UI/up_arrow.png
+Graphics/UI/down_arrow;Graphics/UI/down_arrow.png
+Audio/SE/GUI sel cursor;Audio/SE/GUI sel cursor.ogg
+Graphics/Windowskins/choice sel bottom;Graphics/Windowskins/choice sel bottom.png
+Graphics/Pictures/settingsbg;Graphics/Pictures/settingsbg.png
+Graphics/Windowskins/speech2;Graphics/Windowskins/speech2.png
+Graphics/UI/leftarrow;Graphics/UI/leftarrow.png
+Graphics/UI/rightarrow;Graphics/UI/rightarrow.png
+Graphics/Windowskins/button sel3;Graphics/Windowskins/button sel3.png
+Graphics/Windowskins/button unsel3;Graphics/Windowskins/button unsel3.png
+Audio/SE/GUI sel cancel;Audio/SE/GUI sel cancel.ogg
+Audio/SE/GUI menu close;Audio/SE/GUI menu close.ogg
+Graphics/Characters/base_surf;Graphics/Characters/base_surf.png
+Graphics/Characters/base_dive;Graphics/Characters/base_dive.png
+Graphics/Tilesets/Exterior1;Graphics/Tilesets/Exterior1.png
+Graphics/Autotiles/catarata;Graphics/Autotiles/catarata.png
+Graphics/Autotiles/agua;Graphics/Autotiles/agua.png
+Graphics/Autotiles/florAmarilla;Graphics/Autotiles/florAmarilla.png
+Graphics/Autotiles/florAmarillaGrande;Graphics/Autotiles/florAmarillaGrande.png
+Graphics/Autotiles/florAmarillaGrandeTop;Graphics/Autotiles/florAmarillaGrandeTop.png
+Graphics/Autotiles/florLilaGrande;Graphics/Autotiles/florLilaGrande.png
+Graphics/Autotiles/florLilaGrandeTop;Graphics/Autotiles/florLilaGrandeTop.png
+Graphics/Pictures/introbg;Graphics/Pictures/introbg.png
+Graphics/UI/overworld_menu_btn;Graphics/UI/overworld_menu_btn.png
+Graphics/UI/overworld_menu_btn_sel;Graphics/UI/overworld_menu_btn_sel.png
+Graphics/UI/overworld_field_btn;Graphics/UI/overworld_field_btn.png
+Graphics/UI/overworld_field_btn_sel;Graphics/UI/overworld_field_btn_sel.png
+Graphics/UI/overworld_run_btn;Graphics/UI/overworld_run_btn.png
+Graphics/UI/overworld_run_btn_sel;Graphics/UI/overworld_run_btn_sel.png
+Graphics/Pictures/introbase;Graphics/Pictures/introbase.png
+Graphics/Pictures/introOak;Graphics/Pictures/introOak.png
+Audio/BGM/Route 24;Audio/BGM/Route 24.ogg
+Graphics/Windowskins/choice 1;Graphics/Windowskins/choice 1.png
+Graphics/Windowskins/speech;Graphics/Windowskins/speech.png
+Audio/SE/GUI sel decision;Audio/SE/GUI sel decision.ogg
+Graphics/UI/pause_arrow;Graphics/UI/pause_arrow.png
+Graphics/Windowskins/choice sel top;Graphics/Windowskins/choice sel top.png
+Graphics/UI/Controls help/bg;Graphics/UI/Controls help/bg.png
+Graphics/UI/Controls help/help_f1;Graphics/UI/Controls help/help_f1.png
+Graphics/UI/Controls help/help_f8;Graphics/UI/Controls help/help_f8.png
+Graphics/UI/Controls help/help_arrows;Graphics/UI/Controls help/help_arrows.png
+Graphics/UI/Controls help/help_usekey;Graphics/UI/Controls help/help_usekey.png
+Graphics/UI/Controls help/help_backkey;Graphics/UI/Controls help/help_backkey.png
+Graphics/UI/Controls help/help_actionkey;Graphics/UI/Controls help/help_actionkey.png
+Graphics/UI/Controls help/help_specialkey;Graphics/UI/Controls help/help_specialkey.png
+Graphics/Windowskins/choice sel;Graphics/Windowskins/choice sel.png
+Graphics/Pictures/introNidoran;Graphics/Pictures/introNidoran.png
+Audio/SE/Cries/NIDORANfE;Audio/SE/Cries/NIDORANfE.ogg
+Graphics/Characters/trainer_POKEMONTRAINER_Red;Graphics/Characters/trainer_POKEMONTRAINER_Red.png
+Graphics/Pictures/introBoy;Graphics/Pictures/introBoy.png
+Graphics/UI/Naming/bg_modern;Graphics/UI/Naming/bg_modern.png
+Graphics/Characters/input_male;Graphics/Characters/input_male.png
+Audio/SE/GUI naming confirm;Audio/SE/GUI naming confirm.ogg
+Graphics/Pictures/introRival;Graphics/Pictures/introRival.png
+Graphics/Characters/input_rival;Graphics/Characters/input_rival.png
+Graphics/Tilesets/Interiors;Graphics/Tilesets/Interiors.png
+Graphics/Characters/NPC 28;Graphics/Characters/NPC 28.png
+Graphics/Characters/Object tree 1;Graphics/Characters/Object tree 1.png
+Audio/BGM/Pallet Town;Audio/BGM/Pallet Town.ogg
+Audio/SE/Player bump;Audio/SE/Player bump.ogg
+Graphics/UI/Menu Custom/menubg;Graphics/UI/Menu Custom/menubg.png
+Graphics/UI/Menu Custom/pokedex;Graphics/UI/Menu Custom/pokedex.png
+Graphics/UI/Menu Custom/bag;Graphics/UI/Menu Custom/bag.png
+Graphics/UI/Menu Custom/pokeball;Graphics/UI/Menu Custom/pokeball.png
+Graphics/UI/Menu Custom/trainer;Graphics/UI/Menu Custom/trainer.png
+Graphics/UI/Menu Custom/save;Graphics/UI/Menu Custom/save.png
+Graphics/UI/Menu Custom/options;Graphics/UI/Menu Custom/options.png
+Graphics/UI/Menu Custom/daytime_morning;Graphics/UI/Menu Custom/daytime_morning.png
+Graphics/UI/Menu Custom/menu_selection;Graphics/UI/Menu Custom/menu_selection.png
+Audio/SE/GUI menu open;Audio/SE/GUI menu open.ogg
+Graphics/UI/Bag Screen with Party/icon_slider;Graphics/UI/Bag Screen with Party/icon_slider.png
+Graphics/UI/Bag Screen with Party/icon_pocket;Graphics/UI/Bag Screen with Party/icon_pocket.png
+Graphics/UI/Bag Screen with Party/bg;Graphics/UI/Bag Screen with Party/bg.png
+Graphics/UI/Bag Screen with Party/grad;Graphics/UI/Bag Screen with Party/grad.png
+Graphics/UI/Bag Screen with Party/panorama;Graphics/UI/Bag Screen with Party/panorama.png
+Graphics/UI/Bag Screen with Party/ui1;Graphics/UI/Bag Screen with Party/ui1.png
+Graphics/UI/Bag Screen with Party/ui2;Graphics/UI/Bag Screen with Party/ui2.png
+Graphics/UI/uparrow;Graphics/UI/uparrow.png
+Graphics/UI/downarrow;Graphics/UI/downarrow.png
+Graphics/UI/Bag Screen with Party/ptpanel_blank;Graphics/UI/Bag Screen with Party/ptpanel_blank.png
+Graphics/Windowskins/button unsel;Graphics/Windowskins/button unsel.png
+Graphics/UI/Bag Screen with Party/cursor;Graphics/UI/Bag Screen with Party/cursor.png
+Graphics/UI/Bag Screen with Party/cursor_swap;Graphics/UI/Bag Screen with Party/cursor_swap.png
+Graphics/UI/Bag Screen with Party/cursor_party1;Graphics/UI/Bag Screen with Party/cursor_party1.png
+Graphics/UI/Bag Screen with Party/cursor_party2;Graphics/UI/Bag Screen with Party/cursor_party2.png
+Graphics/Items/back;Graphics/Items/back.png
+Graphics/Windowskins/choice 2wss;Graphics/Windowskins/choice 2wss.png
+Graphics/Windowskins/choice 15;Graphics/Windowskins/choice 15.png
+Audio/SE/GUI bag pocket;Audio/SE/GUI bag pocket.ogg
+Graphics/UI/Trainer Card/card;Graphics/UI/Trainer Card/card.png
+Graphics/UI/Trainer Card/male_sprite;Graphics/UI/Trainer Card/male_sprite.png
+Graphics/UI/Trainer Card/icon_badges;Graphics/UI/Trainer Card/icon_badges.png
+Audio/SE/GUI trainer card open;Audio/SE/GUI trainer card open.ogg
+Graphics/UI/save_bg;Graphics/UI/save_bg.png
+Audio/SE/GUI save choice;Audio/SE/GUI save choice.ogg
+Graphics/Characters/boy_run;Graphics/Characters/boy_run.png
+Audio/SE/Door exit;Audio/SE/Door exit.ogg
+Graphics/Characters/transitionarrow_down;Graphics/Characters/transitionarrow_down.png
+Graphics/Tilesets/Exteriors;Graphics/Tilesets/Exteriors.png
+Graphics/Characters/doors001;Graphics/Characters/doors001.png
+Graphics/Characters/doors002;Graphics/Characters/doors002.png
+Graphics/Characters/NPC 30;Graphics/Characters/NPC 30.png
+Graphics/Characters/NPC 06;Graphics/Characters/NPC 06.png
+Graphics/Characters/NPC 22;Graphics/Characters/NPC 22.png
+Graphics/Characters/NPC 05;Graphics/Characters/NPC 05.png
+Graphics/Characters/NPC 19;Graphics/Characters/NPC 19.png
+Graphics/Windowskins/speech3;Graphics/Windowskins/speech3.png
+Audio/BGM/Route 1;Audio/BGM/Route 1.ogg
+Graphics/Characters/doors6;Graphics/Characters/doors6.png
+Graphics/Characters/doors2;Graphics/Characters/doors2.png
+Graphics/Characters/doors3;Graphics/Characters/doors3.png
+Graphics/Characters/trainer_GAMBLER;Graphics/Characters/trainer_GAMBLER.png
+Graphics/Characters/NPC 04;Graphics/Characters/NPC 04.png
+Graphics/Characters/trainer_YOUNGSTER;Graphics/Characters/trainer_YOUNGSTER.png
+Graphics/Characters/NPC 29;Graphics/Characters/NPC 29.png
+Graphics/Characters/Object ball;Graphics/Characters/Object ball.png
+Audio/BGM/Pewter City;Audio/BGM/Pewter City.ogg
+Graphics/UI/Bag Screen with Party/ptpanel_round_desel;Graphics/UI/Bag Screen with Party/ptpanel_round_desel.png
+Graphics/UI/Bag Screen with Party/ptpanel_round_sel;Graphics/UI/Bag Screen with Party/ptpanel_round_sel.png
+Graphics/UI/Bag Screen with Party/ptpanel_round_faint;Graphics/UI/Bag Screen with Party/ptpanel_round_faint.png
+Graphics/UI/Bag Screen with Party/ptpanel_round_faint_sel;Graphics/UI/Bag Screen with Party/ptpanel_round_faint_sel.png
+Graphics/UI/Bag Screen with Party/ptpanel_round_move;Graphics/UI/Bag Screen with Party/ptpanel_round_move.png
+Graphics/UI/Bag Screen with Party/ptpanel_round_move_sel;Graphics/UI/Bag Screen with Party/ptpanel_round_move_sel.png
+Graphics/UI/Bag Screen with Party/overlay_hp_back;Graphics/UI/Bag Screen with Party/overlay_hp_back.png
+Graphics/UI/Bag Screen with Party/overlay_hp;Graphics/UI/Bag Screen with Party/overlay_hp.png
+Graphics/UI/statuses;Graphics/UI/statuses.png
+Graphics/UI/Bag Screen with Party/icon_pokerus;Graphics/UI/Bag Screen with Party/icon_pokerus.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_desel;Graphics/UI/Bag Screen with Party/ptpanel_rect_desel.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_sel;Graphics/UI/Bag Screen with Party/ptpanel_rect_sel.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_faint;Graphics/UI/Bag Screen with Party/ptpanel_rect_faint.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_faint_sel;Graphics/UI/Bag Screen with Party/ptpanel_rect_faint_sel.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_move;Graphics/UI/Bag Screen with Party/ptpanel_rect_move.png
+Graphics/UI/Bag Screen with Party/ptpanel_rect_move_sel;Graphics/UI/Bag Screen with Party/ptpanel_rect_move_sel.png
+Graphics/Items/GRASSMAIL;Graphics/Items/GRASSMAIL.png
+Graphics/Items/FLAMEMAIL;Graphics/Items/FLAMEMAIL.png
+Graphics/Items/BUBBLEMAIL;Graphics/Items/BUBBLEMAIL.png
+Graphics/Items/BLOOMMAIL;Graphics/Items/BLOOMMAIL.png
+Graphics/Items/TUNNELMAIL;Graphics/Items/TUNNELMAIL.png
+Graphics/Items/STEELMAIL;Graphics/Items/STEELMAIL.png
+Graphics/Items/HEARTMAIL;Graphics/Items/HEARTMAIL.png
+Graphics/Items/XATTACK;Graphics/Items/XATTACK.png
+Graphics/Items/XATTACK2;Graphics/Items/XATTACK2.png
+Graphics/Items/XATTACK3;Graphics/Items/XATTACK3.png
+Graphics/Items/XATTACK6;Graphics/Items/XATTACK6.png
+Graphics/Items/XDEFENSE;Graphics/Items/XDEFENSE.png
+Graphics/Items/XDEFENSE2;Graphics/Items/XDEFENSE2.png
+Graphics/Items/XDEFENSE3;Graphics/Items/XDEFENSE3.png
+Graphics/Items/XDEFENSE6;Graphics/Items/XDEFENSE6.png
+Graphics/Items/XSPATK;Graphics/Items/XSPATK.png
+Graphics/Items/XSPATK2;Graphics/Items/XSPATK2.png
+Graphics/Items/XSPATK3;Graphics/Items/XSPATK3.png
+Graphics/Items/XSPATK6;Graphics/Items/XSPATK6.png
+Graphics/Items/XSPDEF;Graphics/Items/XSPDEF.png
+Graphics/Items/OAKSPARCEL;Graphics/Items/OAKSPARCEL.png
+Graphics/Items/SSTICKET;Graphics/Items/SSTICKET.png
+Graphics/Items/BIKEVOUCHER;Graphics/Items/BIKEVOUCHER.png
+Graphics/Items/TEA;Graphics/Items/TEA.png
+Graphics/Items/LIFTKEY;Graphics/Items/LIFTKEY.png
+Graphics/Items/SILPHSCOPE;Graphics/Items/SILPHSCOPE.png
+Graphics/Items/POKEFLUTE;Graphics/Items/POKEFLUTE.png
+Graphics/Items/GOLDTEETH;Graphics/Items/GOLDTEETH.png
+Audio/SE/GUI bag cursor;Audio/SE/GUI bag cursor.ogg
+Graphics/Items/CARDKEY;Graphics/Items/CARDKEY.png
+Graphics/Items/SECRETKEY;Graphics/Items/SECRETKEY.png
+Graphics/Items/BICYCLE;Graphics/Items/BICYCLE.png
+Graphics/Items/OLDROD;Graphics/Items/OLDROD.png
+Graphics/Items/GOODROD;Graphics/Items/GOODROD.png
+Graphics/Items/REPEL;Graphics/Items/REPEL.png
+Graphics/Items/SUPERREPEL;Graphics/Items/SUPERREPEL.png
+Graphics/Items/MAXREPEL;Graphics/Items/MAXREPEL.png
+Graphics/Items/BLACKFLUTE;Graphics/Items/BLACKFLUTE.png
+Graphics/Items/WHITEFLUTE;Graphics/Items/WHITEFLUTE.png
+Graphics/Items/HONEY;Graphics/Items/HONEY.png
+Graphics/Items/REDSHARD;Graphics/Items/REDSHARD.png
+Graphics/Items/YELLOWSHARD;Graphics/Items/YELLOWSHARD.png
+Graphics/Items/BLUESHARD;Graphics/Items/BLUESHARD.png
+Graphics/Items/GREENSHARD;Graphics/Items/GREENSHARD.png
+Graphics/Items/FIRESTONE;Graphics/Items/FIRESTONE.png
+Graphics/Items/THUNDERSTONE;Graphics/Items/THUNDERSTONE.png
+Graphics/Items/WATERSTONE;Graphics/Items/WATERSTONE.png
+Graphics/Items/LEAFSTONE;Graphics/Items/LEAFSTONE.png
+Graphics/Items/MOONSTONE;Graphics/Items/MOONSTONE.png
+Graphics/Items/SUNSTONE;Graphics/Items/SUNSTONE.png
+Graphics/Items/DUSKSTONE;Graphics/Items/DUSKSTONE.png
+Graphics/Items/DAWNSTONE;Graphics/Items/DAWNSTONE.png
+Graphics/Items/SHINYSTONE;Graphics/Items/SHINYSTONE.png
+Graphics/Items/ICESTONE;Graphics/Items/ICESTONE.png
+Graphics/Items/SWEETAPPLE;Graphics/Items/SWEETAPPLE.png
+Graphics/Items/TARTAPPLE;Graphics/Items/TARTAPPLE.png
+Graphics/Items/CRACKEDPOT;Graphics/Items/CRACKEDPOT.png
+Graphics/Items/CHIPPEDPOT;Graphics/Items/CHIPPEDPOT.png
+Graphics/Items/GALARICACUFF;Graphics/Items/GALARICACUFF.png
+Graphics/Items/GALARICAWREATH;Graphics/Items/GALARICAWREATH.png
+Graphics/Items/REDAPRICORN;Graphics/Items/REDAPRICORN.png
+Graphics/Items/YELLOWAPRICORN;Graphics/Items/YELLOWAPRICORN.png
+Graphics/Items/BLUEAPRICORN;Graphics/Items/BLUEAPRICORN.png
+Graphics/Items/GREENAPRICORN;Graphics/Items/GREENAPRICORN.png
+Graphics/Items/PINKAPRICORN;Graphics/Items/PINKAPRICORN.png
+Graphics/Items/WHITEAPRICORN;Graphics/Items/WHITEAPRICORN.png
+Graphics/Items/BLACKAPRICORN;Graphics/Items/BLACKAPRICORN.png
+Graphics/Items/HELIXFOSSIL;Graphics/Items/HELIXFOSSIL.png
+Graphics/Items/DOMEFOSSIL;Graphics/Items/DOMEFOSSIL.png
+Graphics/Items/OLDAMBER;Graphics/Items/OLDAMBER.png
+Graphics/Items/ROOTFOSSIL;Graphics/Items/ROOTFOSSIL.png
+Graphics/Items/CLAWFOSSIL;Graphics/Items/CLAWFOSSIL.png
+Graphics/Items/SKULLFOSSIL;Graphics/Items/SKULLFOSSIL.png
+Graphics/Items/ARMORFOSSIL;Graphics/Items/ARMORFOSSIL.png
+Graphics/Items/COVERFOSSIL;Graphics/Items/COVERFOSSIL.png
+Graphics/Items/PLUMEFOSSIL;Graphics/Items/PLUMEFOSSIL.png
+Graphics/Items/JAWFOSSIL;Graphics/Items/JAWFOSSIL.png
+Graphics/Items/SAILFOSSIL;Graphics/Items/SAILFOSSIL.png
+Graphics/Items/POTION;Graphics/Items/POTION.png
+Graphics/Items/SUPERPOTION;Graphics/Items/SUPERPOTION.png
+Graphics/Items/HYPERPOTION;Graphics/Items/HYPERPOTION.png
+Graphics/Items/MAXPOTION;Graphics/Items/MAXPOTION.png
+Graphics/Items/FULLRESTORE;Graphics/Items/FULLRESTORE.png
+Graphics/Items/SACREDASH;Graphics/Items/SACREDASH.png
+Graphics/Items/AWAKENING;Graphics/Items/AWAKENING.png
+Graphics/Items/ANTIDOTE;Graphics/Items/ANTIDOTE.png
+Graphics/Items/BURNHEAL;Graphics/Items/BURNHEAL.png
+Graphics/Items/PARALYZEHEAL;Graphics/Items/PARALYZEHEAL.png
+Graphics/Items/MASTERBALL;Graphics/Items/MASTERBALL.png
+Graphics/Items/ULTRABALL;Graphics/Items/ULTRABALL.png
+Graphics/Items/GREATBALL;Graphics/Items/GREATBALL.png
+Graphics/Items/POKEBALL;Graphics/Items/POKEBALL.png
+Graphics/Items/SAFARIBALL;Graphics/Items/SAFARIBALL.png
+Graphics/Items/SPORTBALL;Graphics/Items/SPORTBALL.png
+Graphics/Items/NETBALL;Graphics/Items/NETBALL.png
+Graphics/Items/machine_hm_NORMAL;Graphics/Items/machine_hm_NORMAL.png
+Graphics/Items/machine_hm_FLYING;Graphics/Items/machine_hm_FLYING.png
+Graphics/Items/machine_hm_WATER;Graphics/Items/machine_hm_WATER.png
+Graphics/Items/machine_hm_FIGHTING;Graphics/Items/machine_hm_FIGHTING.png
+Graphics/Items/CHERIBERRY;Graphics/Items/CHERIBERRY.png
+Graphics/Items/CHESTOBERRY;Graphics/Items/CHESTOBERRY.png
+Graphics/Items/PECHABERRY;Graphics/Items/PECHABERRY.png
+Graphics/Items/RAWSTBERRY;Graphics/Items/RAWSTBERRY.png
+Graphics/Items/ASPEARBERRY;Graphics/Items/ASPEARBERRY.png
+Graphics/Items/LEPPABERRY;Graphics/Items/LEPPABERRY.png
+Graphics/Items/ORANBERRY;Graphics/Items/ORANBERRY.png
+Graphics/Items/SUPERROD;Graphics/Items/SUPERROD.png
+Graphics/Items/ITEMFINDER;Graphics/Items/ITEMFINDER.png
+Graphics/Items/DOWSINGMACHINE;Graphics/Items/DOWSINGMACHINE.png
+Graphics/Items/POKERADAR;Graphics/Items/POKERADAR.png
+Graphics/UI/Ready Menu/icon_movebutton;Graphics/UI/Ready Menu/icon_movebutton.png
+Audio/SE/Bicycle;Audio/SE/Bicycle.ogg
+Graphics/Characters/boy_bike;Graphics/Characters/boy_bike.png
+Audio/BGM/Bicycle;Audio/BGM/Bicycle.ogg
+Audio/ME/Obtained an Item;Audio/ME/Obtained an Item.ogg
+Graphics/Icons/bagPocket2;Graphics/Icons/bagPocket2.png
+Audio/SE/Door enter;Audio/SE/Door enter.ogg
+Graphics/Characters/NPC 08;Graphics/Characters/NPC 08.png
+Graphics/Characters/trainer_SCIENTIST;Graphics/Characters/trainer_SCIENTIST.png
+Graphics/Characters/NPC 24;Graphics/Characters/NPC 24.png
+Graphics/Characters/trainer_RIVAL;Graphics/Characters/trainer_RIVAL.png
+Audio/BGM/Oak Pokémon Lab;Audio/BGM/Oak Pokémon Lab.ogg
+Graphics/UI/Menu Custom/daytime_afternoon;Graphics/UI/Menu Custom/daytime_afternoon.png
+Graphics/Items/TOWNMAP;Graphics/Items/TOWNMAP.png
+Graphics/Items/ESCAPEROPE;Graphics/Items/ESCAPEROPE.png
+Graphics/Items/COINCASE;Graphics/Items/COINCASE.png
+Graphics/Items/SOOTSACK;Graphics/Items/SOOTSACK.png
+Graphics/Items/DEVONSCOPE;Graphics/Items/DEVONSCOPE.png
+Graphics/Items/SQUIRTBOTTLE;Graphics/Items/SQUIRTBOTTLE.png
+Graphics/Items/SPRAYDUCK;Graphics/Items/SPRAYDUCK.png
+Graphics/UI/Town Map/player_POKEMONTRAINER_Red;Graphics/UI/Town Map/player_POKEMONTRAINER_Red.png
+Graphics/UI/Town Map/cursor;Graphics/UI/Town Map/cursor.png
+Audio/SE/Repel;Audio/SE/Repel.ogg
+Graphics/Characters/trainer_FISHERMAN;Graphics/Characters/trainer_FISHERMAN.png
+Graphics/Characters/trainer_SWIMMER2_F;Graphics/Characters/trainer_SWIMMER2_F.png
+Graphics/Characters/trainer_TUBER2_M;Graphics/Characters/trainer_TUBER2_M.png
+Graphics/Characters/trainer_SWIMMER2_M;Graphics/Characters/trainer_SWIMMER2_M.png
+Audio/BGM/Professor Oak;Audio/BGM/Professor Oak.ogg
+Graphics/Characters/NPC_ProfOak;Graphics/Characters/NPC_ProfOak.png
+Graphics/UI/Menu Custom/daytime_night;Graphics/UI/Menu Custom/daytime_night.png
+Graphics/Items/WAILMERPAIL;Graphics/Items/WAILMERPAIL.png
+Graphics/Items/SPRINKLOTAD;Graphics/Items/SPRINKLOTAD.png
+Graphics/Items/GRACIDEA;Graphics/Items/GRACIDEA.png
+Graphics/Items/REVEALGLASS;Graphics/Items/REVEALGLASS.png
+Graphics/Items/PRISONBOTTLE;Graphics/Items/PRISONBOTTLE.png
+Graphics/Items/ROTOMCATALOG;Graphics/Items/ROTOMCATALOG.png
+Graphics/Items/ZYGARDECUBE;Graphics/Items/ZYGARDECUBE.png
+Graphics/Items/DIVEBALL;Graphics/Items/DIVEBALL.png
+Graphics/Items/NESTBALL;Graphics/Items/NESTBALL.png
+Graphics/Items/REPEATBALL;Graphics/Items/REPEATBALL.png
+Graphics/Items/TIMERBALL;Graphics/Items/TIMERBALL.png
+Graphics/Items/LUXURYBALL;Graphics/Items/LUXURYBALL.png
+Graphics/Items/PREMIERBALL;Graphics/Items/PREMIERBALL.png
+Graphics/Items/DUSKBALL;Graphics/Items/DUSKBALL.png
+Graphics/Items/HEALBALL;Graphics/Items/HEALBALL.png
+Graphics/Items/QUICKBALL;Graphics/Items/QUICKBALL.png
+Graphics/Items/CHERISHBALL;Graphics/Items/CHERISHBALL.png
+Graphics/Items/FASTBALL;Graphics/Items/FASTBALL.png
+Graphics/Items/LEVELBALL;Graphics/Items/LEVELBALL.png
+Graphics/Items/LUREBALL;Graphics/Items/LUREBALL.png
+Graphics/Items/HEAVYBALL;Graphics/Items/HEAVYBALL.png
+Graphics/Items/LOVEBALL;Graphics/Items/LOVEBALL.png
+Graphics/Items/FRIENDBALL;Graphics/Items/FRIENDBALL.png
+Graphics/Items/MOONBALL;Graphics/Items/MOONBALL.png
+Graphics/Items/DREAMBALL;Graphics/Items/DREAMBALL.png
+Graphics/Items/BEASTBALL;Graphics/Items/BEASTBALL.png
+Graphics/Items/machine_tr_FIGHTING;Graphics/Items/machine_tr_FIGHTING.png
+Graphics/Items/machine_tr_DRAGON;Graphics/Items/machine_tr_DRAGON.png
+Graphics/Items/PERSIMBERRY;Graphics/Items/PERSIMBERRY.png
+Graphics/Items/LUMBERRY;Graphics/Items/LUMBERRY.png
+Graphics/Items/SITRUSBERRY;Graphics/Items/SITRUSBERRY.png
+Graphics/Items/SNOWMAIL;Graphics/Items/SNOWMAIL.png
+Graphics/Items/SPACEMAIL;Graphics/Items/SPACEMAIL.png
+Graphics/Items/AIRMAIL;Graphics/Items/AIRMAIL.png
+Graphics/Items/MOSAICMAIL;Graphics/Items/MOSAICMAIL.png
+Graphics/Windowskins/choice 4;Graphics/Windowskins/choice 4.png
+Graphics/Windowskins/choice 5;Graphics/Windowskins/choice 5.png
+Graphics/UI/Party/pk1;Graphics/UI/Party/pk1.png
+Graphics/UI/Party/panel_round;Graphics/UI/Party/panel_round.png
+Graphics/UI/Party/panel_round_sel;Graphics/UI/Party/panel_round_sel.png
+Graphics/UI/Party/panel_round_faint;Graphics/UI/Party/panel_round_faint.png
+Graphics/UI/Party/panel_round_faint_sel;Graphics/UI/Party/panel_round_faint_sel.png
+Graphics/UI/Party/panel_round_swap;Graphics/UI/Party/panel_round_swap.png
+Graphics/UI/Party/panel_round_swap_sel;Graphics/UI/Party/panel_round_swap_sel.png
+Graphics/UI/Party/panel_round_swap_sel2;Graphics/UI/Party/panel_round_swap_sel2.png
+Graphics/UI/Party/overlay_hp_back;Graphics/UI/Party/overlay_hp_back.png
+Graphics/UI/Party/overlay_hp_back_faint;Graphics/UI/Party/overlay_hp_back_faint.png
+Graphics/UI/Party/overlay_hp_back_swap;Graphics/UI/Party/overlay_hp_back_swap.png
+Graphics/UI/Party/overlay_hp;Graphics/UI/Party/overlay_hp.png
+Graphics/UI/Party/pk2;Graphics/UI/Party/pk2.png
+Graphics/UI/Party/panel_rect;Graphics/UI/Party/panel_rect.png
+Graphics/UI/Party/panel_rect_sel;Graphics/UI/Party/panel_rect_sel.png
+Graphics/UI/Party/panel_rect_faint;Graphics/UI/Party/panel_rect_faint.png
+Graphics/UI/Party/panel_rect_faint_sel;Graphics/UI/Party/panel_rect_faint_sel.png
+Graphics/UI/Party/panel_rect_swap;Graphics/UI/Party/panel_rect_swap.png
+Graphics/UI/Party/panel_rect_swap_sel;Graphics/UI/Party/panel_rect_swap_sel.png
+Graphics/UI/Party/panel_rect_swap_sel2;Graphics/UI/Party/panel_rect_swap_sel2.png
+Graphics/UI/Party/pk3;Graphics/UI/Party/pk3.png
+Graphics/UI/Party/pk4;Graphics/UI/Party/pk4.png
+Graphics/UI/Party/pk5;Graphics/UI/Party/pk5.png
+Graphics/UI/Party/pk6;Graphics/UI/Party/pk6.png
+Graphics/UI/Storage/box_0;Graphics/UI/Storage/box_0.png
+Graphics/UI/Storage/overlay_main;Graphics/UI/Storage/overlay_main.png
+Graphics/UI/Storage/overlay_party;Graphics/UI/Storage/overlay_party.png
+Graphics/UI/Storage/markings;Graphics/UI/Storage/markings.png
+Graphics/UI/Storage/overlay_marking;Graphics/UI/Storage/overlay_marking.png
+Graphics/UI/Storage/cursor_onbutton;Graphics/UI/Storage/cursor_onbutton.png
+Graphics/UI/Storage/cursormark_onbutton;Graphics/UI/Storage/cursormark_onbutton.png
+Graphics/UI/Storage/cursor_point_1;Graphics/UI/Storage/cursor_point_1.png
+Graphics/UI/Storage/cursor_point_2;Graphics/UI/Storage/cursor_point_2.png
+Graphics/UI/Storage/cursor_grab;Graphics/UI/Storage/cursor_grab.png
+Graphics/UI/Storage/cursor_fist;Graphics/UI/Storage/cursor_fist.png
+Graphics/UI/Storage/cursor_point_1_q;Graphics/UI/Storage/cursor_point_1_q.png
+Graphics/UI/Storage/cursor_point_2_q;Graphics/UI/Storage/cursor_point_2_q.png
+Graphics/UI/Storage/cursor_grab_q;Graphics/UI/Storage/cursor_grab_q.png
+Graphics/UI/Storage/cursor_fist_q;Graphics/UI/Storage/cursor_fist_q.png
+Audio/SE/PC access;Audio/SE/PC access.ogg
+Graphics/UI/types;Graphics/UI/types.png
+Graphics/EBDX/Battlers/Front/PIDGEOTTO;Graphics/EBDX/Battlers/Front/PIDGEOTTO.png
+Graphics/EBDX/Battlers/Front/GYARADOS;Graphics/EBDX/Battlers/Front/GYARADOS.png
+Graphics/EBDX/Battlers/Front/PIKACHU;Graphics/EBDX/Battlers/Front/PIKACHU.png
+Graphics/EBDX/Battlers/Front/KADABRA;Graphics/EBDX/Battlers/Front/KADABRA.png
+Graphics/EBDX/Battlers/Front/DIGLETT;Graphics/EBDX/Battlers/Front/DIGLETT.png
+Graphics/EBDX/Battlers/Front/CHANSEY;Graphics/EBDX/Battlers/Front/CHANSEY.png
+Graphics/UI/Menu Custom/daytime_evening;Graphics/UI/Menu Custom/daytime_evening.png
+Graphics/Items/DNASPLICERS;Graphics/Items/DNASPLICERS.png
+Graphics/Items/DNASPLICERSUSED;Graphics/Items/DNASPLICERSUSED.png
+Graphics/Items/NSOLARIZER;Graphics/Items/NSOLARIZER.png
+Graphics/Items/000;Graphics/Items/000.png
+Graphics/Items/NLUNARIZER;Graphics/Items/NLUNARIZER.png
+Graphics/Items/REINSOFUNITY;Graphics/Items/REINSOFUNITY.png
+Graphics/Items/OVALCHARM;Graphics/Items/OVALCHARM.png
+Graphics/Items/SHINYCHARM;Graphics/Items/SHINYCHARM.png
+Graphics/Items/CATCHINGCHARM;Graphics/Items/CATCHINGCHARM.png
+Graphics/Items/EXPCHARM;Graphics/Items/EXPCHARM.png
+Graphics/Items/MEGARING;Graphics/Items/MEGARING.png
+Graphics/Items/POKEMONBOXLINK;Graphics/Items/POKEMONBOXLINK.png
+Graphics/Items/AURORATICKET;Graphics/Items/AURORATICKET.png
+Graphics/Items/OLDSEAMAP;Graphics/Items/OLDSEAMAP.png
+Graphics/Items/XSPDEF2;Graphics/Items/XSPDEF2.png
+Graphics/Items/XSPDEF3;Graphics/Items/XSPDEF3.png
+Graphics/Items/XSPDEF6;Graphics/Items/XSPDEF6.png
+Graphics/Items/XSPEED;Graphics/Items/XSPEED.png
+Graphics/Items/XSPEED2;Graphics/Items/XSPEED2.png
+Graphics/Items/XSPEED3;Graphics/Items/XSPEED3.png
+Graphics/Items/XSPEED6;Graphics/Items/XSPEED6.png
+Graphics/Items/XACCURACY;Graphics/Items/XACCURACY.png
+Graphics/Items/XACCURACY2;Graphics/Items/XACCURACY2.png
+Graphics/Items/XACCURACY3;Graphics/Items/XACCURACY3.png
+Graphics/Items/XACCURACY6;Graphics/Items/XACCURACY6.png
+Graphics/Items/MAXMUSHROOMS;Graphics/Items/MAXMUSHROOMS.png
+Graphics/Items/DIREHIT;Graphics/Items/DIREHIT.png
+Graphics/Items/DIREHIT2;Graphics/Items/DIREHIT2.png
+Graphics/Items/DIREHIT3;Graphics/Items/DIREHIT3.png
+Graphics/Items/GUARDSPEC;Graphics/Items/GUARDSPEC.png
+Graphics/Items/RESETURGE;Graphics/Items/RESETURGE.png
+Graphics/Items/ABILITYURGE;Graphics/Items/ABILITYURGE.png
+Graphics/Items/ITEMURGE;Graphics/Items/ITEMURGE.png
+Graphics/Items/ITEMDROP;Graphics/Items/ITEMDROP.png
+Graphics/Items/BLUEFLUTE;Graphics/Items/BLUEFLUTE.png
+Graphics/Items/YELLOWFLUTE;Graphics/Items/YELLOWFLUTE.png
+Graphics/Items/REDFLUTE;Graphics/Items/REDFLUTE.png
+Graphics/Items/POKEDOLL;Graphics/Items/POKEDOLL.png
+Graphics/Items/FLUFFYTAIL;Graphics/Items/FLUFFYTAIL.png
+Graphics/Items/POKETOY;Graphics/Items/POKETOY.png
+Audio/BGM/Battle (Wild Pokémon);Audio/BGM/Battle (Wild Pokémon).ogg
+Graphics/EBDX/Battlebacks/battlebg/Field;Graphics/EBDX/Battlebacks/battlebg/Field.png
+Graphics/EBDX/Battlebacks/base/Concrete;Graphics/EBDX/Battlebacks/base/Concrete.png
+Graphics/EBDX/Battlebacks/elements/skyDay;Graphics/EBDX/Battlebacks/elements/skyDay.png
+Graphics/EBDX/Battlebacks/elements/cloud2;Graphics/EBDX/Battlebacks/elements/cloud2.png
+Graphics/EBDX/Battlebacks/elements/cloud1;Graphics/EBDX/Battlebacks/elements/cloud1.png
+Graphics/EBDX/Battlebacks/elements/sun;Graphics/EBDX/Battlebacks/elements/sun.png
+Graphics/EBDX/Battlebacks/elements/tree;Graphics/EBDX/Battlebacks/elements/tree.png
+Graphics/EBDX/Transitions/Common/outdoor;Graphics/EBDX/Transitions/Common/outdoor.png
+Graphics/EBDX/Pictures/UI/skin1;Graphics/EBDX/Pictures/UI/skin1.png
+Graphics/EBDX/Pictures/UI/skin2;Graphics/EBDX/Pictures/UI/skin2.png
+Graphics/EBDX/Pictures/UI/pause;Graphics/EBDX/Pictures/UI/pause.png
+Graphics/UI/Battle/overlay_command;Graphics/UI/Battle/overlay_command.png
+Graphics/UI/Battle/cursor_command;Graphics/UI/Battle/cursor_command.png
+Graphics/UI/Battle/cursor_fight;Graphics/UI/Battle/cursor_fight.png
+Graphics/UI/Battle/cursor_mega;Graphics/UI/Battle/cursor_mega.png
+Graphics/UI/Battle/cursor_shift;Graphics/UI/Battle/cursor_shift.png
+Graphics/UI/Battle/overlay_fight;Graphics/UI/Battle/overlay_fight.png
+Graphics/EBDX/Pictures/UI/btnCmd;Graphics/EBDX/Pictures/UI/btnCmd.png
+Graphics/EBDX/Pictures/UI/btnDummy;Graphics/EBDX/Pictures/UI/btnDummy.png
+Graphics/EBDX/Pictures/UI/arrow;Graphics/EBDX/Pictures/UI/arrow.png
+Graphics/EBDX/Pictures/UI/moveSelButtons;Graphics/EBDX/Pictures/UI/moveSelButtons.png
+Graphics/EBDX/Pictures/UI/types;Graphics/EBDX/Pictures/UI/types.png
+Graphics/EBDX/Pictures/UI/category;Graphics/EBDX/Pictures/UI/category.png
+Graphics/EBDX/Pictures/UI/megaButton;Graphics/EBDX/Pictures/UI/megaButton.png
+Graphics/EBDX/Pictures/Bag/shade;Graphics/EBDX/Pictures/Bag/shade.png
+Graphics/EBDX/Pictures/Bag/itemName;Graphics/EBDX/Pictures/Bag/itemName.png
+Graphics/EBDX/Pictures/Bag/itemContainer;Graphics/EBDX/Pictures/Bag/itemContainer.png
+Graphics/EBDX/Pictures/Bag/pocketIcons;Graphics/EBDX/Pictures/Bag/pocketIcons.png
+Graphics/EBDX/Pictures/UI/partyBar;Graphics/EBDX/Pictures/UI/partyBar.png
+Graphics/EBDX/Pictures/UI/partyBalls;Graphics/EBDX/Pictures/UI/partyBalls.png
+Graphics/EBDX/Pictures/UI/abilityMessage;Graphics/EBDX/Pictures/UI/abilityMessage.png
+Graphics/Trainers/POKEMONTRAINER_Red_back;Graphics/Trainers/POKEMONTRAINER_Red_back.png
+Graphics/EBDX/Battlers/substitute_back;Graphics/EBDX/Battlers/substitute_back.png
+Graphics/EBDX/Animations/Moves/ebShadow;Graphics/EBDX/Animations/Moves/ebShadow.png
+Graphics/EBDX/Animations/Moves/ebCharged;Graphics/EBDX/Animations/Moves/ebCharged.png
+Graphics/EBDX/Animations/Moves/ebEnergy;Graphics/EBDX/Animations/Moves/ebEnergy.png
+Graphics/EBDX/Battlers/substitute;Graphics/EBDX/Battlers/substitute.png
+Graphics/EBDX/Battlers/Front/BULBASAUR;Graphics/EBDX/Battlers/Front/BULBASAUR.png
+Graphics/EBDX/Battlers/Front/IVYSAUR;Graphics/EBDX/Battlers/Front/IVYSAUR.png
+Graphics/EBDX/Pictures/UI/dataBox;Graphics/EBDX/Pictures/UI/dataBox.png
+Graphics/EBDX/Pictures/UI/barColors;Graphics/EBDX/Pictures/UI/barColors.png
+Graphics/EBDX/Pictures/UI/status;Graphics/EBDX/Pictures/UI/status.png
+Graphics/EBDX/Pictures/UI/containers;Graphics/EBDX/Pictures/UI/containers.png
+Graphics/EBDX/Pictures/UI/symMega;Graphics/EBDX/Pictures/UI/symMega.png
+Graphics/UI/Battle/icon_primal_Kyogre;Graphics/UI/Battle/icon_primal_Kyogre.png
+Graphics/UI/Battle/icon_primal_Groudon;Graphics/UI/Battle/icon_primal_Groudon.png
+Audio/SE/Cries/BULBASAUR;Audio/SE/Cries/BULBASAUR.ogg
+Audio/SE/Cries/IVYSAUR;Audio/SE/Cries/IVYSAUR.ogg
+Graphics/EBDX/Pictures/Pokeballs/POKEBALL;Graphics/EBDX/Pictures/Pokeballs/POKEBALL.png
+Graphics/EBDX/Battlers/Back/PIKACHU;Graphics/EBDX/Battlers/Back/PIKACHU.png
+Graphics/EBDX/Battlers/Back/PIDGEOTTO;Graphics/EBDX/Battlers/Back/PIDGEOTTO.png
+Audio/SE/EBDX/Throw;Audio/SE/EBDX/Throw.wav
+Audio/SE/Cries/PIKACHU;Audio/SE/Cries/PIKACHU.ogg
+Graphics/EBDX/Animations/Ballburst/POKEBALL_ray;Graphics/EBDX/Animations/Ballburst/POKEBALL_ray.png
+Graphics/EBDX/Animations/Ballburst/POKEBALL_shine;Graphics/EBDX/Animations/Ballburst/POKEBALL_shine.png
+Graphics/EBDX/Animations/Ballburst/POKEBALL_eff;Graphics/EBDX/Animations/Ballburst/POKEBALL_eff.png
+Graphics/EBDX/Animations/Ballburst/POKEBALL_particle;Graphics/EBDX/Animations/Ballburst/POKEBALL_particle.png
+Audio/SE/Cries/PIDGEOTTO;Audio/SE/Cries/PIDGEOTTO.ogg
+Audio/SE/Battle recall;Audio/SE/Battle recall.ogg
+Graphics/EBDX/Animations/Moves/ebDustParticle;Graphics/EBDX/Animations/Moves/ebDustParticle.png
+Audio/SE/EBDX/Drop;Audio/SE/EBDX/Drop.wav
+Audio/SE/EBDX/SE_Zoom4;Audio/SE/EBDX/SE_Zoom4.wav
+Graphics/EBDX/Battlebacks/elements/skyNight;Graphics/EBDX/Battlebacks/elements/skyNight.png
+Graphics/EBDX/Battlebacks/elements/star;Graphics/EBDX/Battlebacks/elements/star.png
+Audio/SE/EBDX/SE_Select1;Audio/SE/EBDX/SE_Select1.wav
+Audio/SE/EBDX/SE_Select2;Audio/SE/EBDX/SE_Select2.wav
+Graphics/Items/ICEHEAL;Graphics/Items/ICEHEAL.png
+Graphics/Items/FULLHEAL;Graphics/Items/FULLHEAL.png
+Audio/SE/Battle flee;Audio/SE/Battle flee.ogg
+Graphics/EBDX/Battlers/Front/CHARIZARD;Graphics/EBDX/Battlers/Front/CHARIZARD.png
+Audio/SE/GUI storage pick up;Audio/SE/GUI storage pick up.ogg
+Audio/SE/GUI storage hide party panel;Audio/SE/GUI storage hide party panel.ogg
+Graphics/Items/machine_tr_WATER;Graphics/Items/machine_tr_WATER.png
+Graphics/Items/machine_tr_PSYCHIC;Graphics/Items/machine_tr_PSYCHIC.png
+Graphics/Items/machine_tr_NORMAL;Graphics/Items/machine_tr_NORMAL.png
+Graphics/Items/machine_tr_POISON;Graphics/Items/machine_tr_POISON.png
+Graphics/Items/machine_tr_ICE;Graphics/Items/machine_tr_ICE.png
+Graphics/Items/LUCARIONITE;Graphics/Items/LUCARIONITE.png
+Graphics/Items/ABOMASITE;Graphics/Items/ABOMASITE.png
+Graphics/Items/GALLADITE;Graphics/Items/GALLADITE.png
+Graphics/Items/AUDINITE;Graphics/Items/AUDINITE.png
+Graphics/Items/DIANCITE;Graphics/Items/DIANCITE.png
+Graphics/Items/REDORB;Graphics/Items/REDORB.png
+Graphics/Items/BLUEORB;Graphics/Items/BLUEORB.png
+Graphics/Items/GARCHOMPITE;Graphics/Items/GARCHOMPITE.png
+Graphics/Items/LOPUNNITE;Graphics/Items/LOPUNNITE.png
+Graphics/Items/LATIOSITE;Graphics/Items/LATIOSITE.png
+Graphics/Items/LATIASITE;Graphics/Items/LATIASITE.png
+Graphics/Items/METAGROSSITE;Graphics/Items/METAGROSSITE.png
+Graphics/Items/SALAMENCITE;Graphics/Items/SALAMENCITE.png
+Graphics/Items/GLALITITE;Graphics/Items/GLALITITE.png
+Graphics/Items/ABSOLITE;Graphics/Items/ABSOLITE.png
+Graphics/Items/BANETTITE;Graphics/Items/BANETTITE.png
+Graphics/Items/ALTARIANITE;Graphics/Items/ALTARIANITE.png
+Graphics/Items/CAMERUPTITE;Graphics/Items/CAMERUPTITE.png
+Graphics/Items/SHARPEDONITE;Graphics/Items/SHARPEDONITE.png
+Graphics/Items/MANECTITE;Graphics/Items/MANECTITE.png
+Graphics/Items/MEDICHAMITE;Graphics/Items/MEDICHAMITE.png
+Graphics/Items/AGGRONITE;Graphics/Items/AGGRONITE.png
+Graphics/Items/MAWILITE;Graphics/Items/MAWILITE.png
+Graphics/Items/SABLENITE;Graphics/Items/SABLENITE.png
+Graphics/Items/GARDEVOIRITE;Graphics/Items/GARDEVOIRITE.png
+Graphics/Items/SWAMPERTITE;Graphics/Items/SWAMPERTITE.png
+Graphics/Items/BLAZIKENITE;Graphics/Items/BLAZIKENITE.png
+Graphics/Items/SCEPTILITE;Graphics/Items/SCEPTILITE.png
+Graphics/Items/TYRANITARITE;Graphics/Items/TYRANITARITE.png
+Graphics/Items/HOUNDOOMINITE;Graphics/Items/HOUNDOOMINITE.png
+Graphics/Items/HERACRONITE;Graphics/Items/HERACRONITE.png
+Graphics/Items/SCIZORITE;Graphics/Items/SCIZORITE.png
+Graphics/Items/STEELIXITE;Graphics/Items/STEELIXITE.png
+Graphics/Items/AMPHAROSITE;Graphics/Items/AMPHAROSITE.png
+Graphics/Items/MEWTWONITEY;Graphics/Items/MEWTWONITEY.png
+Graphics/Items/MEWTWONITEX;Graphics/Items/MEWTWONITEX.png
+Graphics/Items/AERODACTYLITE;Graphics/Items/AERODACTYLITE.png
+Graphics/Items/GYARADOSITE;Graphics/Items/GYARADOSITE.png
+Graphics/Items/PINSIRITE;Graphics/Items/PINSIRITE.png
+Graphics/Items/KANGASKHANITE;Graphics/Items/KANGASKHANITE.png
+Graphics/Items/GENGARITE;Graphics/Items/GENGARITE.png
+Graphics/Items/SLOWBRONITE;Graphics/Items/SLOWBRONITE.png
+Graphics/Items/ALAKAZITE;Graphics/Items/ALAKAZITE.png
+Graphics/Items/PIDGEOTITE;Graphics/Items/PIDGEOTITE.png
+Graphics/Items/BEEDRILLITE;Graphics/Items/BEEDRILLITE.png
+Graphics/Items/BLASTOISINITE;Graphics/Items/BLASTOISINITE.png
+Graphics/Items/CHARIZARDITEY;Graphics/Items/CHARIZARDITEY.png
+Graphics/Items/CHARIZARDITEX;Graphics/Items/CHARIZARDITEX.png
+Graphics/Items/VENUSAURITE;Graphics/Items/VENUSAURITE.png
+Graphics/Items/RIBBONSWEET;Graphics/Items/RIBBONSWEET.png
+Graphics/Items/STARSWEET;Graphics/Items/STARSWEET.png
+Graphics/Items/FLOWERSWEET;Graphics/Items/FLOWERSWEET.png
+Graphics/Items/CLOVERSWEET;Graphics/Items/CLOVERSWEET.png
+Graphics/UI/Party/icon_item;Graphics/UI/Party/icon_item.png
+Graphics/Trainers/BEAUTY;Graphics/Trainers/BEAUTY.png
+Graphics/Trainers/YOUNGSTER;Graphics/Trainers/YOUNGSTER.png
+Graphics/Trainers/BIKER;Graphics/Trainers/BIKER.png
+Graphics/Trainers/BIRDKEEPER;Graphics/Trainers/BIRDKEEPER.png
+Graphics/Trainers/BLACKBELT;Graphics/Trainers/BLACKBELT.png
+Graphics/Trainers/BUGCATCHER;Graphics/Trainers/BUGCATCHER.png
+Audio/BGM/Battle (Trainer);Audio/BGM/Battle (Trainer).ogg
+Graphics/EBDX/Transitions/Common/glow;Graphics/EBDX/Transitions/Common/glow.png
+Graphics/EBDX/Transitions/Common/ballTransition;Graphics/EBDX/Transitions/Common/ballTransition.png
+Graphics/EBDX/Transitions/Default/background;Graphics/EBDX/Transitions/Default/background.png
+Graphics/EBDX/Transitions/Default/layer;Graphics/EBDX/Transitions/Default/layer.png
+Graphics/EBDX/Transitions/Default/final;Graphics/EBDX/Transitions/Default/final.png
+Graphics/EBDX/Transitions/BUGCATCHER;Graphics/EBDX/Transitions/BUGCATCHER.png
+Graphics/EBDX/Battlers/Front/WEEDLE;Graphics/EBDX/Battlers/Front/WEEDLE.png
+Audio/SE/Cries/WEEDLE;Audio/SE/Cries/WEEDLE.ogg
+Graphics/EBDX/Battlers/Back/CHARIZARD;Graphics/EBDX/Battlers/Back/CHARIZARD.png
+Audio/SE/Cries/CHARIZARD;Audio/SE/Cries/CHARIZARD.ogg
+Audio/SE/DX Action Button;Audio/SE/DX Action Button.ogg
+Graphics/EBDX/Animations/Moves/ebMegaBg;Graphics/EBDX/Animations/Moves/ebMegaBg.png
+Graphics/EBDX/Animations/Moves/ebMega004;Graphics/EBDX/Animations/Moves/ebMega004.png
+Graphics/EBDX/Animations/Moves/ebMega001;Graphics/EBDX/Animations/Moves/ebMega001.png
+Graphics/EBDX/Animations/Moves/ebMega002;Graphics/EBDX/Animations/Moves/ebMega002.png
+Graphics/EBDX/Animations/Moves/ebMega003;Graphics/EBDX/Animations/Moves/ebMega003.png
+Graphics/EBDX/Animations/Moves/ebMega005;Graphics/EBDX/Animations/Moves/ebMega005.png
+Graphics/EBDX/Animations/Moves/ebMega006;Graphics/EBDX/Animations/Moves/ebMega006.png
+Audio/SE/Anim/Harden;Audio/SE/Anim/Harden.mp3
+Audio/SE/Anim/Twine;Audio/SE/Anim/Twine.ogg
+Audio/SE/Anim/Refresh;Audio/SE/Anim/Refresh.mp3
+Audio/SE/Vs flash;Audio/SE/Vs flash.ogg
+Graphics/EBDX/Pictures/impact;Graphics/EBDX/Pictures/impact.png
+Graphics/EBDX/Battlers/Back/CHARIZARD_1;Graphics/EBDX/Battlers/Back/CHARIZARD_1.png
+Audio/SE/Cries/CHARIZARD_1;Audio/SE/Cries/CHARIZARD_1.ogg
+Graphics/EBDX/Animations/Moves/eb081_2;Graphics/EBDX/Animations/Moves/eb081_2.png
+Graphics/EBDX/Animations/Moves/eb081;Graphics/EBDX/Animations/Moves/eb081.png
+Graphics/EBDX/Animations/Moves/eb081_3;Graphics/EBDX/Animations/Moves/eb081_3.png
+Audio/SE/Anim/Saint8;Audio/SE/Anim/Saint8.ogg
+Graphics/EBDX/Animations/Moves/eb064_2;Graphics/EBDX/Animations/Moves/eb064_2.png
+Graphics/EBDX/Animations/Moves/eb069;Graphics/EBDX/Animations/Moves/eb069.png
+Audio/SE/Anim/fog2;Audio/SE/Anim/fog2.mp3
+Audio/SE/Anim/hit;Audio/SE/Anim/hit.ogg
+Audio/SE/Anim/Paralyze1;Audio/SE/Anim/Paralyze1.ogg
+Audio/SE/Anim/Thunder3;Audio/SE/Anim/Thunder3.ogg
+Audio/SE/Battle damage normal;Audio/SE/Battle damage normal.ogg
+Audio/SE/Pkmn faint;Audio/SE/Pkmn faint.ogg
+Audio/SE/EBDX/Experience Gain;Audio/SE/EBDX/Experience Gain.wav
+Graphics/EBDX/Pictures/UI/btnEmpty;Graphics/EBDX/Pictures/UI/btnEmpty.png
+Graphics/EBDX/Pictures/UI/btnChoose;Graphics/EBDX/Pictures/UI/btnChoose.png
+Graphics/EBDX/Battlers/Front/KAKUNA;Graphics/EBDX/Battlers/Front/KAKUNA.png
+Audio/SE/Cries/KAKUNA;Audio/SE/Cries/KAKUNA.ogg
+Graphics/Items/PEWTERCRUNCHIES;Graphics/Items/PEWTERCRUNCHIES.png
+Graphics/Items/RAGECANDYBAR;Graphics/Items/RAGECANDYBAR.png
+Graphics/Items/LAVACOOKIE;Graphics/Items/LAVACOOKIE.png
+Graphics/Items/OLDGATEAU;Graphics/Items/OLDGATEAU.png
+Graphics/Items/CASTELIACONE;Graphics/Items/CASTELIACONE.png
+Graphics/Items/LUMIOSEGALETTE;Graphics/Items/LUMIOSEGALETTE.png
+Graphics/Items/SHALOURSABLE;Graphics/Items/SHALOURSABLE.png
+Graphics/Items/BIGMALASADA;Graphics/Items/BIGMALASADA.png
+Graphics/Items/REVIVE;Graphics/Items/REVIVE.png
+Graphics/Items/MAXREVIVE;Graphics/Items/MAXREVIVE.png
+Graphics/EBDX/Animations/Moves/eb028_6;Graphics/EBDX/Animations/Moves/eb028_6.png
+Audio/SE/EBDX/Anim/iron5;Audio/SE/EBDX/Anim/iron5.ogg
+Audio/SE/Anim/increase;Audio/SE/Anim/increase.ogg
+Graphics/EBDX/Pictures/UI/redbutton;Graphics/EBDX/Pictures/UI/redbutton.png
+Graphics/EBDX/Pictures/UI/bluebutton;Graphics/EBDX/Pictures/UI/bluebutton.png
+Graphics/EBDX/Pictures/UI/cmdSel;Graphics/EBDX/Pictures/UI/cmdSel.png
+Audio/SE/EBDX/Anim/move1;Audio/SE/EBDX/Anim/move1.wav
+Graphics/EBDX/Animations/Moves/eb637;Graphics/EBDX/Animations/Moves/eb637.png
+Audio/SE/Anim/Wind8;Audio/SE/Anim/Wind8.ogg
+Audio/SE/Battle damage super;Audio/SE/Battle damage super.ogg
+Graphics/EBDX/Animations/Moves/eb303_2;Graphics/EBDX/Animations/Moves/eb303_2.png
+Audio/SE/EBDX/Anim/normal1;Audio/SE/EBDX/Anim/normal1.wav
+Graphics/EBDX/Animations/Moves/eb303;Graphics/EBDX/Animations/Moves/eb303.png
+Graphics/EBDX/Transitions/Common/ball;Graphics/EBDX/Transitions/Common/ball.png
+Graphics/EBDX/Battlers/Front/ODDISH;Graphics/EBDX/Battlers/Front/ODDISH.png
+Audio/SE/Cries/ODDISH;Audio/SE/Cries/ODDISH.ogg
+Graphics/EBDX/Animations/Moves/eb610_2;Graphics/EBDX/Animations/Moves/eb610_2.png
+Graphics/EBDX/Animations/Moves/eb610_1;Graphics/EBDX/Animations/Moves/eb610_1.png
+Graphics/EBDX/Animations/Moves/eb610;Graphics/EBDX/Animations/Moves/eb610.png
+Graphics/EBDX/Animations/Moves/eb610_3;Graphics/EBDX/Animations/Moves/eb610_3.png
+Graphics/EBDX/Animations/Moves/eb610_4;Graphics/EBDX/Animations/Moves/eb610_4.png
+Audio/SE/EBDX/Anim/electric1;Audio/SE/EBDX/Anim/electric1.wav
+Graphics/EBDX/Animations/Moves/eb164;Graphics/EBDX/Animations/Moves/eb164.png
+Audio/SE/Anim/Wish;Audio/SE/Anim/Wish.ogg
+Audio/SE/Anim/decrease;Audio/SE/Anim/decrease.ogg
+Audio/SE/Anim/Absorb2;Audio/SE/Anim/Absorb2.ogg
+Graphics/EBDX/Animations/Moves/eb200;Graphics/EBDX/Animations/Moves/eb200.png
+Graphics/EBDX/Animations/Moves/ebHealing;Graphics/EBDX/Animations/Moves/ebHealing.png
+Audio/SE/Anim/Recovery;Audio/SE/Anim/Recovery.ogg
+Audio/SE/Battle damage weak;Audio/SE/Battle damage weak.ogg
+Graphics/Trainers/BURGLAR;Graphics/Trainers/BURGLAR.png
+Graphics/Trainers/CAMPER;Graphics/Trainers/CAMPER.png
+Graphics/Trainers/CHAMPION;Graphics/Trainers/CHAMPION.png
+Graphics/Trainers/CHANNELER;Graphics/Trainers/CHANNELER.png
+Graphics/Trainers/COOLCOUPLE;Graphics/Trainers/COOLCOUPLE.png
+Graphics/Trainers/COOLTRAINER_F;Graphics/Trainers/COOLTRAINER_F.png
+Graphics/Trainers/COOLTRAINER_M;Graphics/Trainers/COOLTRAINER_M.png
+Graphics/Trainers/CRUSHKIN;Graphics/Trainers/CRUSHKIN.png
+Graphics/Trainers/CUEBALL;Graphics/Trainers/CUEBALL.png
+Graphics/Trainers/ELITEFOUR_Agatha;Graphics/Trainers/ELITEFOUR_Agatha.png
+Graphics/Trainers/ELITEFOUR_Bruno;Graphics/Trainers/ELITEFOUR_Bruno.png
+Graphics/Trainers/ELITEFOUR_Lance;Graphics/Trainers/ELITEFOUR_Lance.png
+Graphics/Trainers/ELITEFOUR_Lorelei;Graphics/Trainers/ELITEFOUR_Lorelei.png
+Graphics/Trainers/ENGINEER;Graphics/Trainers/ENGINEER.png
+Graphics/Trainers/FISHERMAN;Graphics/Trainers/FISHERMAN.png
+Graphics/Trainers/GAMBLER;Graphics/Trainers/GAMBLER.png
+Graphics/Trainers/GENTLEMAN;Graphics/Trainers/GENTLEMAN.png
+Graphics/Trainers/HIKER;Graphics/Trainers/HIKER.png
+Graphics/Trainers/JUGGLER;Graphics/Trainers/JUGGLER.png
+Graphics/Trainers/LASS;Graphics/Trainers/LASS.png
+Graphics/Trainers/LEADER_Blaine;Graphics/Trainers/LEADER_Blaine.png
+Graphics/Trainers/LEADER_Brock;Graphics/Trainers/LEADER_Brock.png
+Graphics/Trainers/LEADER_Erika;Graphics/Trainers/LEADER_Erika.png
+Graphics/Trainers/LEADER_Giovanni;Graphics/Trainers/LEADER_Giovanni.png
+Audio/BGM/Battle (Gym Leader);Audio/BGM/Battle (Gym Leader).ogg
+Graphics/EBDX/Transitions/Skull/background;Graphics/EBDX/Transitions/Skull/background.png
+Graphics/EBDX/Transitions/Skull/smoke;Graphics/EBDX/Transitions/Skull/smoke.png
+Graphics/EBDX/Transitions/Skull/logo;Graphics/EBDX/Transitions/Skull/logo.png
+Graphics/EBDX/Transitions/Skull/shine;Graphics/EBDX/Transitions/Skull/shine.png
+Graphics/EBDX/Transitions/Skull/rainbow;Graphics/EBDX/Transitions/Skull/rainbow.png
+Graphics/EBDX/Transitions/Skull/glow;Graphics/EBDX/Transitions/Skull/glow.png
+Graphics/EBDX/Transitions/Skull/burst;Graphics/EBDX/Transitions/Skull/burst.png
+Graphics/EBDX/Transitions/Skull/particle;Graphics/EBDX/Transitions/Skull/particle.png
+Graphics/EBDX/Transitions/Skull/paint0;Graphics/EBDX/Transitions/Skull/paint0.png
+Graphics/EBDX/Transitions/Skull/splat1;Graphics/EBDX/Transitions/Skull/splat1.png
+Graphics/EBDX/Transitions/Skull/splat0;Graphics/EBDX/Transitions/Skull/splat0.png
+Graphics/EBDX/Transitions/Skull/splat2;Graphics/EBDX/Transitions/Skull/splat2.png
+Graphics/EBDX/Transitions/Skull/ray;Graphics/EBDX/Transitions/Skull/ray.png
+Graphics/EBDX/Transitions/Special/background;Graphics/EBDX/Transitions/Special/background.png
+Graphics/EBDX/Transitions/Special/ring;Graphics/EBDX/Transitions/Special/ring.png
+Graphics/EBDX/Transitions/Special/particle;Graphics/EBDX/Transitions/Special/particle.png
+Graphics/EBDX/Transitions/Special/glow0;Graphics/EBDX/Transitions/Special/glow0.png
+Graphics/EBDX/Transitions/Special/glow1;Graphics/EBDX/Transitions/Special/glow1.png
+Graphics/EBDX/Transitions/Special/glow2;Graphics/EBDX/Transitions/Special/glow2.png
+Graphics/EBDX/Transitions/LEADER_Brock;Graphics/EBDX/Transitions/LEADER_Brock.png
+Graphics/EBDX/Battlers/Front/GEODUDE;Graphics/EBDX/Battlers/Front/GEODUDE.png
+Audio/SE/Cries/GEODUDE;Audio/SE/Cries/GEODUDE.ogg
+Graphics/EBDX/Animations/Moves/ebItem1;Graphics/EBDX/Animations/Moves/ebItem1.png
+Audio/SE/EBDX/Anim/shine1;Audio/SE/EBDX/Anim/shine1.wav
+Graphics/EBDX/Animations/Moves/ebShiny3;Graphics/EBDX/Animations/Moves/ebShiny3.png
+Graphics/EBDX/Battlebacks/battlebg/IndoorB;Graphics/EBDX/Battlebacks/battlebg/IndoorB.png
+Graphics/EBDX/Battlebacks/elements/lightDecor;Graphics/EBDX/Battlebacks/elements/lightDecor.png
+Graphics/EBDX/Battlebacks/elements/lightA;Graphics/EBDX/Battlebacks/elements/lightA.png
+Graphics/EBDX/Battlebacks/elements/decor001;Graphics/EBDX/Battlebacks/elements/decor001.png
+Graphics/EBDX/Battlebacks/elements/decor002;Graphics/EBDX/Battlebacks/elements/decor002.png
+Graphics/EBDX/Battlebacks/elements/skyDawn;Graphics/EBDX/Battlebacks/elements/skyDawn.png
+Audio/BGM/EBDX/Victory Against Wild;Audio/BGM/EBDX/Victory Against Wild.ogg
+Graphics/Items/ABILITYPATCH;Graphics/Items/ABILITYPATCH.png
+Graphics/Items/EXPCANDYXS;Graphics/Items/EXPCANDYXS.png
+Graphics/Items/EXPCANDYS;Graphics/Items/EXPCANDYS.png
+Graphics/Items/EXPCANDYM;Graphics/Items/EXPCANDYM.png
+Graphics/Items/EXPCANDYL;Graphics/Items/EXPCANDYL.png
+Graphics/Items/EXPCANDYXL;Graphics/Items/EXPCANDYXL.png
+Graphics/Items/RARECANDY;Graphics/Items/RARECANDY.png
+Graphics/EBDX/Battlers/Front/VENUSAUR;Graphics/EBDX/Battlers/Front/VENUSAUR.png
+Audio/SE/Cries/VENUSAUR;Audio/SE/Cries/VENUSAUR.ogg
+Graphics/EBDX/Battlers/Back/KADABRA;Graphics/EBDX/Battlers/Back/KADABRA.png
+Audio/SE/Cries/KADABRA;Audio/SE/Cries/KADABRA.ogg
+Graphics/EBDX/Pictures/UI/fight;Graphics/EBDX/Pictures/UI/fight.png
+Graphics/EBDX/Pictures/UI/party;Graphics/EBDX/Pictures/UI/party.png
+Graphics/EBDX/Pictures/UI/bag;Graphics/EBDX/Pictures/UI/bag.png
+Graphics/EBDX/Pictures/UI/run;Graphics/EBDX/Pictures/UI/run.png
+Graphics/EBDX/Animations/Moves/eb645_3;Graphics/EBDX/Animations/Moves/eb645_3.png
+Audio/SE/Anim/Saint7;Audio/SE/Anim/Saint7.ogg
+Graphics/EBDX/Animations/Moves/eb645_4;Graphics/EBDX/Animations/Moves/eb645_4.png
+Graphics/EBDX/Animations/Moves/eb208;Graphics/EBDX/Animations/Moves/eb208.png
+Graphics/EBDX/Animations/Moves/eb244_2;Graphics/EBDX/Animations/Moves/eb244_2.png
+Graphics/EBDX/Animations/Moves/eb208_2;Graphics/EBDX/Animations/Moves/eb208_2.png
+Audio/SE/EBDX/Anim/normal4;Audio/SE/EBDX/Anim/normal4.wav
+Audio/BGM/Battle (Calyrex);Audio/BGM/Battle (Calyrex).ogg
+Graphics/EBDX/Battlers/Front/CALYREX;Graphics/EBDX/Battlers/Front/CALYREX.png
+Audio/SE/Cries/CALYREX;Audio/SE/Cries/CALYREX.ogg
+Audio/SE/EBDX/Ability Message;Audio/SE/EBDX/Ability Message.wav
+Graphics/Items/ABILITYCAPSULE;Graphics/Items/ABILITYCAPSULE.png
+Graphics/Items/ABSORBBULB;Graphics/Items/ABSORBBULB.png
+Graphics/Items/ADAMANTMINT;Graphics/Items/ADAMANTMINT.png
+Graphics/Items/ADAMANTORB;Graphics/Items/ADAMANTORB.png
+Graphics/Items/ADRENALINEORB;Graphics/Items/ADRENALINEORB.png
+Graphics/Items/AGUAVBERRY;Graphics/Items/AGUAVBERRY.png
+Graphics/Items/AIRBALLOON;Graphics/Items/AIRBALLOON.png
+Graphics/Items/AMULETCOIN;Graphics/Items/AMULETCOIN.png
+Graphics/Items/APICOTBERRY;Graphics/Items/APICOTBERRY.png
+Graphics/Items/ASSAULTVEST;Graphics/Items/ASSAULTVEST.png
+Graphics/Items/BABIRIBERRY;Graphics/Items/BABIRIBERRY.png
+Graphics/Items/BALMMUSHROOM;Graphics/Items/BALMMUSHROOM.png
+Graphics/Items/BELUEBERRY;Graphics/Items/BELUEBERRY.png
+Graphics/Items/BERRYJUICE;Graphics/Items/BERRYJUICE.png
+Graphics/Items/BERRYSWEET;Graphics/Items/BERRYSWEET.png
+Graphics/Items/BIGMUSHROOM;Graphics/Items/BIGMUSHROOM.png
+Graphics/Items/BIGNUGGET;Graphics/Items/BIGNUGGET.png
+Graphics/Items/BIGPEARL;Graphics/Items/BIGPEARL.png
+Graphics/Items/BIGROOT;Graphics/Items/BIGROOT.png
+Graphics/Items/BINDINGBAND;Graphics/Items/BINDINGBAND.png
+Graphics/Items/BLACKBELT;Graphics/Items/BLACKBELT.png
+Graphics/Items/BLACKGLASSES;Graphics/Items/BLACKGLASSES.png
+Graphics/Items/BLACKSLUDGE;Graphics/Items/BLACKSLUDGE.png
+Graphics/Items/BLUKBERRY;Graphics/Items/BLUKBERRY.png
+Graphics/Items/BLUNDERPOLICY;Graphics/Items/BLUNDERPOLICY.png
+Graphics/Items/BOLDMINT;Graphics/Items/BOLDMINT.png
+Graphics/Items/BRAVEMINT;Graphics/Items/BRAVEMINT.png
+Graphics/Items/BRICKMAIL;Graphics/Items/BRICKMAIL.png
+Graphics/Items/BRIGHTPOWDER;Graphics/Items/BRIGHTPOWDER.png
+Graphics/Items/BUGGEM;Graphics/Items/BUGGEM.png
+Graphics/Items/BUGMEMORY;Graphics/Items/BUGMEMORY.png
+Graphics/Items/BURNDRIVE;Graphics/Items/BURNDRIVE.png
+Graphics/Items/CALCIUM;Graphics/Items/CALCIUM.png
+Graphics/Items/CALMMINT;Graphics/Items/CALMMINT.png
+Graphics/Items/CARBOS;Graphics/Items/CARBOS.png
+Graphics/Items/CAREFULMINT;Graphics/Items/CAREFULMINT.png
+Graphics/Items/CELLBATTERY;Graphics/Items/CELLBATTERY.png
+Graphics/Items/CHARCOAL;Graphics/Items/CHARCOAL.png
+Graphics/Items/CHARTIBERRY;Graphics/Items/CHARTIBERRY.png
+Graphics/Items/CHILANBERRY;Graphics/Items/CHILANBERRY.png
+Graphics/Items/CHILLDRIVE;Graphics/Items/CHILLDRIVE.png
+Graphics/Items/CHOICEBAND;Graphics/Items/CHOICEBAND.png
+Graphics/Items/CHOICESCARF;Graphics/Items/CHOICESCARF.png
+Graphics/Items/CHOICESPECS;Graphics/Items/CHOICESPECS.png
+Graphics/Items/CHOPLEBERRY;Graphics/Items/CHOPLEBERRY.png
+Graphics/Items/CLEANSETAG;Graphics/Items/CLEANSETAG.png
+Graphics/Items/COBABERRY;Graphics/Items/COBABERRY.png
+Graphics/Items/COLBURBERRY;Graphics/Items/COLBURBERRY.png
+Graphics/Items/COMETSHARD;Graphics/Items/COMETSHARD.png
+Graphics/Items/CORNNBERRY;Graphics/Items/CORNNBERRY.png
+Graphics/Items/CUSTAPBERRY;Graphics/Items/CUSTAPBERRY.png
+Graphics/Items/DAMPMULCH;Graphics/Items/DAMPMULCH.png
+Graphics/Items/DAMPROCK;Graphics/Items/DAMPROCK.png
+Graphics/Items/DARKGEM;Graphics/Items/DARKGEM.png
+Graphics/Items/DARKMEMORY;Graphics/Items/DARKMEMORY.png
+Graphics/Items/DEEPSEASCALE;Graphics/Items/DEEPSEASCALE.png
+Graphics/Items/DEEPSEATOOTH;Graphics/Items/DEEPSEATOOTH.png
+Graphics/Items/DESTINYKNOT;Graphics/Items/DESTINYKNOT.png
+Graphics/Items/DOUSEDRIVE;Graphics/Items/DOUSEDRIVE.png
+Graphics/Items/DRACOPLATE;Graphics/Items/DRACOPLATE.png
+Graphics/Items/DRAGONFANG;Graphics/Items/DRAGONFANG.png
+Graphics/Items/DRAGONGEM;Graphics/Items/DRAGONGEM.png
+Graphics/Items/DRAGONMEMORY;Graphics/Items/DRAGONMEMORY.png
+Graphics/Items/DRAGONSCALE;Graphics/Items/DRAGONSCALE.png
+Graphics/Items/DREADPLATE;Graphics/Items/DREADPLATE.png
+Graphics/Items/DUBIOUSDISC;Graphics/Items/DUBIOUSDISC.png
+Graphics/Items/DURINBERRY;Graphics/Items/DURINBERRY.png
+Graphics/Items/EARTHPLATE;Graphics/Items/EARTHPLATE.png
+Graphics/Items/EJECTBUTTON;Graphics/Items/EJECTBUTTON.png
+Graphics/Items/EJECTPACK;Graphics/Items/EJECTPACK.png
+Graphics/Items/ELECTIRIZER;Graphics/Items/ELECTIRIZER.png
+Graphics/Items/ELECTRICGEM;Graphics/Items/ELECTRICGEM.png
+Graphics/Items/ELECTRICMEMORY;Graphics/Items/ELECTRICMEMORY.png
+Graphics/Items/ELECTRICSEED;Graphics/Items/ELECTRICSEED.png
+Graphics/Items/ELIXIR;Graphics/Items/ELIXIR.png
+Graphics/Items/ENERGYPOWDER;Graphics/Items/ENERGYPOWDER.png
+Graphics/Items/ENERGYROOT;Graphics/Items/ENERGYROOT.png
+Graphics/Items/ENIGMABERRY;Graphics/Items/ENIGMABERRY.png
+Graphics/Items/ETHER;Graphics/Items/ETHER.png
+Graphics/Items/EVERSTONE;Graphics/Items/EVERSTONE.png
+Graphics/Items/EVIOLITE;Graphics/Items/EVIOLITE.png
+Graphics/Items/EXPSHARE;Graphics/Items/EXPSHARE.png
+Graphics/Items/EXPERTBELT;Graphics/Items/EXPERTBELT.png
+Graphics/Items/FAIRYGEM;Graphics/Items/FAIRYGEM.png
+Graphics/Items/FAIRYMEMORY;Graphics/Items/FAIRYMEMORY.png
+Graphics/Items/FIGHTINGGEM;Graphics/Items/FIGHTINGGEM.png
+Graphics/Items/FIGHTINGMEMORY;Graphics/Items/FIGHTINGMEMORY.png
+Graphics/Items/FIGYBERRY;Graphics/Items/FIGYBERRY.png
+Graphics/Items/FIREGEM;Graphics/Items/FIREGEM.png
+Graphics/Items/FIREMEMORY;Graphics/Items/FIREMEMORY.png
+Graphics/Items/FISTPLATE;Graphics/Items/FISTPLATE.png
+Graphics/Items/FLAMEORB;Graphics/Items/FLAMEORB.png
+Graphics/Items/FLAMEPLATE;Graphics/Items/FLAMEPLATE.png
+Graphics/Items/FLOATSTONE;Graphics/Items/FLOATSTONE.png
+Graphics/Items/FLYINGGEM;Graphics/Items/FLYINGGEM.png
+Graphics/Items/FLYINGMEMORY;Graphics/Items/FLYINGMEMORY.png
+Graphics/Items/FOCUSBAND;Graphics/Items/FOCUSBAND.png
+Graphics/Items/FOCUSSASH;Graphics/Items/FOCUSSASH.png
+Graphics/Items/FOSSILIZEDBIRD;Graphics/Items/FOSSILIZEDBIRD.png
+Graphics/Items/FOSSILIZEDDINO;Graphics/Items/FOSSILIZEDDINO.png
+Graphics/Items/FOSSILIZEDDRAKE;Graphics/Items/FOSSILIZEDDRAKE.png
+Graphics/Items/FOSSILIZEDFISH;Graphics/Items/FOSSILIZEDFISH.png
+Graphics/Items/FRESHWATER;Graphics/Items/FRESHWATER.png
+Graphics/Items/FULLINCENSE;Graphics/Items/FULLINCENSE.png
+Graphics/Items/GANLONBERRY;Graphics/Items/GANLONBERRY.png
+Graphics/Items/GENTLEMINT;Graphics/Items/GENTLEMINT.png
+Graphics/Items/GHOSTGEM;Graphics/Items/GHOSTGEM.png
+Graphics/Items/GHOSTMEMORY;Graphics/Items/GHOSTMEMORY.png
+Graphics/Items/GOOEYMULCH;Graphics/Items/GOOEYMULCH.png
+Graphics/Items/GRASSGEM;Graphics/Items/GRASSGEM.png
+Graphics/Items/GRASSMEMORY;Graphics/Items/GRASSMEMORY.png
+Graphics/Items/GRASSYSEED;Graphics/Items/GRASSYSEED.png
+Graphics/Items/GREPABERRY;Graphics/Items/GREPABERRY.png
+Graphics/Items/GRIPCLAW;Graphics/Items/GRIPCLAW.png
+Graphics/Items/GRISEOUSORB;Graphics/Items/GRISEOUSORB.png
+Graphics/Items/GROUNDGEM;Graphics/Items/GROUNDGEM.png
+Graphics/Items/GROUNDMEMORY;Graphics/Items/GROUNDMEMORY.png
+Graphics/Items/GROWTHMULCH;Graphics/Items/GROWTHMULCH.png
+Graphics/Items/HABANBERRY;Graphics/Items/HABANBERRY.png
+Graphics/Items/HARDSTONE;Graphics/Items/HARDSTONE.png
+Graphics/Items/HASTYMINT;Graphics/Items/HASTYMINT.png
+Graphics/Items/HEALPOWDER;Graphics/Items/HEALPOWDER.png
+Graphics/Items/HEARTSCALE;Graphics/Items/HEARTSCALE.png
+Graphics/Items/HEATROCK;Graphics/Items/HEATROCK.png
+Graphics/Items/HEAVYDUTYBOOTS;Graphics/Items/HEAVYDUTYBOOTS.png
+Graphics/Items/HONDEWBERRY;Graphics/Items/HONDEWBERRY.png
+Graphics/Items/HPUP;Graphics/Items/HPUP.png
+Graphics/Items/IAPAPABERRY;Graphics/Items/IAPAPABERRY.png
+Graphics/Items/ICEGEM;Graphics/Items/ICEGEM.png
+Graphics/Items/ICEMEMORY;Graphics/Items/ICEMEMORY.png
+Graphics/Items/ICICLEPLATE;Graphics/Items/ICICLEPLATE.png
+Graphics/Items/ICYROCK;Graphics/Items/ICYROCK.png
+Graphics/Items/IMPISHMINT;Graphics/Items/IMPISHMINT.png
+Graphics/Items/INSECTPLATE;Graphics/Items/INSECTPLATE.png
+Graphics/Items/IRON;Graphics/Items/IRON.png
+Graphics/Items/IRONBALL;Graphics/Items/IRONBALL.png
+Graphics/Items/IRONPLATE;Graphics/Items/IRONPLATE.png
+Graphics/Items/JABOCABERRY;Graphics/Items/JABOCABERRY.png
+Graphics/Items/JOLLYMINT;Graphics/Items/JOLLYMINT.png
+Graphics/Items/KASIBBERRY;Graphics/Items/KASIBBERRY.png
+Graphics/Items/KEBIABERRY;Graphics/Items/KEBIABERRY.png
+Graphics/Items/KEEBERRY;Graphics/Items/KEEBERRY.png
+Graphics/Items/KELPSYBERRY;Graphics/Items/KELPSYBERRY.png
+Graphics/Items/KINGSROCK;Graphics/Items/KINGSROCK.png
+Graphics/Items/LAGGINGTAIL;Graphics/Items/LAGGINGTAIL.png
+Graphics/Items/LANSATBERRY;Graphics/Items/LANSATBERRY.png
+Graphics/Items/ZOOMLENS;Graphics/Items/ZOOMLENS.png
+Graphics/Items/ZINC;Graphics/Items/ZINC.png
+Graphics/Items/ZAPPLATE;Graphics/Items/ZAPPLATE.png
+Graphics/Items/YELLOWNECTAR;Graphics/Items/YELLOWNECTAR.png
+Graphics/Items/YACHEBERRY;Graphics/Items/YACHEBERRY.png
+Graphics/Items/SWEETHEART;Graphics/Items/SWEETHEART.png
+Graphics/Items/SODAPOP;Graphics/Items/SODAPOP.png
+Graphics/Items/LEMONADE;Graphics/Items/LEMONADE.png
+Graphics/Items/MOOMOOMILK;Graphics/Items/MOOMOOMILK.png
+Graphics/Items/REVIVALHERB;Graphics/Items/REVIVALHERB.png
+Graphics/Items/MAXHONEY;Graphics/Items/MAXHONEY.png
+Graphics/Items/MAXETHER;Graphics/Items/MAXETHER.png
+Graphics/Items/MAXELIXIR;Graphics/Items/MAXELIXIR.png
+Graphics/Items/PPUP;Graphics/Items/PPUP.png
+Graphics/Items/PPMAX;Graphics/Items/PPMAX.png
+Graphics/Items/PROTEIN;Graphics/Items/PROTEIN.png
+Graphics/Items/LONELYMINT;Graphics/Items/LONELYMINT.png
+Graphics/Items/NAUGHTYMINT;Graphics/Items/NAUGHTYMINT.png
+Graphics/EBDX/Battlers/Front/CHARMELEON;Graphics/EBDX/Battlers/Front/CHARMELEON.png
+Graphics/EBDX/Battlers/Front/BLASTOISE;Graphics/EBDX/Battlers/Front/BLASTOISE.png
+Audio/SE/Cries/CHARMELEON;Audio/SE/Cries/CHARMELEON.ogg
+Audio/SE/Cries/BLASTOISE;Audio/SE/Cries/BLASTOISE.ogg
+Graphics/EBDX/Animations/Moves/eb156;Graphics/EBDX/Animations/Moves/eb156.png
+Graphics/EBDX/Animations/Moves/eb156_2;Graphics/EBDX/Animations/Moves/eb156_2.png
+Audio/SE/EBDX/Anim/flying2;Audio/SE/EBDX/Anim/flying2.wav
+Graphics/EBDX/Animations/Moves/eb156_3;Graphics/EBDX/Animations/Moves/eb156_3.png
+Audio/SE/Anim/Wind1;Audio/SE/Anim/Wind1.ogg
+Graphics/EBDX/Battlers/Front/CHARMANDER;Graphics/EBDX/Battlers/Front/CHARMANDER.png
+Audio/SE/Cries/CHARMANDER;Audio/SE/Cries/CHARMANDER.ogg
+Graphics/EBDX/Animations/Moves/eb615_2;Graphics/EBDX/Animations/Moves/eb615_2.png
+Graphics/EBDX/Animations/Moves/eb057_2;Graphics/EBDX/Animations/Moves/eb057_2.png
+Audio/SE/EBDX/Anim/dragon2;Audio/SE/EBDX/Anim/dragon2.wav
+Audio/BGM/Pallet Town_GB;Audio/BGM/Pallet Town_GB.ogg
+Audio/BGM/Route 1_GB;Audio/BGM/Route 1_GB.ogg
+Audio/BGM/Battle (Trainer)_GB;Audio/BGM/Battle (Trainer)_GB.ogg
+Graphics/EBDX/Transitions/BEAUTY;Graphics/EBDX/Transitions/BEAUTY.png
+Graphics/EBDX/Animations/Moves/eb59_4;Graphics/EBDX/Animations/Moves/eb59_4.png
+Audio/SE/EBDX/Anim/ground1;Audio/SE/EBDX/Anim/ground1.wav
+Graphics/EBDX/Animations/Moves/ebPoison2;Graphics/EBDX/Animations/Moves/ebPoison2.png
+Graphics/EBDX/Animations/Moves/ebPoison3;Graphics/EBDX/Animations/Moves/ebPoison3.png
+Graphics/EBDX/Animations/Moves/ebPoison1;Graphics/EBDX/Animations/Moves/ebPoison1.png
+Audio/SE/EBDX/Anim/poison1;Audio/SE/EBDX/Anim/poison1.wav
+Audio/BGM/Oak Pokémon Lab_GB;Audio/BGM/Oak Pokémon Lab_GB.ogg
+Audio/BGM/Professor Oak_GB;Audio/BGM/Professor Oak_GB.ogg
+Graphics/Pictures/choiceBulbasaur;Graphics/Pictures/choiceBulbasaur.png
+Audio/ME/Pkmn get;Audio/ME/Pkmn get.ogg
+Audio/BGM/Rival_GB;Audio/BGM/Rival_GB.ogg
+Audio/BGM/Battle (Rival);Audio/BGM/Battle (Rival).ogg
+Graphics/EBDX/Transitions/Forest/background;Graphics/EBDX/Transitions/Forest/background.png
+Graphics/EBDX/Transitions/Forest/glow;Graphics/EBDX/Transitions/Forest/glow.png
+Graphics/EBDX/Transitions/Forest/radial;Graphics/EBDX/Transitions/Forest/radial.png
+Graphics/EBDX/Transitions/Forest/overlay;Graphics/EBDX/Transitions/Forest/overlay.png
+Graphics/EBDX/Transitions/Forest/shine;Graphics/EBDX/Transitions/Forest/shine.png
+Graphics/EBDX/Transitions/Forest/ray;Graphics/EBDX/Transitions/Forest/ray.png
+Graphics/EBDX/Transitions/RIVAL1;Graphics/EBDX/Transitions/RIVAL1.png
+Graphics/EBDX/Battlebacks/battlebg/IndoorA;Graphics/EBDX/Battlebacks/battlebg/IndoorA.png
+Graphics/EBDX/Battlebacks/elements/decor007;Graphics/EBDX/Battlebacks/elements/decor007.png
+Graphics/EBDX/Battlebacks/elements/decor008;Graphics/EBDX/Battlebacks/elements/decor008.png
+Graphics/Trainers/RIVAL1;Graphics/Trainers/RIVAL1.png
+Audio/BGM/Battle (Wild Pokémon)_GB;Audio/BGM/Battle (Wild Pokémon)_GB.ogg
+Graphics/EBDX/Animations/Moves/eb108;Graphics/EBDX/Animations/Moves/eb108.png
+Graphics/EBDX/Animations/Moves/eb137_2;Graphics/EBDX/Animations/Moves/eb137_2.png
+Audio/BGM/EBDX/Victory Against Wild_GB;Audio/BGM/EBDX/Victory Against Wild_GB.ogg
+Graphics/Trainers/YOUNGCOUPLE;Graphics/Trainers/YOUNGCOUPLE.png
+Graphics/Trainers/TWINS;Graphics/Trainers/TWINS.png
+Graphics/Trainers/TEAMROCKET_M;Graphics/Trainers/TEAMROCKET_M.png
+Graphics/Trainers/TAMER;Graphics/Trainers/TAMER.png
+Graphics/Trainers/SWIMMER_M;Graphics/Trainers/SWIMMER_M.png
+Graphics/Trainers/SWIMMER2_M;Graphics/Trainers/SWIMMER2_M.png
+Graphics/Trainers/SWIMMER2_F;Graphics/Trainers/SWIMMER2_F.png
+Graphics/EBDX/Battlers/Front/CATERPIE;Graphics/EBDX/Battlers/Front/CATERPIE.png
+Audio/SE/Cries/CATERPIE;Audio/SE/Cries/CATERPIE.ogg
+Audio/BGM/EBDX/Victory Against Trainer_GB;Audio/BGM/EBDX/Victory Against Trainer_GB.ogg
+Audio/BGM/Pewter City_GB;Audio/BGM/Pewter City_GB.ogg
+Graphics/Tilesets/Routes;Graphics/Tilesets/Routes.png
+Graphics/Characters/doors7;Graphics/Characters/doors7.png
+Audio/BGM/Route 3_GB;Audio/BGM/Route 3_GB.ogg
+Graphics/Trainers/LEADER_Koga;Graphics/Trainers/LEADER_Koga.png
+Audio/BGM/Battle (Gym Leader)_GB;Audio/BGM/Battle (Gym Leader)_GB.ogg
+Audio/BGM/Battle (Regis);Audio/BGM/Battle (Regis).ogg
+Graphics/EBDX/Battlers/Front/REGIDRAGO;Graphics/EBDX/Battlers/Front/REGIDRAGO.png
+Audio/SE/Cries/REGIDRAGO;Audio/SE/Cries/REGIDRAGO.ogg
+Graphics/EBDX/Pictures/Pokeballs/MASTERBALL;Graphics/EBDX/Pictures/Pokeballs/MASTERBALL.png
+Graphics/EBDX/Animations/Ballburst/MASTERBALL_ray;Graphics/EBDX/Animations/Ballburst/MASTERBALL_ray.png
+Graphics/EBDX/Animations/Ballburst/MASTERBALL_shine;Graphics/EBDX/Animations/Ballburst/MASTERBALL_shine.png
+Graphics/EBDX/Animations/Ballburst/MASTERBALL_particle;Graphics/EBDX/Animations/Ballburst/MASTERBALL_particle.png
+Graphics/EBDX/Animations/Ballburst/MASTERBALL_eff;Graphics/EBDX/Animations/Ballburst/MASTERBALL_eff.png
+Audio/SE/Battle jump to ball;Audio/SE/Battle jump to ball.ogg
+Audio/SE/Battle ball drop;Audio/SE/Battle ball drop.ogg
+Audio/SE/Battle ball shake;Audio/SE/Battle ball shake.ogg
+Graphics/EBDX/Animations/Moves/ebStar;Graphics/EBDX/Animations/Moves/ebStar.png
+Audio/ME/EBDX/Capture Success;Audio/ME/EBDX/Capture Success.ogg
+Graphics/UI/Summary/markings;Graphics/UI/Summary/markings.png
+Graphics/UI/Summary/cursor_move;Graphics/UI/Summary/cursor_move.png
+Graphics/UI/Summary/cursor_ribbon;Graphics/UI/Summary/cursor_ribbon.png
+Graphics/UI/Summary/overlay_marking;Graphics/UI/Summary/overlay_marking.png
+Graphics/UI/Summary/cursor_marking;Graphics/UI/Summary/cursor_marking.png
+Graphics/UI/Summary/bg_1;Graphics/UI/Summary/bg_1.png
+Audio/BGM/Bicycle_GB;Audio/BGM/Bicycle_GB.ogg
+Audio/SE/Door slide;Audio/SE/Door slide.ogg
+Graphics/Tilesets/Pokemart;Graphics/Tilesets/Pokemart.png
+Graphics/Characters/trainer_PSYCHIC_F;Graphics/Characters/trainer_PSYCHIC_F.png
+Audio/BGM/Pokemart_GB;Audio/BGM/Pokemart_GB.ogg
+Audio/ME/Obtained a Key Item;Audio/ME/Obtained a Key Item.ogg
+Graphics/Icons/bagPocket8;Graphics/Icons/bagPocket8.png
+Graphics/Items/GBSOUNDS;Graphics/Items/GBSOUNDS.png

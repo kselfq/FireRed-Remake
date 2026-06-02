@@ -1,0 +1,44 @@
+
+=================
+
+[2026-02-18 00:01:27 -0500]
+[Pokémon Essentials version 21.1]
+[v21.1 Hotfixes 1.0.3]
+[EBDX v1.4.7.1 (E21)]
+
+Exception: NoMethodError
+Message: undefined method `mosaic_duration=' for #<PokemonSprite>
+
+Backtrace:
+017_UI_PokemonStorage.rb:1223:in `pbSwap'
+017_UI_PokemonStorage.rb:1967:in `pbSwap'
+017_UI_PokemonStorage.rb:1695:in `block in pbStartScreen'
+017_UI_PokemonStorage.rb:1638:in `loop'
+017_UI_PokemonStorage.rb:1638:in `pbStartScreen'
+005_UI_Party.rb:925:in `block (2 levels) in pbChoosePokemon'
+002_MessageConfig.rb:554:in `pbFadeOutIn'
+005_UI_Party.rb:922:in `block in pbChoosePokemon'
+005_UI_Party.rb:853:in `loop'
+005_UI_Party.rb:853:in `pbChoosePokemon'
+
+=================
+
+[2026-03-05 04:50:49 -0500]
+[Pokémon Essentials version 21.1]
+[v21.1 Hotfixes 1.0.3]
+[EBDX v1.4.7.1 (E21)]
+
+Exception: RuntimeError
+Message: Battle rule "4v4" does not exist.
+
+Backtrace:
+001_Overworld_BattleStarting.rb:62:in `add_battle_rule'
+001_Overworld_BattleStarting.rb:83:in `block in setBattleRule'
+001_Overworld_BattleStarting.rb:72:in `each'
+001_Overworld_BattleStarting.rb:72:in `setBattleRule'
+002_Debug_MenuCommands.rb:320:in `block (3 levels) in load_scripts_from_folder'
+002_Debug_MenuCommands.rb:307:in `loop'
+002_Debug_MenuCommands.rb:307:in `block (2 levels) in load_scripts_from_folder'
+006_Event_HandlerCollections.rb:121:in `call'
+001_Debug_Menus.rb:138:in `block in pbDebugMenu'
+001_Debug_Menus.rb:100:in `loop'

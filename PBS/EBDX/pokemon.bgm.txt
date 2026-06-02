@@ -1,0 +1,270 @@
+#-------------------------------
+[ARTICUNO]
+BattleBGM       = Battle (Birds)
+#-------------------------------
+[ZAPDOS]
+BattleBGM       = Battle (Birds)
+#-------------------------------
+[MOLTRES]
+BattleBGM       = Battle (Birds)
+#-------------------------------
+[MEWTWO]
+BattleBGM       = Battle (Mewtwo)
+#-------------------------------
+[MEW]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[MELTAN]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[MELMETAL]
+BattleBGM       = Battle (Mythical)
+
+#-------------------------------
+[RAIKOU]
+BattleBGM       = Battle (Raikou-Entei-Suicune)
+#-------------------------------
+[ENTEI]
+BattleBGM       = Battle (Raikou-Entei-Suicune)
+#-------------------------------
+[SUICUNE]
+BattleBGM       = Battle (Raikou-Entei-Suicune)
+#-------------------------------
+[LUGIA]
+BattleBGM       = Battle (Lugia)
+#-------------------------------
+[HOOH]
+BattleBGM       = Battle (Ho-Oh)
+#-------------------------------
+[CELEBI]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+
+[REGIROCK]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[REGICE]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[REGISTEEL]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[KYOGRE]
+BattleBGM       = Battle (Rayquaza)
+#-------------------------------
+[GROUDON]
+BattleBGM       = Battle (Rayquaza)
+#-------------------------------
+[RAYQUAZA]
+BattleBGM       = Battle (Rayquaza)
+#-------------------------------
+[DEOXYS]
+BattleBGM       = Battle (Deoxys)
+#-------------------------------
+[JIRACHI]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[LATIAS]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[LATIOS]
+BattleBGM       = Battle (Mythical)
+
+#-------------------------------
+[PHIONE]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[MANAPHY]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[SHAYMIN]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[UXIE]
+BattleBGM       = Battle (Azelf-Mesprit-Uxie)
+#-------------------------------
+[MESPRIT]
+BattleBGM       = Battle (Azelf-Mesprit-Uxie)
+#-------------------------------
+[AZELF]
+BattleBGM       = Battle (Azelf-Mesprit-Uxie)
+#-------------------------------
+[DIALGA]
+BattleBGM       = Battle (Dialga & Palkia)
+#-------------------------------
+[PALKIA]
+BattleBGM       = Battle (Dialga & Palkia)
+#-------------------------------
+[HEATRAN]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[REGIGIGAS]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[GIRATINA]
+BattleBGM       = Battle (Giratina)
+#-------------------------------
+[CRESSELIA]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[DARKRAI]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[ARCEUS]
+BattleBGM       = Battle (Arceus)
+#-------------------------------
+
+[COBALION]
+BattleBGM       = Battle (Swords of Justice)
+#-------------------------------
+[TERRAKION]
+BattleBGM       = Battle (Swords of Justice)
+#-------------------------------
+[VIRIZION]
+BattleBGM       = Battle (Swords of Justice)
+#-------------------------------
+[TORNADUS]
+BattleBGM       = Battle (Forces of Nature)
+#-------------------------------
+[THUNDURUS]
+BattleBGM       = Battle (Forces of Nature)
+#-------------------------------
+[LANDORUS]
+BattleBGM       = Battle (Forces of Nature)
+#-------------------------------
+[RESHIRAM]
+BattleBGM       = Battle (Reshiram & Zekrom)
+#-------------------------------
+[ZEKROM]
+BattleBGM       = Battle (Reshiram & Zekrom)
+#-------------------------------
+[KYUREM]
+BattleBGM       = Battle (Reshiram & Zekrom)
+#-------------------------------
+[VICTINI]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[KELDEO]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[MELOETTA]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[GENESECT]
+BattleBGM       = Battle (Mythical)
+
+#-------------------------------
+[XERNEAS]
+BattleBGM       = Battle (Xerneas & Yveltal)
+#-------------------------------
+[YVELTAL]
+BattleBGM       = Battle (Xerneas & Yveltal)
+#-------------------------------
+[ZYGARDE]
+BattleBGM       = Battle (Xerneas & Yveltal)
+#-------------------------------
+[DIANCIE]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[HOOPA]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[VOLCANION]
+BattleBGM       = Battle (Mythical)
+
+#-------------------------------
+[SOLGALEO]
+BattleBGM       = Battle (Solgaleo & Lunala)
+#-------------------------------
+[LUNALA]
+BattleBGM       = Battle (Solgaleo & Lunala)
+#-------------------------------
+[NECROZMA]
+BattleBGM       = Battle (Solgaleo & Lunala)
+#-------------------------------
+[NIHILEGO]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[BUZZWOLE]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[PHEROMOSA]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[XURKITREE]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[CELESTEELA]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[KARTANA]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[GUZZLORD]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[POIPOLE]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[NAGANADEL]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[STAKATAKA]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[BLACEPHALON]
+BattleBGM       = Battle (Ultra Beast)
+#-------------------------------
+[TAPUKOKO]
+BattleBGM       = Battle (Tapu)
+#-------------------------------
+[TAPULELE]
+BattleBGM       = Battle (Tapu)
+#-------------------------------
+[TAPUBULU]
+BattleBGM       = Battle (Tapu)
+#-------------------------------
+[TAPUFINI]
+BattleBGM       = Battle (Tapu)
+#-------------------------------
+[MAGEARNA]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[MARSHADOW]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[ZERAORA]
+BattleBGM       = Battle (Mythical)
+
+[CALYREX]
+BattleBGM       = Battle (Calyrex)
+#-------------------------------
+[ETERNATUS]
+BattleBGM       = Battle (Eternatus)
+#-------------------------------
+[GLASTRIER]
+BattleBGM       = Battle (Glastrier & Spectrier)
+#-------------------------------
+[SPECTRIER]
+BattleBGM       = Battle (Glastrier & Spectrier)
+#-------------------------------
+[ZACIAN]
+BattleBGM       = Battle (Zacian & Zamazenta)
+#-------------------------------
+[ZAMAZENTA]
+BattleBGM       = Battle (Zacian & Zamazenta)
+#-------------------------------
+[REGIELEKI]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[REGIDRAGO]
+BattleBGM       = Battle (Regis)
+#-------------------------------
+[ZARUDE]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[KUBFU]
+BattleBGM       = Battle (Mythical)
+#-------------------------------
+[URSHIFU]
+BattleBGM       = Battle (Mythical)

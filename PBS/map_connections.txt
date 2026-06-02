@@ -1,0 +1,144 @@
+﻿# See the documentation on the wiki to learn how to edit this file.
+#-------------------------------
+# Route 21 (198) - Pallet Town (5)
+198,North,0,5,South,15
+# Pallet Town (5) - Cinnabar Island (199)
+5,214,187,199,0,0
+# Viridian City (10) - Route 22 (16)
+10,West,0,16,East,0
+# Route 2 (18) - Viridian City (10)
+18,South,0,10,North,0
+# Route 2 (18) - Route 22 (16)
+18,West,93,16,East,0
+# Route 2 (222) - Route 22 (16)
+222,West,193,16,East,0
+# Route 2 (222) - Route 2 (18)
+222,South,0,18,North,0
+# Pewter City (25) - Route 2 (222)
+25,South,0,222,North,1
+# Route 3 (32) - Pewter City (25)
+32,West,0,25,East,32
+# Pewter House (31) - Pewter House (30)
+31,South,0,30,North,0
+# Route 4 (33) - Route 5 (56)
+33,East,45,56,West,0
+# Cerulean City (39) - Route 4 (33)
+39,West,0,33,East,5
+# Route 24 (53) - Route 4 (33)
+53,West,39,33,East,0
+# Cerulean Cave - 1F (50) - Mt. Moon - B1F (37)
+50,South,0,37,North,0
+# Cerulean Cave - 2F (51) - Mt. Moon - B1F (37)
+51,South,0,37,North,36
+# Cerulean Cave - 2F (51) - Cerulean Cave - 1F (50)
+51,West,0,50,East,0
+# Route 25 (54) - Route 24 (53)
+54,West,0,53,East,0
+# Route 9 (86) - Route 24 (53)
+86,North,0,53,South,85
+# Route 10 (87) - Route 24 (53)
+87,North,0,53,South,157
+# Route 9 (86) - Route 25 (54)
+86,North,0,54,South,12
+# Route 10 (87) - Route 25 (54)
+87,North,0,54,South,84
+# Saffron City (168) - Route 5 (56)
+168,North,4,56,South,0
+# Celadon City (114) - Route 5 (56)
+114,North,84,56,South,0
+# Route 6 (61) - Route 9 (86)
+61,East,0,86,West,121
+# Route 7 (111) - Route 6 (61)
+111,East,46,61,West,0
+# Vermilion City (64) - Route 6 (61)
+64,North,0,61,South,0
+# Route 11 (79) - Route 6 (61)
+79,West,0,61,East,39
+# Route 8 (107) - Route 6 (61)
+107,South,0,61,North,56
+# Vermilion City (64) - Route 9 (86)
+64,East,0,86,West,160
+# Vermilion City (64) - Route 7 (111)
+64,West,0,111,East,85
+# Route 11 (79) - Vermilion City (64)
+79,West,0,64,East,0
+# Route 12 (83) - Route 11 (79)
+83,West,50,79,East,0
+# Route 10 (87) - Route 11 (79)
+87,West,160,79,East,0
+# Lavender Town (93) - Route 11 (79)
+93,West,70,79,East,0
+# Route 12 (83) - Route 9 (86)
+83,West,0,86,East,110
+# Route 8 (107) - Route 12 (83)
+107,East,35,83,West,0
+# Lavender Town (93) - Route 12 (83)
+93,South,0,83,North,0
+# Route 14 (166) - Route 12 (83)
+166,North,73,83,South,0
+# Route 13 (167) - Route 12 (83)
+167,North,48,83,South,0
+# Route 7 (111) - Route 9 (86)
+111,North,72,86,South,0
+# Route 8 (107) - Route 9 (86)
+107,North,0,86,South,4
+# Route 10 (87) - Route 9 (86)
+87,West,0,86,East,0
+# Lavender Town (93) - Route 9 (86)
+93,West,0,86,East,90
+# Route 16 (136) - Route 9 (86)
+136,North,186,86,South,0
+# Route 10 (87) - Route 8 (107)
+87,West,75,107,East,0
+# Lavender Town (93) - Route 10 (87)
+93,North,0,87,South,0
+# Lavender Town (93) - Route 8 (107)
+93,West,0,107,East,15
+# Route 17 (140) - Route 16 (139)
+140,North,0,139,South,0
+# Route 18 (143) - Route 17 (140)
+143,North,0,140,South,6
+# Route 18 (141) - Fuchsia City (144)
+141,East,16,144,West,0
+# Route 15 (164) - Route 14 (166)
+164,East,0,166,West,27
+# Route 13 (167) - Route 14 (166)
+167,West,0,166,East,0
+# Route 19 (190) - Route 20 (191)
+190,West,0,191,East,0
+# Route 20 (191) - Route 21 (198)
+191,West,0,198,East,70
+# Indigo Plateau (214) - Route 23 (209)
+214,South,0,209,North,0
+# Viridian City (West) (234) - Viridian City (Center) (232)
+234,East,0,232,West,0
+# Viridian City (East) (235) - Viridian City (Center) (232)
+235,West,0,232,East,0
+# Route 1 (West) (223) - Viridian City (Center) (232)
+223,North,24,232,South,0
+# Route 1 (East) (229) - Viridian City (Center) (232)
+229,North,0,232,South,32
+# Route 22 (East) (237) - Viridian City (West) (234)
+237,East,0,234,West,7
+# Route 1 (West) (223) - Viridian City (West) (234)
+223,North,0,234,South,26
+# Route 1 (East) (229) - Viridian City (West) (234)
+229,North,0,234,South,82
+# Route 1 (West) (223) - Viridian City (East) (235)
+223,North,78,235,South,0
+# Route 1 (East) (229) - Viridian City (East) (235)
+229,North,22,235,South,0
+# Route 22 (West) (13) - Route 22 (East) (237)
+13,East,0,237,West,0
+# Pallet Town (West) (230) - Route 1 (West) (223)
+230,North,0,223,South,0
+# Route 1 (East) (229) - Route 1 (West) (223)
+229,West,0,223,East,0
+# Pallet Town (East) (231) - Route 1 (West) (223)
+231,West,0,223,East,107
+# Route 1 (East) (229) - Pallet Town (West) (230)
+229,West,107,230,East,0
+# Pallet Town (East) (231) - Pallet Town (West) (230)
+231,West,0,230,East,0
+# Pallet Town (East) (231) - Route 1 (East) (229)
+231,North,0,229,South,0

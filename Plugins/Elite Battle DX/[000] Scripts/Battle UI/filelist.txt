@@ -1,0 +1,12 @@
+filelist.txt
+Party Lineup.rb
+UI Bag.rb
+UI Choice Sel.rb
+UI Choose Target.rb
+UI Command.rb
+UI Data Boxes.rb
+UI Debug.rb
+UI Dex Entry.rb
+UI Fight.rb
+UI Fixes.rb
+UI Scene.rb

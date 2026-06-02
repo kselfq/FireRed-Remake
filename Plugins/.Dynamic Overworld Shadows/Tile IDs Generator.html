@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZBox Tile IDs Generator - Visual Configurator</title>
+    <style>
+        :root {
+            --bg-color: #1e1e24;
+            --panel-color: #2b2b36;
+            --text-color: #e0e0e0;
+            --accent-color: #ff4757;
+            --success-color: #2ed573;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #canvas-container {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-image: 
+                linear-gradient(45deg, #25252e 25%, transparent 25%), 
+                linear-gradient(-45deg, #25252e 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #25252e 75%), 
+                linear-gradient(-45deg, transparent 75%, #25252e 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        canvas {
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            cursor: crosshair;
+            image-rendering: pixelated;
+        }
+
+        #sidebar {
+            width: 350px;
+            background-color: var(--panel-color);
+            padding: 20px;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 1.5rem; color: var(--accent-color); }
+        p { font-size: 0.9rem; opacity: 0.7; margin-bottom: 10px; }
+
+        .control-group {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        
+        input[type="file"] {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-color);
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            background: var(--bg-color);
+            border: 1px solid #444;
+            color: white;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover { filter: brightness(1.1); }
+        button.secondary { background-color: #57606f; margin-top: 5px; }
+        
+        button.success {
+            background-color: var(--success-color);
+            pointer-events: none;
+        }
+
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            height: 150px;
+            background: #15151a;
+            color: #00d2d3;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 10px;
+            font-family: 'Consolas', monospace;
+            resize: vertical;
+            white-space: pre;
+        }
+
+        .stats {
+            font-size: 0.85rem;
+            color: #aaa;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container">
+        <canvas id="tilesetCanvas"></canvas>
+    </div>
+
+    <div id="sidebar">
+        <div>
+            <h1>ZBox Tile IDs Generator</h1>
+            <p>Visual Configuration Tool</p>
+        </div>
+
+        <div class="control-group">
+            <label>1. Load Tileset (PNG)</label>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+
+        <div class="control-group">
+            <label>2. Tileset ID (Database)</label>
+            <input type="number" id="tilesetId" value="1" placeholder="Ex: 25">
+            <p style="font-size: 0.8rem; margin-top: 5px;">Enter the ID from RMXP Database.</p>
+        </div>
+
+        <div class="control-group">
+            <label>3. Select Tiles</label>
+            <p>Click on tiles to mark them (fences, low walls).</p>
+            <div class="stats">Selected: <span id="count">0</span></div>
+            <button class="secondary" onclick="clearSelection()">Clear Selection</button>
+        </div>
+
+        <div class="control-group">
+            <label>4. Result (Copy to Script)</label>
+            <textarea id="output" readonly></textarea>
+            <button id="copyBtn" onclick="copyToClipboard()">Copy Code</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('tilesetCanvas');
+        const ctx = canvas.getContext('2d');
+        const fileInput = document.getElementById('fileInput');
+        const tilesetIdInput = document.getElementById('tilesetId');
+        const outputArea = document.getElementById('output');
+        const countSpan = document.getElementById('count');
+        const copyBtn = document.getElementById('copyBtn');
+
+        let img = new Image();
+        let selectedTiles = new Set();
+        let isImageLoaded = false;
+
+        const TILE_SIZE = 32;
+        const TILES_PER_ROW = 8;
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                img = new Image();
+                img.onload = function() {
+                    isImageLoaded = true;
+                    selectedTiles.clear();
+                    resizeCanvas();
+                    draw();
+                    updateOutput();
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(file);
+        });
+
+        tilesetIdInput.addEventListener('input', updateOutput);
+
+        canvas.addEventListener('mousedown', function(e) {
+            if (!isImageLoaded) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const tileX = Math.floor(x / TILE_SIZE);
+            const tileY = Math.floor(y / TILE_SIZE);
+
+            const tileId = (tileY * TILES_PER_ROW) + tileX;
+
+            if (selectedTiles.has(tileId)) {
+                selectedTiles.delete(tileId);
+            } else {
+                selectedTiles.add(tileId);
+            }
+
+            draw();
+            updateOutput();
+        });
+
+        function resizeCanvas() {
+            canvas.width = img.width;
+            canvas.height = img.height;
+        }
+
+        function draw() {
+            if (!isImageLoaded) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, 0, 0);
+
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+
+            for (let x = 0; x <= canvas.width; x += TILE_SIZE) {
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+            }
+            for (let y = 0; y <= canvas.height; y += TILE_SIZE) {
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+            }
+            ctx.stroke();
+
+            ctx.fillStyle = "rgba(255, 71, 87, 0.6)";
+            
+            selectedTiles.forEach(id => {
+                const col = id % TILES_PER_ROW;
+                const row = Math.floor(id / TILES_PER_ROW);
+                
+                ctx.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                
+                ctx.strokeStyle = "#fff";
+                ctx.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            });
+        }
+
+        function updateOutput() {
+            const id = tilesetIdInput.value || 1;
+            const count = selectedTiles.size;
+            countSpan.innerText = count;
+
+            if (count === 0) {
+                outputArea.value = "# Select tiles on the image...";
+                return;
+            }
+
+            const sortedIds = Array.from(selectedTiles).sort((a, b) => a - b);
+            
+            let formattedArray = "[\n      ";
+            sortedIds.forEach((val, index) => {
+                formattedArray += val + ", ";
+                if ((index + 1) % 10 === 0 && index !== sortedIds.length - 1) {
+                    formattedArray += "\n      ";
+                }
+            });
+            
+            formattedArray = formattedArray.replace(/, $/, "");
+            formattedArray += "\n    ]";
+
+            const output = `${id} => ${formattedArray}`;
+            
+            outputArea.value = output;
+        }
+
+        function clearSelection() {
+            selectedTiles.clear();
+            draw();
+            updateOutput();
+        }
+
+        function copyToClipboard() {
+            outputArea.select();
+            document.execCommand('copy');
+            
+            const originalText = copyBtn.innerText;
+            copyBtn.innerText = "Copied!";
+            copyBtn.classList.add("success");
+            
+            setTimeout(() => {
+                copyBtn.innerText = originalText;
+                copyBtn.classList.remove("success");
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

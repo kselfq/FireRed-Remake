@@ -1,0 +1,57 @@
+Executing preload script 
+Preload script is executed. 
+Applied patch:  eval(code, nil, f)  to  MKXP.run_postload(code)
+      eval(MKXP.apply_overrides(code), nil, f) 
+Executing script  Main 
+Applied patch:  Encoding::UTF_8  to  "UTF-8" 
+Applied patch:  Encoding::UTF_8  to  "UTF-8" 
+Applied patch:  Encoding::UTF_8  to  "UTF-8" 
+Applied patch:  name, meta, script = plugin  to  name, meta, script = plugin
+blacklist = ['Cablera Club']
+next if blacklist.include?(name) 
+Applied patch:  Dir.pwd  to  "" 
+Applied patch:  eval(code, TOPLEVEL_BINDING, fname)  to  eval(MKXP.apply_overrides(code), TOPLEVEL_BINDING, fname) 
+Applied patch:  Encoding::UTF_8  to  "UTF-8" 
+Applied patch:  Dir.pwd  to  "" 
+Applied patch:  Dir.pwd  to  "" 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  [regex]\beval\(script\)  to  eval(MKXP.apply_overrides(script)) 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  pbCopyBitmap(self.contents, bmp, rect.x, rect.y + 2)  to  pbCopyBitmap(self.contents, bmp, rect.x, rect.y + 2, 127) 
+Applied patch:  if ($PokemonSystem.textinput == 1 rescue false)  to  if false 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  Encoding::UTF_8  to  "UTF-8" 
+Executing postload scripts 
+Postload script is executed. 
+Cheats are enabled. 
+Cheats are enabled 
+Loading cheats for Pokemon Essentials v19 
+Applied patch:  .freeze
+  to  
+ 
+Applied patch:  Dir.pwd  to  "" 
+Requested resolution  1600 x 720 
+SDL_APP_WILLENTERBACKGROUND 
+SDL_APP_DIDENTERBACKGROUND 
+SDL_APP_WILLENTERFOREGROUND 
+SDL_APP_DIDENTERFOREGROUND 
+SDL_APP_WILLENTERBACKGROUND 
+SDL_APP_DIDENTERBACKGROUND 
