@@ -16,7 +16,7 @@ module Translator
           Graphics.update
         end
         scr = Zlib::Inflate.inflate(script[2])
-        find_translatable_text_from_RGSS_script(texts, scr)
+        #find_translatable_text_from_RGSS_script(texts, scr)
       end
       # If Scripts.rxdata only has 1 section, scripts have been extracted. Get
       # script texts from .rb files in Data/Scripts
@@ -27,7 +27,7 @@ module Translator
             Graphics.update
           end
           File.open(script_file, "rb") do |f|
-            find_translatable_text_from_RGSS_script(texts, f.read)
+            #find_translatable_text_from_RGSS_script(texts, f.read)
           end
         end
       end
@@ -41,7 +41,7 @@ module Translator
               Graphics.update
             end
             scr = Zlib::Inflate.inflate(script[1]).force_encoding(Encoding::UTF_8)
-            find_translatable_text_from_RGSS_script(texts, scr)
+            #find_translatable_text_from_RGSS_script(texts, scr)
           end
         end
       end
@@ -188,18 +188,18 @@ module Translator
     Graphics.update
   end
 
-  def find_translatable_text_from_RGSS_script(items, script)
-    script.force_encoding(Encoding::UTF_8)
-    script.scan(/(?:_INTL|_ISPRINTF)\s*\(\s*\"((?:[^\\\"]*\\\"?)*[^\"]*)\"/) do |s|
-      string = s[0]
-      string.gsub!(/\\r/, "\r")
-      string.gsub!(/\\n/, "\n")
-      string.gsub!(/\\1/, "\1")
-      string.gsub!(/\\\"/, "\"")
-      string.gsub!(/\\\\/, "\\")
-      items.push(string)
-    end
-  end
+  #def find_translatable_text_from_RGSS_script(items, script)
+   # script.force_encoding(Encoding::UTF_8)
+    #script.scan(/(?:_INTL|_ISPRINTF)\s*\(\s*\"((?:[^\\\"]*\\\"?)*[^\"]*)\"/) do |s|
+     # string = s[0]
+      #string.gsub!(/\\r/, "\r")
+      #string.gsub!(/\\n/, "\n")
+      #string.gsub!(/\\1/, "\1")
+      #string.gsub!(/\\\"/, "\"")
+      #string.gsub!(/\\\\/, "\\")
+      #items.push(string)
+    #end
+  #end
 
   def find_translatable_text_from_event_script(items, script)
     script.force_encoding(Encoding::UTF_8)

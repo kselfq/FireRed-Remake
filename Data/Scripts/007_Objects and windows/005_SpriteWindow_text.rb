@@ -339,7 +339,7 @@ class Window_AdvancedTextPokemon < SpriteWindow_Base
     if value.length == 0
       @fmtchars = []
       @bitmapwidth = width
-      @bitmapheight = height + 16
+      @bitmapheight = height
       @numtextchars = 0
     else
       if @letterbyletter
@@ -384,7 +384,7 @@ class Window_AdvancedTextPokemon < SpriteWindow_Base
         end
       end
       @bitmapwidth = width
-      @bitmapheight = height + 16
+      @bitmapheight = height
       @numtextchars = @textchars.length
     end
     stopPause

@@ -1,177 +1,5 @@
 #===============================================================================
-# Custom Speech Window - Global Style Support (NPC, Sign, System)
-#===============================================================================
-#===============================================================================
-# Custom Speech Window - Global Style Support (NPC, Sign, System)
-#===============================================================================
-class Window_Speech < Window_AdvancedTextPokemon
-  attr_reader :bg_sprite
-
-  def initialize(text="")
-    @line1_win = nil
-    @line2_win = nil
-    @pending_line2_text = ""
-    @is_typing_line2 = false
-    
-    super("") 
-    self.opacity = 0
-    self.contents_opacity = 0 
-    self.width = 792
-    self.height = 142
-    
-    # FIX: Initialize Off-Screen (x = -2000)
-    # This prevents the top-left flash by physically spawning the items outside the camera view.
-    
-    @bg_sprite = IconSprite.new(0, 0, self.viewport)
-    @bg_sprite.setBitmap("Graphics/Windowskins/speech")
-    @bg_sprite.x = -2000 
-    @bg_sprite.z = self.z 
-    
-    @line1_win = Window_AdvancedTextPokemon.new("")
-    @line1_win.width = 792
-    @line1_win.height = 96
-    @line1_win.x = -2000
-    @line1_win.opacity = 0      
-    @line1_win.z = self.z + 20 
-    @line1_win.letterbyletter = true if @line1_win.respond_to?("letterbyletter=")
-    
-    @line2_win = Window_AdvancedTextPokemon.new("")
-    @line2_win.width = 792
-    @line2_win.height = 96
-    @line2_win.x = -2000
-    @line2_win.opacity = 0
-    @line2_win.z = self.z + 20
-    @line2_win.letterbyletter = true if @line2_win.respond_to?("letterbyletter=")
-  end
-
-  def text=(value)
-    return if @line1_win.nil? || @line2_win.nil?
-    return if value.nil?
-
-    # --- 3-WAY GRAPHIC SWITCHER ---
-    if $msg_style == :system
-      @bg_sprite.setBitmap("Graphics/Windowskins/speech2")
-    else
-      interp = $game_system.map_interpreter if $game_system
-      current_id = interp ? (interp.instance_variable_get(:@event_id) || 0) : 0
-      
-      if current_id > 0 && $game_map && $game_map.events[current_id]
-        event_name = $game_map.events[current_id].name.downcase
-        if event_name.include?("sign")
-          @bg_sprite.setBitmap("Graphics/Windowskins/speech3")
-        else
-          @bg_sprite.setBitmap("Graphics/Windowskins/speech")
-        end
-      else
-        @bg_sprite.setBitmap("Graphics/Windowskins/speech")
-      end
-    end
-    # ------------------------------
-
-    lines = split_text_by_pixels(value)
-    
-    # FIX: Use native text tags to force font size 38 before drawing
-    @line1_win.text = lines[0] ? "<fs=38>#{lines[0]}" : ""
-    @line1_win.letterbyletter = true if @line1_win.respond_to?("letterbyletter=")
-    
-    @line2_win.text = "" 
-    @pending_line2_text = lines[1] ? "<fs=38>#{lines[1]}" : ""
-    @is_typing_line2 = false
-    
-    super("") 
-  end
-
-  def split_text_by_pixels(text)
-    if text.include?("\n")
-      parts = text.split("\n")
-      return [parts[0], parts[1]]
-    end
-    max_width = 752 
-    dummy_bitmap = Bitmap.new(1, 1)
-    pbSetSystemFont(dummy_bitmap)
-    
-    # FIX: Ensure the word-wrapper calculates line breaks based on size 38
-    dummy_bitmap.font.size = 38 
-    
-    words = text.split(" ")
-    line1 = ""
-    line2 = ""
-    words.each do |word|
-      test_string = line1 + word + " "
-      clean_string = test_string.gsub(/<[^>]*>/, "")
-      width = dummy_bitmap.text_size(clean_string).width
-      if width < max_width
-        line1 += word + " "
-      else
-        line2 += word + " "
-      end
-    end
-    dummy_bitmap.dispose
-    return [line1.strip, line2.strip]
-  end
-
-  def busy?
-    return true if @line1_win.busy? || @line2_win.busy? || @pending_line2_text != ""
-    return false
-  end
-
-  # =========================================================================
-  # FIX: Report Combined Position for Sound/Tag Timing
-  # This allows \se[], \wt[], and other tags to fire correctly.
-  # =========================================================================
-  def position
-    return 0 if !@line1_win
-    return @line1_win.position + (@line2_win ? @line2_win.position : 0)
-  end
-  # =========================================================================
-
-  def update
-    super 
-    # Calculate correct position
-    bg_real_x = (Graphics.width - 792) / 2
-    bg_real_y = Graphics.height - 142 - 16
-    
-    # Update Background
-    if @bg_sprite && !@bg_sprite.disposed?
-      @bg_sprite.update
-      @bg_sprite.x = bg_real_x
-      @bg_sprite.y = bg_real_y
-      @bg_sprite.z = self.z 
-      @bg_sprite.visible = self.visible # Sync visibility
-    end
-    
-    # Update Text Lines
-    [@line1_win, @line2_win].each_with_index do |win, i|
-      next if !win
-	  pbSetSystemFont(win.contents)
-      win.contents.font.size = 38
-      win.x = bg_real_x + 24 - 36
-      win.y = bg_real_y + 29 - 26 + (i * 56)
-      win.visible = self.visible # Sync visibility
-      win.z = self.z + 20 
-      win.update
-    end
-    
-    # Typing logic
-    if @line1_win && !@line1_win.busy? && @pending_line2_text != "" && !@is_typing_line2
-      @line2_win.text = @pending_line2_text
-      @line2_win.letterbyletter = true if @line2_win.respond_to?("letterbyletter=")
-      @pending_line2_text = ""
-      @is_typing_line2 = true
-    end
-  end
-
-  def dispose
-    @bg_sprite.dispose if @bg_sprite && !@bg_sprite.disposed?
-    @line1_win.dispose if @line1_win
-    @line2_win.dispose if @line2_win
-    super
-  end
-end
-
-
-#===============================================================================
-# Map Interpreter access
+#
 #===============================================================================
 def pbMapInterpreter
   return $game_system&.map_interpreter
@@ -192,7 +20,7 @@ def pbUpdateSceneMap
 end
 
 #===============================================================================
-# Event Comment Input
+#
 #===============================================================================
 def pbEventCommentInput(*args)
   parameters = []
@@ -222,7 +50,7 @@ def pbCurrentEventCommentInput(elements, trigger)
 end
 
 #===============================================================================
-# Choose Number
+#
 #===============================================================================
 class ChooseNumberParams
   attr_reader :messageSkin   # Set the full path for the message's window skin
@@ -332,6 +160,9 @@ class ChooseNumberParams
   end
 end
 
+#===============================================================================
+#
+#===============================================================================
 def pbChooseNumber(msgwindow, params)
   return 0 if !params
   ret = 0
@@ -375,7 +206,7 @@ def pbChooseNumber(msgwindow, params)
 end
 
 #===============================================================================
-# Face Window
+#
 #===============================================================================
 class FaceWindowVX < SpriteWindow_Base
   def initialize(face)
@@ -409,7 +240,7 @@ class FaceWindowVX < SpriteWindow_Base
 end
 
 #===============================================================================
-# Utilities
+#
 #===============================================================================
 def pbGetBasicMapNameFromId(id)
   begin
@@ -529,7 +360,7 @@ def pbDisplayBattlePointsWindow(msgwindow)
 end
 
 #===============================================================================
-# Message Window Creation (MODIFIED)
+#
 #===============================================================================
 def pbCreateStatusWindow(viewport = nil)
   msgwindow = Window_AdvancedTextPokemon.new("")
@@ -546,28 +377,20 @@ def pbCreateStatusWindow(viewport = nil)
   return msgwindow
 end
 
-# --- MODIFIED: Uses Window_Speech instead of standard window ---
 def pbCreateMessageWindow(viewport = nil, skin = nil)
-  msgwindow = Window_Speech.new("")
-  
+  msgwindow = Window_AdvancedTextPokemon.new("")
   if viewport
     msgwindow.viewport = viewport
+  else
+    msgwindow.z = 99999
   end
-  
-  # --- FIX 3: FORCE VERY HIGH LAYER ---
-  # This ensures 99999 - 1 (Background) is still > 0 (Bag Screen)
-  msgwindow.z = 100000
-  # ------------------------------------
-  
-  msgwindow.visible = false
+  msgwindow.visible = true
   msgwindow.letterbyletter = true
-  
-  pbRepositionMessageWindow(msgwindow)
-  
-  if skin
-    msgwindow.setSkin(skin)
-  end
-  
+  msgwindow.back_opacity = MessageConfig::WINDOW_OPACITY
+  pbBottomLeftLines(msgwindow, 2)
+  $game_temp.message_window_showing = true if $game_temp
+  skin = MessageConfig.pbGetSpeechFrame if !skin
+  msgwindow.setSkin(skin)
   return msgwindow
 end
 
@@ -725,7 +548,6 @@ def pbMessageDisplay(msgwindow, message, letterbyletter = true, commandProc = ni
   end
   # Position message window
   pbRepositionMessageWindow(msgwindow, linecount)
-  msgwindow.visible = true
   if facewindow
     pbPositionNearMsgWindow(facewindow, msgwindow, :left)
     facewindow.viewport = msgwindow.viewport
@@ -935,7 +757,6 @@ end
 def pbShowCommandsWithHelp(msgwindow, commands, help, cmdIfCancel = 0, defaultCmd = 0)
   msgwin = msgwindow
   msgwin = pbCreateMessageWindow(nil) if !msgwindow
-  msgwin.visible = true
   oldlbl = msgwin.letterbyletter
   msgwin.letterbyletter = false
   if commands
@@ -1035,157 +856,4 @@ def pbMessageFreeText(message, currenttext, passwordbox, maxlength, width = 240,
                             }, &block)
   pbDisposeMessageWindow(msgwindow)
   return retval
-end
-
-#===============================================================================
-# STEP 8: INVISIBLE CLICK ZONES (With Interaction-Bleed Protection)
-#===============================================================================
-module Input
-  @interaction_lock = 0
-
-  class << self
-    alias choice_trigger? trigger?
-    
-    # This prevents the "Click-Through" to NPCs/Objects
-    def trigger?(key)
-      # 1. Handle the interaction cooldown
-      if @interaction_lock > 0
-        # If it's a 'C' or 'USE' key, block it while locked
-        if key == Input::C || (defined?(Input::USE) && key == Input::USE)
-          return false 
-        end
-      end
-
-      # 2. Handle the Mouse Choice signal
-      if $mouse_choice_done && (key == Input::C || (defined?(Input::USE) && key == Input::USE))
-        $mouse_choice_done = false
-        @interaction_lock = 3 # Lock interactions for 3 frames after a click
-        return true
-      end
-      choice_trigger?(key)
-    end
-
-    # Helper to tick down the lock (called via Graphics.update or Input.update)
-    def update_lock
-      @interaction_lock -= 1 if @interaction_lock > 0
-    end
-
-    # Public method to trigger the lock manually (useful for Exit buttons)
-    def lock_interaction(frames = 3)
-      @interaction_lock = frames
-    end
-  end
-end
-
-# Hook into the main Input update to ensure the lock timer counts down
-module Input
-  class << self
-    alias lock_update update
-    def update
-      update_lock
-      lock_update
-    end
-  end
-end
-
-class Window_CommandPokemon < Window_DrawableCommand
-  def item_height; return 44; end
-
-  alias invisible_click_init initialize unless method_defined?(:invisible_click_init)
-  def initialize(*args)
-    @cursor_timer = 0
-    invisible_click_init(*args)
-    self.height = (@commands.length * self.item_height) + 40
-    self.contents = Bitmap.new([1, self.width - 32].max, [1, self.height - 32].max)
-    refresh
-  end
-
-  def resizeToFit(commands, width = nil)
-    @commands = commands
-    self.width = width if width
-    self.height = (@commands.length * self.item_height) + 40
-    self.contents.dispose if self.contents
-    self.contents = Bitmap.new([1, self.width - 32].max, [1, self.height - 32].max)
-    refresh
-  end
-
-  def update
-    super
-    return if !self.active || @commands.length == 0
-    @cursor_timer += 1
-    
-    if Input.choice_trigger?(Input::MOUSELEFT)
-      m_pos = (defined?(pbGetMousePos)) ? pbGetMousePos : (defined?(Mouse) ? Mouse.getMousePos : nil)
-      if m_pos
-        if m_pos[0] >= self.x && m_pos[0] <= self.x + self.width &&
-           m_pos[1] >= self.y && m_pos[1] <= self.y + self.height
-          
-          @commands.length.times do |i|
-            btn_top    = self.y + 20 + (i * self.item_height) - (self.top_item * self.item_height)
-            btn_bottom = btn_top + self.item_height
-            
-            if m_pos[1] >= btn_top && m_pos[1] <= btn_bottom
-              self.index = i
-              pbPlayDecisionSE() if defined?(pbPlayDecisionSE)
-              
-              # Wait for release
-              while Input.press?(Input::MOUSELEFT)
-                Input.update
-                Graphics.update
-              end
-              
-              # Set the signal and interaction lock
-              $mouse_choice_done = true
-              Input.lock_interaction(3) 
-              self.active = false
-              return
-            end
-          end
-        end
-      end
-    end
-    refresh if @cursor_timer % 2 == 0
-  end
-
-  # --- DRAWING LOGIC ---
-  def draw_9_slice(bitmap, rect, alpha)
-    m = 8; w, h, bw, bh = rect.width, rect.height, bitmap.width, bitmap.height
-    self.contents.stretch_blt(Rect.new(rect.x, rect.y, m, m), bitmap, Rect.new(0, 0, m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + w - m, rect.y, m, m), bitmap, Rect.new(bw - m, 0, m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x, rect.y + h - m, m, m), bitmap, Rect.new(0, bh - m, m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + w - m, rect.y + h - m, m, m), bitmap, Rect.new(bw - m, bh - m, m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + m, rect.y, w - 2*m, m), bitmap, Rect.new(m, 0, bw - 2*m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + m, rect.y + h - m, w - 2*m, m), bitmap, Rect.new(m, bh - m, bw - 2*m, m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x, rect.y + m, m, h - 2*m), bitmap, Rect.new(0, m, m, bh - 2*m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + w - m, rect.y + m, m, h - 2*m), bitmap, Rect.new(bw - m, m, bw - 2*m, bh - 2*m), alpha)
-    self.contents.stretch_blt(Rect.new(rect.x + m, rect.y + m, w - 2*m, h - 2*m), bitmap, Rect.new(m, m, bw - 2*m, bh - 2*m), alpha)
-  end
-
-  def drawItem(index, count, rect)
-    real_y = (index * self.item_height) + 4
-    self.contents.clear_rect(rect.x, real_y, rect.width, self.item_height)
-    if index == self.index
-      sel_graphic = "Graphics/Windowskins/choice sel"
-      sel_graphic = "Graphics/Windowskins/choice sel top" if index == 0
-      sel_graphic = "Graphics/Windowskins/choice sel bottom" if index == @commands.length - 1
-      if pbResolveBitmap(sel_graphic)
-        bitmap_obj = AnimatedBitmap.new(sel_graphic)
-        alpha = 150 + (105 * Math.sin(@cursor_timer * 0.12)).to_i
-        draw_9_slice(bitmap_obj.bitmap, Rect.new(rect.x, real_y, rect.width, self.item_height), alpha)
-        bitmap_obj.dispose
-      end
-    end
-    pbSetSystemFont(self.contents)
-    self.contents.font.size = 32
-    text_y = real_y + 6
-    if index == self.index && pbResolveBitmap("Graphics/UI/arrow_choices")
-      bob_x = (Math.sin(@cursor_timer * 0.2) * 6).to_i
-      pbDrawImagePositions(self.contents, [["Graphics/UI/arrow_choices", rect.x + bob_x, real_y + 11]])
-    end
-    pbDrawShadowText(self.contents, rect.x + 20, text_y, rect.width - 20, 32, @commands[index], self.baseColor, self.shadowColor)
-  end
-end
-
-class Window_CommandPokemonEx < Window_CommandPokemon
-  def drawItem(index, count, rect); super; end
 end

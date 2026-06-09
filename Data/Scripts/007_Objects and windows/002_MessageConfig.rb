@@ -1,31 +1,30 @@
 #===============================================================================
-# Message Config & Global Utilities
+#
 #===============================================================================
 module MessageConfig
-  LIGHT_TEXT_MAIN_COLOR    = Color.new(255, 255, 255)
+  LIGHT_TEXT_MAIN_COLOR    = Color.new(248, 248, 248)
   LIGHT_TEXT_SHADOW_COLOR  = Color.new(72, 80, 88, 0)
-  DARK_TEXT_MAIN_COLOR     = Color.new(0, 0, 0)
+  DARK_TEXT_MAIN_COLOR     = Color.new(80, 80, 88)
   DARK_TEXT_SHADOW_COLOR   = Color.new(160, 160, 168, 0)
-  MALE_TEXT_MAIN_COLOR     = Color.new(0, 0, 0) 
+  MALE_TEXT_MAIN_COLOR     = Color.new(80, 80, 88) #Color.new(48, 80, 200)   # Used by message tag "\b"
   MALE_TEXT_SHADOW_COLOR   = Color.new(208, 208, 200, 0)
-  FEMALE_TEXT_MAIN_COLOR   = Color.new(0, 0, 0) 
+  FEMALE_TEXT_MAIN_COLOR   = Color.new(80, 80, 88) #Color.new(224, 8, 8)   # Used by message tag "\r"
   FEMALE_TEXT_SHADOW_COLOR = Color.new(208, 208, 200, 0)
-  
-  # --- CUSTOM SETTINGS ---
-  FONT_NAME                = "poki" 
-  FONT_SIZE                = 32      
-  FONT_Y_OFFSET            = 4       
-  SMALL_FONT_NAME          = "poki" 
-  SMALL_FONT_SIZE          = 26      
+  FONT_NAME                = "poki" #regular
+  FONT_SIZE                = 23
+  FONT_Y_OFFSET            = 4
+  SMALL_FONT_NAME          = "poki" #small
+  SMALL_FONT_SIZE          = 16
   SMALL_FONT_Y_OFFSET      = 4
-  NARROW_FONT_NAME         = "poki" 
-  NARROW_FONT_SIZE         = 32
+  NARROW_FONT_NAME         = "poki" #narrow
+  NARROW_FONT_SIZE         = 23
   NARROW_FONT_Y_OFFSET     = 4
-  
+  # 0 = Pause cursor is displayed at end of text
+  # 1 = Pause cursor is displayed at bottom right
+  # 2 = Pause cursor is displayed at lower middle side
   CURSOR_POSITION          = 1
-  WINDOW_OPACITY           = 225     
-  TEXT_SPEED               = nil 
-  
+  WINDOW_OPACITY           = 245
+  TEXT_SPEED               = nil   # Time in seconds between two characters
   @@systemFrame     = nil
   @@defaultTextSkin = nil
   @@textSpeed       = nil
@@ -42,13 +41,17 @@ module MessageConfig
   end
 
   def self.pbDefaultSpeechFrame
-    return pbResolveBitmap("Graphics/Windowskins/speech") || ""
+    if $PokemonSystem
+      return pbResolveBitmap("Graphics/Windowskins/speech frlg") || ""
+    else
+      return pbResolveBitmap("Graphics/Windowskins/speech frlg") || ""
+    end
   end
 
   def self.pbDefaultWindowskin
     skin = ($data_system) ? $data_system.windowskin_name : nil
     if skin && skin != ""
-      skin = pbResolveBitmap("Graphics/Windowskins/speech") || ""
+      skin = pbResolveBitmap("Graphics/Windowskins/speech rs") || ""
     end
     skin = pbResolveBitmap("Graphics/System/Window") if nil_or_empty?(skin)
     skin = pbResolveBitmap("Graphics/Windowskins/001-Blue01") if nil_or_empty?(skin)
@@ -81,6 +84,8 @@ module MessageConfig
     @@defaultTextSkin = pbResolveBitmap(value) || ""
   end
 
+  #-----------------------------------------------------------------------------
+
   def self.pbDefaultTextSpeed
     return ($PokemonSystem) ? pbSettingToTextSpeed($PokemonSystem.textspeed) : pbSettingToTextSpeed(nil)
   end
@@ -94,6 +99,8 @@ module MessageConfig
     @@textSpeed = value
   end
 
+  # Text speed is the delay in seconds between two adjacent characters being
+  # shown.
   def self.pbSettingToTextSpeed(speed)
     case speed
     when 0 then return 4 / 80.0   # Slow
@@ -103,6 +110,8 @@ module MessageConfig
     end
     return TEXT_SPEED || (2 / 80.0)   # Normal
   end
+
+  #-----------------------------------------------------------------------------
 
   def self.pbDefaultSystemFontName
     return MessageConfig.pbTryFonts(FONT_NAME)
@@ -177,10 +186,22 @@ def pbBottomLeft(window)
 end
 
 def pbBottomLeftLines(window, lines, width = nil)
-  window.width  = 792
-  window.height = 142
-  window.x = (Graphics.width - 792) / 2
-  window.y = Graphics.height - 142 - 16
+  window_width  = 512
+  window_height = 94
+  
+  # Calculate X position for horizontal center
+  # Graphics.width is the screen width (default 512)
+  window_x      = (Graphics.width - window_width) / 2 # (512 - 512) / 2 = 0
+  
+  # Calculate Y position for 16 pixels from the bottom
+  # Graphics.height is the screen height (default 384)
+  # 384 (screen) - 94 (box height) - 16 (padding) = 274
+  window_y      = Graphics.height - window_height
+  
+  window.width  = window_width
+  window.height = window_height
+  window.x      = window_x
+  window.y      = window_y - 16
 end
 
 def pbPositionFaceWindow(facewindow, msgwindow)
@@ -230,19 +251,16 @@ end
 
 # internal function
 def pbRepositionMessageWindow(msgwindow, linecount = 2)
-  msgwindow.width  = 792
-  msgwindow.height = 142
-  msgwindow.x = (Graphics.width - 792) / 2
-  msgwindow.y = (Graphics.height) - 142 - 16
-  
+  msgwindow.height = (32 * linecount) + msgwindow.borderY
+  msgwindow.y = (Graphics.height) - (msgwindow.height)
   if $game_system
     case $game_system.message_position
     when 0  # up
-      msgwindow.y = 16
+      msgwindow.y = 0
     when 1  # middle
       msgwindow.y = (Graphics.height / 2) - (msgwindow.height / 2)
     when 2
-      msgwindow.y = (Graphics.height) - 142 - 16
+      msgwindow.y = (Graphics.height) - (msgwindow.height) - 16
     end
     msgwindow.opacity = 0 if $game_system.message_frame != 0
   end
@@ -262,9 +280,10 @@ def pbUpdateMsgWindowPos(msgwindow, event, eventChanged = false)
       msgwindow.x = Graphics.width - msgwindow.width
     end
   else
-    if msgwindow.width != 792
-      msgwindow.width = 792
-      msgwindow.x = (Graphics.width - 792) / 2
+    curwidth = msgwindow.width
+    if curwidth != Graphics.width
+      msgwindow.width = Graphics.width
+      msgwindow.width = Graphics.width
     end
   end
 end
@@ -320,9 +339,14 @@ def isDarkWindowskin(windowskin)
   end
 end
 
+#===============================================================================
+# Determine which text colours to use based on the darkness of the background
+#===============================================================================
 def getSkinColor(windowskin, color, isDarkSkin)
   if !windowskin || windowskin.disposed? ||
      windowskin.width != 128 || windowskin.height != 128
+    # Base color, shadow color (these are reversed on dark windowskins)
+    # Values in arrays are RGB numbers
     textcolors = [
       [  0, 112, 248], [120, 184, 232],   # 1  Blue
       [232,  32,  16], [248, 168, 184],   # 2  Red
@@ -399,18 +423,21 @@ end
 #===============================================================================
 # Set a bitmap's font
 #===============================================================================
+# Sets a bitmap's font to the system font.
 def pbSetSystemFont(bitmap)
   bitmap.font.name = MessageConfig.pbGetSystemFontName
   bitmap.font.size = MessageConfig::FONT_SIZE
   bitmap.text_offset_y = MessageConfig::FONT_Y_OFFSET
 end
 
+# Sets a bitmap's font to the system small font.
 def pbSetSmallFont(bitmap)
   bitmap.font.name = MessageConfig.pbGetSmallFontName
   bitmap.font.size = MessageConfig::SMALL_FONT_SIZE
   bitmap.text_offset_y = MessageConfig::SMALL_FONT_Y_OFFSET
 end
 
+# Sets a bitmap's font to the system narrow font.
 def pbSetNarrowFont(bitmap)
   bitmap.font.name = MessageConfig.pbGetNarrowFontName
   bitmap.font.size = MessageConfig::NARROW_FONT_SIZE
@@ -495,6 +522,7 @@ def pbUpdateSpriteHash(windows)
   end
 end
 
+# Disposes all objects in the specified hash.
 def pbDisposeSpriteHash(sprites)
   return if !sprites
   sprites.each_key do |i|
@@ -503,6 +531,8 @@ def pbDisposeSpriteHash(sprites)
   sprites.clear
 end
 
+# Disposes the specified graphics object within the specified hash. Basically
+# like:   sprites[id].dispose
 def pbDisposeSprite(sprites, id)
   sprite = sprites[id]
   sprite.dispose if sprite && !pbDisposed?(sprite)
@@ -535,6 +565,9 @@ def pbIsFaded?
   return ($game_temp) ? $game_temp.fadestate > 0 : false
 end
 
+# pbFadeOutIn(z) { block }
+# Fades out the screen before a block is run and fades it back in after the
+# block exits.  z indicates the z-coordinate of the viewport used for this effect
 def pbFadeOutIn(z = 99999, nofadeout = false)
   duration = 0.4   # In seconds
   col = Color.new(0, 0, 0, 0)
@@ -603,6 +636,8 @@ def pbFadeOutInWithUpdate(z, sprites, nofadeout = false)
   end
 end
 
+# Similar to pbFadeOutIn, but pauses the music as it fades out.
+# Requires scripts "Audio" (for bgm_pause) and "SpriteWindow" (for pbFadeOutIn).
 def pbFadeOutInWithMusic(zViewport = 99999)
   playingBGS = $game_system.getPlayingBGS
   playingBGM = $game_system.getPlayingBGM
@@ -660,6 +695,8 @@ def pbFadeInAndShow(sprites, visiblesprites = nil)
   end
 end
 
+# Restores which windows are active for the given sprite hash.
+# _activeStatuses_ is the result of a previous call to pbActivateWindows
 def pbRestoreActivations(sprites, activeStatuses)
   return if !sprites || !activeStatuses
   activeStatuses.each_key do |k|
@@ -669,6 +706,8 @@ def pbRestoreActivations(sprites, activeStatuses)
   end
 end
 
+# Deactivates all windows. If a code block is given, deactivates all windows,
+# runs the code in the block, and reactivates them.
 def pbDeactivateWindows(sprites)
   if block_given?
     pbActivateWindow(sprites, nil) { yield }
@@ -677,6 +716,9 @@ def pbDeactivateWindows(sprites)
   end
 end
 
+# Activates a specific window of a sprite hash. _key_ is the key of the window
+# in the sprite hash. If a code block is given, deactivates all windows except
+# the specified window, runs the code in the block, and reactivates them.
 def pbActivateWindow(sprites, key)
   return if !sprites
   activeStatuses = {}
@@ -701,10 +743,16 @@ end
 #===============================================================================
 # Create background planes for a sprite hash
 #===============================================================================
+# Adds a background to the sprite hash.
+# _planename_ is the hash key of the background.
+# _background_ is a filename within the Graphics/UI/ folder and can be
+#     an animated image.
+# _viewport_ is a viewport to place the background in.
 def addBackgroundPlane(sprites, planename, background, viewport = nil)
   sprites[planename] = AnimatedPlane.new(viewport)
   bitmapName = pbResolveBitmap("Graphics/UI/#{background}")
   if bitmapName.nil?
+    # Plane should exist in any case
     sprites[planename].bitmap = nil
     sprites[planename].visible = false
   else
@@ -715,9 +763,16 @@ def addBackgroundPlane(sprites, planename, background, viewport = nil)
   end
 end
 
+# Adds a background to the sprite hash.
+# _planename_ is the hash key of the background.
+# _background_ is a filename within the Graphics/UI/ folder and can be
+#       an animated image.
+# _color_ is the color to use if the background can't be found.
+# _viewport_ is a viewport to place the background in.
 def addBackgroundOrColoredPlane(sprites, planename, background, color, viewport = nil)
   bitmapName = pbResolveBitmap("Graphics/UI/#{background}")
   if bitmapName.nil?
+    # Plane should exist in any case
     sprites[planename] = ColoredPlane.new(color, viewport)
   else
     sprites[planename] = AnimatedPlane.new(viewport)
@@ -741,6 +796,9 @@ module Graphics
   end
 end
 
+#===============================================================================
+# Ensure required method definitions.
+#===============================================================================
 if !defined?(_INTL)
   def _INTL(*args)
     string = args[0].clone
