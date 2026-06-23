@@ -1184,7 +1184,8 @@ ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
-[230]   # Pallet Town (West)
+[230]   # Pallet Town
+Name = Pallet Town (West)
 ShowArea = true
 #-------------------------------
 [232]   # Viridian City (Center)
