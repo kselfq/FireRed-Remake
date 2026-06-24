@@ -589,6 +589,7 @@ MapPosition = 0,16,8
 [110]   # Underground Path - Tunnel
 Name = Underground Path - Tunnel
 MapPosition = 0,13,8
+SnapEdges = true
 MapSize = 1,1111
 #-------------------------------
 [111]   # Route 7
