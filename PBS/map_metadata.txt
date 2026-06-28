@@ -28,7 +28,7 @@ MapPosition = 0,5,13
 BattleBack = Forest
 #-------------------------------
 [007]   # Player's House
-Name = \PN's House
+Name = Redjo's House
 HealingSpot = 2,8,8
 MapPosition = 0,5,13
 #-------------------------------
@@ -64,7 +64,10 @@ Name = Viridian Poké Mart
 MapPosition = 0,5,10
 #-------------------------------
 [013]   # Route 22 (West)
-Name = Viridian Gym
+Name = Route 22
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,5,10
 #-------------------------------
 [014]   # Viridian House
@@ -115,6 +118,7 @@ MapPosition = 0,5,7
 #-------------------------------
 [023]   # Diglett's Cave - Entrance
 Name = Diglett's Cave - Entrance
+ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
@@ -186,6 +190,7 @@ Name = Mt. Moon
 [036]   # Mt. Moon - 1F
 Name = Mt. Moon - 1F
 ShowArea = true
+Bicycle = true
 MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
@@ -193,6 +198,7 @@ Environment = Cave
 [037]   # Mt. Moon - B1F
 Name = Mt. Moon - B1F
 ShowArea = true
+Bicycle = true
 MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
@@ -200,6 +206,7 @@ Environment = Cave
 [038]   # Mt. Moon - B2F
 Name = Mt. Moon - B2F
 ShowArea = true
+Bicycle = true
 MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
@@ -315,6 +322,8 @@ MapPosition = 0,15,7
 #-------------------------------
 [060]   # Underground Path - Tunnel
 Name = Underground Path - Tunnel
+ShowArea = true
+Bicycle = true
 MapPosition = 0,15,7
 MapSize = 1,111
 #-------------------------------
@@ -422,6 +431,7 @@ MapPosition = 0,18,11
 #-------------------------------
 [081]   # Diglett's Cave - Entrance
 Name = Diglett's Cave - Entrance
+ShowArea = true
 Bicycle = true
 MapPosition = 0,16,11
 #-------------------------------
@@ -588,6 +598,8 @@ MapPosition = 0,16,8
 #-------------------------------
 [110]   # Underground Path - Tunnel
 Name = Underground Path - Tunnel
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,8
 SnapEdges = true
 MapSize = 1,1111
@@ -682,6 +694,7 @@ Name = Rocket Hideout
 #-------------------------------
 [131]   # Rocket Hideout - B1F
 Name = Rocket Hideout - B1F
+ShowArea = true
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
@@ -1185,9 +1198,83 @@ ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
-[230]   # Pallet Town
-Name = Pallet Town (West)
+[223]   # Route 1
+Name = Route 1
+Outdoor = true
 ShowArea = true
+Bicycle = true
+#-------------------------------
+[229]   # Route 1
+Name = Route 1
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[230]   # Pallet Town
+Name = Pallet Town
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,13
+MapSize = 0,
+#-------------------------------
+[231]   # Pallet Town
+Name = Pallet Town
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,13
 #-------------------------------
 [232]   # Viridian City (Center)
-Name = Viridian City (Center)
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[234]   # Viridian City (West)
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[235]   # Viridian City (East)
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[237]   # Route 22 (East)
+Name = Route 22
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[238]   # Route 2 South (West)
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[239]   # Route 2 South (East)
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[241]   # Viridian Forest (West)
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[242]   # Viridian Forest (Center)
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[243]   # Viridian Forest (East)
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
