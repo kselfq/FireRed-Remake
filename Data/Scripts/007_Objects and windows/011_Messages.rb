@@ -546,8 +546,36 @@ def pbMessageDisplay(msgwindow, message, letterbyletter = true, commandProc = ni
   elsif !appear_timer_start && letterbyletter
     pbPlayDecisionSE
   end
-  # Position message window
-  pbRepositionMessageWindow(msgwindow, linecount)
+  
+  # --- START OF CUSTOM MESSAGE SIZING ---
+  # 1. Force custom dimensions for 720p resolution
+  msgwindow.width = 792
+  msgwindow.height = 142
+  
+  # 2. Rebuild the internal text canvas to match the new 792x142 width
+  if msgwindow.contents && !msgwindow.contents.disposed?
+    msgwindow.contents.dispose
+  end
+  msgwindow.contents = Bitmap.new(msgwindow.width - 32, msgwindow.height - 32)
+  pbSetSystemFont(msgwindow.contents)
+
+  # 3. Handle window positioning on the screen
+  if $game_system
+    case $game_system.message_position
+    when 0  # up
+      msgwindow.x = (Graphics.width - msgwindow.width) / 2
+      msgwindow.y = 0
+    when 1  # middle
+      msgwindow.x = (Graphics.width - msgwindow.width) / 2
+      msgwindow.y = (Graphics.height / 2) - (msgwindow.height / 2)
+    when 2  # bottom
+      msgwindow.x = (Graphics.width - msgwindow.width) / 2
+      msgwindow.y = Graphics.height - msgwindow.height - 16
+    end
+    msgwindow.opacity = 0 if $game_system.message_frame != 0
+  end
+  # --- END OF CUSTOM MESSAGE SIZING ---
+
   if facewindow
     pbPositionNearMsgWindow(facewindow, msgwindow, :left)
     facewindow.viewport = msgwindow.viewport
@@ -768,7 +796,7 @@ def pbShowCommandsWithHelp(msgwindow, commands, help, cmdIfCancel = 0, defaultCm
     cmdwindow.index = defaultCmd
     command = 0
     msgwin.text = help[cmdwindow.index]
-    msgwin.width = msgwin.width   # Necessary evil to make it use the proper margins
+    msgwin.width = msgwin.width
     loop do
       Graphics.update
       Input.update
@@ -857,3 +885,120 @@ def pbMessageFreeText(message, currenttext, passwordbox, maxlength, width = 240,
   pbDisposeMessageWindow(msgwindow)
   return retval
 end
+
+#===============================================================================
+# Line Height Override for 720p Resolution (Font Size 38)
+#===============================================================================
+class Window_AdvancedTextPokemon
+  alias _old_text_setter_v21 text=
+  
+  def text=(value)
+    # Force the internal line height to 52 to separate the larger font
+    @lineHeight = 52 
+    _old_text_setter_v21(value)
+  end
+end
+
+# Safety net: If the core drawing engine defaults to 32, force it to 52
+alias _old_drawFormattedTextEx drawFormattedTextEx
+def drawFormattedTextEx(bitmap, x, y, width, text, baseColor=nil, shadowColor=nil, lineHeight=32)
+  lineHeight = 52 if lineHeight == 32
+  _old_drawFormattedTextEx(bitmap, x, y, width, text, baseColor, shadowColor, lineHeight)
+end
+
+#===============================================================================
+# Choice Box Fix - 9-Slice + Faster Pulse (0-255)
+#===============================================================================
+class Window_CommandPokemonEx < Window_CommandPokemon
+  def initialize(commands, width = nil)
+    @custom_arrow = Bitmap.new("Graphics/UI/arrow_choices.png")
+    @sel_top      = Bitmap.new("Graphics/Windowskins/choice sel top.png")
+    @sel_mid      = Bitmap.new("Graphics/Windowskins/choice sel middle.png")
+    @sel_bot      = Bitmap.new("Graphics/Windowskins/choice sel bottom.png")
+    
+    @bob_index = 0
+    @frame_counter = 0
+    @pulse_opacity = 255
+    @pulse_dir = -8 # Increased speed
+    
+    padded_commands = commands.map { |cmd| cmd.to_s + "      " }
+    super(padded_commands, width)
+    
+    self.contents.font.size = 38 if self.contents && !self.contents.disposed?
+    @row_height = 52
+  end
+
+  def update
+    super
+    @frame_counter += 1
+    
+    # Bobbing logic
+    if @frame_counter % 6 == 0
+      @bob_index = (@bob_index + 1) % 4
+    end
+    
+    # Faster Pulse logic (0 to 255)
+    if @frame_counter % 2 == 0
+      @pulse_opacity += @pulse_dir
+      if @pulse_opacity <= 0
+        @pulse_opacity = 0
+        @pulse_dir = 15
+      elsif @pulse_opacity >= 255
+        @pulse_opacity = 255
+        @pulse_dir = -15
+      end
+      refresh
+    end
+  end
+
+  def draw_9slice(bitmap, rect, opacity = 255)
+    w, h = rect.width, rect.height
+    sw, sh = bitmap.width, bitmap.height
+    # STRICT EDGE CALCULATION: Prevents stretching by capping the edge at 
+    # half the image size.
+    edge = [8, sw / 2, sh / 2].min 
+    
+    # Corners (Draw at fixed size)
+    self.contents.blt(rect.x, rect.y, bitmap, Rect.new(0, 0, edge, edge), opacity)
+    self.contents.blt(rect.x + w - edge, rect.y, bitmap, Rect.new(sw - edge, 0, edge, edge), opacity)
+    self.contents.blt(rect.x, rect.y + h - edge, bitmap, Rect.new(0, sh - edge, edge, edge), opacity)
+    self.contents.blt(rect.x + w - edge, rect.y + h - edge, bitmap, Rect.new(sw - edge, sh - edge, edge, edge), opacity)
+    
+    # Edges & Center (Stretch only the middle sections)
+    self.contents.stretch_blt(Rect.new(rect.x + edge, rect.y, w - edge * 2, edge), bitmap, Rect.new(edge, 0, sw - edge * 2, edge), opacity)
+    self.contents.stretch_blt(Rect.new(rect.x + edge, rect.y + h - edge, w - edge * 2, edge), bitmap, Rect.new(edge, sh - edge, sw - edge * 2, edge), opacity)
+    self.contents.stretch_blt(Rect.new(rect.x, rect.y + edge, edge, h - edge * 2), bitmap, Rect.new(0, edge, edge, sh - edge * 2), opacity)
+    self.contents.stretch_blt(Rect.new(rect.x + w - edge, rect.y + edge, edge, h - edge * 2), bitmap, Rect.new(sw - edge, edge, edge, sh - edge * 2), opacity)
+    self.contents.stretch_blt(Rect.new(rect.x + edge, rect.y + edge, w - edge * 2, h - edge * 2), bitmap, Rect.new(edge, edge, sw - edge * 2, sh - edge * 2), opacity)
+  end
+
+  def drawCursor(index, rect)
+    if self.index == index
+      total_items = self.commands ? self.commands.size : 0
+      
+      bg_bitmap = if total_items <= 1 || index == 0 || rect.y == 0
+                    @sel_top
+                  elsif index == total_items - 1
+                    @sel_bot
+                  else
+                    @sel_mid
+                  end
+      
+      draw_9slice(bg_bitmap, Rect.new(rect.x, rect.y, rect.width, 52), @pulse_opacity)
+
+      bob_offsets = [0, 2, 4, 2]
+      y_offset = rect.y + ((52 - @custom_arrow.height) / 2)
+      x_offset = rect.x + bob_offsets[@bob_index]
+      
+      self.contents.blt(x_offset, y_offset, @custom_arrow, Rect.new(0, 0, @custom_arrow.width, @custom_arrow.height))
+    end
+    
+    return Rect.new(rect.x + 26, rect.y, rect.width - 26, rect.height)
+  end
+
+  def dispose
+    [@custom_arrow, @sel_top, @sel_mid, @sel_bot].each { |b| b.dispose if b && !b.disposed? }
+    super
+  end
+end
+

@@ -11,14 +11,14 @@ module MessageConfig
   FEMALE_TEXT_MAIN_COLOR   = Color.new(80, 80, 88) #Color.new(224, 8, 8)   # Used by message tag "\r"
   FEMALE_TEXT_SHADOW_COLOR = Color.new(208, 208, 200, 0)
   FONT_NAME                = "poki" #regular
-  FONT_SIZE                = 23
-  FONT_Y_OFFSET            = 4
+  FONT_SIZE                = 38
+  FONT_Y_OFFSET            = -4
   SMALL_FONT_NAME          = "poki" #small
   SMALL_FONT_SIZE          = 16
   SMALL_FONT_Y_OFFSET      = 4
   NARROW_FONT_NAME         = "poki" #narrow
-  NARROW_FONT_SIZE         = 23
-  NARROW_FONT_Y_OFFSET     = 4
+  NARROW_FONT_SIZE         = 38
+  NARROW_FONT_Y_OFFSET     = -4
   # 0 = Pause cursor is displayed at end of text
   # 1 = Pause cursor is displayed at bottom right
   # 2 = Pause cursor is displayed at lower middle side
@@ -42,16 +42,16 @@ module MessageConfig
 
   def self.pbDefaultSpeechFrame
     if $PokemonSystem
-      return pbResolveBitmap("Graphics/Windowskins/speech frlg") || ""
+      return pbResolveBitmap("Graphics/Windowskins/choice 3") || ""
     else
-      return pbResolveBitmap("Graphics/Windowskins/speech frlg") || ""
+      return pbResolveBitmap("Graphics/Windowskins/choice 3") || ""
     end
   end
 
   def self.pbDefaultWindowskin
     skin = ($data_system) ? $data_system.windowskin_name : nil
     if skin && skin != ""
-      skin = pbResolveBitmap("Graphics/Windowskins/speech rs") || ""
+      skin = pbResolveBitmap("Graphics/Windowskins/choice 2") || ""
     end
     skin = pbResolveBitmap("Graphics/System/Window") if nil_or_empty?(skin)
     skin = pbResolveBitmap("Graphics/Windowskins/001-Blue01") if nil_or_empty?(skin)
@@ -186,8 +186,8 @@ def pbBottomLeft(window)
 end
 
 def pbBottomLeftLines(window, lines, width = nil)
-  window_width  = 512
-  window_height = 94
+  window_width  = 792
+  window_height = 142
   
   # Calculate X position for horizontal center
   # Graphics.width is the screen width (default 512)
@@ -196,12 +196,12 @@ def pbBottomLeftLines(window, lines, width = nil)
   # Calculate Y position for 16 pixels from the bottom
   # Graphics.height is the screen height (default 384)
   # 384 (screen) - 94 (box height) - 16 (padding) = 274
-  window_y      = Graphics.height - window_height
+  window_y      = Graphics.height - window_height - 16
   
   window.width  = window_width
   window.height = window_height
   window.x      = window_x
-  window.y      = window_y - 16
+  window.y      = window_y
 end
 
 def pbPositionFaceWindow(facewindow, msgwindow)

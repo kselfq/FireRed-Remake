@@ -768,7 +768,7 @@ class Window_InputNumberPokemon < SpriteWindow_Base
     textwidth = self.contents.text_size(text).width
     pbDrawShadowText(self.contents,
                      x + (12 - (textwidth / 2)),
-                     y - 2 + (self.contents.text_offset_y || 0),   # TEXT OFFSET (the - 2)
+                     y - 8 + (self.contents.text_offset_y || 0),   # TEXT OFFSET (the - 2)
                      textwidth + 4, 32, text, @baseColor, @shadowColor)
     # Draw cursor
     if @index == i && @active && @cursor_shown
