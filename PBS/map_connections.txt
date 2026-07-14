@@ -10,12 +10,6 @@
 18,South,0,10,North,0
 # Route 2 (18) - Route 22 (16)
 18,West,93,16,East,0
-# Route 2 North (East) (222) - Route 22 (16)
-222,West,193,16,East,0
-# Route 2 North (East) (222) - Route 2 (18)
-222,South,0,18,North,0
-# Pewter City (25) - Route 2 North (East) (222)
-25,South,0,222,North,1
 # Route 3 (32) - Pewter City (25)
 32,West,0,25,East,32
 # Pewter House (31) - Pewter House (30)
@@ -114,49 +108,59 @@
 242,West,0,241,East,0
 # Viridian Forest (East) (243) - Viridian Forest (Center) (242)
 243,West,0,242,East,0
-# Route 1 (223) - Pallet Town (230)
-223,South,0,230,North,0
-# Route 1 (229) - Pallet Town (230)
-229,West,107,230,East,0
-# Pallet Town (231) - Pallet Town (230)
-231,West,0,230,East,0
-# Viridian City (Center) (232) - Route 1 (223)
-232,South,0,223,North,24
-# Route 1 (229) - Route 1 (223)
-229,West,0,223,East,0
-# Viridian City (West) (234) - Route 1 (223)
-234,South,26,223,North,0
-# Pallet Town (231) - Route 1 (223)
-231,West,0,223,East,107
-# Viridian City (East) (235) - Route 1 (223)
-235,South,0,223,North,78
+# Viridian City (Center) (232) - Route 2 South (East) (239)
+232,North,30,239,South,0
+# Viridian City (West) (234) - Route 2 South (East) (239)
+234,North,80,239,South,0
+# Route 2 South (West) (238) - Route 2 South (East) (239)
+238,East,0,239,West,0
+# Viridian City (East) (235) - Route 2 South (East) (239)
+235,North,0,239,South,24
+# Route 2 North (West) (240) - Route 2 South (East) (239)
+240,East,98,239,West,0
+# Route 2 North (East) (222) - Route 2 South (East) (239)
+222,South,0,239,North,0
+# Route 1 (223) - Viridian City (Center) (232)
+223,North,24,232,South,0
 # Route 1 (229) - Viridian City (Center) (232)
 229,North,0,232,South,32
 # Viridian City (West) (234) - Viridian City (Center) (232)
 234,East,0,232,West,0
-# Viridian City (East) (235) - Viridian City (Center) (232)
-235,West,0,232,East,0
 # Route 2 South (West) (238) - Viridian City (Center) (232)
 238,South,42,232,North,0
-# Route 2 South (East) (239) - Viridian City (Center) (232)
-239,South,0,232,North,30
+# Viridian City (East) (235) - Viridian City (Center) (232)
+235,West,0,232,East,0
+# Pallet Town (230) - Route 1 (223)
+230,North,0,223,South,0
+# Route 1 (229) - Route 1 (223)
+229,West,0,223,East,0
+# Viridian City (West) (234) - Route 1 (223)
+234,South,26,223,North,0
+# Viridian City (East) (235) - Route 1 (223)
+235,South,0,223,North,78
+# Pallet Town (231) - Route 1 (223)
+231,West,0,223,East,107
+# Route 1 (229) - Pallet Town (230)
+229,West,107,230,East,0
+# Pallet Town (231) - Pallet Town (230)
+231,West,0,230,East,0
 # Viridian City (West) (234) - Route 1 (229)
 234,South,82,229,North,0
-# Pallet Town (231) - Route 1 (229)
-231,North,0,229,South,0
 # Viridian City (East) (235) - Route 1 (229)
 235,South,0,229,North,22
+# Pallet Town (231) - Route 1 (229)
+231,North,0,229,South,0
 # Route 2 South (West) (238) - Viridian City (West) (234)
 238,South,0,234,North,8
-# Route 2 South (East) (239) - Viridian City (West) (234)
-239,South,0,234,North,80
 # Route 22 (East) (237) - Viridian City (West) (234)
 237,East,0,234,West,7
-# Route 2 South (West) (238) - Viridian City (East) (235)
-238,South,96,235,North,0
-# Route 2 South (East) (239) - Viridian City (East) (235)
-239,South,24,235,North,0
-# Route 2 South (East) (239) - Route 2 South (West) (238)
-239,West,0,238,East,0
+# Viridian City (East) (235) - Route 2 South (West) (238)
+235,North,0,238,South,96
+# Route 2 North (West) (240) - Route 2 South (West) (238)
+240,South,0,238,North,16
+# Route 2 North (East) (222) - Route 2 South (West) (238)
+222,West,98,238,East,0
 # Route 22 (West) (13) - Route 22 (East) (237)
 13,East,0,237,West,0
+# Route 2 North (East) (222) - Route 2 North (West) (240)
+222,West,0,240,East,0
