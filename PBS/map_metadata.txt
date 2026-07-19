@@ -15,114 +15,136 @@ BattleBack = field
 [004]   # Kanto
 Name = Kanto
 #-------------------------------
-[005]   # Pallet Town
-Name = Pallet Town
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,13
-#-------------------------------
-[006]   # Viridian Gym
-Name = Oak's Lab
-MapPosition = 0,5,13
-BattleBack = Forest
-#-------------------------------
-[007]   # Player's House
-Name = Redjo's House
-HealingSpot = 2,8,8
-MapPosition = 0,5,13
-#-------------------------------
-[008]   # Oak's Lab
-Name = \v[12]'s House
-HealingSpot = 2,8,8
-MapPosition = 0,5,13
-#-------------------------------
-[009]   # Route 1
-Name = Route 1
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,11
-BattleBack = field
-MapSize = 1,11
-#-------------------------------
-[010]   # Viridian City
+[005]   # Viridian City
 Name = Viridian City
 Outdoor = true
 ShowArea = true
 Bicycle = true
+HealingSpot = 7,31,62
 MapPosition = 0,5,10
-BattleBack = field
 #-------------------------------
-[011]   # Viridian Pokémon Center
+[006]   # Route 22
+Name = Route 22
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,4,10
+BattleBack = Forest
+#-------------------------------
+[007]   # Viridian City
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+HealingSpot = 7,31,62
+MapPosition = 0,5,10
+#-------------------------------
+[008]   # Viridian City
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+HealingSpot = 7,31,62
+MapPosition = 0,5,10
+#-------------------------------
+[009]   # Viridian Pokémon Center
 Name = Viridian Pokémon Center
 MapPosition = 0,5,10
-BattleBack = pokecenter
-#-------------------------------
-[012]   # Viridian Poké Mart
-Name = Viridian Poké Mart
-MapPosition = 0,5,10
-#-------------------------------
-[013]   # Route 22 (West)
-Name = Route 22
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,10
-#-------------------------------
-[014]   # Viridian House
-Name = Viridian House
-MapPosition = 0,5,10
-#-------------------------------
-[015]   # Viridian School
-Name = Viridian House
-MapPosition = 0,5,10
-#-------------------------------
-[016]   # Route 22
-Name = Route 22
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,3,10
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[017]   # Indigo Plateau Gate
+[010]   # Route 22
+Name = Route 22
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,4,10
+BattleBack = field
+#-------------------------------
+[011]   # Indigo Plateau Gate
 Name = Indigo Plateau Gate
 MapPosition = 0,3,10
+BattleBack = pokecenter
 #-------------------------------
-[018]   # Route 2
+[012]   # Route 2
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,8
+#-------------------------------
+[013]   # Route 2
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,8
+#-------------------------------
+[014]   # Route 2
 Name = Route 2
 Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
+#-------------------------------
+[015]   # Route 2
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,7
+#-------------------------------
+[016]   # Gatehouse South
+Name = Route 22
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,3,10
+BattleBack = field
+MapSize = 1,11
+#-------------------------------
+[017]   # Gatehouse North
+Name = Indigo Plateau Gate
+MapPosition = 0,3,10
+#-------------------------------
+[018]   # Pewter City
+Name = Pewter City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,6
 BattleBack = field
 MapSize = 1,111
 #-------------------------------
-[019]   # Gatehouse South
-Name = Gatehouse South
-MapPosition = 0,5,9
+[019]   # Pewter City
+Name = Pewter City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,6
 #-------------------------------
-[020]   # Gatehouse North
-Name = Gatehouse North
-MapPosition = 0,5,7
+[020]   # Pewter City
+Name = Pewter City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,6
 #-------------------------------
-[021]   # Secret Gatehouse
+[021]   # Pewter Pokémon Center
 Name = Secret Gatehouse
 MapPosition = 0,5,8
 #-------------------------------
-[022]   # Hidden House
+[022]   # Pewter Poké Mart
 Name = Hidden House
 MapPosition = 0,5,7
 #-------------------------------
-[023]   # Diglett's Cave - Entrance
+[023]   # Pewter Gym
 Name = Diglett's Cave - Entrance
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
-[024]   # Viridian Forest
+[024]   # Pewter Museum
 Name = Viridian Forest
 Outdoor = true
 ShowArea = true
@@ -130,39 +152,39 @@ Bicycle = true
 MapPosition = 0,5,8
 BattleBack = field
 #-------------------------------
-[025]   # Pewter City
+[025]   # Route 3
 Name = Pewter City
 Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,6
 #-------------------------------
-[026]   # Pewter Pokémon Center
+[026]   # Mt. Moon Pokémon Center
 Name = Pewter Pokémon Center
 MapPosition = 0,5,6
 #-------------------------------
-[027]   # Pewter Poké Mart
+[027]   # Route 4
 Name = Pewter Poké Mart
 MapPosition = 0,5,6
 #-------------------------------
-[028]   # Pewter Gym
+[028]   # Mt. Moon
 Name = Pewter Gym
 MapPosition = 0,5,6
 BattleBack = interior
 #-------------------------------
-[029]   # Pewter Museum
+[029]   # Mt. Moon - B1F
 Name = Pewter Museum
 MapPosition = 0,5,6
 #-------------------------------
-[030]   # Pewter House
+[030]   # Mt. Moon - B2F
 Name = Pewter House
 MapPosition = 0,5,6
 #-------------------------------
-[031]   # Pewter House
+[031]   # Route 3
 Name = Pewter House
 MapPosition = 0,5,6
 #-------------------------------
-[032]   # Route 3
+[032]   # Cerulean City
 Name = Route 3
 Outdoor = true
 ShowArea = true
@@ -171,7 +193,7 @@ MapPosition = 0,6,6
 BattleBack = field
 MapSize = 4,1111
 #-------------------------------
-[033]   # Route 4
+[033]   # Cerulean Pokémon Center
 Name = Route 4
 Outdoor = true
 ShowArea = true
@@ -180,14 +202,14 @@ MapPosition = 0,9,5
 BattleBack = field
 MapSize = 6,111111
 #-------------------------------
-[034]   # Mt. Moon Pokémon Center
+[034]   # Cerulean Poké Mart
 Name = Mt. Moon Pokémon Center
 MapPosition = 0,9,5
 #-------------------------------
-[035]   # Mt. Moon
+[035]   # Cerulean Gym
 Name = Mt. Moon
 #-------------------------------
-[036]   # Mt. Moon - 1F
+[036]   # Bike Shop
 Name = Mt. Moon - 1F
 ShowArea = true
 Bicycle = true
@@ -195,7 +217,7 @@ MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
 #-------------------------------
-[037]   # Mt. Moon - B1F
+[037]   # Cerulean House
 Name = Mt. Moon - B1F
 ShowArea = true
 Bicycle = true
@@ -203,7 +225,7 @@ MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
 #-------------------------------
-[038]   # Mt. Moon - B2F
+[038]   # Cerulean House
 Name = Mt. Moon - B2F
 ShowArea = true
 Bicycle = true
@@ -211,7 +233,7 @@ MapPosition = 0,10,5
 BattleBack = cave
 Environment = Cave
 #-------------------------------
-[039]   # Cerulean City
+[039]   # Route 24
 Name = Cerulean City
 Outdoor = true
 ShowArea = true
@@ -219,65 +241,65 @@ Bicycle = true
 MapPosition = 0,15,5
 BattleBack = field
 #-------------------------------
-[040]   # Cerulean Pokémon Center
+[040]   # Route 24
 Name = Cerulean Pokémon Center
 MapPosition = 0,15,5
 #-------------------------------
-[041]   # Cerulean Poké Mart
+[041]   # Route 25
 Name = Cerulean Poké Mart
 MapPosition = 0,15,5
 #-------------------------------
-[042]   # Cerulean Gym
+[042]   # Route 25
 Name = Cerulean Gym
 MapPosition = 0,15,5
 BattleBack = interior
 #-------------------------------
-[043]   # Bike Shop
+[043]   # Bill's Cottage
 Name = Bike Shop
 MapPosition = 0,15,5
 #-------------------------------
-[044]   # Cerulean House
+[044]   # Route 5
 Name = Cerulean House
 MapPosition = 0,15,5
 #-------------------------------
-[045]   # Cerulean House
+[045]   # Pokémon Day Care
 Name = Cerulean House
 MapPosition = 0,15,5
 #-------------------------------
-[046]   # Cerulean House
+[046]   # Saffron Gate North
 Name = Cerulean House
 MapPosition = 0,15,5
 #-------------------------------
-[047]   # Cerulean House
+[047]   # Underground Path - Entrance
 Name = Cerulean House
 MapPosition = 0,15,5
 #-------------------------------
-[048]   # Ransacked House
+[048]   # Underground Path - Tunnel
 Name = Ransacked House
 MapPosition = 0,15,5
 #-------------------------------
-[049]   # Cerulean Cave
+[049]   # Route 6
 Name = Cerulean Cave
 #-------------------------------
-[050]   # Cerulean Cave - 1F
+[050]   # Saffron Gate South
 Name = Cerulean Cave - 1F
 ShowArea = true
 MapPosition = 0,15,5
 BattleBack = cave
 #-------------------------------
-[051]   # Cerulean Cave - 2F
+[051]   # Underground Path - Entrance
 Name = Cerulean Cave - 2F
 ShowArea = true
 MapPosition = 0,15,5
 BattleBack = cave
 #-------------------------------
-[052]   # Cerulean Cave - B1F
+[052]   # Vermilion City
 Name = Cerulean Cave - B1F
 ShowArea = true
 MapPosition = 0,15,5
 BattleBack = cave
 #-------------------------------
-[053]   # Route 24
+[053]   # Vermilion Pokémon Center
 Name = Route 24
 Outdoor = true
 ShowArea = true
@@ -286,7 +308,7 @@ MapPosition = 0,15,3
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[054]   # Route 25
+[054]   # Vermilion Poké Mart
 Name = Route 25
 Outdoor = true
 ShowArea = true
@@ -295,11 +317,11 @@ MapPosition = 0,16,3
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[055]   # Bill's Cottage
+[055]   # Vermilion Gym
 Name = Bill's House
 MapPosition = 0,17,3
 #-------------------------------
-[056]   # Route 5
+[056]   # Pokémon Fan Club
 Name = Route 5
 Outdoor = true
 ShowArea = true
@@ -308,26 +330,26 @@ MapPosition = 0,15,6
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[057]   # Saffron Gate North
+[057]   # Vermilion House
 Name = Pokémon Day Care
 MapPosition = 0,15,7
 #-------------------------------
-[058]   # Pokémon Day Care
+[058]   # Vermilion House
 Name = Saffron Gate North
 MapPosition = 0,15,7
 #-------------------------------
-[059]   # Underground Path - Entrance
+[059]   # Fisherman's House
 Name = Underground Path - Entrance
 MapPosition = 0,15,7
 #-------------------------------
-[060]   # Underground Path - Tunnel
+[060]   # Vermilion Harbor
 Name = Underground Path - Tunnel
 ShowArea = true
 Bicycle = true
 MapPosition = 0,15,7
 MapSize = 1,111
 #-------------------------------
-[061]   # Route 6
+[061]   # S.S. Anne
 Name = Route 6
 Outdoor = true
 ShowArea = true
@@ -336,15 +358,15 @@ MapPosition = 0,15,9
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[062]   # Saffron Gate South
+[062]   # Route 12
 Name = Saffron Gate South
 MapPosition = 0,15,9
 #-------------------------------
-[063]   # Underground Path - Entrance
+[063]   # Gatehouse
 Name = Underground Path - Entrance
 MapPosition = 0,15,9
 #-------------------------------
-[064]   # Vermilion City
+[064]   # Route 11
 Name = Vermilion City
 Outdoor = true
 ShowArea = true
@@ -352,36 +374,36 @@ Bicycle = true
 MapPosition = 0,15,11
 BattleBack = city
 #-------------------------------
-[065]   # Vermilion Pokémon Center
+[065]   # Gatehouse
 Name = Vermilion Pokémon Center
 MapPosition = 0,15,11
 #-------------------------------
-[066]   # Vermilion Poké Mart
+[066]   # Diglett's Cave - Entrance
 Name = Vermilion Poké Mart
 MapPosition = 0,15,11
 #-------------------------------
-[067]   # Vermilion Gym
+[067]   # Diglett's Cave - Tunnel
 Name = Vermilion Gym
 MapPosition = 0,15,11
 BattleBack = interior
 #-------------------------------
-[068]   # Pokémon Fan Club
+[068]   # S.S. Anne - 2F
 Name = Pokémon Fan Club
 MapPosition = 0,15,11
 #-------------------------------
-[069]   # Vermilion House
+[069]   # S.S. Anne - Captain's Cabin
 Name = Cerulean House
 MapPosition = 0,15,11
 #-------------------------------
-[070]   # Vermilion House
+[070]   # S.S. Anne - B1F
 Name = Cerulean House
 MapPosition = 0,15,11
 #-------------------------------
-[071]   # Fisherman's House
+[071]   # S.S. Anne - Deck
 Name = Fisherman's House
 MapPosition = 0,15,11
 #-------------------------------
-[072]   # Vermilion Harbor
+[072]   # Fishing Guru's House
 Name = Vermilion Harbor
 Outdoor = true
 ShowArea = true
@@ -389,34 +411,34 @@ Bicycle = true
 MapPosition = 0,15,11
 BattleBack = city
 #-------------------------------
-[073]   # S.S. Anne
+[073]   # Route 9
 Name = S.S. Anne
 #-------------------------------
-[074]   # S.S. Anne - 1F
+[074]   # Route 10
 Name = S.S. Anne - 1F
 MapPosition = 0,15,11
 BattleBack = interior
 #-------------------------------
-[075]   # S.S. Anne - 2F
+[075]   # Rock Tunnel Pokémon Center
 Name = S.S. Anne - 2F
 MapPosition = 0,15,11
 BattleBack = interior
 #-------------------------------
-[076]   # S.S. Anne - Captain's Cabin
+[076]   # Rock Tunnel
 Name = S.S. Anne - Captain's Cabin
 MapPosition = 0,15,11
 #-------------------------------
-[077]   # S.S. Anne - B1F
+[077]   # Rock Tunnel - B1F
 Name = S.S. Anne - Basement
 MapPosition = 0,15,11
 BattleBack = interior
 #-------------------------------
-[078]   # S.S. Anne - Deck
+[078]   # Lavender Town
 Name = S.S. Anne - Deck
 MapPosition = 0,15,11
 BattleBack = interior
 #-------------------------------
-[079]   # Route 11
+[079]   # Lavender Pokémon Center
 Name = Route 11
 Outdoor = true
 ShowArea = true
@@ -425,22 +447,22 @@ MapPosition = 0,16,11
 BattleBack = field
 MapSize = 1,111
 #-------------------------------
-[080]   # Gatehouse
+[080]   # Lavender Poké Mart
 Name = Gatehouse
 MapPosition = 0,18,11
 #-------------------------------
-[081]   # Diglett's Cave - Entrance
+[081]   # Lavender House
 Name = Diglett's Cave - Entrance
 ShowArea = true
 Bicycle = true
 MapPosition = 0,16,11
 #-------------------------------
-[082]   # Diglett's Cave - Tunnel
+[082]   # Name Rater's House
 Name = Diglett's Cave - Tunnel
 Bicycle = true
 BattleBack = cave
 #-------------------------------
-[083]   # Route 12
+[083]   # Mr. Fuji's House
 Name = Route 12
 Outdoor = true
 ShowArea = true
@@ -449,15 +471,15 @@ MapPosition = 0,19,9
 BattleBack = field
 MapSize = 1,11111
 #-------------------------------
-[084]   # Gatehouse
+[084]   # Pokémon Tower
 Name = Gatehouse
 MapPosition = 0,19,9
 #-------------------------------
-[085]   # Fishing Guru's House
+[085]   # Pokémon Tower - 2F
 Name = Fishing Guru's House
 MapPosition = 0,19,12
 #-------------------------------
-[086]   # Route 9
+[086]   # Pokémon Tower - 3F
 Name = Route 9
 Outdoor = true
 ShowArea = true
@@ -466,7 +488,7 @@ MapPosition = 0,16,5
 BattleBack = field
 MapSize = 3,111
 #-------------------------------
-[087]   # Route 10
+[087]   # Pokémon Tower - 4F
 Name = Route 10
 Outdoor = true
 ShowArea = true
@@ -475,33 +497,33 @@ MapPosition = 0,19,5
 BattleBack = field
 MapSize = 1,111
 #-------------------------------
-[088]   # Rock Tunnel Pokémon Center
+[088]   # Pokémon Tower - 5F
 Name = Rock Tunnel Pokémon Center
 MapPosition = 0,19,5
 #-------------------------------
-[089]   # Rock Tunnel
+[089]   # Pokémon Tower - 6F
 Name = Rock Tunnel
 #-------------------------------
-[090]   # Rock Tunnel - 1F
+[090]   # Pokémon Tower - 7F
 Name = Rock Tunnel - 1F
 ShowArea = true
 MapPosition = 0,19,5
 DarkMap = true
 BattleBack = cave
 #-------------------------------
-[091]   # Rock Tunnel - B1F
+[091]   # Route 8
 Name = Rock Tunnel - B1F
 ShowArea = true
 MapPosition = 0,19,5
 DarkMap = true
 BattleBack = cave
 #-------------------------------
-[092]   # Power Plant
+[092]   # Saffron Gate East
 Name = Power Plant
 MapPosition = 0,19,6
 BattleBack = interior
 #-------------------------------
-[093]   # Lavender Town
+[093]   # Underground Path - Entrance
 Name = Lavender Town
 Outdoor = true
 ShowArea = true
@@ -509,77 +531,77 @@ Bicycle = true
 MapPosition = 0,19,8
 BattleBack = city
 #-------------------------------
-[094]   # Lavender Pokémon Center
+[094]   # Underground Path - Tunnel
 Name = Lavender Pokémon Center
 MapPosition = 0,19,8
 #-------------------------------
-[095]   # Lavender Poké Mart
+[095]   # Route 7
 Name = Lavender Poké Mart
 MapPosition = 0,19,8
 #-------------------------------
-[096]   # Lavender House
+[096]   # Saffron Gate West
 Name = Cerulean House
 MapPosition = 0,19,8
 #-------------------------------
-[097]   # Name Rater's House
+[097]   # Underground Path - Entrance
 Name = Name Rater's House
 MapPosition = 0,19,8
 #-------------------------------
-[098]   # Mr. Fuji's House
+[098]   # Celadon City
 Name = Mr. Fuji's House
 MapPosition = 0,19,8
 #-------------------------------
-[099]   # Pokémon Tower
+[099]   # Cerulean House
 Name = Pokémon Tower
 ShowArea = true
 #-------------------------------
-[100]   # Pokémon Tower - 1F
+[100]   # Celadon Pokémon Center
 Name = Pokémon Tower - 1F
 ShowArea = true
 MapPosition = 0,19,8
 #-------------------------------
-[101]   # Pokémon Tower - 2F
+[101]   # Celadon Dept. Store
 Name = Pokémon Tower - 2F
 ShowArea = true
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[102]   # Pokémon Tower - 3F
+[102]   # Celadon Dept. Store - 2F
 Name = Pokémon Tower - 3F
 ShowArea = true
 Weather = Fog,100
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[103]   # Pokémon Tower - 4F
+[103]   # Celadon Dept. Store - 3F
 Name = Pokémon Tower - 4F
 ShowArea = true
 Weather = Fog,100
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[104]   # Pokémon Tower - 5F
+[104]   # Celadon Dept. Store - 4F
 Name = Pokémon Tower - 5F
 ShowArea = true
 Weather = Fog,100
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[105]   # Pokémon Tower - 6F
+[105]   # Celadon Dept. Store - 5F
 Name = Pokémon Tower - 6F
 ShowArea = true
 Weather = Fog,100
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[106]   # Pokémon Tower - 7F
+[106]   # Celadon Dept. Store - Rooftop
 Name = Pokémon Tower - 7F
 ShowArea = true
 Weather = Fog,100
 MapPosition = 0,19,8
 BattleBack = interior
 #-------------------------------
-[107]   # Route 8
+[107]   # Celadon Dept. Store - Elevator
 Name = Route 8
 Outdoor = true
 ShowArea = true
@@ -588,15 +610,15 @@ MapPosition = 0,16,8
 BattleBack = field
 MapSize = 1,111
 #-------------------------------
-[108]   # Saffron Gate East
+[108]   # Celadon Gym
 Name = Saffron Gate East
 MapPosition = 0,16,8
 #-------------------------------
-[109]   # Underground Path - Entrance
+[109]   # Celadon Condominiums
 Name = Underground Path - Entrance
 MapPosition = 0,16,8
 #-------------------------------
-[110]   # Underground Path - Tunnel
+[110]   # Celadon Condominiums - 2F
 Name = Underground Path - Tunnel
 ShowArea = true
 Bicycle = true
@@ -604,7 +626,7 @@ MapPosition = 0,13,8
 SnapEdges = true
 MapSize = 1,1111
 #-------------------------------
-[111]   # Route 7
+[111]   # Celadon Condominiums - 3F
 Name = Route 7
 Outdoor = true
 ShowArea = true
@@ -613,15 +635,15 @@ MapPosition = 0,13,8
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[112]   # Saffron Gate West
+[112]   # Celadon Condominiums - Roof
 Name = Saffron Gate West
 MapPosition = 0,14,8
 #-------------------------------
-[113]   # Underground Path - Entrance
+[113]   # Celadon Condominiums - School
 Name = Underground Path - Entrance
 MapPosition = 0,13,8
 #-------------------------------
-[114]   # Celadon City
+[114]   # Route 16
 Name = Celadon City
 Outdoor = true
 ShowArea = true
@@ -629,110 +651,110 @@ Bicycle = true
 MapPosition = 0,12,8
 BattleBack = city
 #-------------------------------
-[115]   # Celadon Pokémon Center
+[115]   # Route 16
 Name = Celadon Pokémon Center
 MapPosition = 0,12,8
 #-------------------------------
-[116]   # Celadon Dept. Store
+[116]   # Cerulean House
 Name = Celadon Dept. Store
 #-------------------------------
-[117]   # Celadon Dept. Store - 1F
+[117]   # Cycling Road Gate
 Name = Celadon Dept. Store - 1F
 MapPosition = 0,12,8
 #-------------------------------
-[118]   # Celadon Dept. Store - 2F
+[118]   # Secret House
 Name = Celadon Dept. Store - 2F
 MapPosition = 0,12,8
 #-------------------------------
-[119]   # Celadon Dept. Store - 3F
+[119]   # Route 17
 Name = Celadon Dept. Store - 3F
 MapPosition = 0,12,8
 #-------------------------------
-[120]   # Celadon Dept. Store - 4F
+[120]   # Route 18
 Name = Celadon Dept. Store - 4F
 MapPosition = 0,12,8
 #-------------------------------
-[121]   # Celadon Dept. Store - 5F
+[121]   # Route 18
 Name = Celadon Dept. Store - 5F
 MapPosition = 0,12,8
 #-------------------------------
-[122]   # Celadon Dept. Store - Rooftop
+[122]   # Cycling Road Gate
 Name = Celadon Dept. Store - Roof
 MapPosition = 0,12,8
 #-------------------------------
-[123]   # Celadon Dept. Store - Elevator
+[123]   # Route 15
 Name = Celadon Dept. Store - Elevator
 MapPosition = 0,12,8
 #-------------------------------
-[124]   # Celadon Gym
+[124]   # Gatehouse
 Name = Celadon Gym
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[125]   # Celadon Diner
+[125]   # Fuchsia City
 Name = Celadon Diner
 MapPosition = 0,12,8
 #-------------------------------
-[126]   # Celadon Hotel
+[126]   # Fuchsia Pokémon Center
 Name = Celadon Hotel
 MapPosition = 0,12,8
 #-------------------------------
-[127]   # Celadon House
+[127]   # Fuchsia Poké Mart
 Name = Celadon House
 MapPosition = 0,12,8
 #-------------------------------
-[128]   # Celadon Mansion
+[128]   # Fuchsia Gym
 Name = Celadon Mansion
 MapPosition = 0,12,8
 #-------------------------------
-[129]   # Game Corner
+[129]   # Fuchsia House
 Name = Game Corner
 MapPosition = 0,12,8
 #-------------------------------
-[130]   # Rocket Hideout
+[130]   # Ransacked House
 Name = Rocket Hideout
 #-------------------------------
-[131]   # Rocket Hideout - B1F
+[131]   # Fuchsia House
 Name = Rocket Hideout - B1F
 ShowArea = true
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[132]   # Rocket Hideout - B2F
+[132]   # Fuchsia House
 Name = Rocket Hideout - B2F
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[133]   # Rocket Hideout - B3F
+[133]   # Fisherman's House
 Name = Rocket Hideout - B3F
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[134]   # Rocket Hideout - B4F
+[134]
 Name = Rocket Hideout - B4F
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[135]   # Rocket Hideout - Elevator
+[135]
 Name = Rocket Hideout - Elevator
 MapPosition = 0,12,8
 #-------------------------------
-[136]   # Route 16
+[136]
 Name = Route 16
 Outdoor = true
 ShowArea = true
 MapPosition = 0,8,8
 MapSize = 1,1111
 #-------------------------------
-[137]   # Cycling Road Gate
+[137]
 Name = Cycling Road Gate
 MapPosition = 0,8,8
 #-------------------------------
-[138]   # Secret House
+[138]
 Name = Secret House
 MapPosition = 0,8,8
 #-------------------------------
-[139]   # Route 16
+[139]
 Name = Route 16
 Outdoor = true
 ShowArea = true
@@ -740,7 +762,7 @@ BicycleAlways = true
 MapPosition = 0,8,9
 MapSize = 1,11111
 #-------------------------------
-[140]   # Route 17
+[140]
 Name = Route 17
 Outdoor = true
 ShowArea = true
@@ -748,18 +770,18 @@ BicycleAlways = true
 MapPosition = 0,12,10
 MapSize = 1,11111
 #-------------------------------
-[141]   # Route 18
+[141]
 Name = Route 18
 Outdoor = true
 ShowArea = true
 MapPosition = 0,8,14
 MapSize = 1,11111
 #-------------------------------
-[142]   # Cycling Road Gate
+[142]
 Name = Cycling Road Gate
 MapPosition = 0,12,14
 #-------------------------------
-[143]   # Route 18
+[143]
 Name = Route 18
 Outdoor = true
 ShowArea = true
@@ -767,7 +789,7 @@ BicycleAlways = true
 MapPosition = 0,12,15
 MapSize = 2,11
 #-------------------------------
-[144]   # Fuchsia City
+[144]
 Name = Fuchsia City
 Outdoor = true
 ShowArea = true
@@ -775,32 +797,32 @@ Bicycle = true
 MapPosition = 0,13,14
 BattleBack = city
 #-------------------------------
-[145]   # Fuchsia Pokémon Center
+[145]
 Name = Fuchsia Pokémon Center
 MapPosition = 0,13,14
 #-------------------------------
-[146]   # Fuchsia Poké Mart
+[146]
 Name = Fuchsia Poké Mart
 MapPosition = 0,13,14
 #-------------------------------
-[147]   # Fuchsia Gym
+[147]
 Name = Fuchsia Gym
 MapPosition = 0,13,14
 BattleBack = interior
 #-------------------------------
-[148]   # Fuchsia House
+[148]
 Name = Fuchsia House
 MapPosition = 0,13,14
 #-------------------------------
-[149]   # Fuchsia House
+[149]
 Name = Fuchsia House
 MapPosition = 0,13,14
 #-------------------------------
-[150]   # Fuchsia House
+[150]
 Name = Fuchsia House
 MapPosition = 0,13,14
 #-------------------------------
-[151]   # Fisherman's House
+[151]
 Name = Fuchsia House
 MapPosition = 0,13,14
 #-------------------------------
@@ -813,7 +835,7 @@ Name = Safari Zone Gate
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[154]   # Safari Zone
+[154]
 Name = Safari Zone
 MapPosition = 0,13,14
 #-------------------------------
@@ -862,7 +884,7 @@ Name = Secret Safari House
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[164]   # Route 15
+[164]
 Name = Route 15
 Outdoor = true
 ShowArea = true
@@ -871,7 +893,7 @@ MapPosition = 0,14,14
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[165]   # Gatehouse
+[165]
 Name = Gatehouse
 MapPosition = 0,14,14
 #-------------------------------
@@ -935,12 +957,12 @@ MapPosition = 0,15,8
 Name = Saffron House
 MapPosition = 0,15,8
 #-------------------------------
-[177]   # Silph Co.
+[177]
 Name = Silph. Co.
 ShowArea = true
 MapPosition = 0,15,8
 #-------------------------------
-[178]   # Silph Co. - 1F
+[178]   # Silph Co.
 Name = Silph. Co. - 1F
 ShowArea = true
 MapPosition = 0,15,8
@@ -1027,10 +1049,10 @@ MapPosition = 0,6,16
 BattleBack = water
 MapSize = 1,1111111
 #-------------------------------
-[192]   # Seafoam Island Cave
+[192]
 Name = Seafoam Island Cave
 #-------------------------------
-[193]   # Seafoam Island Cave - 1F
+[193]   # Seafoam Island Cave
 Name = Seafoam Island Cave - 1F
 MapPosition = 0,10,16
 BattleBack = icecave
@@ -1093,10 +1115,10 @@ BattleBack = interior
 Name = Cinnabar Lab
 MapPosition = 0,5,16
 #-------------------------------
-[204]   # Pokémon Mansion
+[204]
 Name = Pokémon Mansion
 #-------------------------------
-[205]   # Pokémon Mansion - 1F
+[205]   # Pokémon Mansion
 Name = Pokémon Mansion - 1F
 MapPosition = 0,5,16
 BattleBack = interior
@@ -1125,10 +1147,10 @@ MapPosition = 0,3,6
 BattleBack = field
 MapSize = 1,1111
 #-------------------------------
-[210]   # Victory Road
+[210]
 Name = Victory Road
 #-------------------------------
-[211]   # Victory Road - 1F
+[211]   # Victory Road
 Name = Victory Road - 1F
 ShowArea = true
 MapPosition = 0,3,6
@@ -1191,90 +1213,128 @@ BattleBack = champion
 Name = Hall of Fame
 MapPosition = 0,3,5
 #-------------------------------
-[222]   # Route 2 North (East)
+[222]   # Pewter House
 Name = Route 2
 Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
-[223]   # Route 1
-Name = Route 1
-Outdoor = true
-ShowArea = true
-Bicycle = true
+[223]   # Viridian Poké Mart
+Name = Viridian Poké Mart
+MapPosition = 0,5,10
 #-------------------------------
-[229]   # Route 1
-Name = Route 1
-Outdoor = true
+[229]   # Viridian Gym
+Name = Viridian Gym
 ShowArea = true
-Bicycle = true
+MapPosition = 0,5,10
 #-------------------------------
-[230]   # Pallet Town
-Name = Pallet Town
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,13
+[230]   # Leaf's/Red's House
+Name = Leaf's House
+MapPosition = 0,5,10
 MapSize = 0,
 #-------------------------------
-[231]   # Pallet Town
+[231]   # Viridian School
+Name = Viridian School
+MapPosition = 0,5,10
+#-------------------------------
+[232]   # Hidden House
+Name = Viridian City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[234]   # Viridian Forest
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,8
+#-------------------------------
+[235]   # Viridian Forest
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,8
+#-------------------------------
+[236]   # Viridian House
+Name = Viridian House
+MapPosition = 0,5,10
+#-------------------------------
+[237]   # Viridian Forest
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,5,8
+#-------------------------------
+[238]   # Pewter House
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[239]   # Event Sheet
+Name = Route 2
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[241]   # Cerulean Cave - B1F
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[242]   # Game Corner
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[243]   # Rocket Hideout
+Name = Viridian Forest
+Outdoor = true
+ShowArea = true
+Bicycle = true
+#-------------------------------
+[245]   # Pallet Town
 Name = Pallet Town
 Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,13
 #-------------------------------
-[232]   # Viridian City (Center)
-Name = Viridian City
+[246]   # Pallet Town
+Name = Pallet Town
 Outdoor = true
 ShowArea = true
 Bicycle = true
+MapPosition = 0,5,13
 #-------------------------------
-[234]   # Viridian City (West)
-Name = Viridian City
-Outdoor = true
-ShowArea = true
-Bicycle = true
+[247]   # Player's House
+Name = David's House
+MapPosition = 0,5,13
 #-------------------------------
-[235]   # Viridian City (East)
-Name = Viridian City
-Outdoor = true
-ShowArea = true
-Bicycle = true
+[248]   # Rival's House
+Name = \v[12]'s House
+MapPosition = 0,5,13
 #-------------------------------
-[237]   # Route 22 (East)
-Name = Route 22
-Outdoor = true
-ShowArea = true
-Bicycle = true
+[249]   # Oak's Lab
+Name = Oak's Lab
+MapPosition = 0,5,13
 #-------------------------------
-[238]   # Route 2 South (West)
-Name = Route 2
+[250]   # Route 1
+Name = Route 1
 Outdoor = true
 ShowArea = true
 Bicycle = true
+MapPosition = 0,5,11
 #-------------------------------
-[239]   # Route 2 South (East)
-Name = Route 2
+[251]   # Route 1
+Name = Route 1
 Outdoor = true
 ShowArea = true
 Bicycle = true
-#-------------------------------
-[241]   # Viridian Forest (West)
-Name = Viridian Forest
-Outdoor = true
-ShowArea = true
-Bicycle = true
-#-------------------------------
-[242]   # Viridian Forest (Center)
-Name = Viridian Forest
-Outdoor = true
-ShowArea = true
-Bicycle = true
-#-------------------------------
-[243]   # Viridian Forest (East)
-Name = Viridian Forest
-Outdoor = true
-ShowArea = true
-Bicycle = true
+MapPosition = 0,5,11
