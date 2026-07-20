@@ -95,17 +95,14 @@ Bicycle = true
 MapPosition = 0,5,7
 #-------------------------------
 [016]   # Gatehouse South
-Name = Route 22
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,3,10
+Name = Gatehouse
+MapPosition = 0,5,8
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
 [017]   # Gatehouse North
-Name = Indigo Plateau Gate
-MapPosition = 0,3,10
+Name = Gatehouse
+MapPosition = 0,5,7
 #-------------------------------
 [018]   # Pewter City
 Name = Pewter City
@@ -131,33 +128,28 @@ Bicycle = true
 MapPosition = 0,5,6
 #-------------------------------
 [021]   # Pewter Pokémon Center
-Name = Secret Gatehouse
-MapPosition = 0,5,8
+Name = Pewter Pokémon Center
+MapPosition = 0,5,6
 #-------------------------------
 [022]   # Pewter Poké Mart
-Name = Hidden House
-MapPosition = 0,5,7
+Name = Pewter Poké Mart
+MapPosition = 0,5,6
 #-------------------------------
 [023]   # Pewter Gym
-Name = Diglett's Cave - Entrance
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,7
+Name = Pewter Gym
+MapPosition = 0,5,6
 #-------------------------------
 [024]   # Pewter Museum
-Name = Viridian Forest
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,8
+Name = Pewter Museum
+MapPosition = 0,5,6
 BattleBack = field
 #-------------------------------
 [025]   # Route 3
-Name = Pewter City
+Name = Route 3
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,6
+MapPosition = 0,6,6
 #-------------------------------
 [026]   # Mt. Moon Pokémon Center
 Name = Pewter Pokémon Center
@@ -1214,19 +1206,19 @@ Name = Hall of Fame
 MapPosition = 0,3,5
 #-------------------------------
 [222]   # Pewter House
-Name = Route 2
-Outdoor = true
-ShowArea = true
-Bicycle = true
-MapPosition = 0,5,7
+Name = Pewter City
+MapPosition = 0,5,6
 #-------------------------------
 [223]   # Viridian Poké Mart
 Name = Viridian Poké Mart
 MapPosition = 0,5,10
 #-------------------------------
+[224]   # Secret Gatehouse
+Name = Gatehouse
+MapPosition = 0,5,8
+#-------------------------------
 [229]   # Viridian Gym
 Name = Viridian Gym
-ShowArea = true
 MapPosition = 0,5,10
 #-------------------------------
 [230]   # Leaf's/Red's House
@@ -1239,10 +1231,8 @@ Name = Viridian School
 MapPosition = 0,5,10
 #-------------------------------
 [232]   # Hidden House
-Name = Viridian City
-Outdoor = true
-ShowArea = true
-Bicycle = true
+Name = Route 2
+MapPosition = 0,5,7
 #-------------------------------
 [234]   # Viridian Forest
 Name = Viridian Forest
@@ -1259,7 +1249,7 @@ Bicycle = true
 MapPosition = 0,5,8
 #-------------------------------
 [236]   # Viridian House
-Name = Viridian House
+Name = Viridian City
 MapPosition = 0,5,10
 #-------------------------------
 [237]   # Viridian Forest
@@ -1270,10 +1260,8 @@ Bicycle = true
 MapPosition = 0,5,8
 #-------------------------------
 [238]   # Pewter House
-Name = Route 2
-Outdoor = true
-ShowArea = true
-Bicycle = true
+Name = Pewter City
+MapPosition = 0,5,6
 #-------------------------------
 [239]   # Event Sheet
 Name = Route 2
@@ -1338,3 +1326,8 @@ Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,11
+#-------------------------------
+[252]   # Diglett's Cave - Entrance
+Name = Diglett's Cave
+Bicycle = true
+MapPosition = 0,5,7
