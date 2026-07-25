@@ -61,7 +61,7 @@ Bicycle = true
 MapPosition = 0,4,10
 BattleBack = field
 #-------------------------------
-[011]   # Indigo Plateau Gate
+[011]
 Name = Indigo Plateau Gate
 MapPosition = 0,3,10
 BattleBack = pokecenter
@@ -722,9 +722,9 @@ Name = Rocket Hideout - B3F
 MapPosition = 0,12,8
 BattleBack = interior
 #-------------------------------
-[134]
-Name = Rocket Hideout - B4F
-MapPosition = 0,12,8
+[134]   # Indigo Plateau Gate
+Name = Indigo Plateau Gate
+MapPosition = 0,3,10
 BattleBack = interior
 #-------------------------------
 [135]
