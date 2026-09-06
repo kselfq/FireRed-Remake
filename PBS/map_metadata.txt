@@ -749,10 +749,12 @@ Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
 [138]   # Route 23
-Name = Secret House
+Name = Route 23
+Outdoor = true
+Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
-[139]
+[139]   # Route 23
 Name = Route 16
 Outdoor = true
 MapPosition = 0,8,9
