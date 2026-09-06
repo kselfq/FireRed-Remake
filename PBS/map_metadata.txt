@@ -61,8 +61,11 @@ Bicycle = true
 MapPosition = 0,4,10
 BattleBack = field
 #-------------------------------
-[011]
-Name = Indigo Plateau Gate
+[011]   # Route 26
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,3,10
 BattleBack = pokecenter
 #-------------------------------
@@ -727,30 +730,31 @@ Name = Indigo Plateau Gate
 MapPosition = 0,3,10
 BattleBack = interior
 #-------------------------------
-[135]
-Name = Rocket Hideout - Elevator
+[135]   # Route 23
+Name = Route 23
+Outdoor = true
+Bicycle = true
 MapPosition = 0,12,8
 #-------------------------------
-[136]
-Name = Route 16
+[136]   # Route 23
+Name = Route 23
 Outdoor = true
-ShowArea = true
 MapPosition = 0,8,8
 MapSize = 1,1111
 #-------------------------------
-[137]
-Name = Cycling Road Gate
+[137]   # Route 26
+Name = Route 26
+Outdoor = true
+Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
-[138]
+[138]   # Route 23
 Name = Secret House
 MapPosition = 0,8,8
 #-------------------------------
 [139]
 Name = Route 16
 Outdoor = true
-ShowArea = true
-BicycleAlways = true
 MapPosition = 0,8,9
 MapSize = 1,11111
 #-------------------------------
