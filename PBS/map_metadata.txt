@@ -733,6 +733,7 @@ BattleBack = interior
 [135]   # Route 23
 Name = Route 23
 Outdoor = true
+ShowArea = true
 Bicycle = true
 MapPosition = 0,12,8
 #-------------------------------
@@ -751,44 +752,51 @@ MapPosition = 0,8,8
 [138]   # Route 23
 Name = Route 23
 Outdoor = true
+ShowArea = true
 Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
 [139]   # Route 23
-Name = Route 16
+Name = Route 23
 Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,8,9
 MapSize = 1,11111
 #-------------------------------
-[140]
-Name = Route 17
+[140]   # Route 23
+Name = Route 23
 Outdoor = true
 ShowArea = true
-BicycleAlways = true
+Bicycle = true
 MapPosition = 0,12,10
 MapSize = 1,11111
 #-------------------------------
-[141]
-Name = Route 18
+[141]   # Route 23
+Name = Route 23
 Outdoor = true
 ShowArea = true
+Bicycle = true
 MapPosition = 0,8,14
 MapSize = 1,11111
 #-------------------------------
-[142]
-Name = Cycling Road Gate
-MapPosition = 0,12,14
-#-------------------------------
-[143]
-Name = Route 18
+[142]   # Route 23
+Name = Route 23
 Outdoor = true
 ShowArea = true
-BicycleAlways = true
+Bicycle = true
+MapPosition = 0,12,14
+#-------------------------------
+[143]   # Indigo Plateau
+Name = Indigo Plateau
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,12,15
 MapSize = 2,11
 #-------------------------------
-[144]
-Name = Fuchsia City
+[144]   # Indigo Plateau
+Name = Indigo Plateau
 Outdoor = true
 ShowArea = true
 Bicycle = true
