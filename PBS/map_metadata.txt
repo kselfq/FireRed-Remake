@@ -803,9 +803,11 @@ Bicycle = true
 MapPosition = 0,13,14
 BattleBack = city
 #-------------------------------
-[145]
-Name = Fuchsia Pokémon Center
-MapPosition = 0,13,14
+[145]   # Route 21
+Name = Route 21
+Outdoor = true
+ShowArea = true
+MapPosition = 0,5,15
 #-------------------------------
 [146]
 Name = Fuchsia Poké Mart
@@ -1050,7 +1052,6 @@ MapSize = 1,11
 Name = Route 20
 Outdoor = true
 ShowArea = true
-Bicycle = true
 MapPosition = 0,6,16
 BattleBack = water
 MapSize = 1,1111111
@@ -1092,7 +1093,6 @@ Environment = Cave
 Name = Route 21
 Outdoor = true
 ShowArea = true
-Bicycle = true
 MapPosition = 0,5,14
 BattleBack = water
 MapSize = 1,11
