@@ -744,13 +744,17 @@ class PokemonBag_Scene
     @sprites["ui2"].setBitmap("Graphics/UI/Bag Screen with Party/ui2")
 	
 # --- ADDED: Back and Sort Buttons ---
-    @sprites["btn_back"] = IconSprite.new(16, 16, @viewport)
-    @sprites["btn_back"].setBitmap("Graphics/UI/back")
-    @sprites["btn_back"].z = 250
+    @sprites["btn_back"] = IconSprite.new(16 + 48, 16 + 48, @viewport)
+@sprites["btn_back"].setBitmap("Graphics/UI/back")
+@sprites["btn_back"].ox = 48 # Center origin X
+@sprites["btn_back"].oy = 48 # Center origin Y
+@sprites["btn_back"].z = 250
 
     # Base Switch Button
-    @sprites["btn_sort"] = IconSprite.new(16, 112, @viewport)
+    @sprites["btn_sort"] = IconSprite.new(16 + 48, 112 + 48, @viewport)
     @sprites["btn_sort"].setBitmap("Graphics/UI/switch")
+    @sprites["btn_sort"].ox = 48
+    @sprites["btn_sort"].oy = 48
     @sprites["btn_sort"].z = 250
 
     # Selected Switch Button (Overlay)
@@ -1493,10 +1497,31 @@ def pbRefreshIndexChanged
                btn_quit_x = 16
                btn_quit_y = 16
                if mx >= btn_quit_x && mx < btn_quit_x + btn_quit_w &&
-                  my >= btn_quit_y && my < btn_quit_y + btn_quit_h
-                  pbPlayCloseMenuSE
-                  return nil
-               end
+         my >= btn_quit_y && my < btn_quit_y + btn_quit_h
+        
+        # --- SHRINK & RETURN ANIMATION ---
+        # 1. Shrink down (target size reduced by ~16 pixels / scale ~0.83)
+        4.times do |i|
+          scale = 1.0 - ((i + 1) * 0.075)
+          @sprites["btn_back"].zoom_x = scale
+          @sprites["btn_back"].zoom_y = scale
+          Graphics.update
+          Input.update
+        end
+
+        # 2. Return back to original size (1.0)
+        4.times do |i|
+          scale = 0.7 + ((i + 1) * 0.075)
+          @sprites["btn_back"].zoom_x = scale
+          @sprites["btn_back"].zoom_y = scale
+          Graphics.update
+          Input.update
+        end
+        # ---------------------------------
+
+        pbPlayCloseMenuSE
+        return nil
+      end
 
                # 4. SORT BUTTON
                btn_sort_w = 96
@@ -1504,7 +1529,27 @@ def pbRefreshIndexChanged
                btn_sort_x = 16
                btn_sort_y = 96 + 16
                if mx >= btn_sort_x && mx < btn_sort_x + btn_sort_w &&
-                  my >= btn_sort_y && my < btn_sort_y + btn_sort_h
+         my >= btn_sort_y && my < btn_sort_y + btn_sort_h
+        
+        # --- SORT BUTTON SHRINK & RETURN ANIMATION (scale=0.7) ---
+        # 1. Shrink down to 0.7 scale
+        4.times do |i|
+          # Scales smoothly from 1.0 down to 0.7 over 4 steps
+          scale = 1.0 - ((i + 1) * 0.075) 
+          @sprites["btn_sort"].zoom_x = scale
+          @sprites["btn_sort"].zoom_y = scale
+          Graphics.update
+          Input.update
+        end
+
+        # 2. Return back to original size (1.0)
+        4.times do |i|
+          scale = 0.7 + ((i + 1) * 0.075)
+          @sprites["btn_sort"].zoom_x = scale
+          @sprites["btn_sort"].zoom_y = scale
+          Graphics.update
+          Input.update
+        end
                   
                   if !@choosing && thispocket.length > 1 && itemwindow.index < thispocket.length &&
                      !Settings::BAG_POCKET_AUTO_SORT[itemwindow.pocket - 1]

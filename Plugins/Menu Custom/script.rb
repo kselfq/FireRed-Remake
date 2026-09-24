@@ -376,8 +376,10 @@ class Menu2
     @sprites["bg"].bitmap = RPG::Cache.ui("Menu Custom/menubg")
     @sprites["bg"].z = 100 
     
-	@sprites["btn_back"] = IconSprite.new(16, 8, @viewport)
+	@sprites["btn_back"] = IconSprite.new(16 + 48, 8 + 48, @viewport)
     @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
     @sprites["btn_back"].z = 105
 	
     @sprites["time_overlay"] = Sprite.new(@viewport)
@@ -505,11 +507,32 @@ class Menu2
            pbSEPlay("GUI sel decision")
            send(@items[@selected_item][2])
         # --- UPDATED: Back Button Click (16,16 Size 96x96) ---
+        # --- UPDATED: Back Button Click with Shrink & Return Animation ---
         elsif Input.mouse_x >= 16 && Input.mouse_x <= 112 &&
               Input.mouse_y >= 8 && Input.mouse_y <= 112
+           
+           # 1. Shrink down from center
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           # 2. Return back to original size
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
            pbSEPlay("GUI sel cancel")
            @exit = true
            break
+        # -----------------------------------------------------
         # -----------------------------------------------------
         elsif Input.mouse_x > Graphics.width - 150 && Input.mouse_y > Graphics.height - 50
            pbSEPlay("GUI sel cancel"); break 
