@@ -91,12 +91,12 @@ end
 #===============================================================================
 #
 #===============================================================================
-class PokemonPartyCancelSprite < PokemonPartyConfirmCancelSprite
-  def initialize(viewport = nil)
+#class PokemonPartyCancelSprite < PokemonPartyConfirmCancelSprite
+ # def initialize(viewport = nil)
     #super(_INTL("Cancel"), 726 - 11, 320, false, viewport)
-	super(_INTL("Cancel"), 1350, 620, false, viewport)
-  end
-end
+	#super(_INTL("Cancel"), 1350, 620, false, viewport)
+  #end
+#end
 
 #===============================================================================
 #
@@ -609,16 +609,36 @@ class PokemonParty_Scene
     @can_access_storage = can_access_storage
     addBackgroundPlane(@sprites, "partybg", "Party/bg", @viewport)
 		
-	@sprites["btn_back"] = IconSprite.new(16, 16, @viewport)
+	# Assuming a 96x96 back icon, position it nicely at the bottom right or your choice
+    @sprites["btn_back"] = IconSprite.new(16 + 48, 16 + 48, @viewport)
     @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
     @sprites["btn_back"].z = 250
 	
-	@sprites["btn_boxes"] = IconSprite.new(16, 608, @viewport)
-    @sprites["btn_boxes"].setBitmap("Graphics/UI/button")
+	@sprites["btn_boxes"] = IconSprite.new(Graphics.width - 192 - 16 + 48, 608 + 48, @viewport)
+    @sprites["btn_boxes"].setBitmap("Graphics/UI/boxes")
+    @sprites["btn_boxes"].ox = 48
+    @sprites["btn_boxes"].oy = 48
     @sprites["btn_boxes"].z = 250
+    
+  @sprites["btn_boxes_text"] = BitmapSprite.new(96, 96, @viewport)
+    @sprites["btn_boxes_text"].x = Graphics.width - 136 + 48
+    @sprites["btn_boxes_text"].y = 648
+    @sprites["btn_boxes_text"].ox = 48
+    @sprites["btn_boxes_text"].oy = 48
+    @sprites["btn_boxes_text"].z = 251
+    pbSetSystemFont(@sprites["btn_boxes_text"].bitmap)
+    @sprites["btn_boxes_text"].bitmap.font.size = 26
+    # Draw "Qt" centered horizontally and vertically
+    pbDrawTextPositions(@sprites["btn_boxes_text"].bitmap, [
+      [_INTL("To Boxes"), 48, 34, :center, Color.white, Color.new(0, 0, 0, 20)]
+    ])
 	
-	@sprites["btn_switch"] = IconSprite.new(432, 608, @viewport)
-    @sprites["btn_switch"].setBitmap("Graphics/UI/button")
+	@sprites["btn_switch"] = IconSprite.new(16 + 48, 112 + 48, @viewport)
+    @sprites["btn_switch"].setBitmap("Graphics/UI/switch")
+    @sprites["btn_switch"].ox = 48
+    @sprites["btn_switch"].oy = 48
     @sprites["btn_switch"].z = 250
 	
 	@sprites["cursor"] = Sprite.new(@viewport)
@@ -899,24 +919,55 @@ class PokemonParty_Scene
 
       # --- CLICK LOGIC (PANELS & BUTTONS) ---
       if Input.trigger?(Input::MOUSELEFT)
-        # 1. BUTTON: Back (Bottom Right, 122x46)
-        # Position: Aligned to bottom-right corner
-        b1_w, b1_h = 122, 46
-        b1_x = Graphics.width - b1_w
-        b1_y = Graphics.height - b1_h
-        
-        if mx >= b1_x && mx <= Graphics.width && my >= b1_y && my <= Graphics.height
-          pbPlayCloseMenuSE if !switching
-          return -1
-        end
+        # 1. BUTTON: Back Button Click with 0.7 Scale Animation
+    back_x = 16
+    back_y = 16
+    if mx >= back_x && mx < back_x + 96 && my >= back_y && my < back_y + 96
+      
+      # --- 0.7 SCALE SHRINK & RETURN ANIMATION ---
+      4.times do |i|
+        scale = 1.0 - ((i + 1) * 0.075)
+        @sprites["btn_back"].zoom_x = scale
+        @sprites["btn_back"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
+      4.times do |i|
+        scale = 0.7 + ((i + 1) * 0.075)
+        @sprites["btn_back"].zoom_x = scale
+        @sprites["btn_back"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
+      # -------------------------------------------
+
+      pbPlayCloseMenuSE if !switching
+      return -1
+    end
 
         # 2. BUTTON: Switch/Move (Left of Back Button, 238x46)
         # Position: 12px gap from Back Button
-        b2_w, b2_h = 238, 46
-        b2_x = b1_x - 12 - b2_w
-        b2_y = Graphics.height - b2_h
+        #b2_w, b2_h = 238, 46
+        #b2_x = back_x - 12 - b2_w
+        #b2_y = Graphics.height - b2_h
+        switch_x = 16
+        switch_y = 112
         
-        if mx >= b2_x && mx <= b2_x + b2_w && my >= b2_y && my <= Graphics.height
+        if mx >= switch_x && mx <= switch_x + 96 && my >= switch_y && my <= switch_y + 96
+         4.times do |i|
+        scale = 1.0 - ((i + 1) * 0.075)
+        @sprites["btn_switch"].zoom_x = scale
+        @sprites["btn_switch"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
+      4.times do |i|
+        scale = 0.7 + ((i + 1) * 0.075)
+        @sprites["btn_switch"].zoom_x = scale
+        @sprites["btn_switch"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
           if canswitch == 1 && @activecmd != (Settings::MAX_PARTY_SIZE + ((@multiselect) ? 1 : 0))
             pbPlayDecisionSE
             return [1, @activecmd]
@@ -925,11 +976,31 @@ class PokemonParty_Scene
 
         # 3. BUTTON: PC Storage (Left of Switch Button, 284x46)
         # Position: 12px gap from Switch Button
-        b3_w, b3_h = 284, 46
-        b3_x = b2_x - 12 - b3_w
-        b3_y = Graphics.height - b3_h
+        #b3_w, b3_h = 284, 46
+        #b3_x = - 12 - b3_w
+        #b3_y = Graphics.height - b3_h
+        boxes_x = Graphics.width - 192 - 16
+        boxes_y = 608
         
-        if mx >= b3_x && mx <= b3_x + b3_w && my >= b3_y && my <= Graphics.height
+        if mx >= boxes_x && mx <= boxes_x + 192 && my >= boxes_y && my <= boxes_y + 96
+        4.times do |i|
+        scale = 1.0 - ((i + 1) * 0.075)
+        @sprites["btn_boxes"].zoom_x = scale
+        @sprites["btn_boxes"].zoom_y = scale
+        @sprites["btn_boxes_text"].zoom_x = scale
+        @sprites["btn_boxes_text"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
+      4.times do |i|
+        scale = 0.7 + ((i + 1) * 0.075)
+        @sprites["btn_boxes"].zoom_x = scale
+        @sprites["btn_boxes"].zoom_y = scale
+        @sprites["btn_boxes_text"].zoom_x = scale
+        @sprites["btn_boxes_text"].zoom_y = scale
+        Graphics.update
+        Input.update
+      end
           if @can_access_storage && canswitch != 2
             pbPlayDecisionSE
             pbFadeOutIn do

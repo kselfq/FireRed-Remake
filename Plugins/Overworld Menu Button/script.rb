@@ -29,16 +29,22 @@ class Scene_Map
     @ui_viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
     @ui_viewport.z = 100 
 
-    # --- 1. MENU BUTTON ---
+    # --- 1. MENU BUTTON (Center Origin & Offset Position) ---
     @btn_menu = Sprite.new(@ui_viewport)
-    @btn_menu.x, @btn_menu.y = 16, 16
+    @menu_base_x, @menu_base_y = 16, 16
     @btn_menu.bitmap = pbResolveBitmap("Graphics/UI/overworld_menu_btn") ? Bitmap.new("Graphics/UI/overworld_menu_btn") : Bitmap.new(96,96)
+    @btn_menu.ox = @btn_menu.bitmap.width / 2
+    @btn_menu.oy = @btn_menu.bitmap.height / 2
+    @btn_menu.x = @menu_base_x + @btn_menu.ox
+    @btn_menu.y = @menu_base_y + @btn_menu.oy
 
     # --- 2. SLOT A BUTTON & ICON ---
     @btn_slot_a = Sprite.new(@ui_viewport)
     @bmp_slot_norm = pbResolveBitmap("Graphics/UI/overworld_field_btn") ? Bitmap.new("Graphics/UI/overworld_field_btn") : Bitmap.new(96,96)
     @bmp_slot_sel  = pbResolveBitmap("Graphics/UI/overworld_field_btn_sel") ? Bitmap.new("Graphics/UI/overworld_field_btn_sel") : @bmp_slot_norm
     @btn_slot_a.bitmap = @bmp_slot_norm
+    @btn_slot_a.ox = @btn_slot_a.bitmap.width / 2
+    @btn_slot_a.oy = @btn_slot_a.bitmap.height / 2
 
     @icon_slot_a = Sprite.new(@ui_viewport)
     @icon_slot_a.z = @btn_slot_a.z + 1
@@ -46,13 +52,15 @@ class Scene_Map
     # --- 3. SLOT B BUTTON & ICON ---
     @btn_slot_b = Sprite.new(@ui_viewport)
     @btn_slot_b.bitmap = @bmp_slot_norm
+    @btn_slot_b.ox = @btn_slot_b.bitmap.width / 2
+    @btn_slot_b.oy = @btn_slot_b.bitmap.height / 2
 
     @icon_slot_b = Sprite.new(@ui_viewport)
     @icon_slot_b.z = @btn_slot_b.z + 1
 
-    # --- 4. RUN BUTTON ---
+    # --- 4. RUN BUTTON (Center Origin & Offset Position) ---
     @btn_run = Sprite.new(@ui_viewport)
-    @btn_run.x, @btn_run.y = 112, 16 
+    @run_base_x, @run_base_y = 112, 16 
     if pbResolveBitmap("Graphics/UI/overworld_run_btn")
       @bmp_run_norm = Bitmap.new("Graphics/UI/overworld_run_btn")
       @bmp_run_sel  = pbResolveBitmap("Graphics/UI/overworld_run_btn_sel") ? Bitmap.new("Graphics/UI/overworld_run_btn_sel") : @bmp_run_norm
@@ -61,6 +69,10 @@ class Scene_Map
       @bmp_run_sel  = Bitmap.new(96, 96)
     end
     @btn_run.bitmap = @bmp_run_norm
+    @btn_run.ox = @btn_run.bitmap.width / 2
+    @btn_run.oy = @btn_run.bitmap.height / 2
+    @btn_run.x = @run_base_x + @btn_run.ox
+    @btn_run.y = @run_base_y + @btn_run.oy
 
     @dpad_active = false
     @was_dragging = false
@@ -137,10 +149,11 @@ class Scene_Map
     update_touch_controls
   end
 
-  def update_slot_display(btn, icon_sprite, x_pos, y_pos, item_id)
-    btn.x, btn.y = x_pos, y_pos
-    icon_sprite.x = x_pos + (btn.bitmap.width / 2) - 24 
-    icon_sprite.y = y_pos + (btn.bitmap.height / 2) - 24
+  def update_slot_display(btn, icon_sprite, base_x, base_y, item_id)
+    btn.x = base_x + btn.ox
+    btn.y = base_y + btn.oy
+    icon_sprite.x = base_x + (btn.bitmap.width / 2) - 24 
+    icon_sprite.y = base_y + (btn.bitmap.height / 2) - 24
     
     icon_path = GameData::Item.icon_filename(item_id)
     if icon_path
@@ -153,10 +166,28 @@ class Scene_Map
   def update_buttons_interaction
     mx, my = Input.mouse_x, Input.mouse_y
     
-    check_btn = proc do |btn, action_proc|
+    check_btn = proc do |btn, base_x, base_y, action_proc|
       next false if !btn || !btn.visible
-      if mx >= btn.x && mx < btn.x + btn.bitmap.width && my >= btn.y && my < btn.y + btn.bitmap.height
+      # Check bounds based on top-left layout coordinates (base_x, base_y)
+      if mx >= base_x && mx < base_x + btn.bitmap.width && my >= base_y && my < base_y + btn.bitmap.height
          if Input.trigger?(Input::MOUSELEFT)
+           # --- 0.7 SCALE SHRINK & RETURN ANIMATION ---
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075) # Shrinks down to 0.7
+             btn.zoom_x = scale
+             btn.zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075) # Returns back to 1.0
+             btn.zoom_x = scale
+             btn.zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           # -------------------------------------------
+           
            pbPlayDecisionSE
            action_proc.call
            return true
@@ -166,23 +197,21 @@ class Scene_Map
       false
     end
 
-    return true if check_btn.call(@btn_menu, proc { call_menu })
+    return true if check_btn.call(@btn_menu, 16, 16, proc { call_menu })
     
-    if check_btn.call(@btn_slot_a, proc { pbUseKeyItemInField($bag.registered_item_1) })
-       @btn_slot_a.bitmap = Input.press?(Input::MOUSELEFT) ? @bmp_slot_sel : @bmp_slot_norm
+    if check_btn.call(@btn_slot_a, 16, 112, proc { pbUseKeyItemInField($bag.registered_item_1) })
        return true
     else
        @btn_slot_a.bitmap = @bmp_slot_norm
     end
 
-    if check_btn.call(@btn_slot_b, proc { pbUseKeyItemInField($bag.registered_item_2) })
-       @btn_slot_b.bitmap = Input.press?(Input::MOUSELEFT) ? @bmp_slot_sel : @bmp_slot_norm
+    if check_btn.call(@btn_slot_b, 16, 208, proc { pbUseKeyItemInField($bag.registered_item_2) })
        return true
     else
        @btn_slot_b.bitmap = @bmp_slot_norm
     end
 
-    if check_btn.call(@btn_run, proc { 
+    if check_btn.call(@btn_run, 112, 16, proc { 
          $PokemonSystem.runstyle = ($PokemonSystem.runstyle == 1) ? 0 : 1 
          $game_player.refresh if $game_player
        })
