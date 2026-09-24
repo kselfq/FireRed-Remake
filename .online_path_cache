@@ -955,3 +955,64 @@ Audio/BGM/Pokemart_GB;Audio/BGM/Pokemart_GB.ogg
 Audio/ME/Obtained a Key Item;Audio/ME/Obtained a Key Item.ogg
 Graphics/Icons/bagPocket8;Graphics/Icons/bagPocket8.png
 Graphics/Items/GBSOUNDS;Graphics/Items/GBSOUNDS.png
+Audio/BGM/Route 3;Audio/BGM/Route 3.ogg
+Graphics/Tilesets/ROUTE 22 (1);Graphics/Tilesets/ROUTE 22 (1).png
+Graphics/Autotiles/Sea;Graphics/Autotiles/Sea.png
+Graphics/Autotiles/Sea2;Graphics/Autotiles/Sea2.png
+Graphics/Autotiles/Sea3;Graphics/Autotiles/Sea3.png
+Graphics/Autotiles/Sea4;Graphics/Autotiles/Sea4.png
+Graphics/Autotiles/Sea5;Graphics/Autotiles/Sea5.png
+Graphics/Autotiles/Sea6;Graphics/Autotiles/Sea6.png
+Graphics/Characters/flower03;Graphics/Characters/flower03.png
+Graphics/Characters/flower02;Graphics/Characters/flower02.png
+Graphics/Characters/flower04;Graphics/Characters/flower04.png
+Graphics/Characters/bush;Graphics/Characters/bush.png
+Graphics/Tilesets/ROUTE 26 (1);Graphics/Tilesets/ROUTE 26 (1).png
+Graphics/Tilesets/ROUTE 23 (1);Graphics/Tilesets/ROUTE 23 (1).png
+Graphics/Characters/NPC 01;Graphics/Characters/NPC 01.png
+Graphics/UI/placename1;Graphics/UI/placename1.png
+Graphics/UI/placename2;Graphics/UI/placename2.png
+Graphics/Tilesets/ROUTE 22 (2);Graphics/Tilesets/ROUTE 22 (2).png
+Graphics/Tilesets/VIRIDIAN CITY (1);Graphics/Tilesets/VIRIDIAN CITY (1).png
+Graphics/Characters/tree;Graphics/Characters/tree.png
+Graphics/Characters/flower01;Graphics/Characters/flower01.png
+Graphics/Characters/NPC 29.1;Graphics/Characters/NPC 29.1.png
+Graphics/Characters/flowerpot;Graphics/Characters/flowerpot.png
+Graphics/Characters/flowerpot01;Graphics/Characters/flowerpot01.png
+Graphics/Tilesets/VIRIDIAN CITY (2);Graphics/Tilesets/VIRIDIAN CITY (2).png
+Graphics/Characters/doors004;Graphics/Characters/doors004.png
+Graphics/Characters/trainer_BUGCATCHER;Graphics/Characters/trainer_BUGCATCHER.png
+Graphics/Characters/NPC 02;Graphics/Characters/NPC 02.png
+Graphics/Characters/NPC 17;Graphics/Characters/NPC 17.png
+Graphics/Characters/doors003;Graphics/Characters/doors003.png
+Graphics/Characters/flowerpot02;Graphics/Characters/flowerpot02.png
+Graphics/Tilesets/VIRIDIAN CITY (3);Graphics/Tilesets/VIRIDIAN CITY (3).png
+Graphics/Tilesets/INTERIORS1;Graphics/Tilesets/INTERIORS1.png
+Graphics/Tilesets/ROUTE 2 (3);Graphics/Tilesets/ROUTE 2 (3).png
+Graphics/Tilesets/ROUTE 2 (1);Graphics/Tilesets/ROUTE 2 (1).png
+Graphics/Characters/trainer_LASS;Graphics/Characters/trainer_LASS.png
+Audio/SE/Player jump;Audio/SE/Player jump.ogg
+Graphics/UI/back;Graphics/UI/back.png
+Graphics/UI/switch;Graphics/UI/switch.png
+Graphics/UI/switch_sel;Graphics/UI/switch_sel.png
+Graphics/UI/Pokedex/icon_slider;Graphics/UI/Pokedex/icon_slider.png
+Graphics/UI/Pokedex/icon_types;Graphics/UI/Pokedex/icon_types.png
+Graphics/UI/Pokedex/icon_shapes;Graphics/UI/Pokedex/icon_shapes.png
+Graphics/UI/Pokedex/icon_hw;Graphics/UI/Pokedex/icon_hw.png
+Graphics/UI/Pokedex/icon_searchsel;Graphics/UI/Pokedex/icon_searchsel.png
+Graphics/UI/Pokedex/icon_searchslider;Graphics/UI/Pokedex/icon_searchslider.png
+Graphics/UI/Pokedex/cursor_list;Graphics/UI/Pokedex/cursor_list.png
+Graphics/UI/Pokedex/unsel_list;Graphics/UI/Pokedex/unsel_list.png
+Graphics/UI/Pokedex/icon_own;Graphics/UI/Pokedex/icon_own.png
+Graphics/UI/Pokedex/icon_seen;Graphics/UI/Pokedex/icon_seen.png
+Graphics/UI/Pokedex/cursor_search;Graphics/UI/Pokedex/cursor_search.png
+Graphics/UI/Pokedex/bg_list;Graphics/UI/Pokedex/bg_list.png
+Graphics/EBDX/Battlers/000;Graphics/EBDX/Battlers/000.png
+Graphics/EBDX/Battlers/Front/PIDGEY;Graphics/EBDX/Battlers/Front/PIDGEY.png
+Graphics/EBDX/Battlers/Front/RATTATA;Graphics/EBDX/Battlers/Front/RATTATA.png
+Graphics/EBDX/Battlers/Front/SANDSHREW;Graphics/EBDX/Battlers/Front/SANDSHREW.png
+Audio/SE/GUI pokedex open;Audio/SE/GUI pokedex open.ogg
+Graphics/UI/Pokedex/overlay_area;Graphics/UI/Pokedex/overlay_area.png
+Graphics/EBDX/Battlers/Back/DIGLETT;Graphics/EBDX/Battlers/Back/DIGLETT.png
+Graphics/UI/Pokedex/bg_info;Graphics/UI/Pokedex/bg_info.png
+Audio/SE/Cries/DIGLETT;Audio/SE/Cries/DIGLETT.ogg

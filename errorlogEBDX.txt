@@ -1,0 +1,2 @@
+[21:59:38 Mon 21-Sep-2026] [WARN] Environment DARKNESS for Species GIRATINA,1 is not defined in the ENVIRONMENTS.rb file!
+[20:46:27 Wed 23-Sep-2026] [WARN] Environment DARKNESS for Species GIRATINA,1 is not defined in the ENVIRONMENTS.rb file!
