@@ -1016,3 +1016,5 @@ Graphics/UI/Pokedex/overlay_area;Graphics/UI/Pokedex/overlay_area.png
 Graphics/EBDX/Battlers/Back/DIGLETT;Graphics/EBDX/Battlers/Back/DIGLETT.png
 Graphics/UI/Pokedex/bg_info;Graphics/UI/Pokedex/bg_info.png
 Audio/SE/Cries/DIGLETT;Audio/SE/Cries/DIGLETT.ogg
+Graphics/UI/boxes;Graphics/UI/boxes.png
+Graphics/UI/settingsbg;Graphics/UI/settingsbg.png
