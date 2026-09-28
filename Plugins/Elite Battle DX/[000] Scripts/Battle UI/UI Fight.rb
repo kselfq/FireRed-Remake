@@ -113,8 +113,24 @@ class Battle::Scene
         # If Mouse Click, validate target
         if Input.trigger?(Input::MOUSELEFT)
           
-          # Clicked Back Button
+          # Clicked Back Button with Scale Animation
           if @fightWindow.isMouseOverBack?
+            # --- 0.7 SCALE SHRINK & RETURN ANIMATION ---
+            4.times do |i|
+              scale = 1.0 - ((i + 1) * 0.075)
+              @fightWindow.backButton.zoom_x = scale
+              @fightWindow.backButton.zoom_y = scale
+              Graphics.update
+              Input.update
+            end
+            4.times do |i|
+              scale = 0.7 + ((i + 1) * 0.075)
+              @fightWindow.backButton.zoom_x = scale
+              @fightWindow.backButton.zoom_y = scale
+              Graphics.update
+              Input.update
+            end
+            # -------------------------------------------
             pbPlayCancelSE
             break if yield -1
           end
@@ -124,6 +140,12 @@ class Battle::Scene
              # Clicked a Move
              @fightWindow.mode = 0
              @fightWindow.index = clicked_idx if @fightWindow.index != clicked_idx
+             
+             # Play Move Button Click Animation
+             @fightWindow.animateButtonPress(clicked_idx)
+             
+             pbSEPlay("EBDX/SE_Select2")
+             break if yield @fightWindow.index
           elsif @fightWindow.isMouseOverMega?
              # Clicked Mega
              @fightWindow.mode = 1
@@ -133,7 +155,7 @@ class Battle::Scene
           end
         end
 
-        # ACTION BASED ON MODE
+        # ACTION BASED ON MODE (Keyboard 'C' fallback)
         if @fightWindow.mode == 1
           # Toggle Mega
           if @fightWindow.can_mega_evolve?
@@ -142,7 +164,8 @@ class Battle::Scene
              break if yield -2 
           end
         else
-          # Select Move
+          # Select Move via Keyboard
+          @fightWindow.animateButtonPress(@fightWindow.index)
           pbSEPlay("EBDX/SE_Select2")
           break if yield @fightWindow.index
         end
@@ -178,6 +201,8 @@ class FightWindowEBDX
   attr_accessor :battler
   attr_accessor :refreshpos
   attr_reader :nummoves
+  attr_reader :backButton # Exposed for click animation
+  attr_reader :button     # Exposed for move click animations
 
   #-----------------------------------------------------------------------------
   def refreshMegaButton
@@ -265,13 +290,16 @@ class FightWindowEBDX
     @background.y = Graphics.height - @background.bitmap.height
     @background.z = 100
 
-    # --- BACK BUTTON SETUP ---
+    # --- BACK BUTTON SETUP (Center Origin & Position) ---
+    back_x, back_y = 16, 16
     @backBmp = pbBitmap(@path + "back")
-    @backSelBmp = pbBitmap(@path + "back_sel")
+    @backSelBmp = pbBitmap(@path + "back")
     @backButton = Sprite.new(@viewport)
     @backButton.bitmap = @backBmp
-    @backButton.x = 16
-    @backButton.y = 16
+    @backButton.x = back_x + 48
+    @backButton.y = back_y + 48
+    @backButton.ox = 48
+    @backButton.oy = 48
     @backButton.z = 101
     @backButton.visible = false
 
@@ -283,7 +311,6 @@ class FightWindowEBDX
     @megaButton.oy = @megaButton.bitmap.height / 2
     
     # --- CALCULATE FINAL POSITION ---
-    # 372 pixels from RIGHT, 8 pixels from BOTTOM
     @mega_target_x = @viewport.width - 392 - (@megaButton.bitmap.width / 2)
     @mega_target_y = @viewport.height - 8 - (@megaButton.bitmap.height / 2)
     
@@ -379,14 +406,10 @@ class FightWindowEBDX
       @nummoves += 1 if @moves[i] && @moves[i].id
     end
 
-    # Determine target for effectiveness check
     target = @battler.pbDirectOpposing
     
-    # --- STRICT POKEDEX CHECK ---
     target_known = false
     if target && target.pokemon
-      # Check our snapshot to see if we knew it BEFORE this battle started, 
-      # or if we have explicitly caught it (owned)
       target_known = @battle.already_known_species.include?(target.species) || $player.pokedex.owned?(target.species)
     end
 
@@ -394,9 +417,14 @@ class FightWindowEBDX
     margin_y = 8
     manual_offset_y = -72
     spacing = 78
+    
+    # Center-origin offsets for smooth scaling animation
+    width_half = 180
+    height_half = 36
+
     for i in 0...@nummoves
-      @x[i] = @viewport.width - margin_x
-      @y[i] = @viewport.height - margin_y - (@nummoves - i - 1) * spacing + manual_offset_y
+      @x[i] = @viewport.width - margin_x - width_half
+      @y[i] = @viewport.height - margin_y - (@nummoves - i - 1) * spacing + manual_offset_y + height_half
     end
 
     for i in 0...@nummoves
@@ -416,8 +444,6 @@ class FightWindowEBDX
       pbSetSmallFont(@button[i.to_s].bitmap)
       
       eff_text = ""
-      
-      # ONLY calculate if target_known is TRUE
       if target_known && !@battle.doublebattle? && !@battle.triplebattle? && movedata.category != 2
         begin
           t_types = target.types
@@ -438,9 +464,9 @@ class FightWindowEBDX
         end
       end
 
-      # --- DRAWING LOGIC ---
       if eff_text != "" && eff_text != nil
-        # KNOWN POKEMON: Draw Name (Y=10) and Effectiveness (Y=38)
+      #move name
+        @button[i.to_s].bitmap.font.size = 24
         text_name = [[movedata.name, 42, 12, 10, Color.new(0, 0, 0), Color.new(0,0,0,0)]]
         pbDrawTextPositions(@button[i.to_s].bitmap, text_name)
         
@@ -448,21 +474,47 @@ class FightWindowEBDX
         text_eff = [[eff_text, 42, 40, 0, Color.new(0, 0, 0), Color.new(0,0,0,0)]]
         pbDrawTextPositions(@button[i.to_s].bitmap, text_eff)
       else
-        # UNKNOWN OR STATUS: Draw Name centered (Y=24)
+        @button[i.to_s].bitmap.font.size = 24
         text_name = [[movedata.name, 42, 22, 10, Color.new(0, 0, 0), Color.new(0,0,0,0)]]
         pbDrawTextPositions(@button[i.to_s].bitmap, text_name)
       end
 
-      pbSetSmallFont(@button[i.to_s].bitmap)
+      @button[i.to_s].bitmap.font.size = 24
       pp = "#{battle_move.pp}/#{battle_move.total_pp}"
-      pbDrawOutlineText(@button[i.to_s].bitmap,-14,22,360,72,pp,Color.new(255, 255, 255),Color.new(0,0,0,0),2)
+      pbDrawOutlineText(@button[i.to_s].bitmap,-14,24,360,72,pp,Color.new(255, 255, 255),Color.new(0,0,0,0),2)
 
       @button[i.to_s].src_rect.set(0,0,360,72)
-      @button[i.to_s].ox = 360
+      @button[i.to_s].ox = width_half
+      @button[i.to_s].oy = height_half
       @button[i.to_s].x = @x[i]
       @button[i.to_s].y = @y[i]
       @button[i.to_s].visible = true
     end
+  end
+
+  #-----------------------------------------------------------------------------
+  #  Animate Move Button Click (0.7 Scale Shrink & Bounce)
+  #-----------------------------------------------------------------------------
+  def animateButtonPress(index)
+    btn = @button[index.to_s]
+    return if !btn || btn.disposed?
+    
+    4.times do |i|
+      scale = 1.0 - ((i + 1) * 0.075)
+      btn.zoom_x = scale
+      btn.zoom_y = scale
+      Graphics.update
+      Input.update
+    end
+    4.times do |i|
+      scale = 0.7 + ((i + 1) * 0.075)
+      btn.zoom_x = scale
+      btn.zoom_y = scale
+      Graphics.update
+      Input.update
+    end
+    btn.zoom_x = 1.0
+    btn.zoom_y = 1.0
   end
 
   def show
@@ -478,7 +530,6 @@ class FightWindowEBDX
   end
 
   def showPlay
-    # Ensure it starts at the target position
     @megaButton.y = @mega_target_y
     8.times do
       self.show; @scene.wait(1, true)
@@ -490,8 +541,6 @@ class FightWindowEBDX
     @typeInd.visible = false
     @background.y += (@background.bitmap.height/8)
     @backButton.visible = false
-    
-    # Move mega button down off screen or just hide
     @megaButton.y = @viewport.height + 100
     
     for i in 0...@nummoves
@@ -501,7 +550,6 @@ class FightWindowEBDX
     @showMega = false
     @megaFlare.visible = false
     
-    # Clear particles when hiding
     if @particles
       @particles.each { |p| p[0].dispose if p[0] }
       @particles.clear
@@ -519,12 +567,11 @@ class FightWindowEBDX
   end
 
   def megaButtonTrigger
-    # VISUAL TOGGLE
     @megaSelected = !@megaSelected
   end
   
   #-----------------------------------------------------------------------------
-  #  Helper: Get Mouse Index for Moves
+  #  Helper: Get Mouse Index for Moves (Updated for Center Origin)
   #-----------------------------------------------------------------------------
   def getMouseIndex
     return -1 if !defined?(Input.mouse_x)
@@ -536,10 +583,11 @@ class FightWindowEBDX
       
       s_width = 360 
       s_height = 72
-      s_right = sprite.x
-      s_left = sprite.x - s_width
-      s_top = sprite.y
-      s_bottom = sprite.y + s_height
+      # With center origin (ox = 180, oy = 36), calculate bounding box:
+      s_left = sprite.x - 180
+      s_right = sprite.x + 180
+      s_top = sprite.y - 36
+      s_bottom = sprite.y + 36
       
       if mx >= s_left && mx < s_right && my >= s_top && my < s_bottom
         return i
@@ -574,8 +622,9 @@ class FightWindowEBDX
     return false if !defined?(Input.mouse_x)
     mx, my = Input.mouse_x, Input.mouse_y
     
-    # 96x96 pixels from x:16, y:16
-    return (mx >= @backButton.x && mx < @backButton.x + 96 && my >= @backButton.y && my < @backButton.y + 96)
+    left = @backButton.x - 48
+    top = @backButton.y - 48
+    return (mx >= left && mx < left + 96 && my >= top && my < top + 96)
   end
 
   #-----------------------------------------------------------------------------
@@ -584,7 +633,6 @@ class FightWindowEBDX
   def update
     @sel.visible = true
 
-    # --- BACK BUTTON STATE UPDATE ---
     if isMouseOverBack? && Input.press?(Input::MOUSELEFT)
       @backButton.bitmap = @backSelBmp
     else
@@ -592,47 +640,37 @@ class FightWindowEBDX
     end
 
     if @showMega
-      # Slide Animation
       @megaButton.y -= 10 if @megaButton.y > @mega_target_y
-      
-      # Sync Flare Position (This handles the full button tint/glow)
       @megaFlare.x = @megaButton.x
       @megaFlare.y = @megaButton.y
       
-      # --- RAINBOW FLARE + PARTICLES ---
       if @megaSelected
         @megaFlare.visible = true
-        
-        # 1. Cycle Rainbow Colors
         @rainbow_step += 0.2
         r = (Math.sin(@rainbow_step) * 127 + 128).to_i
         g = (Math.sin(@rainbow_step + 2) * 127 + 128).to_i
         b = (Math.sin(@rainbow_step + 4) * 127 + 128).to_i
         rainbow_color = Color.new(r, g, b)
         
-        # 2. Update Flare (Button Tint)
         @megaFlare.color = rainbow_color
-        # Half Transparency (128) + Subtle Pulse
         @megaFlare.opacity = 128 + (Math.sin(@rainbow_step * 2) * 30).to_i
 
-        # 3. Spawn Particles (Using same rainbow color)
         2.times do 
           sprite = Sprite.new(@viewport)
           sprite.bitmap = @particle_bmp
           sprite.ox = 4
           sprite.oy = 4
-          sprite.z = 102 # On Top
+          sprite.z = 102
           
-          # Position: Bottom center area of button
           w_half = @megaButton.bitmap.width / 2 - 10
           sprite.x = @megaButton.x + rand(w_half * 2) - w_half
           sprite.y = @megaButton.y + (@megaButton.bitmap.height / 2) - 10
           
-          sprite.blend_type = 1 # Additive
+          sprite.blend_type = 1
           sprite.color = rainbow_color
           
           speed_x = (rand(10) - 5) * 0.2
-          speed_y = -2 - rand(3)   # Float upwards
+          speed_y = -2 - rand(3)
           life = 20 + rand(20)
           @particles.push([sprite, speed_x, speed_y, life, life])
         end
@@ -640,14 +678,12 @@ class FightWindowEBDX
         @megaFlare.visible = false
       end
 
-      # 4. Update Existing Particles
       @particles.each_with_index do |p, i|
         sprite, sx, sy, life, max_life = p
         sprite.x += sx
         sprite.y += sy
         p[3] -= 1
         
-        # Fade Out
         prog = 1.0 - (life.to_f / max_life.to_f)
         sprite.opacity = 255 * (1.0 - prog)
         
@@ -656,9 +692,8 @@ class FightWindowEBDX
           @particles[i] = nil
         end
       end
-      @particles.compact! # Clean up
+      @particles.compact!
     else
-      # Clear visual effects if hidden
       @megaFlare.visible = false
       if !@particles.empty?
         @particles.each { |p| p[0].dispose }
@@ -674,13 +709,12 @@ class FightWindowEBDX
       end
     end
 
-    # --- CURSOR LOGIC ---
     if @mode == 1 # MEGA MODE
       @sel.x = @megaButton.x - 60 
       @sel.y = @megaButton.y
-    else # MOVES MODE
-      @sel.x = @button["#{@index}"].x - 360
-      @sel.y = @button["#{@index}"].y + 36
+    else # MOVES MODE (Adjusted for center origin selector placement)
+      @sel.x = @button["#{@index}"].x - 180 - 18
+      @sel.y = @button["#{@index}"].y
     end
 
     @sel_bounce_x ||= 0
@@ -695,7 +729,7 @@ class FightWindowEBDX
     if @mode == 0 && @showTypeAdvantage && !(@battle.doublebattle? || @battle.triplebattle?)
       @typeInd.visible = true
       @typeInd.y = @button["#{@index}"].y
-      @typeInd.x = @button["#{@index}"].x
+      @typeInd.x = @button["#{@index}"].x - 180
       eff = 0
       if @button["#{@index}"].param == 2
         eff = 4
@@ -723,12 +757,10 @@ class FightWindowEBDX
     @typeInd.dispose
     pbDisposeSpriteHash(@button)
     
-    # Dispose Back Button
     @backBmp.dispose if @backBmp
     @backSelBmp.dispose if @backSelBmp
     @backButton.dispose if @backButton
 
-    # Dispose Particle System
     if @particles
       @particles.each { |p| p[0].dispose if p[0] }
       @particles.clear

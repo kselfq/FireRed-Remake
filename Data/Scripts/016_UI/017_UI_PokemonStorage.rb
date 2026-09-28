@@ -632,6 +632,14 @@ def pbStartBox(screen, command)
     @sprites["overlay"].z = 20
     pbSetSystemFont(@sprites["overlay"].bitmap)
     
+    # --- UPDATED BACK BUTTON (Center Origin & Position) ---
+    back_x, back_y = 16, 16
+    @sprites["btn_back"] = IconSprite.new(back_x + 48, back_y + 48, @boxsidesviewport)
+    @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
+    @sprites["btn_back"].z = 250
+    
     @sprites["pokemon"] = PokemonSprite.new(@viewport)
     @sprites["pokemon"].setOffset(PictureOrigin::CENTER)
     
@@ -980,6 +988,38 @@ def pbSelectBoxInternal(_party)
       elsif Input.trigger?(Input::ACTION) && @command == 0   # Organize only
         pbPlayDecisionSE
         pbSetQuickSwap(!@quickswap)
+      
+      # --- INSERT BACK BUTTON MOUSE CHECK HERE ---
+      elsif Input.trigger?(Input::MOUSELEFT)
+        exit_x = 16
+        exit_y = 16
+        exit_w = 96
+        exit_h = 96
+        
+        if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+           Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+           
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           pbPlayCloseMenuSE
+           @selection = selection
+           return nil
+        end
+      # ---------------------------------------------
+
       elsif Input.trigger?(Input::BACK)
         @selection = selection
         return nil
@@ -1008,58 +1048,90 @@ def pbSelectBoxInternal(_party)
   end
 
   def pbSelectPartyInternal(party, depositing)
-  selection = @selection
-  pbPartySetArrow(@sprites["arrow"], selection)
-  pbUpdateOverlay(selection, party)
-  lastsel = 1
-  loop do
-    Graphics.update
-    Input.update
-    key = -1
-    key = Input::DOWN if Input.repeat?(Input::DOWN)
-    key = Input::RIGHT if Input.repeat?(Input::RIGHT)
-    key = Input::LEFT if Input.repeat?(Input::LEFT)
-    key = Input::UP if Input.repeat?(Input::UP)
-    
-    # Check for cursor movement and update
-    if key >= 0
-      pbPlayCursorSE
-      newselection = pbPartyChangeSelection(key, selection)
-      case newselection
-      when -1
-        return -1 if !depositing
-      when -2
-        selection = lastsel
-      else
-        selection = newselection
+    selection = @selection
+    pbPartySetArrow(@sprites["arrow"], selection)
+    pbUpdateOverlay(selection, party)
+    lastsel = 1
+    loop do
+      Graphics.update
+      Input.update
+      key = -1
+      key = Input::DOWN if Input.repeat?(Input::DOWN)
+      key = Input::RIGHT if Input.repeat?(Input::RIGHT)
+      key = Input::LEFT if Input.repeat?(Input::LEFT)
+      key = Input::UP if Input.repeat?(Input::UP)
+      
+      # Check for cursor movement and update
+      if key >= 0
+        pbPlayCursorSE
+        newselection = pbPartyChangeSelection(key, selection)
+        case newselection
+        when -1
+          return -1 if !depositing
+        when -2
+          selection = lastsel
+        else
+          selection = newselection
+        end
+        pbPartySetArrow(@sprites["arrow"], selection)
+        lastsel = selection if selection > 0
       end
-      pbPartySetArrow(@sprites["arrow"], selection)
-      lastsel = selection if selection > 0
-    end
-    
-    # CRITICAL FIX: Continuous overlay update for stats display
-    pbUpdateOverlay(selection, party) 
+      
+      # CRITICAL FIX: Continuous overlay update for stats display
+      pbUpdateOverlay(selection, party) 
 
-    self.update
-    
-    # Check for button triggers
-    if Input.trigger?(Input::ACTION) && @command == 0
-      pbPlayDecisionSE
-      pbSetQuickSwap(!@quickswap)
-    elsif Input.trigger?(Input::BACK)
-      @selection = selection
-      return -1
-    elsif Input.trigger?(Input::USE)
-      if selection >= 0 && selection < Settings::MAX_PARTY_SIZE
+      self.update
+      
+      # Check for button triggers
+      if Input.trigger?(Input::ACTION) && @command == 0
+        pbPlayDecisionSE
+        pbSetQuickSwap(!@quickswap)
+      
+      # --- INSERT BACK BUTTON MOUSE CHECK HERE ---
+      elsif Input.trigger?(Input::MOUSELEFT)
+        exit_x = 16
+        exit_y = 16
+        exit_w = 96
+        exit_h = 96
+        
+        if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+           Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+           
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           pbPlayCloseMenuSE
+           @selection = selection
+           return -1
+        end
+      # ---------------------------------------------
+
+      elsif Input.trigger?(Input::BACK)
         @selection = selection
-        return selection
-      elsif selection == Settings::MAX_PARTY_SIZE
-        @selection = selection
-        return (depositing) ? -3 : -1
+        return -1
+      elsif Input.trigger?(Input::USE)
+        if selection >= 0 && selection < Settings::MAX_PARTY_SIZE
+          @selection = selection
+          return selection
+        elsif selection == Settings::MAX_PARTY_SIZE
+          @selection = selection
+          return (depositing) ? -3 : -1
+        end
       end
     end
   end
-end
 
   def pbSelectParty(party)
     return pbSelectPartyInternal(party, true)
