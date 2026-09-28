@@ -2,7 +2,7 @@
 #  Target selection UI (Clean Version - No Glow/Zoom)
 #===============================================================================
 class TargetWindowEBDX
-  attr_reader :index, :buttons
+  attr_reader :index, :buttons, :backButton
   #-----------------------------------------------------------------------------
   def applyMetrics
     @btnImg = "btnEmpty"
@@ -50,13 +50,16 @@ class TargetWindowEBDX
     @background.y = Graphics.height - @background.bitmap.height + 80
     @background.z = 100
 
-    # --- BACK BUTTON SETUP ---
+    # --- BACK BUTTON SETUP (Center Origin & Position) ---
+    back_x, back_y = 16, 16
     @backBmp = pbBitmap(@path + "back")
     @backSelBmp = pbBitmap(@path + "back_sel")
     @backButton = Sprite.new(@viewport)
     @backButton.bitmap = @backBmp
-    @backButton.x = 16
-    @backButton.y = 16
+    @backButton.x = back_x + 48
+    @backButton.y = back_y + 48
+    @backButton.ox = 48
+    @backButton.oy = 48
     @backButton.z = 101
     @backButton.visible = false
   end
@@ -97,6 +100,10 @@ class TargetWindowEBDX
       @buttons["#{i}"].bitmap = Bitmap.new(bw, bh)
       @buttons["#{i}"].bitmap.stretch_blt(Rect.new(0, 0, bw, bh), bmp, bmp.rect)
       
+      # --- SET CENTER ORIGIN FOR BUTTON SCALE ANIMATION ---
+      @buttons["#{i}"].ox = bw / 2
+      @buttons["#{i}"].oy = bh / 2
+      
       if b.displayPokemon
         pkmn = b.displayPokemon
         icon = pbBitmap(GameData::Species.icon_filename_from_pokemon(pkmn))
@@ -121,11 +128,11 @@ class TargetWindowEBDX
       col = i / 2
       
       if is_foe
-        @buttons["#{i}"].x = foe_start_x + col * (fw + fs)
-        @buttons["#{i}"].y = foe_y
+        @buttons["#{i}"].x = (foe_start_x + col * (fw + fs)) + (bw / 2)
+        @buttons["#{i}"].y = foe_y + (bh / 2)
       else
-        @buttons["#{i}"].x = player_start_x + col * (pw + ps)
-        @buttons["#{i}"].y = player_y
+        @buttons["#{i}"].x = (player_start_x + col * (pw + ps)) + (bw / 2)
+        @buttons["#{i}"].y = player_y + (bh / 2)
       end
       
       @buttons["#{i}"].z = 100
@@ -139,13 +146,15 @@ class TargetWindowEBDX
     @index = val
   end
   #-----------------------------------------------------------------------------
-  #  Helper: Check if mouse is over Back Button
+  #  Helper: Check if mouse is over Back Button (Center Origin)
   #-----------------------------------------------------------------------------
   def isMouseOverBack?
     return false if !@backButton || !@backButton.visible
     return false if !defined?(Input.mouse_x)
     mx, my = Input.mouse_x, Input.mouse_y
-    return (mx >= @backButton.x && mx < @backButton.x + 96 && my >= @backButton.y && my < @backButton.y + 96)
+    left = @backButton.x - 48
+    top = @backButton.y - 48
+    return (mx >= left && mx < left + 96 && my >= top && my < top + 96)
   end
   #-----------------------------------------------------------------------------
   def update
@@ -162,10 +171,10 @@ class TargetWindowEBDX
 
     btn = @buttons["#{@index}"]
     if btn && !btn.disposed?
-      # Setup Cursor pointing at the left edge of the selected button
+      # Setup Cursor pointing at the left edge of the selected button (accounting for center origin)
       @sel.visible = true
-      @sel.x = btn.x + @sel_offset + @arrow_x_offset
-      @sel.y = btn.y + (btn.bitmap.height / 2)
+      @sel.x = (btn.x - (btn.bitmap.width / 2)) + @sel_offset + @arrow_x_offset
+      @sel.y = btn.y
     else
       @sel.visible = false
     end
@@ -256,24 +265,38 @@ class Battle::Scene
 
       mouse_clicked = false
 
-      # Check Back Button Click
+      # Check Back Button Click with Scale Animation
       if @targetWindow.isMouseOverBack? && Input.trigger?(Input::MOUSELEFT)
+        4.times do |i|
+          scale = 1.0 - ((i + 1) * 0.075)
+          @targetWindow.backButton.zoom_x = scale
+          @targetWindow.backButton.zoom_y = scale
+          Graphics.update
+          Input.update
+        end
+        4.times do |i|
+          scale = 0.7 + ((i + 1) * 0.075)
+          @targetWindow.backButton.zoom_x = scale
+          @targetWindow.backButton.zoom_y = scale
+          Graphics.update
+          Input.update
+        end
         ret = -1
         pbPlayCancelSE
         mouse_clicked = true
       end
       break if mouse_clicked
 
-      # Check Target Buttons
+      # Check Target Buttons with Scale Animation
       for i in 0...texts.length
         next if texts[i].nil? || @battle.battlers[i].hp <= 0
         btn = @targetWindow.buttons["#{i}"]
         next if btn.nil?
         
-        bx = btn.x
-        by = btn.y
         bw = btn.bitmap.width
         bh = btn.bitmap.height
+        bx = btn.x - (bw / 2)
+        by = btn.y - (bh / 2)
         
         if Input.mouse_x >= bx && Input.mouse_x <= bx + bw &&
            Input.mouse_y >= by && Input.mouse_y <= by + bh
@@ -285,6 +308,22 @@ class Battle::Scene
           end
           
           if Input.trigger?(Input::MOUSELEFT)
+            # --- 0.7 SCALE SHRINK & RETURN ANIMATION FOR TARGET BUTTONS ---
+            4.times do |anim_i|
+              scale = 1.0 - ((anim_i + 1) * 0.075)
+              btn.zoom_x = scale
+              btn.zoom_y = scale
+              Graphics.update
+              Input.update
+            end
+            4.times do |anim_i|
+              scale = 0.7 + ((anim_i + 1) * 0.075)
+              btn.zoom_x = scale
+              btn.zoom_y = scale
+              Graphics.update
+              Input.update
+            end
+            # -------------------------------------------------------------
             ret = @targetWindow.index
             pbSEPlay("EBDX/SE_Select1")
             $ebd_target_clicked = true 
@@ -341,6 +380,25 @@ class Battle::Scene
       @targetWindow.update
 
       if Input.trigger?(Input::C)
+        # --- KEYBOARD CONFIRMATION SHRINK ANIMATION ---
+        active_btn = @targetWindow.buttons["#{@targetWindow.index}"]
+        if active_btn && !active_btn.disposed?
+          4.times do |anim_i|
+            scale = 1.0 - ((anim_i + 1) * 0.075)
+            active_btn.zoom_x = scale
+            active_btn.zoom_y = scale
+            Graphics.update
+            Input.update
+          end
+          4.times do |anim_i|
+            scale = 0.7 + ((anim_i + 1) * 0.075)
+            active_btn.zoom_x = scale
+            active_btn.zoom_y = scale
+            Graphics.update
+            Input.update
+          end
+        end
+        # ---------------------------------------------
         ret = @targetWindow.index
         pbSEPlay("EBDX/SE_Select1")
         break

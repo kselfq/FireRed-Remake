@@ -80,9 +80,9 @@ class PokemonSave_Scene
     # ---------------------------------
     
 	# X and Y positions
-    left_x  = 594 + 140
-    right_x = 1080 + 140
-    y_pos   = 90 + 60
+    left_x  = 734
+    right_x = 1200
+    y_pos   = 150
     line_gap = 60
 
     stats = [

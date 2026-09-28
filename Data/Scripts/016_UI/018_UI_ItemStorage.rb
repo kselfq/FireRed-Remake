@@ -78,6 +78,15 @@ class ItemStorage_Scene
     @sprites = {}
     @sprites["background"] = IconSprite.new(0, 0, @viewport)
     @sprites["background"].setBitmap("Graphics/UI/itemstorage_bg")
+    
+    # --- UPDATED BACK BUTTON (Center Origin & Position) ---
+    back_x, back_y = 16, 16
+    @sprites["btn_back"] = IconSprite.new(back_x + 48, back_y + 48, @viewport)
+    @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
+    @sprites["btn_back"].z  = 250
+
     @sprites["icon"] = ItemIconSprite.new(50, 334, nil, @viewport)
     # Item list
     @sprites["itemwindow"] = Window_PokemonItemStorage.new(@bag, 186, 16, 562, 32 + (ITEMSVISIBLE * 32))
@@ -188,6 +197,39 @@ def pbChooseItem
         if itemwindow.index != olditem
           pbRefresh 
         end
+        
+        # --- BACK BUTTON CLICK & 0.7 SHRINK ANIMATION LOGIC ---
+        if Input.trigger?(Input::MOUSELEFT)
+          exit_x = 16
+          exit_y = 16
+          exit_w = 96
+          exit_h = 96
+          
+          if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+             Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+             
+             # --- 0.7 SCALE SHRINK & RETURN ANIMATION ---
+             4.times do |i|
+               scale = 1.0 - ((i + 1) * 0.075)
+               @sprites["btn_back"].zoom_x = scale
+               @sprites["btn_back"].zoom_y = scale
+               Graphics.update
+               Input.update
+             end
+             4.times do |i|
+               scale = 0.7 + ((i + 1) * 0.075)
+               @sprites["btn_back"].zoom_x = scale
+               @sprites["btn_back"].zoom_y = scale
+               Graphics.update
+               Input.update
+             end
+             # -------------------------------------------
+
+             pbPlayCloseMenuSE
+             return nil
+          end
+        end
+        
         if Input.trigger?(Input::BACK)
           return nil
         elsif Input.trigger?(Input::USE)

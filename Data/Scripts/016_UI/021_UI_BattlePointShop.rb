@@ -334,7 +334,6 @@ class BattlePointShop_Scene
     ret = 0
     helpwindow = @sprites["helpwindow"]
     itemprice = @adapter.getPrice(item)
-    itemprice /= 2 if !@buying
     pbDisplay(helptext, true)
     using(numwindow = Window_AdvancedTextPokemon.new("")) do   # Showing number of items
       pbPrepareWindow(numwindow)

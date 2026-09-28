@@ -1,6 +1,6 @@
 #===============================================================================
 # Pokemon Essentials 21.1 - Custom Pause Menu (1600x720 Scale + Animated Cursor)
-# Updated: English Labels, Map Location, stacked Time/Period
+# Updated: English Labels, Map Location, stacked Time/Period + Button Animation
 #===============================================================================
 
 class Scene_Map
@@ -260,8 +260,11 @@ class Menu2
 
       @sprites["item_#{counter}"] = Sprite.new(@viewport)
       @sprites["item_#{counter}"].bitmap = RPG::Cache.ui("Menu Custom/#{item[0]}")
-      @sprites["item_#{counter}"].x = icon_x
-      @sprites["item_#{counter}"].y = icon_y
+      # Set center origin for smooth scaling animation
+      @sprites["item_#{counter}"].ox = @icon_width / 2
+      @sprites["item_#{counter}"].oy = @icon_height / 2
+      @sprites["item_#{counter}"].x = icon_x + (@icon_width / 2)
+      @sprites["item_#{counter}"].y = icon_y + (@icon_height / 2)
       @sprites["item_#{counter}"].z = 101
       
       enabled = conditions[counter]
@@ -295,16 +298,11 @@ class Menu2
     time_string = Time.now.strftime("%l:%M %p").strip	
     
     # --- FIX MAP NAME PLACEHOLDERS ---
-    # We grab the current map name and replace the placeholders manually
     map_name = $game_map.name
     if map_name
-      # 1. Replace \PN with Player Name
       map_name = map_name.gsub(/\\PN/, $player.name)
-      
-      # 2. Replace \v[n] with Variable Value
       map_name = map_name.gsub(/\\v\[(\d+)\]/) { $game_variables[$1.to_i] }
     end
-    # ---------------------------------
     
     # Map Location text on the left
     overlay_bitmap.font.name = LOCATION_FONT_NAME
@@ -342,8 +340,32 @@ class Menu2
     return false if !sprite
     mouse_x = Input.mouse_x
     mouse_y = Input.mouse_y
-    return (mouse_x >= sprite.x && mouse_x < sprite.x + sprite.width && 
-            mouse_y >= sprite.y && mouse_y < sprite.y + sprite.height)
+    s_width = @icon_width
+    s_height = @icon_height
+    s_left = sprite.x - sprite.ox
+    s_top = sprite.y - sprite.oy
+    return (mouse_x >= s_left && mouse_x < s_left + s_width && 
+            mouse_y >= s_top && mouse_y < s_top + s_height)
+  end
+
+  # --- BUTTON SHRINK & POP ANIMATION HELPER ---
+  def animateButtonPress(index)
+    btn = @sprites["item_#{index}"]
+    return if !btn || btn.disposed?
+    4.times do |i|
+      scale = 1.0 - ((i + 1) * 0.075)
+      btn.zoom_x = scale
+      btn.zoom_y = scale
+      Graphics.update
+      Input.update
+    end
+    4.times do |i|
+      scale = 0.7 + ((i + 1) * 0.075)
+      btn.zoom_x = scale
+      btn.zoom_y = scale
+      Graphics.update
+      Input.update
+    end
   end
 
   def pbStartScene
@@ -399,7 +421,6 @@ class Menu2
     @sprites["selector"].bitmap = RPG::Cache.ui("Menu Custom/menu_selection")
     
     # --- AUTO-SELECT FIRST ENABLED ICON ---
-    # Scans @items (which now has the [3] enabled/disabled flag from drawIconLabels)
     @selected_item = 0
     @items.each_with_index do |item, i|
       if item[3] # If this item is enabled
@@ -490,8 +511,9 @@ class Menu2
 
       if Input.trigger?(Input::C)
         if @items[@selected_item][3]
+          animateButtonPress(@selected_item)
           pbSEPlay("GUI sel decision")
-          send(@items[@selected_item][2]) # Now calls openTrainerCard correctly
+          send(@items[@selected_item][2]) 
         else
           pbSEPlay("GUI sel buzzer")
         end
@@ -504,14 +526,12 @@ class Menu2
         if clicked_index >= 0
            @selected_item = clicked_index
            redrawSelector
+           animateButtonPress(@selected_item)
            pbSEPlay("GUI sel decision")
            send(@items[@selected_item][2])
-        # --- UPDATED: Back Button Click (16,16 Size 96x96) ---
-        # --- UPDATED: Back Button Click with Shrink & Return Animation ---
         elsif Input.mouse_x >= 16 && Input.mouse_x <= 112 &&
               Input.mouse_y >= 8 && Input.mouse_y <= 112
            
-           # 1. Shrink down from center
            4.times do |i|
              scale = 1.0 - ((i + 1) * 0.075)
              @sprites["btn_back"].zoom_x = scale
@@ -520,7 +540,6 @@ class Menu2
              Input.update
            end
 
-           # 2. Return back to original size
            4.times do |i|
              scale = 0.7 + ((i + 1) * 0.075)
              @sprites["btn_back"].zoom_x = scale
@@ -532,8 +551,6 @@ class Menu2
            pbSEPlay("GUI sel cancel")
            @exit = true
            break
-        # -----------------------------------------------------
-        # -----------------------------------------------------
         elsif Input.mouse_x > Graphics.width - 150 && Input.mouse_y > Graphics.height - 50
            pbSEPlay("GUI sel cancel"); break 
         end
