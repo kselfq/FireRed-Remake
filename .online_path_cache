@@ -1018,3 +1018,9 @@ Graphics/UI/Pokedex/bg_info;Graphics/UI/Pokedex/bg_info.png
 Audio/SE/Cries/DIGLETT;Audio/SE/Cries/DIGLETT.ogg
 Graphics/UI/boxes;Graphics/UI/boxes.png
 Graphics/UI/settingsbg;Graphics/UI/settingsbg.png
+Graphics/Animations/Overworld dust and grass;Graphics/Animations/Overworld dust and grass.png
+Graphics/EBDX/Battlebacks/battlebg/City;Graphics/EBDX/Battlebacks/battlebg/City.png
+Graphics/EBDX/Pictures/UI/back;Graphics/EBDX/Pictures/UI/back.png
+Graphics/EBDX/Pictures/UI/back_sel;Graphics/EBDX/Pictures/UI/back_sel.png
+Graphics/Tilesets/ROUTE 1 (1);Graphics/Tilesets/ROUTE 1 (1).png
+Graphics/Tilesets/ROUTE 1 (2);Graphics/Tilesets/ROUTE 1 (2).png
