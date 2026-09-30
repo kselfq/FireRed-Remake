@@ -12,7 +12,16 @@ class PokemonPokedexInfo_Scene
     @show_battled_count = false
     @typebitmap = AnimatedBitmap.new(_INTL("Graphics/UI/types"))
     @sprites = {}
-	addBackgroundPlane(@sprites, "base_bg", "Pokedex/bg", @viewport)
+    
+    # --- BACK BUTTON (Center Origin & Position) ---
+    back_x, back_y = 16, 16
+    @sprites["btn_back"] = IconSprite.new(back_x + 48, back_y + 48, @viewport)
+    @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
+    @sprites["btn_back"].z = 250
+
+    addBackgroundPlane(@sprites, "base_bg", "Pokedex/bg", @viewport)
     @sprites["background"] = IconSprite.new(0, 0, @viewport)
     @sprites["infosprite"] = PokemonSprite.new(@viewport)
     @sprites["infosprite"].setOffset(PictureOrigin::CENTER)
@@ -105,6 +114,15 @@ class PokemonPokedexInfo_Scene
     @brief = true
     @typebitmap = AnimatedBitmap.new(_INTL("Graphics/UI/Pokedex/icon_types"))
     @sprites = {}
+    
+    # --- BACK BUTTON (Center Origin & Position) ---
+    back_x, back_y = 16, 16
+    @sprites["btn_back"] = IconSprite.new(back_x + 48, back_y + 48, @viewport)
+    @sprites["btn_back"].setBitmap("Graphics/UI/back")
+    @sprites["btn_back"].ox = 48
+    @sprites["btn_back"].oy = 48
+    @sprites["btn_back"].z = 250
+
     @sprites["background"] = IconSprite.new(0, 0, @viewport)
     @sprites["infosprite"] = PokemonSprite.new(@viewport)
     @sprites["infosprite"].setOffset(PictureOrigin::CENTER)
@@ -465,6 +483,37 @@ class PokemonPokedexInfo_Scene
       Graphics.update
       Input.update
       pbUpdate
+      
+      # --- BACK BUTTON CLICK & 0.7 SHRINK ANIMATION LOGIC ---
+      if Input.trigger?(Input::MOUSELEFT)
+        exit_x = 16
+        exit_y = 16
+        exit_w = 96
+        exit_h = 96
+        
+        if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+           Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+           
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           pbPlayCancelSE
+           break
+        end
+      end
+
       if Input.trigger?(Input::UP)
         pbPlayCursorSE
         index = (index + @available.length - 1) % @available.length
@@ -489,6 +538,37 @@ class PokemonPokedexInfo_Scene
       Graphics.update
       Input.update
       pbUpdate
+      
+      # --- BACK BUTTON CLICK & 0.7 SHRINK ANIMATION LOGIC ---
+      if Input.trigger?(Input::MOUSELEFT)
+        exit_x = 16
+        exit_y = 16
+        exit_w = 96
+        exit_h = 96
+        
+        if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+           Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+           
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           pbPlayCloseMenuSE
+           break
+        end
+      end
+
       dorefresh = false
       if Input.trigger?(Input::ACTION)
         pbSEStop
@@ -561,6 +641,37 @@ class PokemonPokedexInfo_Scene
       Graphics.update
       Input.update
       pbUpdate
+      
+      # --- BACK BUTTON CLICK & 0.7 SHRINK ANIMATION LOGIC ---
+      if Input.trigger?(Input::MOUSELEFT)
+        exit_x = 16
+        exit_y = 16
+        exit_w = 96
+        exit_h = 96
+        
+        if Input.mouse_x >= exit_x && Input.mouse_x < exit_x + exit_w &&
+           Input.mouse_y >= exit_y && Input.mouse_y < exit_y + exit_h
+           
+           4.times do |i|
+             scale = 1.0 - ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+           4.times do |i|
+             scale = 0.7 + ((i + 1) * 0.075)
+             @sprites["btn_back"].zoom_x = scale
+             @sprites["btn_back"].zoom_y = scale
+             Graphics.update
+             Input.update
+           end
+
+           pbPlayCloseMenuSE
+           break
+        end
+      end
+
       if Input.trigger?(Input::ACTION)
         pbSEStop
         Pokemon.play_cry(@species, @form)

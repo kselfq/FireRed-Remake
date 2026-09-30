@@ -621,7 +621,6 @@ class PokemonBag_Scene
   ITEMSVISIBLE           = 7
 
 
-
   def pbUpdate
     pbUpdateSpriteHash(@sprites)
     if @sprites["uparrow"] && @sprites["downarrow"]
@@ -684,6 +683,7 @@ class PokemonBag_Scene
     @filterproc = filterproc
     @party      = party
     
+    
     pbRefreshFilter
     lastpocket = @bag.last_viewed_pocket
     numfilledpockets = @bag.pockets.length - 1
@@ -718,6 +718,30 @@ class PokemonBag_Scene
     @pocketbitmap = AnimatedBitmap.new(_INTL("Graphics/UI/Bag Screen with Party/icon_pocket"))
     
     @sprites = {}
+    
+    @adapter = PokemonMartAdapter.new
+    @sprites["moneywindow"] = Window_AdvancedTextPokemon.new("")
+    @sprites["moneywindow"].viewport = @viewport
+    @sprites["moneywindow"].width = 200
+    @sprites["moneywindow"].height = 96
+    @sprites["moneywindow"].x = Graphics.width - 196
+    @sprites["moneywindow"].y = -12
+    @sprites["moneywindow"].baseColor = Color.new(0, 0, 0)
+    @sprites["moneywindow"].shadowColor = Color.new(0, 0, 0, 0)
+    @sprites["moneywindow"].windowskin = nil
+    @sprites["moneywindow"].contents.font.size = 28
+    
+    @sprites["moneywindow2"] = Window_AdvancedTextPokemon.new("")
+    @sprites["moneywindow2"].viewport = @viewport
+    @sprites["moneywindow2"].width = 200
+    @sprites["moneywindow2"].height = 96
+    @sprites["moneywindow2"].x = Graphics.width - 196
+    @sprites["moneywindow2"].y = 22
+    @sprites["moneywindow2"].baseColor = Color.new(0, 0, 0)
+    @sprites["moneywindow2"].shadowColor = Color.new(0, 0, 0, 0)
+    @sprites["moneywindow2"].windowskin = nil
+    @sprites["moneywindow2"].contents.font.size = 28
+    
     @sprites["background"] = IconSprite.new(0, 0, @viewport)
     @sprites["background"].setBitmap("Graphics/UI/Bag Screen with Party/bg")
     @sprites["gradient"] = IconSprite.new(0, 0, @viewport)
@@ -1099,12 +1123,18 @@ def pbUpdateScrollArrows
   end
 
   def pbRefresh
+  
+  
+  
     for i in 0...Settings::MAX_PARTY_SIZE
         @sprites["pokemon#{i}"].refresh if @sprites["pokemon#{i}"].is_a?(PokemonBagPartyPanel)
     end
     # Hide description icon
     @sprites["itemicon"].visible = false if @sprites["itemicon"]
-
+    
+    @sprites["moneywindow"].text = _INTL("Money")
+    @sprites["moneywindow2"].text = _INTL("{1}", @adapter.getMoneyString)
+    
     # Draw the pocket icons
     pocketX  = []; incrementX = 0 # Fixes pockets' X coordinates
     @bag.pockets.length.times do |i|

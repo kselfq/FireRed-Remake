@@ -81,6 +81,24 @@ class Battle::Scene
           end
         end
 
+        # --- BUTTON SHRINK & POP ANIMATION ---
+        active_btn = @commandWindow.sprites["b#{@commandWindow.index}"]
+        if active_btn && !active_btn.disposed?
+          4.times do |anim_i|
+            scale = 1.0 - ((anim_i + 1) * 0.075)
+            active_btn.zoom_x = scale
+            active_btn.zoom_y = scale
+            Graphics.update
+          end
+          4.times do |anim_i|
+            scale = 0.7 + ((anim_i + 1) * 0.075)
+            active_btn.zoom_x = scale
+            active_btn.zoom_y = scale
+            Graphics.update
+          end
+        end
+        # -------------------------------------
+
         if @commandWindow.index == 4 && $DEBUG
           ebsDebugMenu
         else
@@ -100,7 +118,7 @@ class Battle::Scene
         break
       end
     end
-    # hide command window
+    # hide command menu
     @commandWindow.hidePlay
     # reset vector
     if @ret > 0
@@ -123,7 +141,7 @@ class CommandWindowEBDX
   attr_accessor :overlay
   attr_accessor :backdrop
   attr_accessor :coolDown
-  attr_reader :indexes
+  attr_reader :indexes, :sprites
   #-----------------------------------------------------------------------------
   #  class inspector
   #-----------------------------------------------------------------------------

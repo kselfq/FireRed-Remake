@@ -12,13 +12,13 @@ module MessageConfig
   FEMALE_TEXT_SHADOW_COLOR = Color.new(208, 208, 200, 0)
   FONT_NAME                = "poki" #regular
   FONT_SIZE                = 38
-  FONT_Y_OFFSET            = -4
+  FONT_Y_OFFSET            = 4
   SMALL_FONT_NAME          = "poki" #small
   SMALL_FONT_SIZE          = 16
   SMALL_FONT_Y_OFFSET      = 4
   NARROW_FONT_NAME         = "poki" #narrow
   NARROW_FONT_SIZE         = 38
-  NARROW_FONT_Y_OFFSET     = -4
+  NARROW_FONT_Y_OFFSET     = 4
   # 0 = Pause cursor is displayed at end of text
   # 1 = Pause cursor is displayed at bottom right
   # 2 = Pause cursor is displayed at lower middle side
