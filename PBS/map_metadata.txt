@@ -809,28 +809,40 @@ Outdoor = true
 ShowArea = true
 MapPosition = 0,5,15
 #-------------------------------
-[146]
-Name = Fuchsia Poké Mart
+[146]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[147]
+[147]   # Route 28
 Name = Fuchsia Gym
 MapPosition = 0,13,14
 BattleBack = interior
 #-------------------------------
-[148]
-Name = Fuchsia House
+[148]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[149]
-Name = Fuchsia House
+[149]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[150]
-Name = Fuchsia House
+[150]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[151]
+[151]   # Route 26
 Name = Fuchsia House
 MapPosition = 0,13,14
 #-------------------------------
@@ -843,7 +855,7 @@ Name = Safari Zone Gate
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[154]
+[154]   # Route 26
 Name = Safari Zone
 MapPosition = 0,13,14
 #-------------------------------
@@ -892,7 +904,7 @@ Name = Secret Safari House
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[164]
+[164]   # Route 26
 Name = Route 15
 Outdoor = true
 ShowArea = true
@@ -901,7 +913,7 @@ MapPosition = 0,14,14
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[165]
+[165]   # Route 26
 Name = Gatehouse
 MapPosition = 0,14,14
 #-------------------------------
