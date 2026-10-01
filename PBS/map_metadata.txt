@@ -746,6 +746,7 @@ MapSize = 1,1111
 [137]   # Route 26
 Name = Route 26
 Outdoor = true
+ShowArea = true
 Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
@@ -817,7 +818,10 @@ Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [147]   # Route 28
-Name = Fuchsia Gym
+Name = Route 28
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 BattleBack = interior
 #-------------------------------
@@ -843,7 +847,10 @@ Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [151]   # Route 26
-Name = Fuchsia House
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [152]   # Warden's House
@@ -856,7 +863,10 @@ MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
 [154]   # Route 26
-Name = Safari Zone
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [155]   # Safari Zone - South
@@ -905,16 +915,18 @@ MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
 [164]   # Route 26
-Name = Route 15
+Name = Route 26
 Outdoor = true
 ShowArea = true
-Bicycle = true
 MapPosition = 0,14,14
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
 [165]   # Route 26
-Name = Gatehouse
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,14,14
 #-------------------------------
 [166]   # Route 14
@@ -977,9 +989,11 @@ MapPosition = 0,15,8
 Name = Saffron House
 MapPosition = 0,15,8
 #-------------------------------
-[177]
-Name = Silph. Co.
+[177]   # Route 28
+Name = Route 28
+Outdoor = true
 ShowArea = true
+Bicycle = true
 MapPosition = 0,15,8
 #-------------------------------
 [178]   # Silph Co.
@@ -1068,8 +1082,11 @@ MapPosition = 0,6,16
 BattleBack = water
 MapSize = 1,1111111
 #-------------------------------
-[192]
-Name = Seafoam Island Cave
+[192]   # Route 28
+Name = Route 28
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [193]   # Seafoam Island Cave
 Name = Seafoam Island Cave - 1F
@@ -1133,8 +1150,11 @@ BattleBack = interior
 Name = Cinnabar Lab
 MapPosition = 0,5,16
 #-------------------------------
-[204]
-Name = Pokémon Mansion
+[204]   # Mt. Silver
+Name = Mt. Silver
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [205]   # Pokémon Mansion
 Name = Pokémon Mansion - 1F
@@ -1165,8 +1185,11 @@ MapPosition = 0,3,6
 BattleBack = field
 MapSize = 1,1111
 #-------------------------------
-[210]
-Name = Victory Road
+[210]   # Mt. Silver
+Name = Mt. Silver
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [211]   # Victory Road
 Name = Victory Road - 1F
