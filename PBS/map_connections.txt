@@ -4,8 +4,8 @@
 235,West,0,234,East,0
 # Viridian Forest (237) - Viridian Forest (235)
 237,West,0,235,East,0
-# Route 27 (146) - Route 27 (148)
-146,East,0,148,West,2
+# Route 27 (148) - Route 27 (146)
+148,West,2,146,East,0
 # Route 27 (149) - Route 27 (148)
 149,West,0,148,East,0
 # Route 27 (150) - Route 27 (149)
