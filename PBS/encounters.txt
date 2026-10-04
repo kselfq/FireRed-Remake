@@ -529,7 +529,7 @@ LandNight,21
     30,SPEAROW,20,22
     5,RATICATE,23,25
 #-------------------------------
-[140]
+[140] # Route 23
 LandDay,21
     35,DODUO,24,26
     30,SPEAROW,20,22
@@ -543,7 +543,7 @@ LandNight,21
     5,FEAROW,25,27
     5,RATTATA,22
 #-------------------------------
-[141]
+[141] # Route 23
 LandDay,21
     35,DODUO,24,26
     30,SPEAROW,20,22
@@ -557,7 +557,7 @@ LandNight,21
     15,RATICATE,25,27
     5,RATTATA,22
 #-------------------------------
-[144]
+[144] # Indigo Plateau
 Water,2
     50,PSYDUCK,5,6
     50,SLOWPOKE,5,6
@@ -738,7 +738,7 @@ SuperRod
     4,SLOWPOKE,20,21
     2,DRAGONAIR,25,26
 #-------------------------------
-[164]
+[164] # Route 26
 LandDay,21
     25,BELLSPROUT,22,24
     25,ODDISH,22,24

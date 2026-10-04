@@ -4,32 +4,22 @@
 235,West,0,234,East,0
 # Viridian Forest (237) - Viridian Forest (235)
 237,West,0,235,East,0
-# Route 27 (148) - Route 27 (146)
-148,West,2,146,East,0
-# Route 27 (149) - Route 27 (148)
-149,West,0,148,East,0
-# Route 27 (150) - Route 27 (149)
-150,West,0,149,East,15
-# Route 26 (151) - Route 27 (150)
-151,West,96,150,East,0
-# Route 26 (154) - Route 27 (150)
-154,West,20,150,East,0
-# Route 26 (165) - Route 27 (150)
-165,South,0,150,North,108
-# Route 22 (6) - Route 26 (151)
-6,West,92,151,East,0
-# Route 26 (137) - Route 26 (151)
-137,South,10,151,North,0
-# Route 26 (164) - Route 26 (151)
-164,West,28,151,East,0
-# Route 26 (154) - Route 26 (151)
-154,North,0,151,South,0
-# Route 26 (165) - Route 26 (151)
-165,East,0,151,West,0
-# Route 26 (11) - Route 22 (6)
-11,South,88,6,North,0
+# Route 22 (6) - Route 26 (154)
+6,West,168,154,East,0
+# Route 26 (151) - Route 26 (154)
+151,South,0,154,North,0
+# Route 26 (164) - Route 26 (154)
+164,West,104,154,East,0
+# Route 27 (150) - Route 26 (154)
+150,East,0,154,West,20
+# Route 26 (165) - Route 26 (154)
+165,East,76,154,West,0
+# Route 26 (151) - Route 22 (6)
+151,East,0,6,West,92
 # Route 26 (137) - Route 22 (6)
 137,East,0,6,West,0
+# Route 26 (11) - Route 22 (6)
+11,South,88,6,North,0
 # Route 23 (209) - Route 22 (6)
 209,South,0,6,North,3
 # Route 22 (10) - Route 22 (6)
@@ -38,26 +28,32 @@
 136,West,49,6,East,0
 # Route 26 (164) - Route 22 (6)
 164,North,0,6,South,0
-# Route 26 (154) - Route 22 (6)
-154,East,0,6,West,168
-# Route 28 (192) - Route 26 (11)
-192,East,0,11,West,3
-# Route 26 (137) - Route 26 (11)
-137,North,0,11,South,0
-# Route 23 (209) - Route 26 (11)
-209,West,0,11,East,0
-# Route 23 (135) - Route 26 (11)
-135,South,0,11,North,66
-# Route 26 (137) - Route 28 (192)
-137,West,0,192,East,46
-# Route 28 (177) - Route 28 (192)
-177,East,0,192,West,0
+# Route 26 (137) - Route 26 (151)
+137,South,10,151,North,0
+# Route 26 (164) - Route 26 (151)
+164,West,28,151,East,0
+# Route 27 (150) - Route 26 (151)
+150,East,0,151,West,96
+# Route 26 (165) - Route 26 (151)
+165,East,0,151,West,0
+# Route 26 (11) - Route 26 (137)
+11,South,0,137,North,0
+# Route 28 (192) - Route 26 (137)
+192,East,46,137,West,0
 # Route 23 (209) - Route 26 (137)
 209,South,0,137,North,91
 # Route 26 (164) - Route 26 (137)
 164,West,0,137,East,64
 # Route 26 (165) - Route 26 (137)
 165,North,18,137,South,0
+# Route 28 (192) - Route 26 (11)
+192,East,0,11,West,3
+# Route 23 (209) - Route 26 (11)
+209,West,0,11,East,0
+# Route 23 (135) - Route 26 (11)
+135,South,0,11,North,66
+# Route 28 (177) - Route 28 (192)
+177,East,0,192,West,0
 # Route 22 (10) - Route 23 (209)
 10,West,0,209,East,28
 # Route 23 (136) - Route 23 (209)
@@ -200,10 +196,14 @@
 144,South,35,214,North,0
 # Indigo Plateau (144) - Indigo Plateau (143)
 144,South,0,143,North,13
-# Route 26 (154) - Route 26 (164)
-154,East,0,164,West,104
-# Route 26 (165) - Route 26 (154)
-165,East,76,154,West,0
+# Route 27 (149) - Route 27 (150)
+149,East,15,150,West,0
+# Route 26 (165) - Route 27 (150)
+165,South,0,150,North,108
+# Route 27 (148) - Route 27 (149)
+148,East,0,149,West,0
+# Route 27 (146) - Route 27 (148)
+146,East,0,148,West,2
 # Route 28 (147) - Route 28 (177)
 147,East,0,177,West,0
 # Mt. Silver (210) - Route 28 (147)
