@@ -176,7 +176,10 @@ Name = Pewter House
 MapPosition = 0,5,6
 #-------------------------------
 [031]   # Route 3
-Name = Pewter House
+Name = Route 3
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,5,6
 #-------------------------------
 [032]   # Cerulean City
@@ -1265,6 +1268,12 @@ MapPosition = 0,5,10
 [224]   # Secret Gatehouse
 Name = Gatehouse
 MapPosition = 0,5,8
+#-------------------------------
+[227]   # Route 3
+Name = Route 3
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [229]   # Viridian Gym
 Name = Viridian Gym
