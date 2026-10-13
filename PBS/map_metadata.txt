@@ -176,7 +176,10 @@ Name = Pewter House
 MapPosition = 0,5,6
 #-------------------------------
 [031]   # Route 3
-Name = Pewter House
+Name = Route 3
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,5,6
 #-------------------------------
 [032]   # Cerulean City
@@ -746,6 +749,7 @@ MapSize = 1,1111
 [137]   # Route 26
 Name = Route 26
 Outdoor = true
+ShowArea = true
 Bicycle = true
 MapPosition = 0,8,8
 #-------------------------------
@@ -809,29 +813,47 @@ Outdoor = true
 ShowArea = true
 MapPosition = 0,5,15
 #-------------------------------
-[146]
-Name = Fuchsia Poké Mart
+[146]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[147]
-Name = Fuchsia Gym
+[147]   # Route 28
+Name = Route 28
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 BattleBack = interior
 #-------------------------------
-[148]
-Name = Fuchsia House
+[148]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[149]
-Name = Fuchsia House
+[149]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[150]
-Name = Fuchsia House
+[150]   # Route 27
+Name = Route 27
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
-[151]
-Name = Fuchsia House
+[151]   # Route 26
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [152]   # Warden's House
@@ -843,8 +865,11 @@ Name = Safari Zone Gate
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[154]
-Name = Safari Zone
+[154]   # Route 26
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,13,14
 #-------------------------------
 [155]   # Safari Zone - South
@@ -892,17 +917,19 @@ Name = Secret Safari House
 MapPosition = 0,13,14
 SafariMap = true
 #-------------------------------
-[164]
-Name = Route 15
+[164]   # Route 26
+Name = Route 26
 Outdoor = true
 ShowArea = true
-Bicycle = true
 MapPosition = 0,14,14
 BattleBack = field
 MapSize = 1,11
 #-------------------------------
-[165]
-Name = Gatehouse
+[165]   # Route 26
+Name = Route 26
+Outdoor = true
+ShowArea = true
+Bicycle = true
 MapPosition = 0,14,14
 #-------------------------------
 [166]   # Route 14
@@ -965,9 +992,11 @@ MapPosition = 0,15,8
 Name = Saffron House
 MapPosition = 0,15,8
 #-------------------------------
-[177]
-Name = Silph. Co.
+[177]   # Route 28
+Name = Route 28
+Outdoor = true
 ShowArea = true
+Bicycle = true
 MapPosition = 0,15,8
 #-------------------------------
 [178]   # Silph Co.
@@ -1056,8 +1085,11 @@ MapPosition = 0,6,16
 BattleBack = water
 MapSize = 1,1111111
 #-------------------------------
-[192]
-Name = Seafoam Island Cave
+[192]   # Route 28
+Name = Route 28
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [193]   # Seafoam Island Cave
 Name = Seafoam Island Cave - 1F
@@ -1121,8 +1153,11 @@ BattleBack = interior
 Name = Cinnabar Lab
 MapPosition = 0,5,16
 #-------------------------------
-[204]
-Name = Pokémon Mansion
+[204]   # Mt. Silver
+Name = Mt. Silver
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [205]   # Pokémon Mansion
 Name = Pokémon Mansion - 1F
@@ -1153,8 +1188,11 @@ MapPosition = 0,3,6
 BattleBack = field
 MapSize = 1,1111
 #-------------------------------
-[210]
-Name = Victory Road
+[210]   # Mt. Silver
+Name = Mt. Silver
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [211]   # Victory Road
 Name = Victory Road - 1F
@@ -1230,6 +1268,12 @@ MapPosition = 0,5,10
 [224]   # Secret Gatehouse
 Name = Gatehouse
 MapPosition = 0,5,8
+#-------------------------------
+[227]   # Route 3
+Name = Route 3
+Outdoor = true
+ShowArea = true
+Bicycle = true
 #-------------------------------
 [229]   # Viridian Gym
 Name = Viridian Gym
