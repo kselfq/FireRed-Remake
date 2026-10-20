@@ -81,7 +81,7 @@ Name = Route 2
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,8
+MapPosition = 0,5,7
 #-------------------------------
 [014]   # Route 2
 Name = Route 2
@@ -128,7 +128,7 @@ Name = Pewter City
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,6
+MapPosition = 0,3,5
 #-------------------------------
 [021]   # Pewter Pokémon Center
 Name = Pewter Pokémon Center
@@ -163,7 +163,7 @@ Name = Route 4
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,6
+MapPosition = 0,12,5
 #-------------------------------
 [028]   # Mt. Moon
 Name = Pewter Gym
@@ -183,14 +183,14 @@ Name = Route 3
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,6
+MapPosition = 0,9,5
 #-------------------------------
 [032]   # Cerulean City
 Name = Cerulean City
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,6,6
+MapPosition = 0,15,5
 BattleBack = field
 MapSize = 4,1111
 #-------------------------------
@@ -235,24 +235,33 @@ BattleBack = cave
 Environment = Cave
 #-------------------------------
 [039]   # Route 24
-Name = Cerulean City
+Name = Route 24
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,15,5
+MapPosition = 0,15,4
 BattleBack = field
 #-------------------------------
 [040]   # Route 24
-Name = Cerulean Pokémon Center
-MapPosition = 0,15,5
+Name = Route 24
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,15,3
 #-------------------------------
 [041]   # Route 25
-Name = Cerulean Poké Mart
-MapPosition = 0,15,5
+Name = Route 25
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,16,3
 #-------------------------------
 [042]   # Route 25
-Name = Cerulean Gym
-MapPosition = 0,15,5
+Name = Route 25
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,17,3
 BattleBack = interior
 #-------------------------------
 [043]   # Bill's Cottage
@@ -1277,12 +1286,14 @@ Name = Route 3
 Outdoor = true
 ShowArea = true
 Bicycle = true
+MapPosition = 0,7,6
 #-------------------------------
 [228]   # Route 4
 Name = Route 4
 Outdoor = true
 ShowArea = true
 Bicycle = true
+MapPosition = 0,14,5
 #-------------------------------
 [229]   # Viridian Gym
 Name = Viridian Gym
@@ -1398,3 +1409,17 @@ MapPosition = 0,5,11
 Name = Diglett's Cave
 Bicycle = true
 MapPosition = 0,5,7
+#-------------------------------
+[259]   # Cerulean City
+Name = Cerulean City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,15,5
+#-------------------------------
+[260]   # Cerulean City
+Name = Cerulean City
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,15,5
