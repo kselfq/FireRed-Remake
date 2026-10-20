@@ -269,8 +269,11 @@ Name = Bike Shop
 MapPosition = 0,15,5
 #-------------------------------
 [044]   # Route 5
-Name = Cerulean House
-MapPosition = 0,15,5
+Name = Route 5
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,15,6
 #-------------------------------
 [045]   # Pokémon Day Care
 Name = Cerulean House
@@ -1423,3 +1426,10 @@ Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,15,5
+#-------------------------------
+[261]   # Route 5
+Name = Route 5
+Outdoor = true
+ShowArea = true
+Bicycle = true
+MapPosition = 0,15,6
