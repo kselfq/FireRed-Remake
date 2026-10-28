@@ -1,0 +1,60 @@
+Plugin Overview & Features
+
+This standalone plugin adds four clean, dynamic formatting tags to your game events without modifying core system files:
+
+\xn[Name]: Displays a floating name tag window using a custom 9-patch windowskin.
+\ws[Filename]: Swaps the main message box graphic on the fly for that dialogue.
+\tc[ID]: Changes the text color using your game’s native color IDs.
+\op[0-255]: Adjusts the main message box transparency/opacity.
+
+All custom graphics, opacities, and colors automatically revert to game defaults as soon as the message window closes.
+
+Tag Reference & Examples
+
+1. Custom Name Tag
+(\xn[...])Displays a dedicated name tag window floating above the main message box. It fully supports nested game variables like \v[12].
+
+Standard Name Tag:
+
+\xn[Professor Oak]Hello there! Welcome to the world of Pokémon!
+
+Rival / Dynamic Variable Name:
+
+\xn[\v[12]]What, Gramps isn't around?
+
+
+2. Windowskin Swap
+(\ws[...])Changes the background box graphic for a specific message. Place the desired .png image inside Graphics/Windowskins/ and reference its file name without the .png extension.
+
+Custom Textbox Graphic:
+
+\ws[choice 2]This Pokémon is full of energy!
+(Loads Graphics/Windowskins/choice 2.png)
+
+3. Text Color
+(\tc[...])Changes the dialogue text color using your project's defined message color IDs (1, 2, 3, etc.).
+
+Colored Text Example:
+
+\tc[1]This text will display in Color ID 1.
+\tc[2]Warning! This text will display in Color ID 2.
+
+4. Textbox Opacity (\op[...])Sets the transparency level of the main message box (0 = completely invisible, 255 = completely opaque).
+
+Semi-Transparent Box:
+
+\op[150]This message box is partially see-through!
+
+Invisible Box (Text Only):
+
+\op[0]The background box is completely hidden.
+
+5. Combining All Tags Together
+You can stack multiple tags in a single message string in any order:
+
+\xn[\v[12]]\ws[choice 3 dark]\op[200]\tc[2]Watch out! I'm not letting you win!
+
+Customizing Configuration Settings
+To adjust default dimensions, positions, or offsets, open your plugin file and modify the values inside the module CustomNameTag block at the top:
+
+Configuration VariableDefaultDescriptionWINDOWSKIN_PATH"Graphics/Windowskins/choice 3 dark"Graphic used for the name tag frame.FONT_SIZE30Text font size inside the name tag.OFFSET_X20Horizontal position of the name tag box relative to the message box.OFFSET_Y-48Vertical position of the name tag box (negative moves it higher).PADDING_X16Horizontal padding inside the name tag box (controls box width).PADDING_Y8Vertical padding inside the name tag box (controls box height).TEXT_OFFSET_X0Fine-tune text $X$ position inside the name tag graphic.TEXT_OFFSET_Y0Fine-tune text $Y$ position inside the name tag graphic.

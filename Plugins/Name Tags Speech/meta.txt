@@ -1,0 +1,4 @@
+﻿Name       = Name Tags Speech
+Version    = 1.0
+Essentials = 21.1
+Credits    = Genimi

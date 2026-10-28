@@ -2931,98 +2931,67 @@ Pokemon = MACHOP,38
 Pokemon = MACHOKE,38
 
 
+#-------------------------------
 [LEADER_Giovanni,Giovanni]
 LoseText = Ha! That was a truly intense fight. You have won!
-
-Pokemon = RHYHORN,45
-    Moves = ROCKBLAST,EARTHQUAKE,TAKEDOWN,SCARYFACE
-
+Pokemon = RHYDON,45
 Pokemon = NIDOKING,45
     Moves = EARTHQUAKE,POISONSTING,DOUBLEKICK,THRASH
-
 Pokemon = DUGTRIO,42
     Moves = EARTHQUAKE,SANDTOMB,MUDSLAP,SLASH
-
-Pokemon = RHYHORN,50
-    Moves = ROCKBLAST,EARTHQUAKE,TAKEDOWN,SCARYFACE
-
+Pokemon = RHYPERIOR,50
 Pokemon = NIDOQUEEN,44
     Moves = EARTHQUAKE,POISONSTING,BODYSLAM,DOUBLEKICK
-
-
-# --- Route 22 ---
-
+#-------------------------------
 [RIVAL2,Blue,71]
 LoseText = What!? I was just careless, you!
-
+Items = MEGARING
 Pokemon = PIDGEOT,47
     Moves = WINGATTACK,QUICKATTACK,GUST,FEATHERDANCE
-
 Pokemon = ALAKAZAM,47
     Moves = PSYCHIC,FUTURESIGHT,DISABLE,CALMMIND
-
-Pokemon = RHYHORN,45
-    Moves = ROCKBLAST,TAKEDOWN,FURYATTACK,HORNDRILL
-
+Pokemon = RHYDON,45
 Pokemon = EXEGGCUTE,45
     Moves = SOLARBEAM,POISONPOWDER,STUNSPORE,SLEEPPOWDER
-
 Pokemon = GYARADOS,45
     Moves = HYDROPUMP,TWISTER,LEER,RAINDANCE
-
 Pokemon = CHARIZARD,53
     Moves = FLAMETHROWER,WINGATTACK,SLASH,SCARYFACE
-
-
+    Item = CHARIZARDITEY
+#-------------------------------
 [RIVAL2,Blue,72]
 LoseText = What!? I was just careless, you!
-
+Items = MEGARING
 Pokemon = PIDGEOT,47
     Moves = WINGATTACK,QUICKATTACK,GUST,FEATHERDANCE
-
 Pokemon = ALAKAZAM,47
     Moves = PSYCHIC,FUTURESIGHT,DISABLE,CALMMIND
-
 Pokemon = RHYHORN,45
     Moves = ROCKBLAST,TAKEDOWN,FURYATTACK,HORNDRILL
-
 Pokemon = EXEGGCUTE,45
     Moves = SOLARBEAM,POISONPOWDER,STUNSPORE,SLEEPPOWDER
-
 Pokemon = GROWLITHE,45
     Moves = FLAMEWHEEL,TAKEDOWN,LEER,AGILITY
-
 Pokemon = BLASTOISE,53
     Moves = WATERGUN,BITE,RAPIDSPIN,RAINDANCE
-
-
+    Item = BLASTOISINITE
+#-------------------------------
 [RIVAL2,Blue,73]
 LoseText = What!? I was just careless, you!
-
+Items = MEGARING
 Pokemon = PIDGEOT,47
     Moves = WINGATTACK,QUICKATTACK,GUST,FEATHERDANCE
-
 Pokemon = ALAKAZAM,47
     Moves = PSYCHIC,FUTURESIGHT,DISABLE,CALMMIND
-
 Pokemon = RHYHORN,45
     Moves = ROCKBLAST,TAKEDOWN,FURYATTACK,HORNDRILL
-
 Pokemon = GROWLITHE,45
     Moves = FLAMEWHEEL,TAKEDOWN,LEER,AGILITY
-
 Pokemon = GYARADOS,45
     Moves = HYDROPUMP,TWISTER,LEER,RAINDANCE
-
 Pokemon = VENUSAUR,53
     Moves = RAZORLEAF,SYNTHESIS,GROWTH,SWEETSCENT
-
-
-
-# --- Victory Road ---
-
-# 1F
-
+    Item = VENUSAURITE
 [COOLTRAINER_F,Naomi]
 LoseText = I lost out...
 
@@ -3137,152 +3106,609 @@ Pokemon = NIDOKING,45
 
 # --- Indigo Plateau ---
 
+#-------------------------------
 [ELITEFOUR_Lorelei,Lorelei]
 LoseText = ...Things shouldn't be this way!
-
+Items = MEGARING
 Pokemon = DEWGONG,52
     Moves = SURF,ICEBEAM,SAFEGUARD,HAIL
-
 Pokemon = CLOYSTER,52
     Moves = DIVE,SPIKES,HAIL,PROTECT
-
 Pokemon = JYNX,54
     Moves = ICEPUNCH,DOUBLESLAP,LOVELYKISS,ATTRACT
-
 Pokemon = SLOWBRO,52
     Moves = SURF,ICEBEAM,YAWN,AMNESIA
-
+    Item = SLOWBRONITE
 Pokemon = LAPRAS,54
     Moves = SURF,ICEBEAM,BODYSLAM,CONFUSERAY
     Item = SITRUSBERRY
-
-
+#-------------------------------
 [ELITEFOUR_Bruno,Bruno]
 LoseText = Why? How could I lose?
-
-Pokemon = ONIX,51
-    Moves = EARTHQUAKE,ROCKTOMB,IRONTAIL,ROAR
-
+Items = MEGARING
+Pokemon = HITMONTOP,51
 Pokemon = HITMONCHAN,53
     Moves = MACHPUNCH,SKYUPPERCUT,COUNTER,ROCKTOMB
-
 Pokemon = HITMONLEE,53
     Moves = BRICKBREAK,MEGAKICK,FACADE,FORESIGHT
-
-Pokemon = ONIX,54
-    Moves = EARTHQUAKE,SANDTOMB,IRONTAIL,DOUBLEEDGE
-
+Pokemon = STEELIX,54
+    Item = STEELIXITE
 Pokemon = MACHAMP,56
     Moves = CROSSCHOP,ROCKTOMB,SCARYFACE,BULKUP
     Item = SITRUSBERRY
-
-
+#-------------------------------
 [ELITEFOUR_Agatha,Agatha]
 LoseText = Oh, my! You're something special, child!
-
+Items = MEGARING
 Pokemon = GENGAR,54
     Moves = SHADOWPUNCH,TOXIC,CONFUSERAY,DOUBLETEAM
-
-Pokemon = GOLBAT,54
-    Moves = AIRCUTTER,POISONFANG,BITE,CONFUSERAY
-
+Pokemon = CROBAT,54
 Pokemon = HAUNTER,53
     Moves = DREAMEATER,HYPNOSIS,MEANLOOK,CURSE
-
 Pokemon = ARBOK,56
     Moves = SLUDGEBOMB,BITE,IRONTAIL,SCREECH
-
 Pokemon = GENGAR,58
     Moves = SHADOWBALL,SLUDGEBOMB,NIGHTMARE,HYPNOSIS
-    Item = SITRUSBERRY
-
-
+    Item = GENGARITE
+#-------------------------------
 [ELITEFOUR_Lance,Lance]
 LoseText = That's it! I hate to admit it, but you are a Pokémon master!
-
+Items = MEGARING
 Pokemon = GYARADOS,56
     Moves = HYPERBEAM,DRAGONRAGE,TWISTER,BITE
-
 Pokemon = DRAGONAIR,54
     Moves = OUTRAGE,HYPERBEAM,DRAGONRAGE,SAFEGUARD
-
 Pokemon = DRAGONAIR,54
     Moves = OUTRAGE,HYPERBEAM,THUNDERWAVE,SAFEGUARD
-
 Pokemon = AERODACTYL,58
     Moves = WINGATTACK,ANCIENTPOWER,HYPERBEAM,SCARYFACE
-
+    Item = AERODACTYLITE
 Pokemon = DRAGONITE,60
     Moves = WINGATTACK,OUTRAGE,HYPERBEAM,SAFEGUARD
     Item = SITRUSBERRY
-
-
+Pokemon = KINGDRA,58
+#-------------------------------
 [CHAMPION,Blue,1]
 LoseText = NO! That can't be! You beat me at my best! After all that work to become the League Champ? My reign is over already? It's not fair!
-
+Items = MEGARING
 Pokemon = PIDGEOT,59
     Moves = AERIALACE,SANDATTACK,FEATHERDANCE,WHIRLWIND
-
 Pokemon = ALAKAZAM,57
     Moves = PSYCHIC,FUTURESIGHT,RECOVER,REFLECT
-
-Pokemon = RHYDON,59
-    Moves = EARTHQUAKE,ROCKTOMB,TAKEDOWN,SCARYFACE
-
+Pokemon = RHYPERIOR,59
 Pokemon = EXEGGUTOR,59
     Moves = GIGADRAIN,EGGBOMB,SLEEPPOWDER,LIGHTSCREEN
-
 Pokemon = GYARADOS,61
     Moves = HYDROPUMP,DRAGONRAGE,BITE,THRASH
-
 Pokemon = CHARIZARD,63
     Moves = FIREBLAST,AERIALACE,FIRESPIN,SLASH
-    Item = SITRUSBERRY
-
-
+    Item = CHARIZARDITEY
+#-------------------------------
 [CHAMPION,Blue,2]
 LoseText = NO! That can't be! You beat me at my best! After all that work to become the League Champ? My reign is over already? It's not fair!
-
+Items = MEGARING
 Pokemon = PIDGEOT,59
     Moves = AERIALACE,SANDATTACK,FEATHERDANCE,WHIRLWIND
-
 Pokemon = ALAKAZAM,57
     Moves = PSYCHIC,FUTURESIGHT,RECOVER,REFLECT
-
-Pokemon = RHYDON,59
-    Moves = EARTHQUAKE,ROCKTOMB,TAKEDOWN,SCARYFACE
-
+Pokemon = RHYPERIOR,59
 Pokemon = EXEGGUTOR,61
     Moves = GIGADRAIN,EGGBOMB,SLEEPPOWDER,LIGHTSCREEN
-
 Pokemon = ARCANINE,59
     Moves = FLAMETHROWER,EXTREMESPEED,BITE,ROAR
-
 Pokemon = BLASTOISE,63
     Moves = HYDROPUMP,SKULLBASH,BITE,RAINDANCE
-    Item = SITRUSBERRY
-
-
+    Item = BLASTOISINITE
+#-------------------------------
 [CHAMPION,Blue,3]
 LoseText = NO! That can't be! You beat me at my best! After all that work to become the League Champ? My reign is over already? It's not fair!
-
+Items = MEGARING
 Pokemon = PIDGEOT,59
     Moves = AERIALACE,SANDATTACK,FEATHERDANCE,WHIRLWIND
-
 Pokemon = ALAKAZAM,57
     Moves = PSYCHIC,FUTURESIGHT,RECOVER,REFLECT
-
-Pokemon = RHYDON,59
-    Moves = EARTHQUAKE,ROCKTOMB,TAKEDOWN,SCARYFACE
-
+Pokemon = RHYPERIOR,59
 Pokemon = ARCANINE,59
     Moves = FLAMETHROWER,EXTREMESPEED,BITE,ROAR
-
 Pokemon = GYARADOS,61
     Moves = HYDROPUMP,DRAGONRAGE,BITE,THRASH
-
 Pokemon = VENUSAUR,63
     Moves = SOLARBEAM,GROWTH,SYNTHESIS,SUNNYDAY
-    Item = SITRUSBERRY
+    Item = VENUSAURITE
+#-------------------------------
+[JESSIE_JAMES,Jessie&James,1]
+LoseText = It can't be! Team Rocket has lost again!
+Pokemon = EKANS,12
+Pokemon = KOFFING,12
+#-------------------------------
+[JESSIE_JAMES,Jessie&James,2]
+LoseText = You brat! You just ruined the Boss's plans!
+Pokemon = ARBOK,29
+Pokemon = WEEZING,29
+#-------------------------------
+[JESSIE_JAMES,Jessie&James,3]
+LoseText = Team Rocket is blasting off again!
+Pokemon = ARBOK,34
+Pokemon = WEEZING,34
+#-------------------------------
+[JESSIE_JAMES,Jessie&James,4]
+LoseText = No fair! We almost had the Master Ball in our hands!
+Pokemon = ARBOK,46
+Pokemon = WEEZING,46
+#-------------------------------
+[JESSIE_JAMES,Jessie&James,5]
+LoseText = It was worth the effort... Here, you earned this with honor.
+Pokemon = ARBOK,54
+Pokemon = WEEZING,54
+#-------------------------------
+[ARCHER,Archer,1]
+LoseText = This can't be! Defeated by a mere child?
+Pokemon = WEEZING,33
+Pokemon = GOLBAT,33
+#-------------------------------
+[ARCHER,Archer,2]
+LoseText = Impossible! How could I lose in your presence again?
+Pokemon = ELECTRODE,37
+Pokemon = WEEZING,37
+Pokemon = GOLBAT,37
+#-------------------------------
+[ARCHER,Archer,3]
+LoseText = This will only serve as a springboard to build a stronger Team Rocket...
+Pokemon = ELECTRODE,37
+Pokemon = GOLBAT,37
+Pokemon = MAGMAR,37
+Pokemon = WEEZING,37
+#-------------------------------
+[ARCHER,Archer,4]
+LoseText = How could this happen? But Giovanni's legacy is not over...
+Pokemon = HOUNDOOM,58
+Pokemon = CROBAT,58
+Pokemon = MAGMORTAR,58
+Pokemon = WEEZING,58
+#-------------------------------
+[ARIANA,Ariana,1]
+LoseText = This can't be! Our glorious Team Rocket will not fall so easily...
+Pokemon = MUK,52
+Pokemon = VILEPLUME,52
+Pokemon = CHANDELURE,52
+Pokemon = HONCHKROW,52
+#-------------------------------
+[ARIANA,Ariana,2]
+LoseText = I was defeated, but Team Rocket will emerge again... I hope so...
+Pokemon = MUK,52
+Pokemon = VILEPLUME,58
+Pokemon = CHANDELURE,58
+Pokemon = HONCHKROW,58
 
+#===============================================================================
+# KANTO GYM LEADERS - REMATCH (POST-GAME)
+#===============================================================================
 
+[LEADER_Brock,Brock,2]
+LoseText = Your Pokémon's resolve shattered my iron defense!
+Items = MEGARING
+Pokemon = AERODACTYL,70
+    Item = CHOPLEBERRY
+    Ability = PRESSURE
+    Moves = STONEEDGE,PLUCK,TAUNT,UTURN
+Pokemon = OMASTAR,70
+    Item = LEFTOVERS
+    Ability = SHELLARMOR
+    Moves = STEALTHROCK,SURF,ICEBEAM,SPIKES
+Pokemon = GOLEM,71
+    Item = FOCUSSASH
+    Ability = STURDY
+    Moves = EARTHQUAKE,STONEEDGE,HEAVYSLAM,EXPLOSION
+Pokemon = GIGALITH,71
+    Item = LUMBERRY
+    Ability = STURDY
+    Moves = SUPERPOWER,ROCKSLIDE,HEAVYSLAM,THUNDERWAVE
+Pokemon = ARCHEOPS,71
+    Item = FLYINGGEM
+    Ability = DEFEATIST
+    Moves = ACROBATICS,ROCKSLIDE,UTURN,EARTHQUAKE
+Pokemon = STEELIX,72
+    Item = STEELIXITE
+    Ability = ROCKHEAD
+    Moves = HEAVYSLAM,EARTHQUAKE,DRAGONPULSE,CURSE
+
+[LEADER_Misty,Misty,2]
+LoseText = Your strategies run deeper than the ocean itself!
+Items = MEGARING
+Pokemon = STARMIE,71
+    Item = LIFEORB
+    Ability = NATURALCURE
+    Moves = HYDROPUMP,PSYCHIC,THUNDERBOLT,ICEBEAM
+Pokemon = LAPRAS,71
+    Item = LEFTOVERS
+    Ability = WATERABSORB
+    Moves = SCALD,FREEZEDRY,ICESHARD,TOXIC
+Pokemon = POLITOED,72
+    Item = DAMPROCK
+    Ability = DRIZZLE
+    Moves = SCALD,ICEBEAM,ENCORE,TOXIC
+Pokemon = MILOTIC,72
+    Item = FLAMEORB
+    Ability = MARVELSCALE
+    Moves = SCALD,RECOVER,ICEBEAM,TOXIC
+Pokemon = CARRACOSTA,72
+    Item = WHITEHERB
+    Ability = STURDY
+    Moves = SHELLSMASH,WATERFALL,STONEEDGE,AQUAJET
+Pokemon = GYARADOS,73
+    Item = GYARADOSITE
+    Ability = INTIMIDATE
+    Moves = DRAGONDANCE,WATERFALL,CRUNCH,EARTHQUAKE
+
+[LEADER_LtSurge,Lt. Surge,2]
+LoseText = You completely grounded my electric assault, soldier!
+Items = MEGARING
+Pokemon = RAICHU,72
+    Item = FOCUSSASH
+    Ability = LIGHTNINGROD
+    Moves = THUNDERBOLT,FOCUSBLAST,GRASSKNOT,VOLTSWITCH
+Pokemon = MAGNEZONE,72
+    Item = AIRBALLOON
+    Ability = MAGNETPULL
+    Moves = FLASHCANNON,VOLTSWITCH,THUNDERBOLT,HIDDENPOWER
+Pokemon = JOLTEON,73
+    Item = LIFEORB
+    Ability = VOLTABSORB
+    Moves = THUNDERBOLT,SHADOWBALL,VOLTSWITCH,THUNDERWAVE
+Pokemon = ELECTIVIRE,73
+    Item = CHOICEBAND
+    Ability = MOTORDRIVE
+    Moves = THUNDERPUNCH,ICEPUNCH,FIREPUNCH,EARTHQUAKE
+Pokemon = GALVANTULA,73
+    Item = WIDELENS
+    Ability = COMPOUNDEYES
+    Moves = STICKYWEB,THUNDER,BUGBUZZ,VOLTSWITCH
+Pokemon = MANECTRIC,74
+    Item = MANECTITE
+    Ability = STATIC
+    Moves = VOLTSWITCH,FLAMETHROWER,THUNDERBOLT,HIDDENPOWER
+
+[LEADER_Erika,Erika,2]
+LoseText = A truly beautiful performance. My flowers bow to you.
+Items = MEGARING
+Pokemon = VILEPLUME,73
+    Item = BLACKSLUDGE
+    Ability = CHLOROPHYLL
+    Moves = GIGADRAIN,SLUDGEBOMB,SLEEPPOWDER,DAZZLINGGLEAM
+Pokemon = VICTREEBEL,73
+    Item = LIFEORB
+    Ability = CHLOROPHYLL
+    Moves = WEATHERBALL,SLUDGEBOMB,LEAFBLADE,GROWTH
+Pokemon = EXEGGUTOR,74
+    Item = LUMBERRY
+    Ability = CHLOROPHYLL
+    Moves = PSYCHIC,LEAFSTORM,HIDDENPOWER,TRICKROOM
+Pokemon = TANGROWTH,74
+    Item = ROCKYHELMET
+    Ability = REGENERATOR
+    Moves = POWERWHIP,EARTHQUAKE,ROCKSLIDE,SYNTHESIS
+Pokemon = LILLIGANT,74
+    Item = FOCUSSASH
+    Ability = OWNTEMPO
+    Moves = QUIVERDANCE,GIGADRAIN,TEETERDANCE,HIDDENPOWER
+Pokemon = AMPHAROS,75
+    Item = AMPHAROSITE
+    Ability = STATIC
+    Moves = GIGADRAIN,DRAGONPULSE,THUNDERBOLT,FOCUSBLAST
+
+[LEADER_Koga,Koga,2]
+LoseText = Fascinating... Your tactics outsmarted my toxic shadows.
+Items = MEGARING
+Pokemon = TENTACRUEL,74
+    Item = BLACKSLUDGE
+    Ability = CLEARBODY
+    Moves = SCALD,TOXICSPIKES,RAPIDSPIN,TOXIC
+Pokemon = MUK,74
+    Item = ASSAULTVEST
+    Ability = POISONTOUCH
+    Moves = FIREPUNCH,POISONJAB,SHADOWSNEAK,POWERUPPUNCH
+Pokemon = CROBAT,75
+    Item = LUMBERRY
+    Ability = INFILTRATOR
+    Moves = BRAVEBIRD,POISONJAB,UTURN,ROOST
+Pokemon = DRAPION,75
+    Item = SCOPELENS
+    Ability = SNIPER
+    Moves = POISONJAB,NIGHTSLASH,EARTHQUAKE,SWORDSDANCE
+Pokemon = SCOLIPEDE,75
+    Item = LIFEORB
+    Ability = SPEEDBOOST
+    Moves = MEGAHORN,POISONJAB,EARTHQUAKE,PROTECT
+Pokemon = BEEDRILL,76
+    Item = BEEDRILLITE
+    Ability = SWARM
+    Moves = FELLSTINGER,XSCISSOR,POISONJAB,KNOCKOFF
+
+[LEADER_Sabrina,Sabrina,2]
+LoseText = I foresaw my defeat, but your strength exceeded my vision.
+Items = MEGARING
+Pokemon = HYPNO,75
+    Item = LEFTOVERS
+    Ability = INSOMNIA
+    Moves = THUNDERWAVE,ZENHEADBUTT,POWERUPPUNCH,WISH
+Pokemon = EXEGGUTOR,75
+    Item = COLBURBERRY
+    Ability = FRISK
+    Moves = PSYCHIC,LEAFSTORM,TRICKROOM,EXPLOSION
+Pokemon = SLOWKING,76
+    Item = LEFTOVERS
+    Ability = REGENERATOR
+    Moves = SCALD,PSYCHIC,SLACKOFF,FLAMETHROWER
+Pokemon = GARDEVOIR,76
+    Item = CHOICESPECS
+    Ability = TRACE
+    Moves = MOONBLAST,PSYCHIC,SHADOWBALL,FOCUSBLAST
+Pokemon = REUNICLUS,76
+    Item = LIFEORB
+    Ability = MAGICGUARD
+    Moves = PSYCHIC,FOCUSBLAST,RECOVER,CALMMIND
+Pokemon = ALAKAZAM,77
+    Item = ALAKAZITE
+    Ability = TRACE
+    Moves = PSYCHIC,FOCUSBLAST,SHADOWBALL,SUBSTITUTE
+
+[LEADER_Blaine,Blaine,2]
+LoseText = You completely burned me out! A spectacular battle!
+Items = MEGARING
+Pokemon = NINETALES,76
+    Item = HEATROCK
+    Ability = DROUGHT
+    Moves = FLAMETHROWER,SOLARBEAM,WILLOWISP,HYPNOSIS
+Pokemon = ARCANINE,76
+    Item = CHOICEBAND
+    Ability = INTIMIDATE
+    Moves = FLAREBLITZ,CLOSECOMBAT,WILDCHARGE,EXTREMESPEED
+Pokemon = MAGMORTAR,77
+    Item = LIFEORB
+    Ability = FLAMEBODY
+    Moves = FIREBLAST,THUNDERBOLT,FOCUSBLAST,HIDDENPOWER
+Pokemon = CAMERUPT,77
+    Item = PASSHOBERRY
+    Ability = SOLIDROCK
+    Moves = EARTHPOWER,ERUPTION,FIREBLAST,STEALTHROCK
+Pokemon = DARMANITAN,77
+    Item = CHOICESCARF
+    Ability = SHEERFORCE
+    Moves = FLAREBLITZ,ROCKSLIDE,SUPERPOWER,UTURN
+Pokemon = HOUNDOOM,78
+    Item = HOUNDOOMINITE
+    Ability = FLASHFIRE
+    Moves = FIREBLAST,DARKPULSE,FOCUSBLAST,FLAMECHARGE
+
+[ROCKETBOSS,Giovanni,3]
+Items = MEGARING
+LoseText = To think the ultimate power of Team Rocket could be crushed...
+Pokemon = NIDOKING,76
+    Item = LIFEORB
+    Ability = SHEERFORCE
+    Moves = EARTHPOWER,FLAMETHROWER,ICEBEAM,SLUDGEWAVE
+Pokemon = NIDOQUEEN,76
+    Item = ROCKYHELMET
+    Ability = SHEERFORCE
+    Moves = STEALTHROCK,EARTHPOWER,SLUDGEWAVE,ROAR
+Pokemon = MAMOSWINE,77
+    Item = FOCUSSASH
+    Ability = THICKFAT
+    Moves = EARTHQUAKE,ICICLECRASH,ICESHARD,ENDEAVOR
+Pokemon = KROOKODILE,77
+    Item = CHOICESCARF
+    Ability = MOXIE
+    Moves = EARTHQUAKE,KNOCKOFF,STONEEDGE,SUPERPOWER
+Pokemon = RHYPERIOR,77
+    Item = LEFTOVERS
+    Ability = SOLIDROCK
+    Moves = EARTHQUAKE,STONEEDGE,ICEPUNCH,MEGAHORN
+Pokemon = MEWTWO,78
+    Item = MEWTWONITEX
+    Ability = PRESSURE
+    Moves = CLOSECOMBAT,ZENHEADBUTT,ICEPUNCH,EARTHQUAKE
+
+#===============================================================================
+# ELITE FOUR - REMATCH (POST-GAME)
+#===============================================================================
+
+[ELITEFOUR_Lorelei,Lorelei,2]
+LoseText = My icy defenses melted before your burning passion!
+Items = MEGARING
+Pokemon = LAPRAS,79
+    Item = LEFTOVERS
+    Ability = WATERABSORB
+    Moves = SURF,FREEZEDRY,TOXIC,REFLECT
+Pokemon = CLOYSTER,79
+    Item = WHITEHERB
+    Ability = SKILLLINK
+    Moves = SHELLSMASH,ICICLESPEAR,ROCKBLAST,ICESHARD
+Pokemon = DEWGONG,79
+    Item = WACANBERRY
+    Ability = HYDRATION
+    Moves = REST,SURF,ICEBEAM,TOXIC
+Pokemon = WEAVILE,80
+    Item = LIFEORB
+    Ability = PRESSURE
+    Moves = ICICLECRASH,NIGHTSLASH,ICESHARD,SWORDSDANCE
+Pokemon = BEARTIC,80
+    Item = LUMBERRY
+    Ability = SLUSHRUSH
+    Moves = ICICLECRASH,SUPERPOWER,AQUAJET,SACREDSWORD
+Pokemon = SLOWBRO,80
+    Item = SLOWBRONITE
+    Ability = OBLIVIOUS
+    Moves = SCALD,PSYCHIC,SLACKOFF,CALMMIND
+
+[ELITEFOUR_Bruno,Bruno,2]
+LoseText = We poured our hearts into this fistfight, but you outmatched us!
+Items = MEGARING
+Pokemon = MACHAMP,81
+    Item = ASSAULTVEST
+    Ability = NOGUARD
+    Moves = DYNAMICPUNCH,PAYBACK,ICEPUNCH,BULLETPUNCH
+Pokemon = HITMONLEE,81
+    Item = LIFEORB
+    Ability = RECKLESS
+    Moves = HIGHJUMPKICK,REVERSAL,ROCKSLIDE,MACHPUNCH
+Pokemon = HITMONCHAN,81
+    Item = CHOICEBAND
+    Ability = IRONFIST
+    Moves = DRAINPUNCH,ICEPUNCH,FIREPUNCH,MACHPUNCH
+Pokemon = HARIYAMA,82
+    Item = TOXICORB
+    Ability = GUTS
+    Moves = CLOSECOMBAT,FACADE,FIREPUNCH,FAKEOUT
+Pokemon = CONKELDURR,82
+    Item = LIFEORB
+    Ability = SHEERFORCE
+    Moves = SUPERPOWER,POWERUPPUNCH,KNOCKOFF,ICEPUNCH
+Pokemon = LUCARIO,82
+    Item = LUCARIONITE
+    Ability = JUSTIFIED
+    Moves = CLOSECOMBAT,BULLETPUNCH,SWORDSDANCE,EXTREMESPEED
+
+[ELITEFOUR_Agatha,Agatha,2]
+LoseText = Oh ho! The spirits flee in awe of your tremendous power!
+Items = MEGARING
+Pokemon = MISMAGIUS,83
+    Item = SPELLTAG
+    Ability = LEVITATE
+    Moves = SHADOWBALL,POWERGEM,DAZZLINGGLEAM,NASTYPLOT
+Pokemon = BANETTE,83
+    Item = LIFEORB
+    Ability = INSOMNIA
+    Moves = SHADOWSNEAK,KNOCKOFF,WILLOWISP,DESTINYBOND
+Pokemon = DUSKNOIR,83
+    Item = LEFTOVERS
+    Ability = PRESSURE
+    Moves = SHADOWPUNCH,FIREPUNCH,WILLOWISP,SHADOWSNEAK
+Pokemon = CHANDELURE,84
+    Item = CHOICESPECS
+    Ability = FLASHFIRE
+    Moves = SHADOWBALL,FLAMETHROWER,ENERGYBALL,FOCUSBLAST
+Pokemon = SABLEYE,84
+    Item = ROCKYHELMET
+    Ability = PRANKSTER
+    Moves = RECOVER,WILLOWISP,FOULPLAY,KNOCKOFF
+Pokemon = GENGAR,84
+    Item = GENGARITE
+    Ability = CURSEDBODY
+    Moves = SHADOWBALL,SLUDGEBOMB,FOCUSBLAST,DESTINYBOND
+
+[ELITEFOUR_Lance,Lance,2]
+LoseText = A magnificent display! You truly command the battlefield!
+Items = MEGARING
+Pokemon = DRAGONITE,84
+    Item = LUMBERRY
+    Ability = MULTISCALE
+    Moves = DRAGONDANCE,OUTRAGE,FIREPUNCH,EXTREMESPEED
+Pokemon = KINGDRA,84
+    Item = LIFEORB
+    Ability = SNIPER
+    Moves = DRAGONPULSE,SURF,ICEBEAM,FOCUSENERGY
+Pokemon = ALTARIA,84
+    Item = LEFTOVERS
+    Ability = NATURALCURE
+    Moves = DRAGONDANCE,DRAGONCLAW,EARTHQUAKE,ROOST
+Pokemon = GARCHOMP,85
+    Item = ROCKYHELMET
+    Ability = ROUGHSKIN
+    Moves = EARTHQUAKE,OUTRAGE,STEALTHROCK,FIREBLAST
+Pokemon = HYDREIGON,85
+    Item = CHOICESCARF
+    Ability = LEVITATE
+    Moves = DRACOMETEOR,DARKPULSE,FLAMETHROWER,UTURN
+Pokemon = AERODACTYL,85
+    Item = AERODACTYLITE
+Ability = PRESSURE
+Moves = STONEEDGE,DRAGONCLAW,FIREFANG,STEELWING
+#===============================================================================
+
+THE RIVAL (CHAMPION) - FINAL ENCOUNTER (LEVEL 88)
+
+#===============================================================================
+#-------------------------------
+[CHAMPION,Blue,4]
+LoseText = No way! I trained my perfect team to the absolute limit and still lost?!
+Items = MEGARING
+Pokemon = PIDGEOT,86
+    Item = FOCUSSASH
+    Ability = KEENEYE
+    Moves = BRAVEBIRD,RETURN,UTURN,HEATWAVE
+Pokemon = ALAKAZAM,86
+    Item = LIFEORB
+    Ability = MAGICGUARD
+    Moves = PSYCHIC,FOCUSBLAST,SHADOWBALL,DAZZLINGGLEAM
+Pokemon = RHYPERIOR,87
+    Item = ASSAULTVEST
+    Ability = SOLIDROCK
+    Moves = EARTHQUAKE,STONEEDGE,ICEPUNCH,MEGAHORN
+Pokemon = EXEGGUTOR,87
+    Item = LUMBERRY
+    Ability = CHLOROPHYLL
+    Moves = PSYCHIC,LEAFSTORM,HIDDENPOWER,TRICK
+Pokemon = TYRANITAR,87
+    Item = CHOPLEBERRY
+    Ability = SANDSTREAM
+    Moves = STONEEDGE,CRUNCH,EARTHQUAKE,FIREPUNCH
+Pokemon = CHARIZARD,88
+    Item = CHARIZARDITEX
+    Ability = BLAZE
+    Moves = DRAGONDANCE,FLAREBLITZ,DRAGONCLAW,EARTHQUAKE
+#-------------------------------
+[CHAMPION,Blue,5]
+LoseText = No way! I trained my perfect team to the absolute limit and still lost?!
+Items = MEGARING
+Pokemon = PIDGEOT,86
+    Item = FOCUSSASH
+    Ability = KEENEYE
+    Moves = BRAVEBIRD,RETURN,UTURN,HEATWAVE
+Pokemon = ALAKAZAM,86
+    Item = LIFEORB
+    Ability = MAGICGUARD
+    Moves = PSYCHIC,FOCUSBLAST,SHADOWBALL,DAZZLINGGLEAM
+Pokemon = RHYPERIOR,87
+    Item = ASSAULTVEST
+    Ability = SOLIDROCK
+    Moves = EARTHQUAKE,STONEEDGE,ICEPUNCH,MEGAHORN
+Pokemon = EXEGGUTOR,87
+    Item = LUMBERRY
+    Ability = CHLOROPHYLL
+    Moves = PSYCHIC,LEAFSTORM,HIDDENPOWER,TRICK
+Pokemon = TYRANITAR,87
+    Item = CHOPLEBERRY
+    Ability = SANDSTREAM
+    Moves = STONEEDGE,CRUNCH,EARTHQUAKE,FIREPUNCH
+Pokemon = BLASTOISE,88
+    Item = BLASTOISINITE
+    Ability = TORRENT
+    Moves = HYDROPUMP,AURASPHERE,DRAGONPULSE,DARKPULSE
+#-------------------------------
+[CHAMPION,Blue,6]
+LoseText = No way! I trained my perfect team to the absolute limit and still lost?!
+Items = MEGARING
+Pokemon = PIDGEOT,86
+    Item = FOCUSSASH
+    Ability = KEENEYE
+    Moves = BRAVEBIRD,RETURN,UTURN,HEATWAVE
+Pokemon = ALAKAZAM,86
+    Item = LIFEORB
+    Ability = MAGICGUARD
+    Moves = PSYCHIC,FOCUSBLAST,SHADOWBALL,DAZZLINGGLEAM
+Pokemon = RHYPERIOR,87
+    Item = ASSAULTVEST
+    Ability = SOLIDROCK
+    Moves = EARTHQUAKE,STONEEDGE,ICEPUNCH,MEGAHORN
+Pokemon = EXEGGUTOR,87
+    Item = LUMBERRY
+    Ability = CHLOROPHYLL
+    Moves = PSYCHIC,LEAFSTORM,HIDDENPOWER,TRICK
+Pokemon = TYRANITAR,87
+    Item = CHOPLEBERRY
+    Ability = SANDSTREAM
+    Moves = STONEEDGE,CRUNCH,EARTHQUAKE,FIREPUNCH
+Pokemon = VENUSAUR,88
+    Item = VENUSAURITE
+    Ability = OVERGROW
+    Moves = GIGADRAIN,SLUDGEBOMB,HIDDENPOWER,SYNTHESIS

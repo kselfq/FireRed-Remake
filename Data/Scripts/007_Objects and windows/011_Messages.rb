@@ -558,6 +558,7 @@ def pbMessageDisplay(msgwindow, message, letterbyletter = true, commandProc = ni
   end
   msgwindow.contents = Bitmap.new(msgwindow.width - 32, msgwindow.height - 32)
   pbSetSystemFont(msgwindow.contents)
+  msgwindow.contents.text_offset_y = - 4
 
   # 3. Handle window positioning on the screen
   if $game_system
