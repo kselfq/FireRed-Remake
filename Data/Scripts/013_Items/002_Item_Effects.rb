@@ -29,18 +29,18 @@ ItemHandlers::UseFromBag.add(:HONEY, proc { |item|
 })
 
 ItemHandlers::UseFromBag.add(:ESCAPEROPE, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !$game_player.can_map_transfer_with_follower?
-    pbMessage(_INTL("It can't be used when you have someone with you."))
-    $msg_style = nil # Reset before next
+    pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
+     # Reset before next
     next 0
   end
   if ($PokemonGlobal.escapePoint rescue false) && $PokemonGlobal.escapePoint.length > 0
-    $msg_style = nil # Reset before closing bag
+     # Reset before closing bag
     next 2   # End screen and use item
   end
-  pbMessage(_INTL("Can't use that here."))
-  $msg_style = nil # Reset System Style
+  pbOverworldMessage(_INTL("Can't use that here."))
+   # Reset System Style
   next 0
 })
 
@@ -51,14 +51,14 @@ ItemHandlers::UseFromBag.add(:BICYCLE, proc { |item|
 ItemHandlers::UseFromBag.copy(:BICYCLE, :MACHBIKE, :ACROBIKE)
 
 ItemHandlers::UseFromBag.add(:OLDROD, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if $game_player.pbFacingTerrainTag.can_fish && ($PokemonGlobal.surfing || notCliff)
-    $msg_style = nil # Reset before closing bag to fish
+     # Reset before closing bag to fish
     next 2 
   end
-  pbMessage(_INTL("Can't use that here."))
-  $msg_style = nil # Reset System Style
+  pbOverworldMessage(_INTL("Can't use that here."))
+   # Reset System Style
   next 0
 })
 
@@ -84,26 +84,26 @@ ItemHandlers::UseFromBag.add(:TOWNMAP, proc { |item|
 ItemHandlers::UseFromBag.addIf(:move_machines,
   proc { |item| GameData::Item.get(item).is_machine? },
   proc { |item|
-    $msg_style = :system # Start System Style
+     # Start System Style
     if $player.pokemon_count == 0
-      pbMessage(_INTL("There is no Pokémon."))
-      $msg_style = nil
+      pbOverworldMessage(_INTL("There is no Pokémon."))
+      
       next 0
     end
     item_data = GameData::Item.get(item)
     move = item_data.move
     if !move
-      $msg_style = nil
+      
       next 0
     end
-    pbMessage("\\se[PC access]" + _INTL("You booted up the {1}.", item_data.name) + "\1")
-    if !pbConfirmMessage(_INTL("Do you want to teach {1} to a Pokémon?",
+    pbOverworldMessage("\\se[PC access]" + _INTL("You booted up the {1}.", item_data.name) + "\1")
+    if !pbOverworldConfirmMessage(_INTL("Do you want to teach {1} to a Pokémon?",
                                       GameData::Move.get(move).name))
-      $msg_style = nil
+      
       next 0
     end
     ret = pbMoveTutorChoose(move, nil, true, item_data.is_TR?)
-    $msg_style = nil # Reset System Style
+     # Reset System Style
     next (ret) ? 1 : 0
   }
 )
@@ -116,21 +116,21 @@ ItemHandlers::UseFromBag.addIf(:move_machines,
 #===============================================================================
 
 ItemHandlers::ConfirmUseInField.add(:ESCAPEROPE, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   escape = ($PokemonGlobal.escapePoint rescue nil)
   if !escape || escape == []
-    pbMessage(_INTL("Can't use that here."))
-    $msg_style = nil
+    pbOverworldMessage(_INTL("Can't use that here."))
+    
     next false
   end
   if !$game_player.can_map_transfer_with_follower?
-    pbMessage(_INTL("It can't be used when you have someone with you."))
-    $msg_style = nil
+    pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
+    
     next false
   end
   mapname = pbGetMapNameFromId(escape[0])
-  ret = pbConfirmMessage(_INTL("Want to escape from here and return to {1}?", mapname))
-  $msg_style = nil # Reset System Style
+  ret = pbOverworldConfirmMessage(_INTL("Want to escape from here and return to {1}?", mapname))
+   # Reset System Style
   next ret
 })
 
@@ -144,17 +144,17 @@ ItemHandlers::ConfirmUseInField.add(:ESCAPEROPE, proc { |item|
 #===============================================================================
 
 def pbRepel(item, steps)
-  $msg_style = :system # Start System Style
+   # Start System Style
   if $PokemonGlobal.repel > 0
-    pbMessage(_INTL("But a repellent's effect still lingers from earlier."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("But a repellent's effect still lingers from earlier."))
+     # Reset before return
     return false
   end
   pbSEPlay("Repel")
   $stats.repel_count += 1
   pbUseItemMessage(item)
   $PokemonGlobal.repel = steps
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   return true
 end
 
@@ -181,22 +181,22 @@ EventHandlers.add(:on_player_step_taken, :repel_counter,
     repels = []
     GameData::Item.each { |itm| repels.push(itm.id) if itm.has_flag?("Repel") }
     
-    $msg_style = :system # <--- Start Blue Box Style
+     # <--- Start Blue Box Style
     
     if repels.none? { |item| $bag.has?(item) }
-      pbMessage(_INTL("The repellent's effect wore off!"))
-      $msg_style = nil
+      pbOverworldMessage(_INTL("The repellent's effect wore off!"))
+      
       next
     end
     
     # FIX: Removed the '\b' typo that was causing the text scramble
     # Changed to a clean string with a space
-    if !pbConfirmMessage(_INTL("The repellent's effect wore off!\\nWould you like to use another one?"))
-      $msg_style = nil
+    if !pbOverworldConfirmMessage(_INTL("The repellent's effect wore off!\\nWould you like to use another one?"))
+      
       next
     end
     
-    $msg_style = nil # <--- Reset before opening Bag UI
+     # <--- Reset before opening Bag UI
     
     ret = nil
     pbFadeOutIn do
@@ -209,34 +209,34 @@ EventHandlers.add(:on_player_step_taken, :repel_counter,
 )
 
 ItemHandlers::UseInField.add(:BLACKFLUTE, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   pbUseItemMessage(item)
   if Settings::FLUTES_CHANGE_WILD_ENCOUNTER_LEVELS
-    pbMessage(_INTL("Now you're more likely to encounter high-level Pokémon!"))
+    pbOverworldMessage(_INTL("Now you're more likely to encounter high-level Pokémon!"))
     $PokemonMap.higher_level_wild_pokemon = true
     $PokemonMap.lower_level_wild_pokemon = false
   else
-    pbMessage(_INTL("The likelihood of encountering Pokémon decreased!"))
+    pbOverworldMessage(_INTL("The likelihood of encountering Pokémon decreased!"))
     $PokemonMap.lower_encounter_rate = true
     $PokemonMap.higher_encounter_rate = false
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseInField.add(:WHITEFLUTE, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   pbUseItemMessage(item)
   if Settings::FLUTES_CHANGE_WILD_ENCOUNTER_LEVELS
-    pbMessage(_INTL("Now you're more likely to encounter low-level Pokémon!"))
+    pbOverworldMessage(_INTL("Now you're more likely to encounter low-level Pokémon!"))
     $PokemonMap.lower_level_wild_pokemon = true
     $PokemonMap.higher_level_wild_pokemon = false
   else
-    pbMessage(_INTL("The likelihood of encountering Pokémon increased!"))
+    pbOverworldMessage(_INTL("The likelihood of encountering Pokémon increased!"))
     $PokemonMap.higher_encounter_rate = true
     $PokemonMap.lower_encounter_rate = false
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -247,16 +247,16 @@ ItemHandlers::UseInField.add(:HONEY, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:ESCAPEROPE, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   escape = ($PokemonGlobal.escapePoint rescue nil)
   if !escape || escape == []
-    pbMessage(_INTL("Can't use that here."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("Can't use that here."))
+     # Reset before return
     next false
   end
   if !$game_player.can_map_transfer_with_follower?
-    pbMessage(_INTL("It can't be used when you have someone with you."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
+     # Reset before return
     next false
   end
   pbUseItemMessage(item)
@@ -271,15 +271,15 @@ ItemHandlers::UseInField.add(:ESCAPEROPE, proc { |item|
     $game_map.refresh
   end
   pbEraseEscapePoint
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseInField.add(:SACREDASH, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if $player.pokemon_count == 0
-    pbMessage(_INTL("There is no Pokémon."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("There is no Pokémon."))
+     # Reset before return
     next false
   end
   canrevive = false
@@ -289,8 +289,8 @@ ItemHandlers::UseInField.add(:SACREDASH, proc { |item|
     break
   end
   if !canrevive
-    pbMessage(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("It won't have any effect."))
+     # Reset before return
     next false
   end
   revived = 0
@@ -309,7 +309,7 @@ ItemHandlers::UseInField.add(:SACREDASH, proc { |item|
     screen.pbDisplay(_INTL("It won't have any effect.")) if revived == 0
     screen.pbEndScene
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next (revived > 0)
 })
 
@@ -328,14 +328,14 @@ ItemHandlers::UseInField.add(:BICYCLE, proc { |item|
 ItemHandlers::UseInField.copy(:BICYCLE, :MACHBIKE, :ACROBIKE)
 
 ItemHandlers::UseInField.add(:OLDROD, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
-    pbMessage(_INTL("Can't use that here."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("Can't use that here."))
+     # Reset before return
     next false
   end
-  $msg_style = nil # Reset before starting fishing mini-game
+   # Reset before starting fishing mini-game
   encounter = $PokemonEncounters.has_encounter_type?(:OldRod)
   if pbFishing(encounter, 1)
     $stats.fishing_battles += 1
@@ -345,14 +345,14 @@ ItemHandlers::UseInField.add(:OLDROD, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:GOODROD, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
-    pbMessage(_INTL("Can't use that here."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("Can't use that here."))
+     # Reset before return
     next false
   end
-  $msg_style = nil # Reset before starting fishing mini-game
+   # Reset before starting fishing mini-game
   encounter = $PokemonEncounters.has_encounter_type?(:GoodRod)
   if pbFishing(encounter, 2)
     $stats.fishing_battles += 1
@@ -362,14 +362,14 @@ ItemHandlers::UseInField.add(:GOODROD, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:SUPERROD, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
   if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
-    pbMessage(_INTL("Can't use that here."))
-    $msg_style = nil # Reset before return
+    pbOverworldMessage(_INTL("Can't use that here."))
+     # Reset before return
     next false
   end
-  $msg_style = nil # Reset before starting fishing mini-game
+   # Reset before starting fishing mini-game
   encounter = $PokemonEncounters.has_encounter_type?(:SuperRod)
   if pbFishing(encounter, 3)
     $stats.fishing_battles += 1
@@ -379,13 +379,13 @@ ItemHandlers::UseInField.add(:SUPERROD, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:ITEMFINDER, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   $stats.itemfinder_count += 1
   pbSEPlay("Itemfinder")
   event = pbClosestHiddenItem
   if !event
-    pbMessage(_INTL("... \\wt[10]... \\wt[10]... \\wt[10]... \\wt[10]Nope! There's no response."))
-    $msg_style = nil
+    pbOverworldMessage(_INTL("... \\wt[10]... \\wt[10]... \\wt[10]... \\wt[10]Nope! There's no response."))
+    
     next true
   end
   offsetX = event.x - $game_player.x
@@ -396,7 +396,7 @@ ItemHandlers::UseInField.add(:ITEMFINDER, proc { |item|
       $game_player.turn_right_90
     end
     pbWait(0.3)
-    pbMessage(_INTL("The {1}'s indicating something right underfoot!", GameData::Item.get(item).name))
+    pbOverworldMessage(_INTL("The {1}'s indicating something right underfoot!", GameData::Item.get(item).name))
   else
     direction = $game_player.direction
     if offsetX.abs > offsetY.abs
@@ -411,10 +411,10 @@ ItemHandlers::UseInField.add(:ITEMFINDER, proc { |item|
     when 8 then $game_player.turn_up
     end
     pbWait(0.3)
-    pbMessage(_INTL("Huh? The {1}'s responding!", GameData::Item.get(item).name) + "\1")
-    pbMessage(_INTL("There's an item buried around here!"))
+    pbOverworldMessage(_INTL("Huh? The {1}'s responding!", GameData::Item.get(item).name) + "\1")
+    pbOverworldMessage(_INTL("There's an item buried around here!"))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -427,25 +427,25 @@ ItemHandlers::UseInField.add(:TOWNMAP, proc { |item|
 })
 
 ItemHandlers::UseInField.add(:COINCASE, proc { |item|
-  $msg_style = :system # Start System Style
-  pbMessage(_INTL("Coins: {1}", $player.coins.to_s_formatted))
-  $msg_style = nil # Reset System Style
+   # Start System Style
+  pbOverworldMessage(_INTL("Coins: {1}", $player.coins.to_s_formatted))
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseInField.add(:EXPALL, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   $bag.replace_item(:EXPALL, :EXPALLOFF)
-  pbMessage(_INTL("The Exp Share was turned off."))
-  $msg_style = nil # Reset System Style
+  pbOverworldMessage(_INTL("The Exp Share was turned off."))
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseInField.add(:EXPALLOFF, proc { |item|
-  $msg_style = :system # Start System Style
+   # Start System Style
   $bag.replace_item(:EXPALLOFF, :EXPALL)
-  pbMessage(_INTL("The Exp Share was turned on."))
-  $msg_style = nil # Reset System Style
+  pbOverworldMessage(_INTL("The Exp Share was turned on."))
+   # Reset System Style
   next true
 })
 
@@ -458,10 +458,10 @@ ItemHandlers::UseInField.add(:EXPALLOFF, proc { |item|
 ItemHandlers::UseOnPokemon.addIf(:evolution_stones,
   proc { |item| GameData::Item.get(item).is_evolution_stone? },
   proc { |item, qty, pkmn, scene|
-    $msg_style = :system # Start System Style
+     # Start System Style
     if pkmn.shadowPokemon?
       scene.pbDisplay(_INTL("It won't have any effect."))
-      $msg_style = nil # Reset before return
+       # Reset before return
       next false
     end
     newspecies = pkmn.check_evolution_on_use_item(item)
@@ -476,11 +476,11 @@ ItemHandlers::UseOnPokemon.addIf(:evolution_stones,
           scene.pbRefresh
         end
       end
-      $msg_style = nil # Reset System Style after evolution
+       # Reset System Style after evolution
       next true
     end
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   }
 )
@@ -529,100 +529,100 @@ ItemHandlers::UseOnPokemon.add(:SITRUSBERRY, proc { |item, qty, pkmn, scene|
 })
 
 ItemHandlers::UseOnPokemon.add(:AWAKENING, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status != :SLEEP
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} woke up.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.copy(:AWAKENING, :CHESTOBERRY, :BLUEFLUTE)
 
 ItemHandlers::UseOnPokemon.add(:ANTIDOTE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status != :POISON
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} was cured of its poisoning.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:BURNHEAL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status != :BURN
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1}'s burn was healed.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.copy(:BURNHEAL, :RAWSTBERRY)
 
 ItemHandlers::UseOnPokemon.add(:PARALYZEHEAL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status != :PARALYSIS
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} was cured of paralysis.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.copy(:PARALYZEHEAL, :PARLYZHEAL, :CHERIBERRY)
 
 ItemHandlers::UseOnPokemon.add(:ICEHEAL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status != :FROZEN
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} was thawed out.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.copy(:ICEHEAL, :ASPEARBERRY)
 
 ItemHandlers::UseOnPokemon.add(:FULLHEAL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status == :NONE
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} became healthy.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -633,10 +633,10 @@ ItemHandlers::UseOnPokemon.copy(:FULLHEAL,
 ItemHandlers::UseOnPokemon.copy(:FULLHEAL, :RAGECANDYBAR) if Settings::RAGE_CANDY_BAR_CURES_STATUS_PROBLEMS
 
 ItemHandlers::UseOnPokemon.add(:FULLRESTORE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || (pkmn.hp == pkmn.totalhp && pkmn.status == :NONE)
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
@@ -648,15 +648,15 @@ ItemHandlers::UseOnPokemon.add(:FULLRESTORE, proc { |item, qty, pkmn, scene|
   else
     scene.pbDisplay(_INTL("{1} became healthy.", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:REVIVE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.fainted?
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
@@ -665,15 +665,15 @@ ItemHandlers::UseOnPokemon.add(:REVIVE, proc { |item, qty, pkmn, scene|
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1}'s HP was restored.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:MAXREVIVE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.fainted?
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
@@ -681,7 +681,7 @@ ItemHandlers::UseOnPokemon.add(:MAXREVIVE, proc { |item, qty, pkmn, scene|
   pkmn.heal_status
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1}'s HP was restored.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -704,10 +704,10 @@ ItemHandlers::UseOnPokemon.add(:ENERGYROOT, proc { |item, qty, pkmn, scene|
 })
 
 ItemHandlers::UseOnPokemon.add(:HEALPOWDER, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.fainted? || pkmn.status == :NONE
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
@@ -715,15 +715,15 @@ ItemHandlers::UseOnPokemon.add(:HEALPOWDER, proc { |item, qty, pkmn, scene|
   pkmn.changeHappiness("powder")
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1} became healthy.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:REVIVALHERB, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.fainted?
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
@@ -732,119 +732,119 @@ ItemHandlers::UseOnPokemon.add(:REVIVALHERB, proc { |item, qty, pkmn, scene|
   pkmn.changeHappiness("revivalherb")
   scene.pbRefresh
   scene.pbDisplay(_INTL("{1}'s HP was restored.", pkmn.name))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:ETHER, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   move = scene.pbChooseMove(pkmn, _INTL("Restore which move?"))
   if move < 0
-    $msg_style = nil # Reset if player cancels
+     # Reset if player cancels
     next false
   end
   if pbRestorePP(pkmn, move, 10) == 0
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   end
   pbSEPlay("Use item in party")
   scene.pbDisplay(_INTL("PP was restored."))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.copy(:ETHER, :LEPPABERRY)
 
 ItemHandlers::UseOnPokemon.add(:MAXETHER, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   move = scene.pbChooseMove(pkmn, _INTL("Restore which move?"))
   if move < 0
-    $msg_style = nil
+    
     next false
   end
   if pbRestorePP(pkmn, move, pkmn.moves[move].total_pp - pkmn.moves[move].pp) == 0
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   end
   pbSEPlay("Use item in party")
   scene.pbDisplay(_INTL("PP was restored."))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:ELIXIR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   pprestored = 0
   pkmn.moves.length.times do |i|
     pprestored += pbRestorePP(pkmn, i, 10)
   end
   if pprestored == 0
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   end
   pbSEPlay("Use item in party")
   scene.pbDisplay(_INTL("PP was restored."))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:MAXELIXIR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   pprestored = 0
   pkmn.moves.length.times do |i|
     pprestored += pbRestorePP(pkmn, i, pkmn.moves[i].total_pp - pkmn.moves[i].pp)
   end
   if pprestored == 0
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   end
   pbSEPlay("Use item in party")
   scene.pbDisplay(_INTL("PP was restored."))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:PPUP, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   move = scene.pbChooseMove(pkmn, _INTL("Boost PP of which move?"))
   if move < 0
-    $msg_style = nil # Reset if player cancels
+     # Reset if player cancels
     next false 
   end
   if pkmn.moves[move].total_pp <= 1 || pkmn.moves[move].ppup >= 3
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.moves[move].ppup += 1
   movename = pkmn.moves[move].name
   scene.pbDisplay(_INTL("{1}'s PP increased.", movename))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:PPMAX, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   move = scene.pbChooseMove(pkmn, _INTL("Boost PP of which move?"))
   if move < 0
-    $msg_style = nil # Reset if player cancels
+     # Reset if player cancels
     next false
   end
   if pkmn.moves[move].total_pp <= 1 || pkmn.moves[move].ppup >= 3
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pbSEPlay("Use item in party")
   pkmn.moves[move].ppup = 3
   movename = pkmn.moves[move].name
   scene.pbDisplay(_INTL("{1}'s PP increased.", movename))
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -1057,17 +1057,17 @@ ItemHandlers::UseOnPokemonMaximum.add(:RARECANDY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:RARECANDY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if pkmn.shadowPokemon?
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   end
   if pkmn.level >= GameData::GrowthRate.max_level
     new_species = pkmn.check_evolution_on_level_up
     if !Settings::RARE_CANDY_USABLE_AT_MAX_LEVEL || !new_species
       scene.pbDisplay(_INTL("It won't have any effect."))
-      $msg_style = nil
+      
       next false
     end
     # Check for evolution
@@ -1078,14 +1078,14 @@ ItemHandlers::UseOnPokemon.add(:RARECANDY, proc { |item, qty, pkmn, scene|
       evo.pbEndScreen
       scene.pbRefresh if scene.is_a?(PokemonPartyScreen)
     end
-    $msg_style = nil
+    
     next true
   end
   # Level up
   pbSEPlay("Pkmn level up")
   pbChangeLevel(pkmn, pkmn.level + qty, scene)
   scene.pbHardRefresh
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
@@ -1095,9 +1095,9 @@ ItemHandlers::UseOnPokemonMaximum.add(:EXPCANDYXS, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:EXPCANDYXS, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbGainExpFromExpCandy(pkmn, 100, qty, scene)
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1107,9 +1107,9 @@ ItemHandlers::UseOnPokemonMaximum.add(:EXPCANDYS, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:EXPCANDYS, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbGainExpFromExpCandy(pkmn, 800, qty, scene)
-  $msg_style = nil
+  
   next ret
 })
 
@@ -1119,9 +1119,9 @@ ItemHandlers::UseOnPokemonMaximum.add(:EXPCANDYM, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:EXPCANDYM, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbGainExpFromExpCandy(pkmn, 3_000, qty, scene)
-  $msg_style = nil
+  
   next ret
 })
 
@@ -1131,9 +1131,9 @@ ItemHandlers::UseOnPokemonMaximum.add(:EXPCANDYL, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:EXPCANDYL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbGainExpFromExpCandy(pkmn, 10_000, qty, scene)
-  $msg_style = nil
+  
   next ret
 })
 
@@ -1143,9 +1143,9 @@ ItemHandlers::UseOnPokemonMaximum.add(:EXPCANDYXL, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:EXPCANDYXL, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbGainExpFromExpCandy(pkmn, 30_000, qty, scene)
-  $msg_style = nil
+  
   next ret
 })
 
@@ -1154,7 +1154,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:POMEGBERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:POMEGBERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :HP, qty, [
       _INTL("{1} adores you! Its base HP fell!", pkmn.name),
@@ -1162,7 +1162,7 @@ ItemHandlers::UseOnPokemon.add(:POMEGBERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base HP fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1171,7 +1171,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:KELPSYBERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:KELPSYBERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :ATTACK, qty, [
       _INTL("{1} adores you! Its base Attack fell!", pkmn.name),
@@ -1179,7 +1179,7 @@ ItemHandlers::UseOnPokemon.add(:KELPSYBERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base Attack fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1188,7 +1188,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:QUALOTBERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:QUALOTBERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :DEFENSE, qty, [
       _INTL("{1} adores you! Its base Defense fell!", pkmn.name),
@@ -1196,7 +1196,7 @@ ItemHandlers::UseOnPokemon.add(:QUALOTBERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base Defense fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1205,7 +1205,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:HONDEWBERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:HONDEWBERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :SPECIAL_ATTACK, qty, [
       _INTL("{1} adores you! Its base Special Attack fell!", pkmn.name),
@@ -1213,7 +1213,7 @@ ItemHandlers::UseOnPokemon.add(:HONDEWBERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base Special Attack fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1222,7 +1222,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:GREPABERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:GREPABERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :SPECIAL_DEFENSE, qty, [
       _INTL("{1} adores you! Its base Special Defense fell!", pkmn.name),
@@ -1230,7 +1230,7 @@ ItemHandlers::UseOnPokemon.add(:GREPABERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base Special Defense fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
@@ -1239,7 +1239,7 @@ ItemHandlers::UseOnPokemonMaximum.add(:TAMATOBERRY, proc { |item, pkmn|
 })
 
 ItemHandlers::UseOnPokemon.add(:TAMATOBERRY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   ret = pbRaiseHappinessAndLowerEV(
     pkmn, scene, :SPEED, qty, [
       _INTL("{1} adores you! Its base Speed fell!", pkmn.name),
@@ -1247,12 +1247,12 @@ ItemHandlers::UseOnPokemon.add(:TAMATOBERRY, proc { |item, qty, pkmn, scene|
       _INTL("{1} became more friendly. However, its base Speed fell!", pkmn.name)
     ]
   )
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next ret
 })
 
 ItemHandlers::UseOnPokemon.add(:ABILITYCAPSULE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if scene.pbConfirm(_INTL("Do you want to change {1}'s Ability?", pkmn.name))
     abils = pkmn.getAbilityList
     abil1 = nil
@@ -1263,7 +1263,7 @@ ItemHandlers::UseOnPokemon.add(:ABILITYCAPSULE, proc { |item, qty, pkmn, scene|
     end
     if abil1.nil? || abil2.nil? || pkmn.hasHiddenAbility? || pkmn.isSpecies?(:ZYGARDE)
       scene.pbDisplay(_INTL("It won't have any effect."))
-      $msg_style = nil # Reset before return
+       # Reset before return
       next false
     end
     newabil = (pkmn.ability_index + 1) % 2
@@ -1272,22 +1272,22 @@ ItemHandlers::UseOnPokemon.add(:ABILITYCAPSULE, proc { |item, qty, pkmn, scene|
     pkmn.ability = nil
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1}'s Ability changed! Its Ability is now {2}!", pkmn.name, newabilname))
-    $msg_style = nil # Reset System Style
+     # Reset System Style
     next true
   end
-  $msg_style = nil # Reset if player cancels
+   # Reset if player cancels
   next false
 })
 
 ItemHandlers::UseOnPokemon.add(:ABILITYPATCH, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if scene.pbConfirm(_INTL("Do you want to change {1}'s Ability?", pkmn.name))
     abils = pkmn.getAbilityList
     new_ability_id = nil
     abils.each { |a| new_ability_id = a[0] if a[1] == 2 }
     if !new_ability_id || pkmn.hasHiddenAbility? || pkmn.isSpecies?(:ZYGARDE)
       scene.pbDisplay(_INTL("It won't have any effect."))
-      $msg_style = nil # Reset before return
+       # Reset before return
       next false
     end
     new_ability_name = GameData::Ability.get(new_ability_id).name
@@ -1295,120 +1295,120 @@ ItemHandlers::UseOnPokemon.add(:ABILITYPATCH, proc { |item, qty, pkmn, scene|
     pkmn.ability = nil
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1}'s Ability changed! Its Ability is now {2}!", pkmn.name, new_ability_name))
-    $msg_style = nil # Reset System Style
+     # Reset System Style
     next true
   end
-  $msg_style = nil # Reset if player cancels
+   # Reset if player cancels
   next false
 })
 
 ItemHandlers::UseOnPokemon.add(:GRACIDEA, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:SHAYMIN) || pkmn.form != 0 ||
      pkmn.status == :FROZEN || PBDayNight.isNight?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   pkmn.setForm(1) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 # Example for Nectars (Repeat this pattern for Red, Yellow, Pink, and Purple)
 ItemHandlers::UseOnPokemon.add(:REDNECTAR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ORICORIO) || pkmn.form == 0
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   pkmn.setForm(0) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed form!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:YELLOWNECTAR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ORICORIO) || pkmn.form == 1
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pkmn.setForm(1) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed form!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:PINKNECTAR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ORICORIO) || pkmn.form == 2
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pkmn.setForm(2) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed form!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:PURPLENECTAR, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ORICORIO) || pkmn.form == 3
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pkmn.setForm(3) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed form!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:REVEALGLASS, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:TORNADUS) && !pkmn.isSpecies?(:THUNDURUS) &&
      !pkmn.isSpecies?(:LANDORUS) && !pkmn.isSpecies?(:ENAMORUS)
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   new_form = (pkmn.form == 0) ? 1 : 0
@@ -1416,38 +1416,38 @@ ItemHandlers::UseOnPokemon.add(:REVEALGLASS, proc { |item, qty, pkmn, scene|
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:PRISONBOTTLE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:HOOPA) || pkmn.form != 0
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   pkmn.setForm(1) do
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1} transformed!", pkmn.name))
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 ItemHandlers::UseOnPokemon.add(:ROTOMCATALOG, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ROTOM)
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   choices = [
@@ -1457,29 +1457,29 @@ ItemHandlers::UseOnPokemon.add(:ROTOMCATALOG, proc { |item, qty, pkmn, scene|
   new_form = scene.pbShowCommands(_INTL("Which appliance would you like to order?"), choices, pkmn.form)
   if new_form == pkmn.form
     scene.pbDisplay(_INTL("It won't have any effect."))
-    $msg_style = nil
+    
     next false
   elsif new_form > 0 && new_form < choices.length - 1
     pkmn.setForm(new_form) do
       scene.pbRefresh
       scene.pbDisplay(_INTL("{1} transformed!", pkmn.name))
     end
-    $msg_style = nil
+    
     next true
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next false
 })
 
 ItemHandlers::UseOnPokemon.add(:ZYGARDECUBE, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:ZYGARDE)
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   case scene.pbShowCommands(_INTL("What will you do with {1}?", pkmn.name),
@@ -1490,7 +1490,7 @@ ItemHandlers::UseOnPokemon.add(:ZYGARDECUBE, proc { |item, qty, pkmn, scene|
       scene.pbRefresh
       scene.pbDisplay(_INTL("{1} transformed!", pkmn.name))
     end
-    $msg_style = nil # Reset System Style
+     # Reset System Style
     next true
   when 1   # Change ability
     new_abil = (pkmn.ability_index + 1) % 2
@@ -1498,28 +1498,28 @@ ItemHandlers::UseOnPokemon.add(:ZYGARDECUBE, proc { |item, qty, pkmn, scene|
     pkmn.ability = nil
     scene.pbRefresh
     scene.pbDisplay(_INTL("{1}'s Ability changed! Its Ability is now {2}!", pkmn.name, pkmn.ability.name))
-    $msg_style = nil # Reset System Style
+     # Reset System Style
     next true
   end
-  $msg_style = nil # Reset if "Cancel" is chosen
+   # Reset if "Cancel" is chosen
   next false
 })
 
 ItemHandlers::UseOnPokemon.add(:DNASPLICERS, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:KYUREM) || !pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   # Fusing
   chosen = scene.pbChoosePokemon(_INTL("Fuse with which Pokémon?"))
   if chosen < 0
-    $msg_style = nil
+    
     next false 
   end
   other_pkmn = $player.party[chosen]
@@ -1540,26 +1540,26 @@ ItemHandlers::UseOnPokemon.add(:DNASPLICERS, proc { |item, qty, pkmn, scene|
       scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
     end
     $bag.replace_item(:DNASPLICERS, :DNASPLICERSUSED)
-    $msg_style = nil
+    
     next true
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next false
 })
 
 ItemHandlers::UseOnPokemon.add(:DNASPLICERSUSED, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:KYUREM) || pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif $player.party_full?
     scene.pbDisplay(_INTL("You have no room to separate the Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   # Unfusing
@@ -1570,25 +1570,25 @@ ItemHandlers::UseOnPokemon.add(:DNASPLICERSUSED, proc { |item, qty, pkmn, scene|
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
   $bag.replace_item(:DNASPLICERSUSED, :DNASPLICERS)
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 
 # Solarizer (Fusion)
 ItemHandlers::UseOnPokemon.add(:NSOLARIZER, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:NECROZMA) || !pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   chosen = scene.pbChoosePokemon(_INTL("Fuse with which Pokémon?"))
   if chosen < 0
-    $msg_style = nil
+    
     next false
   end
   other_pkmn = $player.party[chosen]
@@ -1608,27 +1608,27 @@ ItemHandlers::UseOnPokemon.add(:NSOLARIZER, proc { |item, qty, pkmn, scene|
       scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
     end
     $bag.replace_item(:NSOLARIZER, :NSOLARIZERUSED)
-    $msg_style = nil
+    
     next true
   end
-  $msg_style = nil
+  
   next false
 })
 
 # Solarizer (Unfusing)
 ItemHandlers::UseOnPokemon.add(:NSOLARIZERUSED, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:NECROZMA) || pkmn.form != 1 || pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   elsif $player.party_full?
     scene.pbDisplay(_INTL("You have no room to separate the Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   pkmn.setForm(0) do
@@ -1638,26 +1638,26 @@ ItemHandlers::UseOnPokemon.add(:NSOLARIZERUSED, proc { |item, qty, pkmn, scene|
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
   $bag.replace_item(:NSOLARIZERUSED, :NSOLARIZER)
-  $msg_style = nil
+  
   next true
 })
 
 # Lunarizer (Fusion)
 ItemHandlers::UseOnPokemon.add(:NLUNARIZER, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:NECROZMA) || !pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil # Reset before return
+     # Reset before return
     next false
   end
   # Fusing
   chosen = scene.pbChoosePokemon(_INTL("Fuse with which Pokémon?"))
   if chosen < 0
-    $msg_style = nil
+    
     next false
   end
   other_pkmn = $player.party[chosen]
@@ -1677,27 +1677,27 @@ ItemHandlers::UseOnPokemon.add(:NLUNARIZER, proc { |item, qty, pkmn, scene|
       scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
     end
     $bag.replace_item(:NLUNARIZER, :NLUNARIZERUSED)
-    $msg_style = nil
+    
     next true
   end
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next false
 })
 
 # Lunarizer (Unfusing)
 ItemHandlers::UseOnPokemon.add(:NLUNARIZERUSED, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:NECROZMA) || pkmn.form != 2 || pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   elsif $player.party_full?
     scene.pbDisplay(_INTL("You have no room to separate the Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   # Unfusing
@@ -1708,24 +1708,24 @@ ItemHandlers::UseOnPokemon.add(:NLUNARIZERUSED, proc { |item, qty, pkmn, scene|
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
   $bag.replace_item(:NLUNARIZERUSED, :NLUNARIZER)
-  $msg_style = nil # Reset System Style
+   # Reset System Style
   next true
 })
 # Reins of Unity (Fusion)
 ItemHandlers::UseOnPokemon.add(:REINSOFUNITY, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:CALYREX) || !pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   chosen = scene.pbChoosePokemon(_INTL("Fuse with which Pokémon?"))
   if chosen < 0
-    $msg_style = nil
+    
     next false
   end
   other_pkmn = $player.party[chosen]
@@ -1746,27 +1746,27 @@ ItemHandlers::UseOnPokemon.add(:REINSOFUNITY, proc { |item, qty, pkmn, scene|
       scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
     end
     $bag.replace_item(:REINSOFUNITY, :REINSOFUNITYUSED)
-    $msg_style = nil
+    
     next true
   end
-  $msg_style = nil
+  
   next false
 })
 
 # Reins of Unity (Unfusing)
 ItemHandlers::UseOnPokemon.add(:REINSOFUNITYUSED, proc { |item, qty, pkmn, scene|
-  $msg_style = :system # Start System Style
+   # Start System Style
   if !pkmn.isSpecies?(:CALYREX) || pkmn.fused.nil?
     scene.pbDisplay(_INTL("It had no effect."))
-    $msg_style = nil
+    
     next false
   elsif pkmn.fainted?
     scene.pbDisplay(_INTL("This can't be used on the fainted Pokémon."))
-    $msg_style = nil
+    
     next false
   elsif $player.party_full?
     scene.pbDisplay(_INTL("You have no room to separate the Pokémon."))
-    $msg_style = nil
+    
     next false
   end
   pkmn.setForm(0) do
@@ -1776,6 +1776,45 @@ ItemHandlers::UseOnPokemon.add(:REINSOFUNITYUSED, proc { |item, qty, pkmn, scene
     scene.pbDisplay(_INTL("{1} changed Forme!", pkmn.name))
   end
   $bag.replace_item(:REINSOFUNITYUSED, :REINSOFUNITY)
-  $msg_style = nil
+  
   next true
 })
+
+#===============================================================================
+# Overworld Exclusive Message & Choice Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldMessage(message, commands = nil, cmdIfCancel = 0, defaultCmd = 0, &block)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = 0
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  if commands
+    ret = pbMessageDisplay(msgwindow, message, true,
+                           proc { |msgwndw|
+                             next Kernel.pbShowCommands(msgwndw, commands, cmdIfCancel, defaultCmd, &block)
+                           }, &block)
+  else
+    pbMessageDisplay(msgwindow, message, &block)
+  end
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end
+
+def pbOverworldConfirmMessage(message)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = false
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  ret = pbMessageDisplay(msgwindow, message, true,
+                         proc { |msgwndw|
+                           next Kernel.pbShowCommands(msgwndw, [_INTL("Yes"), _INTL("No")], 1)
+                         }) == 0
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end

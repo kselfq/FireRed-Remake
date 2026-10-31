@@ -136,7 +136,7 @@ def pbChangeLevel(pkmn, new_level, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1}'s level remained unchanged.", pkmn.name))
     else
-      pbMessage(_INTL("{1}'s level remained unchanged.", pkmn.name))
+      pbOverworldMessage(_INTL("{1}'s level remained unchanged.", pkmn.name))
     end
     $msg_style = nil
     return
@@ -156,7 +156,7 @@ def pbChangeLevel(pkmn, new_level, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
     else
-      pbMessage(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
+      pbOverworldMessage(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
     end
     total_hp_diff        = pkmn.totalhp - old_total_hp
     attack_diff          = pkmn.attack - old_attack
@@ -173,7 +173,7 @@ def pbChangeLevel(pkmn, new_level, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
     else
-      pbMessage(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
+      pbOverworldMessage(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
     end
     total_hp_diff        = pkmn.totalhp - old_total_hp
     attack_diff          = pkmn.attack - old_attack
@@ -358,7 +358,7 @@ def pbChangeExp(pkmn, new_exp, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1}'s Exp. Points remained unchanged.", pkmn.name))
     else
-      pbMessage(_INTL("{1}'s Exp. Points remained unchanged.", pkmn.name))
+      pbOverworldMessage(_INTL("{1}'s Exp. Points remained unchanged.", pkmn.name))
     end
     $msg_style = nil # Reset before return
     return
@@ -375,7 +375,7 @@ def pbChangeExp(pkmn, new_exp, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1} lost {2} Exp. Points!", pkmn.name, difference))
     else
-      pbMessage(_INTL("{1} lost {2} Exp. Points!", pkmn.name, difference))
+      pbOverworldMessage(_INTL("{1} lost {2} Exp. Points!", pkmn.name, difference))
     end
     pkmn.exp = new_exp
     pkmn.calc_stats
@@ -388,7 +388,7 @@ def pbChangeExp(pkmn, new_exp, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
     else
-      pbMessage(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
+      pbOverworldMessage(_INTL("{1} dropped to Lv. {2}!", pkmn.name, pkmn.level))
     end
     total_hp_diff        = pkmn.totalhp - old_total_hp
     attack_diff          = pkmn.attack - old_attack
@@ -405,7 +405,7 @@ def pbChangeExp(pkmn, new_exp, scene)
     if scene.is_a?(PokemonPartyScreen)
       scene.pbDisplay(_INTL("{1} gained {2} Exp. Points!", pkmn.name, difference))
     else
-      pbMessage(_INTL("{1} gained {2} Exp. Points!", pkmn.name, difference))
+      pbOverworldMessage(_INTL("{1} gained {2} Exp. Points!", pkmn.name, difference))
     end
     pkmn.exp = new_exp
     pkmn.changeHappiness("vitamin")
@@ -416,7 +416,7 @@ def pbChangeExp(pkmn, new_exp, scene)
       if scene.is_a?(PokemonPartyScreen)
         scene.pbDisplay(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
       else
-        pbMessage(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
+        pbOverworldMessage(_INTL("{1} grew to Lv. {2}!", pkmn.name, pkmn.level))
       end
       total_hp_diff        = pkmn.totalhp - old_total_hp
       attack_diff          = pkmn.attack - old_attack
@@ -691,19 +691,19 @@ def pbBikeCheck
   if $PokemonGlobal.surfing || $PokemonGlobal.diving ||
      (!$PokemonGlobal.bicycle &&
      ($game_player.pbTerrainTag.must_walk || $game_player.pbTerrainTag.must_walk_or_run))
-    pbMessage(_INTL("Can't use that here."))
+    pbOverworldMessage(_INTL("Can't use that here."))
     $msg_style = nil # Reset before return
     return false
   end
   if !$game_player.can_ride_vehicle_with_follower?
-    pbMessage(_INTL("It can't be used when you have someone with you."))
+    pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
     $msg_style = nil # Reset before return
     return false
   end
   map_metadata = $game_map.metadata
   if $PokemonGlobal.bicycle
     if map_metadata&.always_bicycle
-      pbMessage(_INTL("You can't dismount your Bike here."))
+      pbOverworldMessage(_INTL("You can't dismount your Bike here."))
       $msg_style = nil # Reset before return
       return false
     end
@@ -711,7 +711,7 @@ def pbBikeCheck
     return true
   end
   if !map_metadata || (!map_metadata.can_bicycle && !map_metadata.outdoor_map)
-    pbMessage(_INTL("Can't use that here."))
+    pbOverworldMessage(_INTL("Can't use that here."))
     $msg_style = nil # Reset before return
     return false
   end
@@ -756,29 +756,29 @@ def pbLearnMove(pkmn, move, ignore_if_known = false, by_machine = false, &block)
   end
   move = GameData::Move.get(move).id
   if pkmn.egg? && !$DEBUG
-    pbMessage(_INTL("Eggs can't be taught any moves."), &block)
+    pbOverworldMessage(_INTL("Eggs can't be taught any moves."), &block)
     $msg_style = nil # Reset before return
     return false
   elsif pkmn.shadowPokemon?
-    pbMessage(_INTL("Shadow Pokémon can't be taught any moves."), &block)
+    pbOverworldMessage(_INTL("Shadow Pokémon can't be taught any moves."), &block)
     $msg_style = nil # Reset before return
     return false
   end
   pkmn_name = pkmn.name
   move_name = GameData::Move.get(move).name
   if pkmn.hasMove?(move)
-    pbMessage(_INTL("{1} already knows {2}.", pkmn_name, move_name), &block) if !ignore_if_known
+    pbOverworldMessage(_INTL("{1} already knows {2}.", pkmn_name, move_name), &block) if !ignore_if_known
     $msg_style = nil # Reset before return
     return false
   elsif pkmn.numMoves < Pokemon::MAX_MOVES
     pkmn.learn_move(move)
-    pbMessage("\\se[]" + _INTL("{1} learned {2}!", pkmn_name, move_name) + "\\se[Pkmn move learnt]", &block)
+    pbOverworldMessage("\\se[]" + _INTL("{1} learned {2}!", pkmn_name, move_name) + "\\se[Pkmn move learnt]", &block)
     $msg_style = nil # Reset before return
     return true
   end
-  pbMessage(_INTL("{1} wants to learn {2}, but it already knows {3} moves.",
+  pbOverworldMessage(_INTL("{1} wants to learn {2}, but it already knows {3} moves.",
                   pkmn_name, move_name, pkmn.numMoves.to_word) + "\1", &block)
-  if pbConfirmMessage(_INTL("Should {1} forget a move to learn {2}?", pkmn_name, move_name), &block)
+  if pbOverworldConfirmMessage(_INTL("Should {1} forget a move to learn {2}?", pkmn_name, move_name), &block)
     loop do
       move_index = pbForgetMove(pkmn, move)
       if move_index >= 0
@@ -788,20 +788,20 @@ def pbLearnMove(pkmn, move, ignore_if_known = false, by_machine = false, &block)
         if by_machine && Settings::TAUGHT_MACHINES_KEEP_OLD_PP
           pkmn.moves[move_index].pp = [oldmovepp, pkmn.moves[move_index].total_pp].min
         end
-        pbMessage(_INTL("1, 2, and...\\wt[16] ...\\wt[16] ...\\wt[16] Ta-da!") + "\\se[Battle ball drop]\1", &block)
-        pbMessage(_INTL("{1} forgot how to use {2}.\\nAnd..." + "\1", pkmn_name, old_move_name), &block)
-        pbMessage("\\se[]" + _INTL("{1} learned {2}!", pkmn_name, move_name) + "\\se[Pkmn move learnt]", &block)
+        pbOverworldMessage(_INTL("1, 2, and...\\wt[16] ...\\wt[16] ...\\wt[16] Ta-da!") + "\\se[Battle ball drop]\1", &block)
+        pbOverworldMessage(_INTL("{1} forgot how to use {2}.\\nAnd..." + "\1", pkmn_name, old_move_name), &block)
+        pbOverworldMessage("\\se[]" + _INTL("{1} learned {2}!", pkmn_name, move_name) + "\\se[Pkmn move learnt]", &block)
         pkmn.changeHappiness("machine") if by_machine
         $msg_style = nil # Reset before return
         return true
-      elsif pbConfirmMessage(_INTL("Give up on learning {1}?", move_name), &block)
-        pbMessage(_INTL("{1} did not learn {2}.", pkmn_name, move_name), &block)
+      elsif pbOverworldConfirmMessage(_INTL("Give up on learning {1}?", move_name), &block)
+        pbOverworldMessage(_INTL("{1} did not learn {2}.", pkmn_name, move_name), &block)
         $msg_style = nil # Reset before return
         return false
       end
     end
   else
-    pbMessage(_INTL("{1} did not learn {2}.", pkmn_name, move_name), &block)
+    pbOverworldMessage(_INTL("{1} did not learn {2}.", pkmn_name, move_name), &block)
   end
   $msg_style = nil # Final safety reset
   return false
@@ -828,7 +828,7 @@ def pbUseItem(bag, item, bagscene = nil)
   ret = 0
   if useType == 1   # Item is usable on a Pokémon
     if $player.pokemon_count == 0
-      pbMessage(_INTL("There is no Pokémon."))
+      pbOverworldMessage(_INTL("There is no Pokémon."))
       $msg_style = nil
       return 0
     end
@@ -864,7 +864,7 @@ def pbUseItem(bag, item, bagscene = nil)
         next unless ret_bool && itm.consumed_after_use?
         bag.remove(item, qty)
         next if bag.has?(item)
-        pbMessage(_INTL("You used your last {1}.", itm.portion_name)) { screen.pbUpdate }
+        pbOverworldMessage(_INTL("You used your last {1}.", itm.portion_name)) { screen.pbUpdate }
         break
       end
       screen.pbEndScene
@@ -877,11 +877,11 @@ def pbUseItem(bag, item, bagscene = nil)
       bag.remove(item) if intret == 1 && itm.consumed_after_use?
       ret = intret
     else
-      pbMessage(_INTL("Can't use that here."))
+      pbOverworldMessage(_INTL("Can't use that here."))
       ret = 0
     end
   else
-    pbMessage(_INTL("Can't use that here."))
+    pbOverworldMessage(_INTL("Can't use that here."))
     ret = 0
   end
   $msg_style = nil
@@ -902,12 +902,12 @@ def pbUseItemOnPokemon(item, pkmn, scene)
     end
     movename = GameData::Move.get(machine).name
     if pkmn.shadowPokemon?
-      pbMessage(_INTL("Shadow Pokémon can't be taught any moves.")) { scene.pbUpdate }
+      pbOverworldMessage(_INTL("Shadow Pokémon can't be taught any moves.")) { scene.pbUpdate }
     elsif !pkmn.compatible_with_move?(machine)
-      pbMessage(_INTL("{1} can't learn {2}.", pkmn.name, movename)) { scene.pbUpdate }
+      pbOverworldMessage(_INTL("{1} can't learn {2}.", pkmn.name, movename)) { scene.pbUpdate }
     else
-      pbMessage("\\se[PC access]" + _INTL("You booted up the {1}.", itm.portion_name) + "\1") { scene.pbUpdate }
-      if pbConfirmMessage(_INTL("Do you want to teach {1} to {2}?", movename, pkmn.name)) { scene.pbUpdate }
+      pbOverworldMessage("\\se[PC access]" + _INTL("You booted up the {1}.", itm.portion_name) + "\1") { scene.pbUpdate }
+      if pbOverworldConfirmMessage(_INTL("Do you want to teach {1} to {2}?", movename, pkmn.name)) { scene.pbUpdate }
         if pbLearnMove(pkmn, machine, false, true) { scene.pbUpdate }
           $bag.remove(item) if itm.consumed_after_use?
           $msg_style = nil # Reset before return
@@ -931,7 +931,7 @@ def pbUseItemOnPokemon(item, pkmn, scene)
   if ret && itm.consumed_after_use?
     $bag.remove(item, qty)
     if !$bag.has?(item)
-      pbMessage(_INTL("You used your last {1}.", itm.portion_name)) { scene.pbUpdate }
+      pbOverworldMessage(_INTL("You used your last {1}.", itm.portion_name)) { scene.pbUpdate }
     end
   end
   $msg_style = nil # Final Reset
@@ -942,7 +942,7 @@ def pbUseKeyItemInField(item)
   $msg_style = :system
   ret = ItemHandlers.triggerUseInField(item)
   if ret == -1   # Item effect not found
-    pbMessage(_INTL("Can't use that here."))
+    pbOverworldMessage(_INTL("Can't use that here."))
   elsif ret > 0 && GameData::Item.get(item).consumed_after_use?
     $bag.remove(item)
   end
@@ -954,9 +954,9 @@ def pbUseItemMessage(item)
   $msg_style = :system # Start System Style
   itemname = GameData::Item.get(item).portion_name
   if itemname.starts_with_vowel?
-    pbMessage(_INTL("You used an {1}.", itemname))
+    pbOverworldMessage(_INTL("You used an {1}.", itemname))
   else
-    pbMessage(_INTL("You used a {1}.", itemname))
+    pbOverworldMessage(_INTL("You used a {1}.", itemname))
   end
   $msg_style = nil # Reset System Style
 end
@@ -1110,11 +1110,55 @@ def pbChooseItemFromList(message, variable, *args)
   end
   commands.push(_INTL("Cancel"))
   itemid.push(nil)
-  ret = pbMessage(message, commands, -1)
+  
+  # --- UPDATED: Use overworld message/choice helper ---
+  ret = pbOverworldMessage(message, commands, -1)
+  # ---------------------------------------------------
+  
   if ret < 0 || ret >= commands.length - 1
     $game_variables[variable] = :NONE
     return nil
   end
   $game_variables[variable] = itemid[ret] || :NONE
   return itemid[ret]
+end
+
+
+#===============================================================================
+# Overworld Exclusive Message & Choice Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldMessage(message, commands = nil, cmdIfCancel = 0, defaultCmd = 0, &block)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = 0
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  if commands
+    ret = pbMessageDisplay(msgwindow, message, true,
+                           proc { |msgwndw|
+                             next Kernel.pbShowCommands(msgwndw, commands, cmdIfCancel, defaultCmd, &block)
+                           }, &block)
+  else
+    pbMessageDisplay(msgwindow, message, &block)
+  end
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end
+
+def pbOverworldConfirmMessage(message)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = false
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  ret = pbMessageDisplay(msgwindow, message, true,
+                         proc { |msgwndw|
+                           next Kernel.pbShowCommands(msgwndw, [_INTL("Yes"), _INTL("No")], 1)
+                         }) == 0
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
 end
