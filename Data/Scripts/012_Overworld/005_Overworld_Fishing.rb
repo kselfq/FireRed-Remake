@@ -35,8 +35,13 @@ def pbFishing(hasEncounter, rodType = 1)
   hookChance = 100
   pbFishingBegin
   
-  $msg_style = :system # <--- Start Blue Box Style
+  # --- UPDATED: Apply choice 2 windowskin exclusively to fishing ---
   msgWindow = pbCreateMessageWindow
+  skin = "Graphics/Windowskins/choice 2"
+  if pbResolveBitmap(skin)
+    msgWindow.windowskin = Bitmap.new(skin)
+  end
+  # ----------------------------------------------------------------
   
   ret = false
   loop do

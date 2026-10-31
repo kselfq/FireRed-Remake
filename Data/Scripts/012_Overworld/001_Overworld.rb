@@ -51,9 +51,9 @@ EventHandlers.add(:on_frame_update, :low_battery_warning,
             $game_temp.message_window_showing || pbMapInterpreterRunning?
     $game_temp.warned_low_battery = true
     
-    $msg_style = :system
-    pbMessage(_INTL("The game has detected that the battery is low. You should save soon to avoid losing your progress."))
-    $msg_style = nil
+    
+    pbOverworldMessage(_INTL("The game has detected that the battery is low. You should save soon to avoid losing your progress."))
+    
   }
 )
 
@@ -101,16 +101,16 @@ EventHandlers.add(:on_player_step_taken_can_transfer, :poison_party,
       
       if pkmn.hp == 1 && !Settings::POISON_FAINT_IN_FIELD
         pkmn.status = :NONE
-        $msg_style = :system
-        pbMessage(_INTL("{1} survived the poisoning.\\nThe poison faded away!", pkmn.name))
-        $msg_style = nil
+        
+        pbOverworldMessage(_INTL("{1} survived the poisoning.\\nThe poison faded away!", pkmn.name))
+        
         next
       elsif pkmn.hp == 0
         pkmn.changeHappiness("faint")
         pkmn.status = :NONE
-        $msg_style = :system
-        pbMessage(_INTL("{1} fainted...", pkmn.name))
-        $msg_style = nil
+        
+        pbOverworldMessage(_INTL("{1} fainted...", pkmn.name))
+        
       end
       
       if $player.able_pokemon_count == 0
@@ -123,10 +123,10 @@ EventHandlers.add(:on_player_step_taken_can_transfer, :poison_party,
 
 def pbCheckAllFainted
   if $player.able_pokemon_count == 0
-    $msg_style = :system
-    pbMessage(_INTL("You have no more Pokémon that can fight!") + "\1")
-    pbMessage(_INTL("You blacked out!"))
-    $msg_style = nil
+    
+    pbOverworldMessage(_INTL("You have no more Pokémon that can fight!") + "\1")
+    pbOverworldMessage(_INTL("You blacked out!"))
+    
     
     pbBGMFade(1.0)
     pbBGSFade(1.0)
@@ -673,7 +673,7 @@ def pbItemBall(item, quantity = 1)
   move = item.move
   
   if $bag.add(item, quantity)   # If item can be picked up
-    $msg_style = :system
+    
     
     # --- LOGIC: Mega Stone > Key Item > Normal Item ---
     if item.is_mega_stone?
@@ -686,47 +686,47 @@ def pbItemBall(item, quantity = 1)
     # --------------------------------------------------
     
     if item == :DNASPLICERS
-      pbMessage("\\me[#{meName}]" + _INTL("You found \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You found \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     elsif item.is_machine?   # TM or HM
       if quantity > 1
-        pbMessage("\\me[Machine Get]" + _INTL("You found {1} \\c[1]{2} {3}\\c[0]!",
+        pbOverworldMessage("\\me[Machine Get]" + _INTL("You found {1} \\c[1]{2} {3}\\c[0]!",
                                               quantity, itemname, GameData::Move.get(move).name) + "\\wtnp[70]")
       else
-        pbMessage("\\me[Machine Get]" + _INTL("You found \\c[1]{1} {2}\\c[0]!",
+        pbOverworldMessage("\\me[Machine Get]" + _INTL("You found \\c[1]{1} {2}\\c[0]!",
                                               itemname, GameData::Move.get(move).name) + "\\wtnp[70]")
       end
     elsif quantity > 1
-      pbMessage("\\me[#{meName}]" + _INTL("You found {1} \\c[1]{2}\\c[0]!", quantity, itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You found {1} \\c[1]{2}\\c[0]!", quantity, itemname) + "\\wtnp[40]")
     elsif itemname.starts_with_vowel?
-      pbMessage("\\me[#{meName}]" + _INTL("You found an \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You found an \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     else
-      pbMessage("\\me[#{meName}]" + _INTL("You found a \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You found a \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     end
-    pbMessage(_INTL("You put the {1} in your Bag's\\n<icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
+    pbOverworldMessage(_INTL("You put the {1} in your Bag's\\n<icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
                     itemname, pocket, PokemonBag.pocket_names[pocket - 1]))
     
-    $msg_style = nil
+    
     return true
   end
   
   # Can't add the item
-  $msg_style = :system
+  
   if item.is_machine?   # TM or HM
     if quantity > 1
-      pbMessage(_INTL("You found {1} \\c[1]{2} {3}\\c[0]!", quantity, itemname, GameData::Move.get(move).name))
+      pbOverworldMessage(_INTL("You found {1} \\c[1]{2} {3}\\c[0]!", quantity, itemname, GameData::Move.get(move).name))
     else
-      pbMessage(_INTL("You found \\c[1]{1} {2}\\c[0]!", itemname, GameData::Move.get(move).name))
+      pbOverworldMessage(_INTL("You found \\c[1]{1} {2}\\c[0]!", itemname, GameData::Move.get(move).name))
     end
   elsif quantity > 1
-    pbMessage(_INTL("You found {1} \\c[1]{2}\\c[0]!", quantity, itemname))
+    pbOverworldMessage(_INTL("You found {1} \\c[1]{2}\\c[0]!", quantity, itemname))
   elsif itemname.starts_with_vowel?
-    pbMessage(_INTL("You found an \\c[1]{1}\\c[0]!", itemname))
+    pbOverworldMessage(_INTL("You found an \\c[1]{1}\\c[0]!", itemname))
   else
-    pbMessage(_INTL("You found a \\c[1]{1}\\c[0]!", itemname))
+    pbOverworldMessage(_INTL("You found a \\c[1]{1}\\c[0]!", itemname))
   end
-  pbMessage(_INTL("But your Bag is full..."))
+  pbOverworldMessage(_INTL("But your Bag is full..."))
   
-  $msg_style = nil
+  
   return false
 end
 
@@ -751,29 +751,29 @@ def pbReceiveItem(item, quantity = 1)
   # --------------------------------------------------
   
   if $bag.add(item, quantity)   # If item can be added
-    $msg_style = :system
+    
     
     if item == :DNASPLICERS
-      pbMessage("\\me[#{meName}]" + _INTL("You obtained \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You obtained \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     elsif item.is_machine?   # TM or HM
       if quantity > 1
-        pbMessage("\\me[Machine Get]" + _INTL("You obtained {1} \\c[1]{2} {3}\\c[0]!",
+        pbOverworldMessage("\\me[Machine Get]" + _INTL("You obtained {1} \\c[1]{2} {3}\\c[0]!",
                                               quantity, itemname, GameData::Move.get(move).name) + "\\wtnp[70]")
       else
-        pbMessage("\\me[Machine Get]" + _INTL("You obtained \\c[1]{1} {2}\\c[0]!",
+        pbOverworldMessage("\\me[Machine Get]" + _INTL("You obtained \\c[1]{1} {2}\\c[0]!",
                                               itemname, GameData::Move.get(move).name) + "\\wtnp[70]")
       end
     elsif quantity > 1
-      pbMessage("\\me[#{meName}]" + _INTL("You obtained {1} \\c[1]{2}\\c[0]!", quantity, itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You obtained {1} \\c[1]{2}\\c[0]!", quantity, itemname) + "\\wtnp[40]")
     elsif itemname.starts_with_vowel?
-      pbMessage("\\me[#{meName}]" + _INTL("You obtained an \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You obtained an \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     else
-      pbMessage("\\me[#{meName}]" + _INTL("You obtained a \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
+      pbOverworldMessage("\\me[#{meName}]" + _INTL("You obtained a \\c[1]{1}\\c[0]!", itemname) + "\\wtnp[40]")
     end
-    pbMessage(_INTL("You put the {1} in\\nyour Bag's <icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
+    pbOverworldMessage(_INTL("You put the {1} in\\nyour Bag's <icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
                     itemname, pocket, PokemonBag.pocket_names[pocket - 1]))
     
-    $msg_style = nil
+    
     return true
   end
   return false   # Can't add the item
@@ -797,9 +797,29 @@ def pbBuyPrize(item, quantity = 1)
   end
   # -------------------------------
 
-  $msg_style = :system
-  pbMessage("\\me[#{meName}]\\CN" + _INTL("You put the {1} in\\nyour Bag's <icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
+  
+  pbOverworldMessage("\\me[#{meName}]\\CN" + _INTL("You put the {1} in\\nyour Bag's <icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
                            item_name, pocket, PokemonBag.pocket_names[pocket - 1]))
-  $msg_style = nil
+  
   return true
+end
+
+#===============================================================================
+# Overworld Exclusive Message Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldMessage(message, commands = nil, cmdIfCancel = 0, defaultCmd = 0, &block)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = 0
+  msgwindow = pbCreateMessageWindow(nil, skin)
+  if commands
+    ret = pbMessageDisplay(msgwindow, message, true,
+                           proc { |msgwndw|
+                             next Kernel.pbShowCommands(msgwndw, commands, cmdIfCancel, defaultCmd, &block)
+                           }, &block)
+  else
+    pbMessageDisplay(msgwindow, message, &block)
+  end
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
 end

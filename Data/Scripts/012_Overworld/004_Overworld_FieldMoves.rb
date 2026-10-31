@@ -61,7 +61,7 @@ def pbCheckHiddenMoveBadge(badge = -1, showmsg = true)
   end
   if showmsg
     $msg_style = :system
-    pbMessage(_INTL("Sorry, a new Badge is required."))
+    pbOverworldMessage(_INTL("Sorry, a new Badge is required."))
     $msg_style = nil
   end
   return false
@@ -182,15 +182,15 @@ def pbCut
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_CUT, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("This tree looks like it can be cut down."))
+    pbOverworldMessage(_INTL("This tree looks like it can be cut down."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("This tree looks like it can be cut down!\nWould you like to cut it?"))
+  if pbOverworldConfirmMessage(_INTL("This tree looks like it can be cut down!\nWould you like to cut it?"))
     $stats.cut_count += 1
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     $msg_style = nil
     return true
@@ -205,7 +205,7 @@ HiddenMoveHandlers::CanUseMove.add(:CUT, proc { |move, pkmn, showmsg|
   if !facingEvent || !facingEvent.name[/cuttree/i]
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -216,7 +216,7 @@ HiddenMoveHandlers::CanUseMove.add(:CUT, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:CUT, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   $stats.cut_count += 1
@@ -249,7 +249,7 @@ HiddenMoveHandlers::CanUseMove.add(:DIG, proc { |move, pkmn, showmsg|
   if !escape || escape == []
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -257,7 +257,7 @@ HiddenMoveHandlers::CanUseMove.add(:DIG, proc { |move, pkmn, showmsg|
   if !$game_player.can_map_transfer_with_follower?
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("It can't be used when you have someone with you."))
+      pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
       $msg_style = nil
     end
     next false
@@ -270,7 +270,7 @@ HiddenMoveHandlers::ConfirmUseMove.add(:DIG, proc { |move, pkmn|
   next false if !escape || escape == []
   mapname = pbGetMapNameFromId(escape[0])
   $msg_style = :system
-  ret = pbConfirmMessage(_INTL("Want to escape from here and return to {1}?", mapname))
+  ret = pbOverworldConfirmMessage(_INTL("Want to escape from here and return to {1}?", mapname))
   $msg_style = nil
   next ret
 })
@@ -280,7 +280,7 @@ HiddenMoveHandlers::UseMove.add(:DIG, proc { |move, pokemon|
   if escape
     if !pbHiddenMoveAnimation(pokemon)
       $msg_style = :system
-      pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+      pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
       $msg_style = nil
     end
     pbFadeOutIn do
@@ -309,14 +309,14 @@ def pbDive
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_DIVE, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("The sea is deep here. A Pokémon may be able to go underwater."))
+    pbOverworldMessage(_INTL("The sea is deep here. A Pokémon may be able to go underwater."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("The sea is deep here. Would you like to use Dive?"))
+  if pbOverworldConfirmMessage(_INTL("The sea is deep here. Would you like to use Dive?"))
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     pbFadeOutIn do
       $game_temp.player_new_map_id    = map_metadata.dive_map_id
@@ -351,14 +351,14 @@ def pbSurfacing
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_DIVE, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("Light is filtering down from above. A Pokémon may be able to surface here."))
+    pbOverworldMessage(_INTL("Light is filtering down from above. A Pokémon may be able to surface here."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("Light is filtering down from above. Would you like to use Dive?"))
+  if pbOverworldConfirmMessage(_INTL("Light is filtering down from above. Would you like to use Dive?"))
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     pbFadeOutIn do
       $game_temp.player_new_map_id    = surface_map_id
@@ -412,7 +412,7 @@ HiddenMoveHandlers::CanUseMove.add(:DIVE, proc { |move, pkmn, showmsg|
        !$map_factory.getTerrainTag(surface_map_id, $game_player.x, $game_player.y).can_dive
       if showmsg
         $msg_style = :system
-        pbMessage(_INTL("You can't use that here."))
+        pbOverworldMessage(_INTL("You can't use that here."))
         $msg_style = nil
       end
       next false
@@ -421,7 +421,7 @@ HiddenMoveHandlers::CanUseMove.add(:DIVE, proc { |move, pkmn, showmsg|
     if !$game_map.metadata&.dive_map_id
       if showmsg
         $msg_style = :system
-        pbMessage(_INTL("You can't use that here."))
+        pbOverworldMessage(_INTL("You can't use that here."))
         $msg_style = nil
       end
       next false
@@ -429,7 +429,7 @@ HiddenMoveHandlers::CanUseMove.add(:DIVE, proc { |move, pkmn, showmsg|
     if !$game_player.terrain_tag.can_dive
       if showmsg
         $msg_style = :system
-        pbMessage(_INTL("You can't use that here."))
+        pbOverworldMessage(_INTL("You can't use that here."))
         $msg_style = nil
       end
       next false
@@ -453,7 +453,7 @@ HiddenMoveHandlers::UseMove.add(:DIVE, proc { |move, pokemon|
   next false if !dive_map_id
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   pbFadeOutIn do
@@ -479,7 +479,7 @@ HiddenMoveHandlers::CanUseMove.add(:FLASH, proc { |move, pkmn, showmsg|
   if !$game_map.metadata&.dark_map
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -487,7 +487,7 @@ HiddenMoveHandlers::CanUseMove.add(:FLASH, proc { |move, pkmn, showmsg|
   if $PokemonGlobal.flashUsed
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("Flash is already being used."))
+      pbOverworldMessage(_INTL("Flash is already being used."))
       $msg_style = nil
     end
     next false
@@ -500,7 +500,7 @@ HiddenMoveHandlers::UseMove.add(:FLASH, proc { |move, pokemon|
   next false if !darkness || darkness.disposed?
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   $PokemonGlobal.flashUsed = true
@@ -522,7 +522,7 @@ def pbCanFly?(pkmn = nil, show_messages = false)
   if !$game_player.can_map_transfer_with_follower?
     if show_messages
       $msg_style = :system
-      pbMessage(_INTL("It can't be used when you have someone with you."))
+      pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
       $msg_style = nil
     end
     return false
@@ -530,7 +530,7 @@ def pbCanFly?(pkmn = nil, show_messages = false)
   if !$game_map.metadata&.outdoor_map
     if show_messages
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     return false
@@ -549,7 +549,7 @@ def pbFlyToNewLocation(pkmn = nil, move = :FLY)
   if !pkmn || !pbHiddenMoveAnimation(pkmn)
     name = pkmn&.name || $player.name
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   $stats.fly_count += 1
@@ -578,7 +578,7 @@ HiddenMoveHandlers::CanUseMove.add(:FLY, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:FLY, proc { |move, pkmn|
   if $game_temp.fly_destination.nil?
     $msg_style = :system
-    pbMessage(_INTL("You can't use that here."))
+    pbOverworldMessage(_INTL("You can't use that here."))
     $msg_style = nil
     next false
   end
@@ -606,7 +606,7 @@ def pbHeadbuttEffect(event = nil)
   end
   if rand(10) >= chance
     $msg_style = :system
-    pbMessage(_INTL("Nope. Nothing..."))
+    pbOverworldMessage(_INTL("Nope. Nothing..."))
     $msg_style = nil
   else
     enctype = (chance == 1) ? :HeadbuttLow : :HeadbuttHigh
@@ -614,7 +614,7 @@ def pbHeadbuttEffect(event = nil)
       $stats.headbutt_battles += 1
     else
       $msg_style = :system
-      pbMessage(_INTL("Nope. Nothing..."))
+      pbOverworldMessage(_INTL("Nope. Nothing..."))
       $msg_style = nil
     end
   end
@@ -625,15 +625,15 @@ def pbHeadbutt(event = nil)
   movefinder = $player.get_pokemon_with_move(move)
   if !$DEBUG && !movefinder
     $msg_style = :system
-    pbMessage(_INTL("A Pokémon could be in this tree. Maybe a Pokémon could shake it."))
+    pbOverworldMessage(_INTL("A Pokémon could be in this tree. Maybe a Pokémon could shake it."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("A Pokémon could be in this tree. Would you like to use Headbutt?"))
+  if pbOverworldConfirmMessage(_INTL("A Pokémon could be in this tree. Would you like to use Headbutt?"))
     $stats.headbutt_count += 1
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     $msg_style = nil # Reset Style before effect
     pbHeadbuttEffect(event)
@@ -648,7 +648,7 @@ HiddenMoveHandlers::CanUseMove.add(:HEADBUTT, proc { |move, pkmn, showmsg|
   if !facingEvent || !facingEvent.name[/headbutttree/i]
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -659,7 +659,7 @@ HiddenMoveHandlers::CanUseMove.add(:HEADBUTT, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:HEADBUTT, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   $stats.headbutt_count += 1
@@ -682,15 +682,15 @@ def pbRockSmash
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_ROCKSMASH, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("It's a rugged rock, but a Pokémon may be able to smash it."))
+    pbOverworldMessage(_INTL("It's a rugged rock, but a Pokémon may be able to smash it."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("This rock seems breakable with a hidden move.\nWould you like to use Rock Smash?"))
+  if pbOverworldConfirmMessage(_INTL("This rock seems breakable with a hidden move.\nWould you like to use Rock Smash?"))
     $stats.rock_smash_count += 1
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     $msg_style = nil
     return true
@@ -705,7 +705,7 @@ HiddenMoveHandlers::CanUseMove.add(:ROCKSMASH, proc { |move, pkmn, showmsg|
   if !facingEvent || !facingEvent.name[/smashrock/i]
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -716,7 +716,7 @@ HiddenMoveHandlers::CanUseMove.add(:ROCKSMASH, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:ROCKSMASH, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   $stats.rock_smash_count += 1
@@ -734,7 +734,7 @@ HiddenMoveHandlers::UseMove.add(:ROCKSMASH, proc { |move, pokemon|
 def pbStrength
   if $PokemonMap.strengthUsed
     $msg_style = :system
-    pbMessage(_INTL("Strength made it possible to move boulders around."))
+    pbOverworldMessage(_INTL("Strength made it possible to move boulders around."))
     $msg_style = nil
     return false
   end
@@ -742,17 +742,17 @@ def pbStrength
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_STRENGTH, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("It's a big boulder, but a Pokémon may be able to push it aside."))
+    pbOverworldMessage(_INTL("It's a big boulder, but a Pokémon may be able to push it aside."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  pbMessage(_INTL("It's a big boulder, but you may be able to push it aside with a hidden move.") + "\1")
-  if pbConfirmMessage(_INTL("Would you like to use Strength?"))
+  pbOverworldMessage(_INTL("It's a big boulder, but you may be able to push it aside with a hidden move.") + "\1")
+  if pbOverworldConfirmMessage(_INTL("Would you like to use Strength?"))
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
-    pbMessage(_INTL("Strength made it possible to move boulders around!"))
+    pbOverworldMessage(_INTL("Strength made it possible to move boulders around!"))
     $PokemonMap.strengthUsed = true
     $msg_style = nil
     return true
@@ -773,7 +773,7 @@ HiddenMoveHandlers::CanUseMove.add(:STRENGTH, proc { |move, pkmn, showmsg|
   if $PokemonMap.strengthUsed
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("Strength is already being used."))
+      pbOverworldMessage(_INTL("Strength is already being used."))
       $msg_style = nil
     end
     next false
@@ -784,11 +784,11 @@ HiddenMoveHandlers::CanUseMove.add(:STRENGTH, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:STRENGTH, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name) + "\1")
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name) + "\1")
     $msg_style = nil
   end
   $msg_style = :system
-  pbMessage(_INTL("Strength made it possible to move boulders around!"))
+  pbOverworldMessage(_INTL("Strength made it possible to move boulders around!"))
   $msg_style = nil
   $PokemonMap.strengthUsed = true
   next true
@@ -805,9 +805,9 @@ def pbSurf
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("The water is a deep blue color... Would you like to use Surf on it?"))
+  if pbOverworldConfirmMessage(_INTL("The water is a deep blue color... Would you like to use Surf on it?"))
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbCancelVehicles
     pbHiddenMoveAnimation(movefinder)
     surfbgm = GameData::Metadata.get.surf_BGM
@@ -874,7 +874,7 @@ HiddenMoveHandlers::CanUseMove.add(:SURF, proc { |move, pkmn, showmsg|
   if $PokemonGlobal.surfing
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You're already surfing."))
+      pbOverworldMessage(_INTL("You're already surfing."))
       $msg_style = nil
     end
     next false
@@ -882,7 +882,7 @@ HiddenMoveHandlers::CanUseMove.add(:SURF, proc { |move, pkmn, showmsg|
   if !$game_player.can_ride_vehicle_with_follower?
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("It can't be used when you have someone with you."))
+      pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
       $msg_style = nil
     end
     next false
@@ -890,7 +890,7 @@ HiddenMoveHandlers::CanUseMove.add(:SURF, proc { |move, pkmn, showmsg|
   if $game_map.metadata&.always_bicycle
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("Let's enjoy cycling!"))
+      pbOverworldMessage(_INTL("Let's enjoy cycling!"))
       $msg_style = nil
     end
     next false
@@ -899,7 +899,7 @@ HiddenMoveHandlers::CanUseMove.add(:SURF, proc { |move, pkmn, showmsg|
      !$game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("No surfing here!"))
+      pbOverworldMessage(_INTL("No surfing here!"))
       $msg_style = nil
     end
     next false
@@ -912,7 +912,7 @@ HiddenMoveHandlers::UseMove.add(:SURF, proc { |move, pokemon|
   pbCancelVehicles
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   surfbgm = GameData::Metadata.get.surf_BGM
@@ -927,7 +927,7 @@ HiddenMoveHandlers::UseMove.add(:SURF, proc { |move, pokemon|
 def pbSweetScent
   if $game_screen.weather_type != :None
     $msg_style = :system
-    pbMessage(_INTL("The sweet scent faded for some reason..."))
+    pbOverworldMessage(_INTL("The sweet scent faded for some reason..."))
     $msg_style = nil
     return
   end
@@ -954,7 +954,7 @@ def pbSweetScent
   if !enctype || !$PokemonEncounters.encounter_possible_here? ||
      !pbEncounter(enctype, false)
     $msg_style = :system
-    pbMessage(_INTL("There appears to be nothing here..."))
+    pbOverworldMessage(_INTL("There appears to be nothing here..."))
     $msg_style = nil
   end
 end
@@ -966,7 +966,7 @@ HiddenMoveHandlers::CanUseMove.add(:SWEETSCENT, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:SWEETSCENT, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   pbSweetScent
@@ -980,7 +980,7 @@ HiddenMoveHandlers::CanUseMove.add(:TELEPORT, proc { |move, pkmn, showmsg|
   if !$game_map.metadata&.outdoor_map
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -991,7 +991,7 @@ HiddenMoveHandlers::CanUseMove.add(:TELEPORT, proc { |move, pkmn, showmsg|
   if !healing
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -999,7 +999,7 @@ HiddenMoveHandlers::CanUseMove.add(:TELEPORT, proc { |move, pkmn, showmsg|
   if !$game_player.can_map_transfer_with_follower?
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("It can't be used when you have someone with you."))
+      pbOverworldMessage(_INTL("It can't be used when you have someone with you."))
       $msg_style = nil
     end
     next false
@@ -1014,7 +1014,7 @@ HiddenMoveHandlers::ConfirmUseMove.add(:TELEPORT, proc { |move, pkmn|
   next false if !healing
   mapname = pbGetMapNameFromId(healing[0])
   $msg_style = :system
-  ret = pbConfirmMessage(_INTL("Want to return to the healing spot used last in {1}?", mapname))
+  ret = pbOverworldConfirmMessage(_INTL("Want to return to the healing spot used last in {1}?", mapname))
   $msg_style = nil
   next ret
 })
@@ -1026,7 +1026,7 @@ HiddenMoveHandlers::UseMove.add(:TELEPORT, proc { |move, pokemon|
   next false if !healing
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   pbFadeOutIn do
@@ -1087,14 +1087,14 @@ def pbWaterfall
   movefinder = $player.get_pokemon_with_move(move)
   if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_WATERFALL, false) || (!$DEBUG && !movefinder)
     $msg_style = :system
-    pbMessage(_INTL("A wall of water is crashing down with a mighty roar."))
+    pbOverworldMessage(_INTL("A wall of water is crashing down with a mighty roar."))
     $msg_style = nil
     return false
   end
   $msg_style = :system
-  if pbConfirmMessage(_INTL("It's a large waterfall. Would you like to use Waterfall?"))
+  if pbOverworldConfirmMessage(_INTL("It's a large waterfall. Would you like to use Waterfall?"))
     speciesname = (movefinder) ? movefinder.name : $player.name
-    pbMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", speciesname, GameData::Move.get(move).name))
     pbHiddenMoveAnimation(movefinder)
     pbAscendWaterfall
     $msg_style = nil
@@ -1111,7 +1111,7 @@ EventHandlers.add(:on_player_interact, :waterfall,
       pbWaterfall
     elsif terrain.waterfall_crest
       $msg_style = :system
-      pbMessage(_INTL("A wall of water is crashing down with a mighty roar."))
+      pbOverworldMessage(_INTL("A wall of water is crashing down with a mighty roar."))
       $msg_style = nil
     end
   }
@@ -1122,7 +1122,7 @@ HiddenMoveHandlers::CanUseMove.add(:WATERFALL, proc { |move, pkmn, showmsg|
   if !$game_player.pbFacingTerrainTag.waterfall
     if showmsg
       $msg_style = :system
-      pbMessage(_INTL("You can't use that here."))
+      pbOverworldMessage(_INTL("You can't use that here."))
       $msg_style = nil
     end
     next false
@@ -1133,9 +1133,51 @@ HiddenMoveHandlers::CanUseMove.add(:WATERFALL, proc { |move, pkmn, showmsg|
 HiddenMoveHandlers::UseMove.add(:WATERFALL, proc { |move, pokemon|
   if !pbHiddenMoveAnimation(pokemon)
     $msg_style = :system
-    pbMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
+    pbOverworldMessage(_INTL("{1} used {2}!", pokemon.name, GameData::Move.get(move).name))
     $msg_style = nil
   end
   pbAscendWaterfall
   next true
 })
+
+#===============================================================================
+# Overworld Exclusive Message Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldMessage(message, commands = nil, cmdIfCancel = 0, defaultCmd = 0, &block)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = 0
+  msgwindow = pbCreateMessageWindow(nil, skin)
+  if commands
+    ret = pbMessageDisplay(msgwindow, message, true,
+                           proc { |msgwndw|
+                             next Kernel.pbShowCommands(msgwndw, commands, cmdIfCancel, defaultCmd, &block)
+                           }, &block)
+  else
+    pbMessageDisplay(msgwindow, message, &block)
+  end
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end
+
+#===============================================================================
+# Overworld Exclusive Choice/Confirmation Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldConfirmMessage(message)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = false
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  
+  # Display the prompt and execute the selectable Yes/No choice window
+  ret = pbMessageDisplay(msgwindow, message, true,
+                         proc { |msgwndw|
+                           next Kernel.pbShowCommands(msgwndw, [_INTL("Yes"), _INTL("No")], 1)
+                         }) == 0
+                         
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end

@@ -321,63 +321,63 @@ def pbBerryPlant
     return
   elsif berry_plant.growing?
     berry_name = GameData::Item.get(berry).name
-    $msg_style = :system # START STYLE
+     # START STYLE
     case berry_plant.growth_stage
     when 1   # X planted
       this_event.turn_down   # Stop the event turning towards the player
       if berry_name.starts_with_vowel?
-        pbMessage(_INTL("An {1} was planted here.", berry_name))
+        pbOverworldMessage(_INTL("An {1} was planted here.", berry_name))
       else
-        pbMessage(_INTL("A {1} was planted here.", berry_name))
+        pbOverworldMessage(_INTL("A {1} was planted here.", berry_name))
       end
     when 2   # X sprouted
       this_event.turn_down   # Stop the event turning towards the player
-      pbMessage(_INTL("The {1} has sprouted.", berry_name))
+      pbOverworldMessage(_INTL("The {1} has sprouted.", berry_name))
     when 3   # X taller
       this_event.turn_left   # Stop the event turning towards the player
-      pbMessage(_INTL("The {1} plant is growing bigger.", berry_name))
+      pbOverworldMessage(_INTL("The {1} plant is growing bigger.", berry_name))
     else     # X flowering
       this_event.turn_right   # Stop the event turning towards the player
       if Settings::NEW_BERRY_PLANTS
-        pbMessage(_INTL("This {1} plant is in bloom!", berry_name))
+        pbOverworldMessage(_INTL("This {1} plant is in bloom!", berry_name))
       else
         case berry_plant.watering_count
         when 4
-          pbMessage(_INTL("This {1} plant is in fabulous bloom!", berry_name))
+          pbOverworldMessage(_INTL("This {1} plant is in fabulous bloom!", berry_name))
         when 3
-          pbMessage(_INTL("This {1} plant is blooming very beautifully!", berry_name))
+          pbOverworldMessage(_INTL("This {1} plant is blooming very beautifully!", berry_name))
         when 2
-          pbMessage(_INTL("This {1} plant is blooming prettily!", berry_name))
+          pbOverworldMessage(_INTL("This {1} plant is blooming prettily!", berry_name))
         when 1
-          pbMessage(_INTL("This {1} plant is blooming cutely!", berry_name))
+          pbOverworldMessage(_INTL("This {1} plant is blooming cutely!", berry_name))
         else
-          pbMessage(_INTL("This {1} plant is in bloom!", berry_name))
+          pbOverworldMessage(_INTL("This {1} plant is in bloom!", berry_name))
         end
       end
     end
-    $msg_style = nil # END STYLE
+     # END STYLE
     
     # Water the growing plant
     GameData::BerryPlant::WATERING_CANS.each do |item|
       next if !$bag.has?(item)
-      $msg_style = :system # START STYLE
-      if !pbConfirmMessage(_INTL("Want to sprinkle some water with the {1}?",
+       # START STYLE
+      if !pbOverworldConfirmMessage(_INTL("Want to sprinkle some water with the {1}?",
                                  GameData::Item.get(item).name))
-        $msg_style = nil
+        
         break
       end
-      $msg_style = nil
+      
       
       berry_plant.water
       
-      $msg_style = :system # START STYLE
-      pbMessage("\\se[Water berry plant]" + _INTL("{1} watered the plant.", $player.name) + "\\wtnp[40]")
+       # START STYLE
+      pbOverworldMessage("\\se[Water berry plant]" + _INTL("{1} watered the plant.", $player.name) + "\\wtnp[40]")
       if Settings::NEW_BERRY_PLANTS
-        pbMessage(_INTL("There! All happy!"))
+        pbOverworldMessage(_INTL("There! All happy!"))
       else
-        pbMessage(_INTL("The plant seemed to be delighted."))
+        pbOverworldMessage(_INTL("The plant seemed to be delighted."))
       end
-      $msg_style = nil # END STYLE
+       # END STYLE
       break
     end
     return
@@ -387,14 +387,14 @@ def pbBerryPlant
   if Settings::NEW_BERRY_PLANTS
     # New mechanics
     if berry_plant.mulch_id
-      $msg_style = :system
-      pbMessage(_INTL("{1} has been laid down.", GameData::Item.get(berry_plant.mulch_id).name))
-      $msg_style = nil
+      
+      pbOverworldMessage(_INTL("{1} has been laid down.", GameData::Item.get(berry_plant.mulch_id).name))
+      
     else
-      $msg_style = :system
-      command = pbMessage(_INTL("It's soft, earthy soil."),
+      
+      command = pbOverworldMessage(_INTL("It's soft, earthy soil."),
                           [_INTL("Fertilize"), _INTL("Plant Berry"), _INTL("Exit")], -1)
-      $msg_style = nil
+      
       case command
       when 0   # Fertilize
         mulch = nil
@@ -408,13 +408,13 @@ def pbBerryPlant
         if mulch_data.is_mulch?
           berry_plant.mulch_id = mulch
           $bag.remove(mulch)
-          $msg_style = :system
-          pbMessage(_INTL("The {1} was scattered on the soil.", mulch_data.name))
-          $msg_style = nil
+          
+          pbOverworldMessage(_INTL("The {1} was scattered on the soil.", mulch_data.name))
+          
         else
-          $msg_style = :system
-          pbMessage(_INTL("That won't fertilize the soil!"))
-          $msg_style = nil
+          
+          pbOverworldMessage(_INTL("That won't fertilize the soil!"))
+          
           return
         end
       when 1   # Plant Berry
@@ -425,18 +425,18 @@ def pbBerryPlant
     end
   else
     # Old mechanics
-    $msg_style = :system
-    if !pbConfirmMessage(_INTL("It's soft, loamy soil. Want to plant a berry?"))
-      $msg_style = nil
+    
+    if !pbOverworldConfirmMessage(_INTL("It's soft, loamy soil. Want to plant a berry?"))
+      
       return 
     end
-    $msg_style = nil
+    
     ask_to_plant = false
   end
   
-  $msg_style = :system
-  if !ask_to_plant || pbConfirmMessage(_INTL("Want to plant a Berry?"))
-    $msg_style = nil
+  
+  if !ask_to_plant || pbOverworldConfirmMessage(_INTL("Want to plant a Berry?"))
+    
     pbFadeOutIn do
       scene = PokemonBag_Scene.new
       screen = PokemonBagScreen.new(scene, $bag)
@@ -446,21 +446,21 @@ def pbBerryPlant
       $stats.berries_planted += 1
       berry_plant.plant(berry)
       $bag.remove(berry)
-      $msg_style = :system
+      
       if Settings::NEW_BERRY_PLANTS
-        pbMessage(_INTL("The {1} was planted in the soft, earthy soil.",
+        pbOverworldMessage(_INTL("The {1} was planted in the soft, earthy soil.",
                         GameData::Item.get(berry).name))
       elsif GameData::Item.get(berry).name.starts_with_vowel?
-        pbMessage(_INTL("{1} planted an {2} in the soft loamy soil.",
+        pbOverworldMessage(_INTL("{1} planted an {2} in the soft loamy soil.",
                         $player.name, GameData::Item.get(berry).name))
       else
-        pbMessage(_INTL("{1} planted a {2} in the soft loamy soil.",
+        pbOverworldMessage(_INTL("{1} planted a {2} in the soft loamy soil.",
                         $player.name, GameData::Item.get(berry).name))
       end
-      $msg_style = nil
+      
     end
   else
-    $msg_style = nil
+    
   end
 end
 
@@ -476,17 +476,17 @@ def pbPickBerry(berry, qty = 1)
     message = _INTL("There is 1 \\c[1]{1}\\c[0]!\nWant to pick it?", berry_name)
   end
   
-  $msg_style = :system # START STYLE
-  if !pbConfirmMessage(message)
-    $msg_style = nil
+   # START STYLE
+  if !pbOverworldConfirmMessage(message)
+    
     return false
   end
-  $msg_style = nil # END STYLE
+   # END STYLE
   
   if !$bag.can_add?(berry, qty)
-    $msg_style = :system
-    pbMessage(_INTL("Too bad...\nThe Bag is full..."))
-    $msg_style = nil
+    
+    pbOverworldMessage(_INTL("Too bad...\nThe Bag is full..."))
+    
     return false
   end
   $stats.berry_plants_picked += 1
@@ -495,23 +495,63 @@ def pbPickBerry(berry, qty = 1)
   end
   $bag.add(berry, qty)
   
-  $msg_style = :system # START STYLE
+   # START STYLE
   if qty > 1
-    pbMessage("\\me[Berry get]" + _INTL("You picked the {1} \\c[1]{2}\\c[0].", qty, berry_name) + "\\wtnp[30]")
+    pbOverworldMessage("\\me[Berry get]" + _INTL("You picked the {1} \\c[1]{2}\\c[0].", qty, berry_name) + "\\wtnp[30]")
   else
-    pbMessage("\\me[Berry get]" + _INTL("You picked the \\c[1]{1}\\c[0].", berry_name) + "\\wtnp[30]")
+    pbOverworldMessage("\\me[Berry get]" + _INTL("You picked the \\c[1]{1}\\c[0].", berry_name) + "\\wtnp[30]")
   end
   pocket = berry.pocket
-  pbMessage(_INTL("You put the {1} in your Bag's\\n<icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
+  pbOverworldMessage(_INTL("You put the {1} in your Bag's\\n<icon=bagPocket{2}>\\c[1]{3}\\c[0] pocket.",
                   berry_name, pocket, PokemonBag.pocket_names[pocket - 1]) + "\1")
   if Settings::NEW_BERRY_PLANTS
-    pbMessage(_INTL("The soil returned to its soft and earthy state."))
+    pbOverworldMessage(_INTL("The soil returned to its soft and earthy state."))
   else
-    pbMessage(_INTL("The soil returned to its soft and loamy state."))
+    pbOverworldMessage(_INTL("The soil returned to its soft and loamy state."))
   end
-  $msg_style = nil # END STYLE
+   # END STYLE
   
   this_event = pbMapInterpreter.get_self
   pbSetSelfSwitch(this_event.id, "A", true)
   return true
+end
+
+
+#===============================================================================
+# Overworld Exclusive Message & Choice Helper (Uses choice 2 windowskin)
+#===============================================================================
+def pbOverworldMessage(message, commands = nil, cmdIfCancel = 0, defaultCmd = 0, &block)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = 0
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  if commands
+    ret = pbMessageDisplay(msgwindow, message, true,
+                           proc { |msgwndw|
+                             next Kernel.pbShowCommands(msgwndw, commands, cmdIfCancel, defaultCmd, &block)
+                           }, &block)
+  else
+    pbMessageDisplay(msgwindow, message, &block)
+  end
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
+end
+
+def pbOverworldConfirmMessage(message)
+  skin = "Graphics/Windowskins/choice 2"
+  ret = false
+  msgwindow = pbCreateMessageWindow
+  if pbResolveBitmap(skin)
+    msgwindow.windowskin = Bitmap.new(skin)
+  end
+  ret = pbMessageDisplay(msgwindow, message, true,
+                         proc { |msgwndw|
+                           next Kernel.pbShowCommands(msgwndw, [_INTL("Yes"), _INTL("No")], 1)
+                         }) == 0
+  pbDisposeMessageWindow(msgwindow)
+  Input.update
+  return ret
 end
