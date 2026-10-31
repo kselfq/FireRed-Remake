@@ -463,8 +463,9 @@ class DayCare
     day_care.reset_egg_counters
   end
 
+
   # ===========================================================================
-  # UPDATED: Use System Style for Withdraw Selection
+  # UPDATED: Use choice 2 windowskin exclusively for Day Care selection
   # ===========================================================================
   def self.choose(message, choice_var)
     day_care = $PokemonGlobal.day_care
@@ -484,9 +485,21 @@ class DayCare
       end
       commands.push(_INTL("CANCEL"))
       
-      $msg_style = :system # START STYLE
-      command = pbMessage(message, commands, commands.length)
-      $msg_style = nil # END STYLE
+      # --- Isolated choice window using choice 2 windowskin ---
+      skin = "Graphics/Windowskins/choice 2"
+      msgwindow = pbCreateMessageWindow
+      if pbResolveBitmap(skin)
+        msgwindow.windowskin = Bitmap.new(skin)
+      end
+      
+      command = pbMessageDisplay(msgwindow, message, true,
+                                 proc { |msgwndw|
+                                   next Kernel.pbShowCommands(msgwndw, commands, commands.length)
+                                 })
+                                 
+      pbDisposeMessageWindow(msgwindow)
+      Input.update
+      # -------------------------------------------------------
       
       $game_variables[choice_var] = (command == commands.length - 1) ? -1 : indices[command]
     end

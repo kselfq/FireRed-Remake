@@ -1,0 +1,5 @@
+Name        = Simple Portrait System
+Version     = 1.0
+Essentials  = 21.1
+Website     = https://eeveeexpo.com/resources/1813/
+Credits     = sonataG91

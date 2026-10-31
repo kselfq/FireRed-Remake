@@ -348,16 +348,16 @@ def getSkinColor(windowskin, color, isDarkSkin)
     # Base color, shadow color (these are reversed on dark windowskins)
     # Values in arrays are RGB numbers
     textcolors = [
-      [  0, 112, 248], [120, 184, 232],   # 1  Blue
-      [232,  32,  16], [248, 168, 184],   # 2  Red
-      [ 96, 176,  72], [174, 208, 144],   # 3  Green
-      [ 72, 216, 216], [168, 224, 224],   # 4  Cyan
-      [208,  56, 184], [232, 160, 224],   # 5  Magenta
-      [232, 208,  32], [248, 232, 136],   # 6  Yellow
-      [160, 160, 168], [208, 208, 216],   # 7  Gray
-      [240, 240, 248], [200, 200, 208],   # 8  White
-      [114,  64, 232], [184, 168, 224],   # 9  Purple
-      [248, 152,  24], [248, 200, 152],   # 10 Orange
+      [  0, 112, 248], [0, 0, 0 ,0],   # 1  Blue
+      [232,  32,  16], [0, 0, 0 ,0],   # 2  Red
+      [ 96, 176,  72], [0, 0, 0 ,0],   # 3  Green
+      [ 72, 216, 216], [0, 0, 0 ,0],   # 4  Cyan
+      [208,  56, 184], [0, 0, 0 ,0],   # 5  Magenta
+      [232, 208,  32], [0, 0, 0 ,0],   # 6  Yellow
+      [160, 160, 168], [0, 0, 0 ,0],   # 7  Gray
+      [240, 240, 248], [0, 0, 0 ,0],   # 8  White
+      [114,  64, 232], [0, 0, 0 ,0],   # 9  Purple
+      [248, 152,  24], [0, 0, 0 ,0],   # 10 Orange
       MessageConfig::DARK_TEXT_MAIN_COLOR,
       MessageConfig::DARK_TEXT_SHADOW_COLOR,   # 11 Dark default
       MessageConfig::LIGHT_TEXT_MAIN_COLOR,
