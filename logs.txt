@@ -49,5 +49,3 @@ Applied patch:  .freeze
  
 Applied patch:  Dir.pwd  to  "" 
 Requested resolution  1600 x 720 
-SDL_APP_WILLENTERBACKGROUND 
-SDL_APP_DIDENTERBACKGROUND 
