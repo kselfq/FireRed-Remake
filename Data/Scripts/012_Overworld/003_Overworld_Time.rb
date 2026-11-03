@@ -10,32 +10,32 @@ end
 #===============================================================================
 module PBDayNight
   HOURLY_TONES = [
-    Tone.new(-70, -90,  15, 55),   # Night           # Midnight
-    Tone.new(-70, -90,  15, 55),   # Night
-    Tone.new(-70, -90,  15, 55),   # Night
-    Tone.new(-70, -90,  15, 55),   # Night
-    Tone.new(-60, -70,  -5, 50),   # Night
+    Tone.new(-85, -85,  20, 55),   # Night           # Midnight 12AM
+    Tone.new(-85, -85,  20, 55),   # Night
+    Tone.new(-85, -85,  20, 55),   # Night
+    Tone.new(-85, -85,  20, 55),   # Night
+    Tone.new(-85, -85,  20, 55),   # Night
     Tone.new(-40, -50, -35, 50),   # Day/morning
     Tone.new(-40, -50, -35, 50),   # Day/morning     # 6AM
     Tone.new(-40, -50, -35, 50),   # Day/morning
     Tone.new(-40, -50, -35, 50),   # Day/morning
-    Tone.new(-20, -25, -15, 20),   # Day/morning
+    Tone.new(-40, -50, -35, 50),   # Day/morning
     Tone.new(  0,   0,   0,  0),   # Day
     Tone.new(  0,   0,   0,  0),   # Day
-    Tone.new(  0,   0,   0,  0),   # Day             # Noon
+    Tone.new(  0,   0,   0,  0),   # Day             # Noon 12PM
     Tone.new(  0,   0,   0,  0),   # Day
     Tone.new(  0,   0,   0,  0),   # Day/afternoon
     Tone.new(  0,   0,   0,  0),   # Day/afternoon
     Tone.new(  0,   0,   0,  0),   # Day/afternoon
     Tone.new(  0,   0,   0,  0),   # Day/afternoon
-    Tone.new( -5, -30, -20,  0),   # Day/evening     # 6PM
-    Tone.new(-15, -60, -10, 20),   # Day/evening
-    Tone.new(-15, -60, -10, 20),   # Day/evening
-    Tone.new(-40, -75,   5, 40),   # Night
-    Tone.new(-70, -90,  15, 55),   # Night
-    Tone.new(-70, -90,  15, 55)    # Night
+    Tone.new( -17, -51, -34,  0),   # Day/evening     # 6PM
+    Tone.new( -17, -51, -34,  0),   # Day/evening
+    Tone.new( -17, -51, -34,  0),   # Day/evening
+    Tone.new(-85, -85,  20, 55),   # Night
+    Tone.new(-85, -85,  20, 55),   # Night
+    Tone.new(-85, -85,  20, 55)    # Night			#11PM
   ]
-  CACHED_TONE_LIFETIME = 30   # In seconds; recalculates overworld tone once per this time
+  CACHED_TONE_LIFETIME = 10   #30 In seconds; recalculates overworld tone once per this time
   @cachedTone = nil
   @dayNightToneLastUpdate = nil
   @oneOverSixty = 1 / 60.0
