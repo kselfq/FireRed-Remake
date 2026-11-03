@@ -6,4 +6,4 @@ Version       = 1.9.2
 Essentials    = 21.1
 Website       = https://toskan4134.github.io
 Credits       = Toskan4134
-# MSIntegration = LBDS1.1.0   <- do not uncomment: see the NOTE above
+# MSIntegration = PE21.1   <- do not uncomment: see the NOTE above

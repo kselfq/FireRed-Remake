@@ -1,16 +1,52 @@
 #===============================================================================
 # MakerStudio - Event Editor Extensions
 # Runtime support for Maker Studio-only event page fields that have no
-# native RGSS equivalent (switch negate, Block, Always on Bottom, and the
-# @ms_condition_tree advanced-conditions blob). See the PE21.1 build's header
-# for the full rationale; this file is the same logic against the LBDS 1.1 /
-# Essentials 21.1 core.
+# native RGSS equivalent:
 #
-# Game_Event#refresh is a full copy of the LBDS 1.1 core method with the
-# negate checks, the @block mirror and the @ms_condition_tree check inlined
-# into the page-picking loop. If that core method changes upstream, resync
-# this copy. LBDS 1.1 has no variableIsLessThan?, so the condition tree's
-# variable branch reads $game_variables directly.
+#   Condition#switch1_negate / switch2_negate / self_switch_negate (bool)
+#     Require the switch/self switch OFF instead of ON for this page.
+#   Page#block (bool)
+#     Page is always impassable, ignoring tile passage bits AND Through —
+#     the gap Tile Graphic pages have today (a Tile Graphic event with
+#     Through off still follows its underlying tile's passage, so an empty/
+#     walkable tile lets the player through regardless).
+#   Page#always_on_bottom (bool)
+#     Maker Studio's mirror of always_on_top: the event draws BELOW every
+#     character (screen_z = ALWAYS_ON_BOTTOM_Z — above the ground band and the
+#     map's shadows). always_on_top wins when both are set.
+#   Condition's @ms_condition_tree ivar (plain Hash/Array, no attr_accessor)
+#     Unlimited switch/variable/self-switch checks with AND/OR nesting, ANDed
+#     on top of the four checks above. Stored as a plain Ruby Hash/Array blob
+#     (never a custom-classed object) so Marshal.load never needs a class this
+#     plugin doesn't define — vanilla RMXP/Essentials load the file fine and
+#     simply never read the ivar. See ConditionTreeEditor.tsx / the
+#     ConditionNode type / sim-conditions.ts on the editor side for the
+#     matching shape and evaluator.
+#
+# These ivars are absent (nil) on any page/condition not edited through the
+# editor's negate/Block toggles — nil reads as "off" everywhere below, so
+# maps untouched by these toggles behave exactly like vanilla Essentials.
+# The editor also writes .rxdata for projects WITHOUT this plugin installed;
+# there the ivars just sit unused (same tolerance Marshal already gives
+# @extended_layers on RPG::Map).
+#
+# Game_Event#refresh is an alias (NOT a full copy) that temporarily patches
+# each page's condition objects so the base's own page-picking loop respects
+# negate / condition-tree. This composes with ANY other script that also
+# aliases refresh (Events Utilities, custom event systems, etc.) — the previous
+# refresh runs inside ours with patched conditions, so its page-picking AND its
+# post-processing (comment parsing, etc.) all execute against the right page.
+#
+# The patching is needed because negate flips the comparison INSIDE the loop's
+# `next if` — an alias that just called the original would pick the wrong page
+# whenever a page uses negate. Instead we rewrite each condition's switch_valid
+# / switch_id / self_switch_ch in-place so the original loop's own logic yields
+# the MS-correct result, then restore in `ensure`.
+#
+# Game_Map#passable? doesn't need that treatment: block only needs to be
+# checked as a hard veto before whatever passability logic already runs, so
+# it's a thin alias_method wrapper — composes with 003_GameMapOverride's own
+# passable? redefinition (or vanilla, if that file isn't loaded) either way.
 #===============================================================================
 class RPG::Event::Page::Condition
   attr_accessor :switch1_negate      # true: page requires Switch 1 OFF instead of ON
@@ -23,6 +59,9 @@ class RPG::Event::Page
 end
 
 class Game_Character
+  # Nil-safe reader instead of an @block default in initialize (avoids
+  # aliasing the constructor just for this). Untouched characters/events
+  # simply read false, same as if the ivar were never involved.
   def block
     @block.nil? ? false : @block
   end
@@ -30,14 +69,15 @@ class Game_Character
 end
 
 class Game_Event
-  # Recursively evaluates one @ms_condition_tree node. Mirrors evalNode in the
-  # editor's sim-conditions.ts — keep both in sync.
+  # Recursively evaluates one @ms_condition_tree node (a plain Hash with
+  # "kind" == "switch" | "variable" | "self_switch" | "group"). Mirrors
+  # evalNode in the editor's sim-conditions.ts — keep both in sync.
   def eval_condition_node(node)
     case node["kind"]
     when "switch"
       switchIsOn?(node["id"]) != !!node["negate"]
     when "variable"
-      lt = $game_variables[node["id"]] < node["value"]
+      lt = variableIsLessThan?(node["id"], node["value"])
       node["negate"] ? lt : !lt
     when "self_switch"
       key = [@map_id, @event.id, node["ch"]]
@@ -127,23 +167,27 @@ class Game_Map
     alias_method :__mkst_evtext__passable?, :passable?
   end
 
-  def passable?(x, y, d, self_event = nil)
+  def passable?(x, y, dir, self_event = nil)
     return false if !valid?(x, y)
     events.each_value do |event|
       next if event == self_event
       next if !event.at_coordinate?(x, y)
       return false if event.block
     end
-    __mkst_evtext__passable?(x, y, d, self_event)
+    __mkst_evtext__passable?(x, y, dir, self_event)
   end
 end
 
 #===============================================================================
-# Always on Bottom — mirror of always_on_top (z = ALWAYS_ON_BOTTOM_Z, above
-# the ground band 0/2 and the map's shadows 1). always_on_top wins when both
-# are set.
+# Always on Bottom — Maker Studio's mirror of always_on_top. The event draws
+# below every character (z = ALWAYS_ON_BOTTOM_Z: above the ground band 0/2 and
+# the map's shadows 1, below every character and overhead tile). always_on_top
+# wins when both are set. Reads @always_on_bottom straight off the page ivar
+# the editor writes, so it needs no refresh mirror of its own.
 #===============================================================================
 module MakerStudio
+  # Above the ground band (0/2) and the map's shadows (1), below every character
+  # (Game_Character#screen_z is a whole tile at minimum).
   ALWAYS_ON_BOTTOM_Z = 3 unless defined?(ALWAYS_ON_BOTTOM_Z)
 end
 

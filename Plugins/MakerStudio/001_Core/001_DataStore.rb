@@ -3,7 +3,176 @@
 # Handles loading and managing extended layer data for maps.
 #===============================================================================
 module MakerStudio
-  #require 'json'
+  #---------------------------------------------------------------------------
+  # Minimal JSON parser (objects, arrays, strings, numbers, true/false/null).
+  # mkxp-z (Essentials v21.1 runtime) ships a Ruby with no `json` stdlib, so
+  # `require 'json'` raises LoadError. This hand-rolled parser avoids that
+  # dependency. Uses str[pos, 1] (always returns a String) for char access.
+  #---------------------------------------------------------------------------
+  module JSON
+    def self.parse(str)
+      Parser.new(str).parse
+    end
+
+    class Parser
+      def initialize(str)
+        @str = str.to_s
+        @len = @str.length
+        @pos = 0
+      end
+
+      def parse
+        skip_ws
+        v = parse_value
+        skip_ws
+        v
+      end
+
+      private
+
+      def cur
+        @pos < @len ? @str[@pos, 1] : nil
+      end
+
+      def skip_ws
+        while @pos < @len
+          c = @str[@pos, 1]
+          break if c != " " && c != "\t" && c != "\n" && c != "\r"
+          @pos += 1
+        end
+      end
+
+      def parse_value
+        c = cur
+        case c
+        when "{" then parse_object
+        when "[" then parse_array
+        when '"' then parse_string
+        when "t" then parse_literal("true", true)
+        when "f" then parse_literal("false", false)
+        when "n" then parse_literal("null", nil)
+        else          parse_number
+        end
+      end
+
+      def parse_literal(lit, val)
+        if @str[@pos, lit.length] == lit
+          @pos += lit.length
+          return val
+        end
+        raise "MakerStudio::JSON: expected '#{lit}' at #{@pos}"
+      end
+
+      def parse_object
+        obj = {}
+        @pos += 1 # consume {
+        skip_ws
+        if cur == "}"
+          @pos += 1
+          return obj
+        end
+        loop do
+          skip_ws
+          key = parse_string
+          skip_ws
+          raise "MakerStudio::JSON: expected ':' at #{@pos}" if cur != ":"
+          @pos += 1
+          skip_ws
+          obj[key] = parse_value
+          skip_ws
+          c = cur
+          if c == ","
+            @pos += 1
+            next
+          elsif c == "}"
+            @pos += 1
+            break
+          else
+            raise "MakerStudio::JSON: expected ',' or '}' at #{@pos}"
+          end
+        end
+        obj
+      end
+
+      def parse_array
+        arr = []
+        @pos += 1 # consume [
+        skip_ws
+        if cur == "]"
+          @pos += 1
+          return arr
+        end
+        loop do
+          skip_ws
+          arr.push(parse_value)
+          skip_ws
+          c = cur
+          if c == ","
+            @pos += 1
+            next
+          elsif c == "]"
+            @pos += 1
+            break
+          else
+            raise "MakerStudio::JSON: expected ',' or ']' at #{@pos}"
+          end
+        end
+        arr
+      end
+
+      def parse_string
+        raise "MakerStudio::JSON: expected string at #{@pos}" if cur != '"'
+        @pos += 1
+        result = ""
+        while @pos < @len
+          c = @str[@pos, 1]
+          @pos += 1
+          if c == '"'
+            return result
+          elsif c == "\\"
+            e = @str[@pos, 1]
+            @pos += 1
+            case e
+            when '"'  then result << '"'
+            when "\\" then result << "\\"
+            when "/"  then result << "/"
+            when "n"  then result << "\n"
+            when "t"  then result << "\t"
+            when "r"  then result << "\r"
+            when "b"  then result << "\b"
+            when "f"  then result << "\f"
+            when "u"
+              hex = @str[@pos, 4]
+              @pos += 4
+              begin
+                result << [hex.to_i(16)].pack("U")
+              rescue
+                result << "?"
+              end
+            else
+              result << e.to_s
+            end
+          else
+            result << c
+          end
+        end
+        raise "MakerStudio::JSON: unterminated string"
+      end
+
+      def parse_number
+        start = @pos
+        while @pos < @len
+          c = @str[@pos, 1]
+          break if !(c =~ /[-+0-9.eE]/)
+          @pos += 1
+        end
+        num = @str[start, @pos - start]
+        raise "MakerStudio::JSON: invalid number at #{start}" if num == ""
+        (num =~ /[.eE]/) ? num.to_f : num.to_i
+      end
+    end
+  end
+
   module DataStore
     module_function
 
@@ -35,7 +204,7 @@ module MakerStudio
       embedded = rpg_map.instance_variable_get(:@extended_layers)
       return nil unless embedded && !embedded.empty?
       begin
-        return JSON.parse(embedded)
+        return MakerStudio::JSON.parse(embedded)
       rescue => e
         Console.echo_error("MakerStudio: Failed to parse embedded extended data for map #{map_id}: #{e.message}") if defined?(Console)
         return nil
@@ -94,7 +263,7 @@ module MakerStudio
         raw = ts.instance_variable_get(:@expanded_autotiles)
         next unless raw.is_a?(String) && !raw.empty?
         begin
-          parsed = JSON.parse(raw)
+          parsed = MakerStudio::JSON.parse(raw)
           next unless parsed.is_a?(Array)
           parsed.each do |e|
             next unless e.is_a?(Hash) && e["name"]
