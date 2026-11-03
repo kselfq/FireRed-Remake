@@ -3712,3 +3712,7 @@ Pokemon = VENUSAUR,88
     Item = VENUSAURITE
     Ability = OVERGROW
     Moves = GIGADRAIN,SLUDGEBOMB,HIDDENPOWER,SYNTHESIS
+#-------------------------------
+[YOUNGSTER,Ronny]
+LoseText = Wha-?! No way!
+Pokemon = RATTATA,3
