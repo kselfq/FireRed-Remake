@@ -1,0 +1,35 @@
+{
+    "id": "com.soysandi.interfaces",
+    "name": "Editor de Interfaces",
+    "version": "1.6.1",
+    "authors": [
+        {
+            "name": "SoySandi"
+        }
+    ],
+    "description": "Editor visual de pantallas para proyectos de Pokemon Essentials: coloca imagenes, textos, botones, barras de vida y Pokemon del equipo arrastrando, con animaciones y datos del juego en vivo. Guarda en UI/<nombre>.json y no hace falta recompilar para ver los cambios.",
+    "homepage": "https://github.com/yobrantoro/ms-interfaces",
+    "tags": [
+        "essentials",
+        "ui",
+        "editor",
+        "pokemon",
+        "rpg-maker-xp"
+    ],
+    "apiVersion": "1.0.0",
+    "main": "index.js",
+    "permissions": [
+        "fs.project",
+        "fs.write.project",
+        "ui.dialogs",
+        "ui.toasts"
+    ],
+    "requires": [
+        {
+            "type": "plugin",
+            "name": "Interfaces",
+            "url": "https://github.com/yobrantoro/essentials-interfaces",
+            "enforcement": "none"
+        }
+    ]
+}
