@@ -2,5 +2,9 @@
 #-------------------------------
 # Route 1 (8) - Viridian City (7)
 8,North,0,7,South,0
+# Route 22 (6) - Viridian City (7)
+6,East,0,7,West,40
 # Pallet Town (245) - Route 1 (8)
 245,North,0,8,South,14
+# Route 22 (6) - Route 1 (8)
+6,East,68,8,West,0
