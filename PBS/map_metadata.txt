@@ -15,8 +15,8 @@ BattleBack = field
 [004]   # Kanto
 Name = Kanto
 #-------------------------------
-[005]   # Viridian City
-Name = Viridian City
+[005]
+Name = Route 1
 Outdoor = true
 ShowArea = true
 Bicycle = true
@@ -39,13 +39,13 @@ Bicycle = true
 HealingSpot = 7,31,62
 MapPosition = 0,5,10
 #-------------------------------
-[008]   # Viridian City
-Name = Viridian City
+[008]   # Route 1
+Name = Route 1
 Outdoor = true
 ShowArea = true
 Bicycle = true
 HealingSpot = 7,31,62
-MapPosition = 0,5,10
+MapPosition = 0,16,11
 #-------------------------------
 [009]   # Viridian Pokémon Center
 Name = Viridian Pokémon Center
@@ -1373,9 +1373,9 @@ Name = Pallet Town
 Outdoor = true
 ShowArea = true
 Bicycle = true
-MapPosition = 0,5,13
+MapPosition = 0,15,13
 #-------------------------------
-[246]   # Pallet Town
+[246]
 Name = Pallet Town
 Outdoor = true
 ShowArea = true
@@ -1394,14 +1394,14 @@ MapPosition = 0,5,13
 Name = Oak's Lab
 MapPosition = 0,5,13
 #-------------------------------
-[250]   # Route 1
+[250]
 Name = Route 1
 Outdoor = true
 ShowArea = true
 Bicycle = true
 MapPosition = 0,5,11
 #-------------------------------
-[251]   # Route 1
+[251]
 Name = Route 1
 Outdoor = true
 ShowArea = true

@@ -1,0 +1,28 @@
+{
+  "stats": {
+    "sim.cancel": 5,
+    "edit.save": 9,
+    "layer.select1": 3,
+    "tool.select": 1,
+    "view.toggleGrid": 1,
+    "view.toggleDim": 1,
+    "view.toggleCollision": 1,
+    "edit.delete": 1,
+    "app.runGame": 4,
+    "tool.eyedropper": 1,
+    "tool.brush": 1,
+    "layer.select2": 1
+  },
+  "settings": {
+    "enabled": true,
+    "domMatching": true,
+    "cooldownMs": 30000,
+    "toastDurationMs": 4000,
+    "mutedActions": [
+      "zoom.in",
+      "zoom.out",
+      "view.toggleGrid",
+      "view.toggleDim"
+    ]
+  }
+}

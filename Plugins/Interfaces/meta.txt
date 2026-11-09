@@ -1,5 +1,0 @@
-Name       = Interfaces
-Version    = 1.4.1
-Essentials = 21.1
-Link       = https://github.com/yobrantoro/essentials-interfaces
-Credits    = SoySandi
