@@ -1,24 +1,26 @@
 {
   "stats": {
-    "sim.cancel": 12,
-    "edit.save": 35,
-    "layer.select1": 15,
-    "tool.select": 11,
+    "sim.cancel": 101,
+    "edit.save": 109,
+    "layer.select1": 30,
+    "tool.select": 18,
     "view.toggleGrid": 1,
     "view.toggleDim": 1,
     "view.toggleCollision": 7,
-    "edit.delete": 3,
-    "app.runGame": 11,
+    "edit.delete": 7,
+    "app.runGame": 68,
     "tool.eyedropper": 6,
-    "tool.brush": 13,
-    "layer.select2": 19,
-    "layer.select3": 10,
+    "tool.brush": 15,
+    "layer.select2": 20,
+    "layer.select3": 13,
     "tool.eraser": 6,
-    "edit.copy": 3,
+    "edit.copy": 8,
     "tool.fill": 1,
     "tool.rectangle": 5,
     "layer.select5": 1,
-    "event.command_insert": 1
+    "event.command_insert": 1,
+    "tool.pan": 4,
+    "sim.restart": 1
   },
   "settings": {
     "enabled": true,
@@ -29,7 +31,11 @@
       "zoom.in",
       "zoom.out",
       "view.toggleGrid",
-      "view.toggleDim"
+      "view.toggleDim",
+      "layer.select2",
+      "layer.select1",
+      "edit.save",
+      "layer.select3"
     ]
   }
 }
