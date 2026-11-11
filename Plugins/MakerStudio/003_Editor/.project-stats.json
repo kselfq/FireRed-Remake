@@ -1,14 +1,15 @@
 {
   "version": 1,
   "gameRoot": "C:\\Users\\Key\\Documents\\GitHub\\FireRed-Remake",
-  "activeMinutes": 967,
-  "tilesPlaced": 311242,
-  "undoCount": 159,
+  "activeMinutes": 998,
+  "tilesPlaced": 311243,
+  "undoCount": 160,
   "redoCount": 0,
   "mapsCreated": 0,
   "mapsSaved": 229,
   "mapEdits": {
     "5": 138104,
+    "12": 1,
     "22": 8316,
     "34": 8316,
     "54": 8316,
@@ -20,8 +21,8 @@
     "245": 53871,
     "250": 61005
   },
-  "sessionCount": 14,
+  "sessionCount": 16,
   "firstOpened": "2026-11-03T20:29:28.269Z",
-  "lastSaved": "2026-11-10T05:46:35.251Z",
+  "lastSaved": "2026-11-11T05:39:00.408Z",
   "custom": {}
 }
